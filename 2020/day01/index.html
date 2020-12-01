@@ -20,8 +20,16 @@
 1456</div>
 <div>In this list, the two entries that sum to 2020 are 1721 and 299. Multiplying them together produces 1721 * 299 = 514579, so the correct answer is 514579.</div>
   <div>Of course, your expense report is much larger. Find the two entries that sum to 2020; what do you get if you multiply them together?</div>
-  <div>To begin, <a href="input.txt">get your puzzle input</a>.</div>
+  <div>To begin, <a href="2020/day01/input.txt">get your puzzle input</a>.</div>
 
-  <div>Answer: </div>
+  <div id="answer">Answer: <span>"Unknown"</span></div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+   $('#answer span').text('Calculating...');
+   $.get( "input.txt", function( data ) {
+    console.log( typeof data ); // string
+    console.log( data ); // HTML content of the jQuery.ajax page
+   });
+  </script>
  </body>
 </html>
