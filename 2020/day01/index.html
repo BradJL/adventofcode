@@ -38,15 +38,27 @@
     input.sort(function(a, b){return a-b});
     //console.log( input );
     $('#input span').text(input);
-    for( let i = 0; i < input.length; ++i ){
-     let I = input[i];
-     for( let j = i+1; j < input.length && (I + input[j]) < 2000; ++j ){
-      let J = input[j];
-      //console.log( "" + I + " + " + J + " = " + (I+J) ); 
-      calculations = calculations + I + " + " + J + " = " + (I+J) + "<br>";
-      if( I+J == 2020 ){
-       $('#answer span').text(I*J);
-      }
+//     for( let i = 0; i < input.length; ++i ){
+//      let I = input[i];
+//      for( let j = i+1; j < input.length && (I + input[j]) < 2000; ++j ){
+//       let J = input[j];
+//       //console.log( "" + I + " + " + J + " = " + (I+J) ); 
+//       calculations = calculations + I + " + " + J + " = " + (I+J) + "<br>";
+//       if( I+J == 2020 ){
+//        $('#answer span').text(I*J);
+//       }
+//      }
+//     }
+    let i = 0;
+    let j = input.length-1;
+    while( i != j ){
+     calculations = calculations + input{i] + " + " + input[j] + " = " + (input[i] + input[j]) + "\n";
+     if( input[i] + input[j] == 2020 ){
+      $('#answer span').text(input[i]*input[j]);
+     } else input[i] + input[j] > 2020 ){
+      --j;
+     } else {
+      ++i;
      }
     }
     $('#calculations span').text( calculations );
