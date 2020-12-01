@@ -72,7 +72,7 @@
     console.log( i + " " + j + " " + k );
     console.log( input[i] + " " + input[j] + " " + input[k] );
     
-    for( i = 0; i < input.length-3 && continue; ++i ){
+    for( i = 0; i < input.length-3 && keepGoing; ++i ){
      for( j = i+1; j < input.length-2; ++j ){
       console.log( input[i] + " " + input[j] + " : " + (2020-input[i]-input[j]) );
       if( input.includes( 2020-input[i]-input[j], j+1 ) ){
