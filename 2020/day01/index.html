@@ -66,21 +66,21 @@
     $('#answer2 span').text('Calculating...');
     i = 0;
     let k = input.length-2;
-    while( i < k - 1 ){
-     j = i + 1;
-     console.log( "" + input[i] + " + " + input[j] + " + " + input[k] + " = " + (input[i]+input[j]+input[k]) );
-     while( j < k ){
-      if( input[i] + input[j] + input[k] == 2020 ){
-       $('#answer2 span').text(input[i]*input[j]*input[k]);
-      } else if( input[i] + input[j] + input[k] > 2020 ){
-       --k;
-      } else {
-       ++j;
-      }
-     }
-     ++i;
-     k = input.length-2;
-    }
+//     while( i < k - 1 ){
+//      j = i + 1;
+//      console.log( "" + input[i] + " + " + input[j] + " + " + input[k] + " = " + (input[i]+input[j]+input[k]) );
+//      while( j < k ){
+//       if( input[i] + input[j] + input[k] == 2020 ){
+//        $('#answer2 span').text(input[i]*input[j]*input[k]);
+//       } else if( input[i] + input[j] + input[k] > 2020 ){
+//        --k;
+//       } else {
+//        ++j;
+//       }
+//      }
+//      ++i;
+//      k = input.length-2;
+//     }
    });
   </script>
  </body>
