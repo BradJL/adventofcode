@@ -66,7 +66,7 @@
     $('#answer2 span').text('Calculating...');
     i = 0;
     j = i + 1;
-    let continue = true;
+    let keepGoing = true;
     let k = input.length-2;
 
     console.log( i + " " + j + " " + k );
@@ -77,7 +77,7 @@
       console.log( input[i] + " " + input[j] + " : " + (2020-input[i]-input[j]) );
       if( input.includes( 2020-input[i]-input[j], j+1 ) ){
        $('#answer2 span').text(input[i] * input[j] * (2020-input[i]-input[j]) );
-       continue = false;
+       keepGoing = false;
        break;
       }
      }
