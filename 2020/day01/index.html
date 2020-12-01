@@ -26,8 +26,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script>
    $('#answer span').text('Calculating...');
+   let strings="";
    $.get( "input.txt", function( data ) {
-    console.log( data.split(/\r?\n/) );
+    strings = data.split(/\r?\n/);
    });
   </script>
  </body>
