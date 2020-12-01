@@ -43,7 +43,7 @@
      for( let j = i+1; j < input.length && (I + input[j]) < 2000; ++j ){
       let J = input[j];
       //console.log( "" + I + " + " + J + " = " + (I+J) ); 
-      calculations = calculations + I + " + " = J + " = " + (I+J) + "<br>";
+      calculations = calculations + I + " + " + J + " = " + (I+J) + "<br>";
       if( I+J == 2020 ){
        $('#answer span').text(I*J);
       }
