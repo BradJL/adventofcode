@@ -42,21 +42,23 @@
    function checkCookie(){
     if( getCookie() ){
      console.log( "Cookie found" );
-     $('#links').text = "What a rude thing to ask, jerk!";
+     $('#page').text( "What a rude thing to ask, jerk!" );
     } else {
      console.log( "No cookie" );
     }
    }
   </script>
-  <p>You've found my Advent of Code page!</p>
-  <p id="links">Years:
-  <blockquote>
-   <a href="2020/">2020</a>
-  </blockquote></p>
-  <p>FAQ:
-  <blockquote>
-   <a href="" onClick="return setCookie();">Why does this site look like it was created in 1995?</a>
-  </blockquote></p>
+  <div id="page">
+   <p>You've found my Advent of Code page!</p>
+   <p id="links">Years:
+   <blockquote>
+    <a href="2020/">2020</a>
+   </blockquote></p>
+   <p>FAQ:
+   <blockquote>
+    <a href="" onClick="return setCookie();">Why does this site look like it was created in 1995?</a>
+   </blockquote></p>
+  </div>
   <script>
    checkCookie();
   </script>
