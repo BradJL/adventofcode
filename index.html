@@ -18,11 +18,22 @@
   </blockquote></p>
   <p>FAQ:
   <blockquote>
-   <a href="">Why does this site look like it was created in 1995?</a>
+   <a href="#" onClick="return setCookie();">Why does this site look like it was created in 1995?</a>
   </blockquote></p>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script>
+   function setCookie() {
+    let cname="jerk";
+    let cvalue="true";
+    let exdays = 9999;
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    checkCookie();
+   }
    function getCookie(cname) {
+    let cname="jerk";
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
     var ca = decodedCookie.split(';');
@@ -37,9 +48,12 @@
     }
     return "";
    }
-   if( getCookie("jerk") ){
-    $('#years').text = "What a rude thing to ask, jerk!"
+   function checkCookie(){
+    if( getCookie() ){
+     $('#years').text = "What a rude thing to ask, jerk!"
+    }
    }
+   checkCookie();
   </script>
  </body>
 </html>
