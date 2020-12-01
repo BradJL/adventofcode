@@ -37,7 +37,7 @@
     data.split(/\r?\n/).forEach(stringsToInts);
     input.sort(function(a, b){return a-b});
     //console.log( input );
-    $('#input' span).text(input);
+    $('#input span').text(input);
     for( let i = 0; i < input.length; ++i ){
      let I = input[i];
      for( let j = i+1; j < input.length && (I + input[j]) < 2000; ++j ){
@@ -49,7 +49,7 @@
       }
      }
     }
-    $('#calculations' span).text( calculations );
+    $('#calculations span').text( calculations );
    });
   </script>
  </body>
