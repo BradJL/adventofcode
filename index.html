@@ -40,7 +40,10 @@
    }
    function checkCookie(){
     if( getCookie() ){
-     $('#years').text = "What a rude thing to ask, jerk!"
+     console.log( "Cookie found" );
+     $('#years').text = "What a rude thing to ask, jerk!";
+    } else {
+     console.log( "No cookie" );
     }
    }
   </script>
