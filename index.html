@@ -11,16 +11,6 @@
   </style>
  </head>
  <body>
-  <p>You've found my Advent of Code page!</p>
-  <p id="links">Years:
-  <blockquote>
-   <a href="2020/">2020</a>
-  </blockquote></p>
-  <p>FAQ:
-  <blockquote>
-   <a href="#" onClick="return setCookie();">Why does this site look like it was created in 1995?</a>
-  </blockquote></p>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script>
    function setCookie() {
     let cname="jerk";
@@ -32,7 +22,7 @@
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
     checkCookie();
    }
-   function getCookie(cname) {
+   function getCookie() {
     let cname="jerk";
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
@@ -53,6 +43,18 @@
      $('#years').text = "What a rude thing to ask, jerk!"
     }
    }
+  </script>
+  <p>You've found my Advent of Code page!</p>
+  <p id="links">Years:
+  <blockquote>
+   <a href="2020/">2020</a>
+  </blockquote></p>
+  <p>FAQ:
+  <blockquote>
+   <a href="#" onClick="return setCookie();">Why does this site look like it was created in 1995?</a>
+  </blockquote></p>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
    checkCookie();
   </script>
  </body>
