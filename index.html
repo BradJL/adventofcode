@@ -12,9 +12,34 @@
  </head>
  <body>
   <p>You've found my Advent of Code page!</p>
-  <p>Years:</p>
+  <p id="links">Years:
   <blockquote>
    <a href="2020/">2020</a>
-  </blockquote>
+  </blockquote></p>
+  <p>FAQ:
+  <blockquote>
+   <a href="">Why does this site look like it was created in 1995?</a>
+  </blockquote></p>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+   function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+     var c = ca[i];
+     while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+     }
+     if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+     }
+    }
+    return "";
+   }
+   if( getCookie("jerk") ){
+    $('#years').text = "What a rude thing to ask, jerk!"
+   }
+  </script>
  </body>
 </html>
