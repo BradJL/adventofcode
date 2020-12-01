@@ -55,7 +55,8 @@
      calculations = calculations + input{i] + " + " + input[j] + " = " + (input[i] + input[j]) + "\n";
      if( input[i] + input[j] == 2020 ){
       $('#answer span').text(input[i]*input[j]);
-     } else input[i] + input[j] > 2020 ){
+      break;
+     } else if( input[i] + input[j] > 2020 ){
       --j;
      } else {
       ++i;
