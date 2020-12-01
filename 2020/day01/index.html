@@ -65,44 +65,23 @@
     // Part 2
     $('#answer2 span').text('Calculating...');
     i = 0;
-    j = i + 1
+    j = i + 1;
+    let continue = true;
     let k = input.length-2;
 
     console.log( i + " " + j + " " + k );
     console.log( input[i] + " " + input[j] + " " + input[k] );
     
-    for( i = 0; i < input.length-3; ++i ){
+    for( i = 0; i < input.length-3 && continue; ++i ){
      for( j = i+1; j < input.length-2; ++j ){
       console.log( input[i] + " " + input[j] + " : " + (2020-input[i]-input[j]) );
       if( input.includes( 2020-input[i]-input[j], j+1 ) ){
        $('#answer2 span').text(input[i] * input[j] * (2020-input[i]-input[j]) );
+       continue = false;
+       break;
       }
      }
     }
-    
-//     i = 0;
-//     let k = input.length-2;
-//     j = i + 1;
-//     let k = input.length-2;
-//     while( i < k - 1 ){
-//      console.log( "" + input[i] + " + " + input[j] + " + " + input[k] + " = " + (input[i]+input[j]+input[k]) );
-// //      while( j < k ){
-//       if( input[i] + input[j] + input[k] == 2020 ){
-//        $('#answer2 span').text(input[i]*input[j]*input[k]);
-//       } else if( input[i] + input[j] + input[k] > 2020 ){
-//        --k;
-//       } else {
-//        ++j;
-//        k = input.length-2;
-//        if( j == k ){
-//         ++i;
-//         j = i + 1;
-//        }
-//       }
-// //      }
-// //      ++i;
-// //      k = input.length-2;
-//     }
    });
   </script>
  </body>
