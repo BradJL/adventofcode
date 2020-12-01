@@ -35,9 +35,9 @@
     input.sort();
     //console.log( input );
     for( let i = 0; i < input.length; ++i ){
-     let I = parseInt(i);
-     for( let j = i+1; j < input.length && (I + parseInt(j)) < 2000; ++j ){
-      let J = parseInt(j);
+     let I = input[i];
+     for( let j = i+1; j < input.length && (I + input[j]) < 2000; ++j ){
+      let J = input[j];
       console.log( "" + I + " + " + J + " = " + (I+J) ); 
       if( I+J == 2020 ){
        $('#answer span').text(I*J);
