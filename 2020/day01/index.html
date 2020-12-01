@@ -35,10 +35,12 @@
     input.sort();
     //console.log( input );
     for( let i = 0; i < input.length; ++i ){
-     for( let j = i+1; j < input.length && i+j < 2000; ++j ){
-      console.log( "" + i + " + " + j + " = " + (i+j) ); 
-      if( i+j == 2020 ){
-       $('#answer span').text(i*j);
+     let I = parseInt(i);
+     for( let j = i+1; j < input.length && (I + parseInt(j)) < 2000; ++j ){
+      let J = parseInt(j);
+      console.log( "" + I + " + " + J + " = " + (I+J) ); 
+      if( I+J == 2020 ){
+       $('#answer span').text(I*J);
       }
      }
     }
