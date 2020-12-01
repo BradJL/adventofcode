@@ -32,6 +32,7 @@
    $('#answer span').text('Calculating...');
    $.get( "input.txt", function( data ) {
     data.split(/\r?\n/).forEach(stringsToInts);
+    input.sort();
     console.log( input );
    });
   </script>
