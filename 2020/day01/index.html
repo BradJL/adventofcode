@@ -25,12 +25,14 @@
   <div id="answer">Answer: <span>"Unknown"</span></div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script>
-   function get2020( strings ){
-    console.log( strings );
+   let input = [];
+   function stringsToInts(value, index, array) {
+     input.push( parseInt(value) );
    }
    $('#answer span').text('Calculating...');
    $.get( "input.txt", function( data ) {
-    get2020( data.split(/\r?\n/) );
+    data.split(/\r?\n/).forEach(stringsToInts);
+    console.log( input );
    });
   </script>
  </body>
