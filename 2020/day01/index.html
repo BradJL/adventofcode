@@ -38,20 +38,20 @@
     input.sort(function(a, b){return a-b});
     //console.log( input );
     $('#input span').text(input);
-//     let i = 0;
-//     let j = input.length-1;
-//     while( i != j ){
-//      calculations = calculations + input{i] + " + " + input[j] + " = " + (input[i] + input[j]) + "\n";
+    let i = 0;
+    let j = input.length-1;
+    while( i != j ){
+     calculations = calculations + input{i] + " + " + input[j] + " = " + (input[i] + input[j]) + "\n";
 //      if( input[i] + input[j] == 2020 ){
 //       $('#answer span').text(input[i]*input[j]);
 //       break;
 //      } else if( input[i] + input[j] > 2020 ){
-//       --j;
+      --j;
 //      } else {
 //       ++i;
 //      }
-//     }
-//     $('#calculations span').text( calculations );
+    }
+    $('#calculations span').text( calculations );
    });
   </script>
  </body>
