@@ -23,9 +23,12 @@
   <div>To begin, <a href="2020/day01/input.txt">get your puzzle input</a>.</div>
 
   <div id="answer">Answer: <span>"Unknown"</span></div>
+  <div id="input">Input: <span>"TBD..."</span></div>
+  <div id="calculations">Calculations: <span>"TBD..."</span></div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script>
    let input = [];
+   let calculations = "";
    function stringsToInts(value, index, array) {
      input.push( parseInt(value) );
    }
@@ -34,16 +37,19 @@
     data.split(/\r?\n/).forEach(stringsToInts);
     input.sort(function(a, b){return a-b});
     //console.log( input );
+    $('#input' span).text(input);
     for( let i = 0; i < input.length; ++i ){
      let I = input[i];
      for( let j = i+1; j < input.length && (I + input[j]) < 2000; ++j ){
       let J = input[j];
-      console.log( "" + I + " + " + J + " = " + (I+J) ); 
+      //console.log( "" + I + " + " + J + " = " + (I+J) ); 
+      calculations = calculations + I + " + " = J + " = " + (I+J) + "<br>";
       if( I+J == 2020 ){
        $('#answer span').text(I*J);
       }
      }
     }
+    $('#calculations' span).text( calculations );
    });
   </script>
  </body>
