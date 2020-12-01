@@ -29,8 +29,9 @@
    let strings="";
    $.get( "input.txt", function( data ) {
     strings = data.split(/\r?\n/);
+    console.log( "[" + strings + "]" );
    });
-   console.log( strings );
+   console.log( "{" + strings + "}" );
   </script>
  </body>
 </html>
