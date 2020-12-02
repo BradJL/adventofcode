@@ -42,6 +42,7 @@
    var numValid = 0;
    function countValid(value, index, array) {
     if( value == null ) return;
+    console.log( value );
     let items = value.split(' ');
     let nums = items[0].split('-');
     let min = parseInt(nums[0]);
@@ -63,7 +64,7 @@
    $('#answer span').text('Calculating...');
    $.get( "input.txt", function( data ) {
     // Part 1
-    console.log( data );
+    //console.log( data );
     data.split(/\r?\n/).forEach(countValid);
    });
   </script>
