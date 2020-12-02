@@ -49,11 +49,13 @@
     let max = parseInt(nums[1]);
     let letter = items[1][0];
     let password = items[2];
+    let passLetters ="";
     
-    console.log( value + " | " + min + letter + max + password );
+//     console.log( value + " | " + min + letter + max + password );
     let re = new RegExp('[^' + letter + ']');
-    password = password.replace( re );
-    if( password.length >= min && password.length <= max ){
+    passLetters = password.replace( re );
+    console.log( value + " | " + min + letter + max + password + " | " + passLetters + passLetters.length );
+    if( passLetters.length >= min && passLetters.length <= max ){
      numValid = 1;
     }
     $('#answer span').text(numValid);
