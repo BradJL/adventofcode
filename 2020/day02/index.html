@@ -41,8 +41,16 @@
    //let input = [];
    let numValid = -1;
    function countValid(value, index, array) {
-     //input.push( parseInt(value) );
-     numValid = 0;
+    //input.push( parseInt(value) );
+    numValid = 0;
+    let items = value.split(' ');
+    let nums = items[0].split('-');
+    let min = parseInt(nums[0]);
+    let max = parseInt(nums[1]);
+    let letter = items[1][0];
+    let password = items[2];
+    
+    console.log( value + " | " + min + letter + max + password );
    }
    $('#answer span').text('Calculating...');
    $.get( "input.txt", function( data ) {
