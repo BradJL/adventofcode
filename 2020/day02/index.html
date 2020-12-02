@@ -26,7 +26,7 @@
   <p>To begin, get your puzzle input.</p>
   <div id="answer">Answer: <span></span></div>
   <hr>
-  <p></p>
+  <p>The first half of this puzzle is complete! It provides one gold star: *</p>
   <hr>
   <p>--- Part Two ---</p>
   <p></p>
@@ -41,8 +41,7 @@
    //let input = [];
    var numValid = 0;
    function countValid(value, index, array) {
-    //input.push( parseInt(value) );
-//     let numValid = 0;
+    if( value == null ) return;
     let items = value.split(' ');
     let nums = items[0].split('-');
     let min = parseInt(nums[0]);
@@ -51,37 +50,20 @@
     let password = items[2];
     let passLetters ="";
     
-//     console.log( value + " | " + min + letter + max + password );
     let re = new RegExp('[^' + letter + ']', 'g');
     passLetters = password.replace( re, '' );
-    console.log( value + " | " + min + letter + max + password + " | " + passLetters + passLetters.length );
+    //console.log( value + " | " + min + letter + max + password + " | " + passLetters + passLetters.length );
     if( passLetters.length >= min && passLetters.length <= max ){
      ++numValid;
      console.log( "found one! " + numValid );
     }
     $('#answer span').text(numValid);
    }
+   
    $('#answer span').text('Calculating...');
    $.get( "input.txt", function( data ) {
-    data.split(/\r?\n/).forEach(countValid);
-    //input.sort(function(a, b){return a-b});
-    //$('#input span').text(input);
-    
     // Part 1
-    let i = 0;
-    let j = input.length-2;
-    //while( i != j ){
-     //calculations = calculations + input[i] + " + " + input[j] + " = " + (input[i] + input[j]) + "\n";
-     //if( input[i] + input[j] == 2020 ){
-     // $('#answer span').text(input[i]*input[j]);
-     // break;
-     //} else if( input[i] + input[j] > 2020 ){
-     // --j;
-     //} else {
-     // ++i;
-     //}
-    //}
-    //$('#calculations span').text( calculations );
+    data.split(/\r?\n/).forEach(countValid);
    });
   </script>
  </body>
