@@ -56,7 +56,7 @@
     console.log( value + " | " + min + letter + max + password + " | " + passLetters + passLetters.length );
     if( passLetters.length >= min && passLetters.length <= max ){
      ++numValid;
-     console.log( "found one!" );
+     console.log( "found one! " + numValid );
     }
     $('#answer span').text(numValid);
    }
