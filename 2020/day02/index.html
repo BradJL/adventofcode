@@ -39,10 +39,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script>
    //let input = [];
-   let numValid = -1;
    function countValid(value, index, array) {
     //input.push( parseInt(value) );
-    numValid = 0;
+    let numValid = 0;
     let items = value.split(' ');
     let nums = items[0].split('-');
     let min = parseInt(nums[0]);
@@ -56,7 +55,8 @@
     passLetters = password.replace( re, '' );
     console.log( value + " | " + min + letter + max + password + " | " + passLetters + passLetters.length );
     if( passLetters.length >= min && passLetters.length <= max ){
-     numValid = 1;
+     ++numValid;
+     console.log( "found one!" );
     }
     $('#answer span').text(numValid);
    }
