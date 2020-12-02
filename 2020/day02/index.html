@@ -41,8 +41,8 @@
    //let input = [];
    var numValid = 0;
    function countValid(value, index, array) {
-    if( value == null ) return;
-    console.log( value );
+    if( value == null || value == "" || value == undefined ) return;
+    console.log( "[" + value + "]" );
     let items = value.split(' ');
     let nums = items[0].split('-');
     let min = parseInt(nums[0]);
