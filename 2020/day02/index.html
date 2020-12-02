@@ -40,9 +40,10 @@
   <script>
    //let input = [];
    var numValid = 0;
+   var numValid2 = 0;
    function countValid(value, index, array) {
     if( value == null || value == "" || value == undefined ) return;
-    console.log( "[" + value + "]" );
+    //console.log( "[" + value + "]" );
     let items = value.split(' ');
     let nums = items[0].split('-');
     let min = parseInt(nums[0]);
@@ -59,12 +60,18 @@
      //console.log( "found one! " + numValid );
     }
     $('#answer span').text(numValid);
+    if( (password[min] == letter && password[max] != letter) || (password[min] != letter && password[max] == letter) ){
+     ++numValid2;
+     //console.log( "found one! " + numValid );
+    }
+    $('#answer span').text(numValid);
+    $('#answer span').text(numValid2);
    }
    
    $('#answer span').text('Calculating...');
+   $('#answer2 span').text('Calculating...');
    $.get( "input.txt", function( data ) {
     // Part 1
-    //console.log( data );
     data.split(/\r?\n/).forEach(countValid);
    });
   </script>
