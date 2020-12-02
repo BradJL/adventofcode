@@ -67,7 +67,7 @@
      //console.log( "found one! " + numValid );
     }
     $('#answer span').text(numValid);
-    if( (password[min] == letter && password[max] != letter) || (password[min] != letter && password[max] == letter) ){
+    if( (password[min-1] == letter && password[max-1] != letter) || (password[min-1] != letter && password[max-1] == letter) ){
      ++numValid2;
      //console.log( "found one! " + numValid );
     }
