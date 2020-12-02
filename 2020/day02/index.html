@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>Advent of Code</title>
+  <style>
+   a:link { text-decoration: none; color: black; }
+   a:visited { text-decoration: none; color: black; }
+   a:hover { text-decoration: none; color: black; }
+   a:active { text-decoration: none; color: black; }
+   body { background-color: silver; }
+  </style>
+ </head>
+ <body>
+  <p>--- Day 2: Password Philosophy ---</p>
+  <p>Your flight departs in a few days from the coastal airport; the easiest way down to the coast from here is via toboggan.</p>
+  <p>The shopkeeper at the North Pole Toboggan Rental Shop is having a bad day. "Something's wrong with our computers; we can't log in!" You ask if you can take a look.</p>
+  <p>Their password database seems to be a little corrupted: some of the passwords wouldn't have been allowed by the Official Toboggan Corporate Policy that was in effect when they were chosen.</p>
+  <p>To try to debug the problem, they have created a list (your puzzle input) of passwords (according to the corrupted database) and the corporate policy when that password was set.</p>
+  <p>For example, suppose you have the following list:
+   <blockquote>1-3 a: abcde<br>
+    1-3 b: cdefg<br>
+    2-9 c: ccccccccc</blockquote></p>
+  <p>Each line gives the password policy and then the password. The password policy indicates the lowest and highest number of times a given letter must appear for the password to be valid. For example, 1-3 a means that the password must contain a at least 1 time and at most 3 times.</p>
+  <p>In the above example, 2 passwords are valid. The middle password, cdefg, is not; it contains no instances of b, but needs at least 1. The first and third passwords are valid: they contain one a or nine c, both within the limits of their respective policies.</p>
+  <p>How many passwords are valid according to their policies?</p>
+  <p>To begin, get your puzzle input.</p>
+  <div id="answer">Answer: <span></span></div>
+  <hr>
+  <p></p>
+  <hr>
+  <p>--- Part Two ---</p>
+  <p></p>
+  <div id="answer2">Answer: <span></span></div>
+  <hr>
+  <p></p>
+  <p></p>
+  <hr>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+   //let input = [];
+   let numValid = -1;
+   function countValid(value, index, array) {
+     //input.push( parseInt(value) );
+     numValid = 0;
+   }
+   $('#answer span').text('Calculating...');
+   $.get( "input.txt", function( data ) {
+    data.split(/\r?\n/).forEach(countValid);
+    //input.sort(function(a, b){return a-b});
+    //$('#input span').text(input);
+    
+    // Part 1
+    let i = 0;
+    let j = input.length-2;
+    //while( i != j ){
+     //calculations = calculations + input[i] + " + " + input[j] + " = " + (input[i] + input[j]) + "\n";
+     //if( input[i] + input[j] == 2020 ){
+     // $('#answer span').text(input[i]*input[j]);
+     // break;
+     //} else if( input[i] + input[j] > 2020 ){
+     // --j;
+     //} else {
+     // ++i;
+     //}
+    //}
+    //$('#calculations span').text( calculations );
+   });
+  </script>
+ </body>
+</html>
