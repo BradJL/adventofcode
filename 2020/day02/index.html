@@ -51,6 +51,12 @@
     let password = items[2];
     
     console.log( value + " | " + min + letter + max + password );
+    let re = new RegExp('[^' + letter + ']');
+    password = password.replace( re );
+    if( password.length >= min && password.length <= max ){
+     numValid = 1;
+    }
+    $('#answer span').text(numValid);
    }
    $('#answer span').text('Calculating...');
    $.get( "input.txt", function( data ) {
