@@ -52,8 +52,8 @@
     let passLetters ="";
     
 //     console.log( value + " | " + min + letter + max + password );
-    let re = new RegExp('[^' + letter + ']');
-    passLetters = password.replace( re );
+    let re = new RegExp('[^' + letter + ']', 'g');
+    passLetters = password.replace( re, '' );
     console.log( value + " | " + min + letter + max + password + " | " + passLetters + passLetters.length );
     if( passLetters.length >= min && passLetters.length <= max ){
      numValid = 1;
