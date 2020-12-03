@@ -52,8 +52,8 @@
       </h1>
       <p id="links">Years:
         <blockquote>
-          <a href="/2020">2020</a><br>
-          <a href="/2015">2015 (2020)</a><br>
+          <a id="2020" href="/2020">2020</a>&nbsp<span class="star-count"></span><br>
+          <a id="2015" href="/2015">2015 (2020)</a>&nbsp<span class="star-count"></span><br>
         </blockquote>
       </p>
       <p>FAQ:
@@ -64,6 +64,10 @@
     </div>
     <script>
       checkCookie();
+      $.get("2020/header.html", function(data, status){
+        //alert("Data: " + data + "\nStatus: " + status);
+        $('#answer span').text( data.match(/[0-9]+\*/) );
+      });
     </script>
   </body>
 </html>
