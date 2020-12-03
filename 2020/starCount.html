@@ -13,14 +13,18 @@
   </div>
 </header>
 <script>
-  $.ajax({
-    url:'solution.js',
-    type:'HEAD',
-    error: function(){
-        $('#solution').text('');
-    },
-    success: function(){
-        $('#solution').text('<a href="solution.js">View Solution</a>');
-    }
-  });
+  try {
+    $.ajax({
+      url:'solution.js',
+      type:'HEAD',
+      error: function(){          
+      },
+      success: function(){
+          $('#solution').text('<a href="solution.js">View Solution</a>');
+      }
+    });
+  }
+  catch(err) {
+    $('#solution').text('');
+  }
 </script>
