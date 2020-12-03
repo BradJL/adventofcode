@@ -1,4 +1,4 @@
-$('#solution').text('<a href="solution.js">View Solution</a>');
+$('#solutionlink').text('<a href="solution.js">View Solution</a>');
 $('#answer span').text('Calculating...');
 $('#answer2 span').text('Calculating...');
 
