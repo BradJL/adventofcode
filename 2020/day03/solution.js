@@ -32,8 +32,8 @@ function countEncounteredTrees(value, index, array) {
   ++row;
 }
 
-var t0 = performance.now();
 $.get( "input.txt", function( data ) {
+  var t0 = performance.now();
   data.split(/\r?\n/).forEach(countEncounteredTrees);
   let t1 = performance.now();
   let ms = (t1 - t0);
