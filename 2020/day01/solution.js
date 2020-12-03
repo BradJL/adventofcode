@@ -44,10 +44,11 @@ $.get( "input.txt", function( data ) {
         break;
       }
       if( input.includes( 2020-input[i]-input[j], j+1 ) ){
+        $('#answer2 span').text(input[i] * input[j] * (2020-input[i]-input[j]) );
         keepGoing = false;
         break;
       }
     }
   }
-  $('#answer2 span').text(input[i] * input[j] * (2020-input[i]-input[j]) );
+  <!--$('#answer2 span').text(input[i] * input[j] * (2020-input[i]-input[j]) );-->
 });
