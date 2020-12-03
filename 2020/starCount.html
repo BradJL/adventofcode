@@ -24,4 +24,14 @@
       }
     }
   });
+  $.ajax({ 
+    url: url,
+    type: 'HEAD',
+    error: function(){
+      $("#solution").text("File doesn't exist"); 
+    }, 
+    success: function(){ 
+      $("#solution").text('File exists'); 
+    } 
+  }); 
 </script>
