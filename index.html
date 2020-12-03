@@ -52,8 +52,8 @@
       </h1>
       <p id="links">Years:
         <blockquote>
-          <a id="2020" href="/2020">2020</a>&nbsp<span class="star-count"></span><br>
-          <a id="2015" href="/2015">2015 (2020)</a>&nbsp<span class="star-count"></span><br>
+          <a id="y2020" href="/2020">2020</a>&nbsp<span class="star-count"></span><br>
+          <a id="y2015" href="/2015">2015 (2020)</a>&nbsp<span class="star-count"></span><br>
         </blockquote>
       </p>
       <p>FAQ:
@@ -67,7 +67,7 @@
       $.get("2020/header.html", function(data, status){
         //alert("Data: " + data + "\nStatus: " + status);
         let stars = data.match(/[0-9]+\*/);
-        $('#2020 span').text( stars );
+        $('#y2020 span').text( stars );
         console.log( data );
         console.log( stars );
       });
