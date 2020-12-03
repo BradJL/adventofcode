@@ -9,7 +9,7 @@
     <h1 class="title-event">
       &nbsp;<span class="title-event-wrap">{&apos;year&apos;:</span><a href="/2020">2020</a><span class="title-event-wrap">}</span>
     </h1>
-    <div id="solution">X</div>
+    <p id="solution">Default Text</p>
   </div>
 </header>
 <script>
@@ -17,7 +17,7 @@
   $.ajax({ cache: false,
     url: "solution.js",
     success: function (data) {
-        $('#solution').text('<a href="solution.js">View Solution</a>');
+      $('#solution').text('<a href="solution.js">View Solution</a>');
     },
     error:function (xhr, ajaxOptions, thrownError){
       if(xhr.status==404) {
@@ -25,14 +25,4 @@
       }
     }
   });
-  $.ajax({ 
-    url: url,
-    type: 'HEAD',
-    error: function(){
-      $("#solution").text("File doesn't exist"); 
-    }, 
-    success: function(){ 
-      $("#solution").text('File exists'); 
-    } 
-  }); 
 </script>
