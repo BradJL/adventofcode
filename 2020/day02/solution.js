@@ -28,7 +28,7 @@ function countValid(value, index, array) {
 }
 
 $.get( "input.txt", function( data ) {
-  $('#input span').text('(Bytes: ' + (data.length-1) + ')');
+  $('#input span').text('(Bytes: ' + (data.length) + ')');
   data.split(/\r?\n/).forEach(countValid);
   $('#answer span').text(numValid);
   $('#answer2 span').text(numValid2);
