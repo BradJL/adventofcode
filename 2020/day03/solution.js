@@ -33,7 +33,7 @@ function countEncounteredTrees(value, index, array) {
 }
 
 $.get( "input.txt", function( data ) {
-  $('#input span').text('(Lines: ' + (input.length-1) + ')');
+  $('#input span').text('(Bytes: ' + (data.length) + ')');
   //var t0 = performance.now();
   data.split(/\r?\n/).forEach(countEncounteredTrees);
   //let t1 = performance.now();
