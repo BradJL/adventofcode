@@ -67,7 +67,25 @@
   <hr>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script>
+   let row = 0;
+   let column = 0;
+   let encounteredTrees = 0;
+   function countEncounteredTrees(value, index, array) {
+    if( value == null || value == "" || value == undefined ) return;
+    
+    if( value[column] == "#" ){
+     ++encounterdTrees;
+    }
+    
+    column = (column + 3) % value.length;
+    ++row;
+   }
    $('#answer span').text('Calculating...');
+   $.get( "input.txt", function( data ) {
+    // Part 1
+    data.split(/\r?\n/).forEach(countEncounteredTrees);
+    $('#answer span').text(encounteredTrees);
+   });
   </script>
  </body>
 </html>
