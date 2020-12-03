@@ -36,6 +36,7 @@ var t0 = performance.now();
 $.get( "input.txt", function( data ) {
   data.split(/\r?\n/).forEach(countEncounteredTrees);
   let t1 = performance.now();
+  console.log( t1 + " - " + t0 + " = " + ms );
   let ms = (t1 - t0);
   $('#answer span').text(encounteredTrees);
   $('#answer2 span').text(encounteredTrees1_1 + " * "
