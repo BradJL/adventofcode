@@ -23,5 +23,5 @@ $.get( "input.txt", function( data ) {
       break;
     }
   }
-  $('#answer2 span').text(i);
+  $('#answer2 span').text(i+1);
 });
