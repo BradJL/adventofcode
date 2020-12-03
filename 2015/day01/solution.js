@@ -6,6 +6,6 @@ $.get( "input.txt", function( data ) {
   let down = data.replace(/[^\)]/g, "").length;
   let up = len - down;
   $('#input span').text( "(Lenth:" +  len + ")" );
-  $('#answer span').text( "Up " + up + ", Down " + down + " = " + (up - down) );
+  $('#answer span').text( "Up " + up + " - Down " + down + " = " + (up - down) );
   //$('#answer2 span').text("");
 });
