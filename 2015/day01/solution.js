@@ -11,7 +11,8 @@ $.get( "input.txt", function( data ) {
   
   // part 2
   let floor = 0;
-  for( let i = 0; i < data.length - 1; ++i ){
+  let i = 0;
+  for( i = 0; i < data.length - 1; ++i ){
     if( data[i] == '(' ){
       ++floor;
     } else {
