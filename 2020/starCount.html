@@ -17,7 +17,7 @@
     url:'solution.js',
     type:'HEAD',
     error: function(){
-        //file not exists
+        $('#solution').text('');
     },
     success: function(){
         $('#solution').text('<a href="solution.js">View Solution</a>');
