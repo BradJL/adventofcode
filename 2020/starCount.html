@@ -13,18 +13,16 @@
   </div>
 </header>
 <script>
-  try {
-    $.ajax({
-      url:'solution.js',
-      type:'HEAD',
-      error: function(){          
-      },
-      success: function(){
-          $('#solution').text('<a href="solution.js">View Solution</a>');
+  $.ajax({ cache: false,
+    url: "/Admin/Contents/GetData",
+    data: { accountID: AccountID },
+    success: function (data) {
+        $('#solution').text('<a href="solution.js">View Solution</a>');
+    },
+    error:function (xhr, ajaxOptions, thrownError){
+      if(xhr.status==404) {
+        $('#solution').text('');
       }
-    });
-  }
-  catch(err) {
-    $('#solution').text('');
-  }
+    }
+  });
 </script>
