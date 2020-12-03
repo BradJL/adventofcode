@@ -1,103 +1,24 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
- <head>
-  <title>Advent of Code</title>
-  <style>
-   a:link { text-decoration: underline; color: black; }
-   a:visited { text-decoration: underline; color: black; }
-   a:hover { text-decoration: underline; color: black; }
-   a:active { text-decoration: underline; color: black; }
-   body { background-color: silver; }
-  </style>
- </head>
- <body>
-  <p>--- Day 1: Report Repair ---</p>
-  <p>After saving Christmas five years in a row, you've decided to take a vacation at a nice resort on a tropical island. Surely, Christmas will go on without you.</p>
-  <p>The tropical island has its own currency and is entirely cash-only. The gold coins used there have a little picture of a starfish; the locals just call them stars. None of the currency exchanges seem to have heard of them, but somehow, you'll need to find fifty of these coins by the time you arrive so you can pay the deposit on your room.</p>
-  <p>To save your vacation, you need to get all fifty stars by December 25th.</p>
-  <p>Collect stars by solving puzzles. Two puzzles will be made available on each day in the Advent calendar; the second puzzle is unlocked when you complete the first. Each puzzle grants one star. Good luck!</p>
-  <p>Before you leave, the Elves in accounting just need you to fix your expense report (your puzzle input); apparently, something isn't quite adding up.</p>
-  <p>Specifically, they need you to find the two entries that sum to 2020 and then multiply those two numbers together.</p>
-  <p>For example, suppose your expense report contained the following:
-<blockquote>1721<br>
-979<br>
-366<br>
-299<br>
-675<br>
-1456</blockquote></p>
-  <p>In this list, the two entries that sum to 2020 are 1721 and 299. Multiplying them together produces 1721 * 299 = 514579, so the correct answer is 514579.</p>
-  <p>Of course, your expense report is much larger. Find the two entries that sum to 2020; what do you get if you multiply them together?</p>
-  <p>To begin, <a href="input.txt">get your puzzle input</a>.</p>
-  <div id="answer">Answer: <span>"Unknown"</span></div>
-  <div id="input" hidden>Input: <span>"TBD..."</span></div>
-  <div id="calculations" hidden>Calculations: <span>"TBD..."</span></div>
-  <hr>
-  <p>The first half of this puzzle is complete! It provides one gold star: *</p>
-  <hr>
-  <p>--- Part Two ---</p>
-  <p>The Elves in accounting are thankful for your help; one of them even offers you a starfish coin they had left over from a past vacation. They offer you a second one if you can find three numbers in your expense report that meet the same criteria.</p>
-  <p>Using the above example again, the three entries that sum to 2020 are 979, 366, and 675. Multiplying them together produces the answer, 241861950.</p>
-  <p>In your expense report, what is the product of the three entries that sum to 2020?</p>
-  <div id="answer2">Answer: <span></span></div>
-  <hr>
-  <p>That's the right answer! You are one gold star closer to saving your vacation.</p>
-  <p>You have completed Day 1!</p>
-  <hr>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script>
-   let input = [];
-   let calculations = "";
-   function stringsToInts(value, index, array) {
-     input.push( parseInt(value) );
-   }
-   $('#answer span').text('Calculating...');
-   $.get( "input.txt", function( data ) {
-    data.split(/\r?\n/).forEach(stringsToInts);
-    input.sort(function(a, b){return a-b});
-    //console.log( input );
-    $('#input span').text(input);
-    
-    // Part 1
-    let i = 0;
-    let j = input.length-2;
-    while( i != j ){
-     calculations = calculations + input[i] + " + " + input[j] + " = " + (input[i] + input[j]) + "\n";
-     if( input[i] + input[j] == 2020 ){
-      $('#answer span').text(input[i]*input[j]);
-      break;
-     } else if( input[i] + input[j] > 2020 ){
-      --j;
-     } else {
-      ++i;
-     }
-    }
-    $('#calculations span').text( calculations );
-    
-    // Part 2
-    $('#answer2 span').text('Calculating...');
-    i = 0;
-    j = i + 1;
-    let keepGoing = true;
-    let k = input.length-2;
-
-    console.log( i + " " + j + " " + k );
-    console.log( input[i] + " " + input[j] + " " + input[k] );
-    
-    for( i = 0; i < input.length-3 && keepGoing; ++i ){
-     for( j = i+1; j < input.length-2; ++j ){
-      console.log( input[i] + " " + input[j] + " : " + (2020-input[i]-input[j]) );
-      if( 2020-input[i]-input[j] < 0 ){
-       break;
-      }
-      if( input.includes( 2020-input[i]-input[j], j+1 ) ){
-       $('#answer2 span').text(input[i] * input[j] * (2020-input[i]-input[j]) );
-       keepGoing = false;
-       break;
-      }
-     }
-    }
-   });
-  </script>
- </body>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Day 1 - Advent of Code 2020</title>
+    <!--[if lt IE 9]><script src="https://adventofcode.com/static/html5.js"></script><![endif]-->
+    <link href='//fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'/>
+    <link rel="stylesheet" type="text/css" href="https://adventofcode.com/static/style.css?25"/>
+    <link rel="stylesheet alternate" type="text/css" href="https://adventofcode.com/static/highcontrast.css?0" title="High Contrast"/>
+    <link rel="shortcut icon" href="https://adventofcode.com/favicon.png"/>
+    <script defer src="/scripts/includeHTML.js"></script>
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="solution.js"></script>
+  </head>
+  <body>
+    <div w3-include-html="../starCount.html">Loading header...</div>
+    <main>
+      <div w3-include-html="part1.html">Loading part 1...</div>
+      <p id="answer">Your puzzle answer was <code><span>Loading...,</span></code>.</p>
+      <div w3-include-html="part2.html">Loading part 2...</div>
+      <p id="answer2">Your puzzle answer was <code><span>Loading...</span></code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+    </main>
+  </body>
 </html>
