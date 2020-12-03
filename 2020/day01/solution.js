@@ -10,7 +10,7 @@ $.get( "input.txt", function( data ) {
   data.split(/\r?\n/).forEach(stringsToInts);
   input.sort(function(a, b){return a-b});
   //console.log( input );
-  $('#input span').text(input);
+  $('#input span').text("Entries: " + (input.length-1));
 
   // Part 1
   let i = 0;
