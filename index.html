@@ -1,68 +1,68 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
- <head>
-  <title>Advent of Code</title>
-  <!--[if lt IE 9]><script src="https://adventofcode.com/static/html5.js"></script><![endif]-->
-  <link href='//fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'/>
-  <link rel="stylesheet" type="text/css" href="https://adventofcode.com/static/style.css?25"/>
-  <link rel="stylesheet alternate" type="text/css" href="https://adventofcode.com/static/highcontrast.css?0" title="High Contrast"/>
-  <link rel="shortcut icon" href="https://adventofcode.com/favicon.png"/>
- </head>
- <body>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script>
-   function setCookie() {
-    let cname="jerk";
-    let cvalue="true";
-    let exdays = 9999;
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    var expires = "expires="+ d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-    checkCookie();
-   }
-   function getCookie() {
-    let cname="jerk";
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for(var i = 0; i <ca.length; i++) {
-     var c = ca[i];
-     while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-     }
-     if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-     }
-    }
-    return "";
-   }
-   function checkCookie(){
-    if( getCookie() ){
-     console.log( "Cookie found" );
-     $('#page').text( "What a rude thing to ask, jerk!" );
-    } else {
-     console.log( "No cookie" );
-    }
-   }
-  </script>
-  <div id="page">
-   <p></p>
-   <h1 class="title-global">
-    You've found my <span><a href="/">Advent of Code</a></span> page!
-   </h1>
-   <p id="links">Years:
-     <h1 class="title-event">
-       <a href="2020/">2020</a><br>
-     </h1>
-   </p>
-   <p>FAQ:
-   <blockquote>
-    <a href="" onClick="return setCookie();">Why does this site look like it was created in 1995?</a>
-   </blockquote></p>
-  </div>
-  <script>
-   checkCookie();
-  </script>
- </body>
+  <head>
+    <title>Advent of Code</title>
+    <!--[if lt IE 9]><script src="https://adventofcode.com/static/html5.js"></script><![endif]-->
+    <link href='//fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'/>
+    <link rel="stylesheet" type="text/css" href="https://adventofcode.com/static/style.css?25"/>
+    <link rel="stylesheet alternate" type="text/css" href="https://adventofcode.com/static/highcontrast.css?0" title="High Contrast"/>
+    <link rel="shortcut icon" href="https://adventofcode.com/favicon.png"/>
+  </head>
+  <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      function setCookie() {
+        let cname="jerk";
+        let cvalue="true";
+        let exdays = 9999;
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        var expires = "expires="+ d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        checkCookie();
+      }
+      function getCookie() {
+        let cname="jerk";
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for(var i = 0; i <ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+      }
+      function checkCookie(){
+        if( getCookie() ){
+          console.log( "Cookie found" );
+          $('#page').text( "What a rude thing to ask, jerk!" );
+        } else {
+          console.log( "No cookie" );
+        }
+      }
+    </script>
+    <div id="page">
+      <h1 class="title-global">
+       You've found my <span><a href="/">Advent of Code</a></span> page!
+      </h1>
+      <p id="links">Years:
+        <blockquote>
+          <a href="/2020">2020</a><br>
+        </blockquote>
+      </p>
+      <p>FAQ:
+        <blockquote>
+          <a href="" onClick="return setCookie();">Why does this site look like it was created in 1995?</a>
+        </blockquote>
+      </p>
+    </div>
+    <script>
+      checkCookie();
+    </script>
+  </body>
 </html>
