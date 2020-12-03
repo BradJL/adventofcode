@@ -9,6 +9,11 @@
     <h1 class="title-event">
       &nbsp;<span class="title-event-wrap">{&apos;year&apos;:</span><a href="/2020">2020</a><span class="title-event-wrap">}</span>
     </h1>
-    <div class="user"><a href="solution.js">View Solution</a></div>
+    <div id="solution"><a href="solution.js">No Solution</a></div>
   </div>
 </header>
+<script>
+  if( new File("solution.js").exists() ){
+    $('#solution').text('<a href="solution.js">View Solution</a>');
+  }
+</script>
