@@ -14,8 +14,7 @@
 </header>
 <script>
   $.ajax({ cache: false,
-    url: "/Admin/Contents/GetData",
-    data: { accountID: AccountID },
+    url: "solution.js",
     success: function (data) {
         $('#solution').text('<a href="solution.js">View Solution</a>');
     },
