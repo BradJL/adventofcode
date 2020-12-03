@@ -1,17 +1,17 @@
 $('#answer span').text('Calculating...');
 $('#answer2 span').text('Calculating...');
-let row = 0;
-let column = 0; // column3_1
-let column1_1 = 0;
-let column5_1 = 0;
-let column7_1 = 0;
-let column1_2 = 0;
+var row = 0;
+var column = 0; // column3_1
+var column1_1 = 0;
+var column5_1 = 0;
+var column7_1 = 0;
+var column1_2 = 0;
 
-let encounteredTrees = 0;
-let encounteredTrees1_1 = 0;
-let encounteredTrees5_1 = 0;
-let encounteredTrees7_1 = 0;
-let encounteredTrees1_2 = 0;
+var encounteredTrees = 0;
+var encounteredTrees1_1 = 0;
+var encounteredTrees5_1 = 0;
+var encounteredTrees7_1 = 0;
+var encounteredTrees1_2 = 0;
 
 function countEncounteredTrees(value, index, array) {
   if( value == null || value == "" || value == undefined ) return;
