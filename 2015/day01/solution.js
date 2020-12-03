@@ -18,6 +18,7 @@ $.get( "input.txt", function( data ) {
     } else {
       --floor;
     }
+    console.log( i + ": " + floor );
     if( floor == -1 ){ 
       break;
     }
