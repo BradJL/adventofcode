@@ -1,3 +1,5 @@
+$('#answer span').text('Calculating...');
+$('#answer2 span').text('Calculating...');
 let row = 0;
 let column = 0; // column3_1
 let column1_1 = 0;
@@ -30,9 +32,9 @@ function countEncounteredTrees(value, index, array) {
   ++row;
 }
 
-$('#answer span').text('Calculating...');
 $.get( "input.txt", function( data ) {
   data.split(/\r?\n/).forEach(countEncounteredTrees);
-  $('#answer span').text(encounteredTrees);
-  $('#answer2 span').text(encounteredTrees1_1 + " * " + encounteredTrees + " * " + encounteredTrees5_1 + " * " + encounteredTrees7_1 + " * " + encounteredTrees1_2 + " = " + (encounteredTrees1_1 * encounteredTrees * encounteredTrees5_1 * encounteredTrees7_1 * encounteredTrees1_2));
 });
+
+$('#answer span').text(encounteredTrees);
+$('#answer2 span').text(encounteredTrees1_1 + " * " + encounteredTrees + " * " + encounteredTrees5_1 + " * " + encounteredTrees7_1 + " * " + encounteredTrees1_2 + " = " + (encounteredTrees1_1 * encounteredTrees * encounteredTrees5_1 * encounteredTrees7_1 * encounteredTrees1_2));
