@@ -37,7 +37,7 @@ $.get( "input.txt", function( data ) {
   data.split(/\r?\n/).forEach(countEncounteredTrees);
   let t1 = performance.now();
   let ms = (t1 - t0);
-  $('#solution span').text( "(" + Math.floor(ms*10)/10 + "ms)" );
+  $('#solution span').text( "(" + Math.floor(ms*10)/10 + " ms)" );
   $('#answer span').text(encounteredTrees);
   $('#answer2 span').text(encounteredTrees1_1 + " * "
                         + encounteredTrees + " * "
