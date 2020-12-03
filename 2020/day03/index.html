@@ -65,26 +65,50 @@
   <p>To begin, <a href="input.txt">get your puzzle input</a>.</p>
   <div id="answer">Answer: <span></span></div>
   <hr>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <p>The first half of this puzzle is complete! It provides one gold star: *</p>
+  <hr>
+  <p>--- Part Two ---</p>  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <div id="answer2">Answer: <span></span></div>
+  <hr>
+  <p hidden>Both parts of this puzzle are complete! They provide two gold stars: **</p>
+  <hr>
   <script>
    let row = 0;
-   let column = 0;
+   let column = 0; // column3_1
+   let column1_1 = 0;
+   let column5_1 = 0;
+   let column7_1 = 0;
+   let column1_2 = 0;
+
    let encounteredTrees = 0;
+   let encounteredTrees1_1 = 0;
+   let encounteredTrees5_1 = 0;
+   let encounteredTrees7_1 = 0;
+   let encounteredTrees1_2 = 0;
+   
    function countEncounteredTrees(value, index, array) {
     if( value == null || value == "" || value == undefined ) return;
     
-    if( value[column] == "#" ){
-     ++encounteredTrees;
+    if( value[column] == "#" ){ ++encounteredTrees; }
+    if( value[column1_1] == "#" ){ ++encounteredTrees1_1; }
+    if( value[column5_1] == "#" ){ ++encounteredTrees5_1; }
+    if( value[column7_1] == "#" ){ ++encounteredTrees7_1; }
+    if( row % 2 == 0 {
+     if( value[column1_2] == "#" ){ ++encounteredTrees1_2; }
+     column1_2 = (column1_2 + 3) % value.length;
     }
     
     column = (column + 3) % value.length;
+    column1_1 = (column1_1 + 3) % value.length;
+    column5_1 = (column5_1 + 3) % value.length;
+    column7_1 = (column7_1 + 3) % value.length;
     ++row;
    }
    $('#answer span').text('Calculating...');
    $.get( "input.txt", function( data ) {
-    // Part 1
     data.split(/\r?\n/).forEach(countEncounteredTrees);
     $('#answer span').text(encounteredTrees);
+    $('#answer2 span').text(encounteredTrees1_1 * encounteredTrees * encounteredTrees5_1 * encounteredTrees7_1 * encounteredTrees1_2);
    });
   </script>
  </body>
