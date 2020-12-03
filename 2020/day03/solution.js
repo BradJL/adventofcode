@@ -33,11 +33,11 @@ function countEncounteredTrees(value, index, array) {
 }
 
 $.get( "input.txt", function( data ) {
-  var t0 = performance.now();
+//   var t0 = performance.now();
   data.split(/\r?\n/).forEach(countEncounteredTrees);
-  let t1 = performance.now();
-  let ms = (t1 - t0);
-  $('#solution span').text( "(" + Math.floor(ms) + "ms)" );
+//   let t1 = performance.now();
+//   let ms = (t1 - t0);
+//   $('#solution span').text( "(" + Math.floor(ms) + "ms)" );
   $('#answer span').text(encounteredTrees);
   $('#answer2 span').text(encounteredTrees1_1 + " * "
                         + encounteredTrees + " * "
