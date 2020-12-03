@@ -95,13 +95,13 @@
     if( value[column7_1] == "#" ){ ++encounteredTrees7_1; }
     if( row % 2 == 0 ){
      if( value[column1_2] == "#" ){ ++encounteredTrees1_2; }
-     column1_2 = (column1_2 + 3) % value.length;
+     column1_2 = (column1_2 + 1) % value.length;
     }
     
     column = (column + 3) % value.length;
-    column1_1 = (column1_1 + 3) % value.length;
-    column5_1 = (column5_1 + 3) % value.length;
-    column7_1 = (column7_1 + 3) % value.length;
+    column1_1 = (column1_1 + 1) % value.length;
+    column5_1 = (column5_1 + 5) % value.length;
+    column7_1 = (column7_1 + 7) % value.length;
     ++row;
    }
    $('#answer span').text('Calculating...');
