@@ -45,6 +45,6 @@ $.get( "input.txt", function( data ) {
                         + encounteredTrees7_1 + " * "
                         + encounteredTrees1_2 + " = "
                         + (encounteredTrees1_1 * encounteredTrees * encounteredTrees5_1 * encounteredTrees7_1 * encounteredTrees1_2)
-                        +  + " (" + ms + "ms, total for both parts)"
+                        + " (" + ms + "ms, total for both parts)"
                         );
 });
