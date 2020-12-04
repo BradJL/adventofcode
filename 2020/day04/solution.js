@@ -19,7 +19,7 @@ function parseport(value, index, array) {
     let eyr = items.match(/eyr:[0-9]*[ \n\t]/g)[0].trim().split(":");
     let hgt = items.match(/hgt:[0-9]*(cm|in)[ \n\t]/g)[0].trim().split(":");
     let hgtNum = hgt[1].replace(/[^0-9]/,"");
-    let hcl = items.match(/hcl:#[0-9a-f]{6}[ \n\t]/g)[0].trim().split(":");
+    let hcl = items.match(/hcl:\#[0-9a-f]{6}[ \n\t]/g)[0].trim().split(":");
     let ecl = items.match(/ecl:(amb|blu|brn|gry|grn|hxl|oth)[ \n\t]/g)[0].trim().split(":");
     let pid = items.match(/pid:[0-9]{9}[ \n\t]/g)[0].trim().split(":");
     if( ( byr[1].length == 4 && 1920 <= byr[1] && byr[1] <= 2002 ) &&
