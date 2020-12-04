@@ -32,7 +32,7 @@ function parseportList(value, index, array) {
           let tmpNum = tmp[1].replace(/[^0-9]/,"");
           switch( tmpUnit ){
             case "cm":
-              if( 150 > tmp[1] || tmp[1] > 193 ){ cont = "hgt-cm"; }
+              if( 150 > parseInt(tmp[1]) || parseInt(tmp[1]) > 193 ){ cont = "hgt-cm"; }
               break;
             case "in":
               if( 59 > tmp[1] || tmp[1] > 76 ){ cont = "hgt-in"; }
