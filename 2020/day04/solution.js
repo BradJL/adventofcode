@@ -4,7 +4,7 @@ $('#answer2 span').text('Calculating...');
 var valid = 0;
 var moreValid = 0;
 
-function parseport(value, index, array) {
+function parseportList(value, index, array) {
   if( value == null || value == "" || value == undefined ) return;
   let items = value.replace(/cid:[0-9]*/,"").replace(/[^:]/g,"");
   console.log( items.length );
@@ -14,8 +14,11 @@ function parseport(value, index, array) {
     
     // part 2
     //items = value.replace(/cid:[0-9]*[ \n\t]/g,"");
-    items = (value.trim().replace(/[ \n\t]/g," ") + " ").replace(/cid:[0-9]* /g,"");
-    console.log( "[" + items + "]" );
+    items = value.trim().replace(/[ \n\t]/g," ");
+    //items = items.replace(/cid:[0-9]*/g,"").trim();
+    items=items.split(" ");
+    
+    console.log( items );
     let byr = items.match(/byr:[0-9]*[ \n\t]/g)[0].trim().split(":");
     let iyr = items.match(/iyr:[0-9]*[ \n\t]/g)[0].trim().split(":");
     let eyr = items.match(/eyr:[0-9]*[ \n\t]/g)[0].trim().split(":");
@@ -40,7 +43,7 @@ function parseport(value, index, array) {
 
 $.get( "input.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
-  data.split(/\n\n/).forEach(parseport);
+  data.split(/\n\n/).forEach(parseportList);
   $('#answer span').text(valid);
   $('#answer2 span').text(moreValid);
 });
