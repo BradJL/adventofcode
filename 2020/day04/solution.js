@@ -35,8 +35,8 @@ function parseportList(value, index, array) {
           if( tmp[1].length != 4 || 2020 > tmp[1] || tmp[1] > 2030 ){ cont = false; }
           break;
         case "hgt":
-          let tmpUnit = tmp[i].slice(-2);
-          let tmpNum = tmp[i].replace(/[^0-9]/,"");
+          let tmpUnit = tmp[1].slice(-2);
+          let tmpNum = tmp[1].replace(/[^0-9]/,"");
           switch( tmpUnit ){
             case "cm":
               if( 150 > tmp[1] || tmp[1] > 193 ){ cont = false; }
