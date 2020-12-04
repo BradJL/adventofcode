@@ -17,5 +17,5 @@ $.get( "input.txt", function( data ) {
   $('#input span').text( "(Bytes:" +  len + ")" );
   $('#answer span').text( total );
   
-  $('#answer2 span').text(i+1);
+  //$('#answer2 span').text();
 });
