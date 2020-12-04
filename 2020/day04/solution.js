@@ -82,12 +82,13 @@ function parseportList(value, index, array) {
       console.log( items );
     }
   }
-  
 }
 
 $.get( "input.txt", function( data ) {
-  $('#input span').text('(Bytes: ' + (data.length) + ')');
-  data.split(/\n\n/).forEach(parseportList);
+  let passports = data.split(/\n\n/);
+  passports.forEach(parseportList);
+  
+  $('#input span').text('(Passports: ' + (passports.length) + ')');
   $('#answer span').text(valid);
   $('#answer2 span').text(moreValid);
 });
