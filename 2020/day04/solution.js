@@ -43,7 +43,6 @@ function parseportList(value, index, array) {
           }
           break;
         case "hcl":
-          //if( tmp[1].length != 7 || tmp[1].slice(0,1) != '#' || tmp[1].replace(/[0-9]/g,"").length != 1 ){ cont = "hcl"; }
           if( tmp[1].length != 7 ){ cont = "hclLen7-" + tmp[1].length; }
           if( tmp[1].slice(0,1) != '#' ){ cont = "hcl#-" + tmp[1].slice(0,1) }
           if( tmp[1].replace(/[0-9a-f]/g,"").length != 1 ){ cont = "hclLen1-" + tmp[1].replace(/[0-9]/g,""); }
