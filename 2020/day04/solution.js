@@ -38,7 +38,7 @@ function parseportList(value, index, array) {
               if( 59 > tmp[1] || tmp[1] > 76 ){ cont = "hgt-in"; }
               break;
             default:
-              cont = "hgt not cm|in";
+              cont = "hgt-not-cm|in";
               break;
           }
           break;
@@ -73,28 +73,12 @@ function parseportList(value, index, array) {
           break;
       }
     }
-//     let byr = items.match(/byr:[0-9]*[ \n\t]/g)[0].trim().split(":");
-//     let iyr = items.match(/iyr:[0-9]*[ \n\t]/g)[0].trim().split(":");
-//     let eyr = items.match(/eyr:[0-9]*[ \n\t]/g)[0].trim().split(":");
-//     let hgt = items.match(/hgt:[0-9]*(cm|in)[ \n\t]/g)[0].trim().split(":");
-//     let hgtNum = hgt[1].replace(/[^0-9]/,"");
-//     let hcl = items.match(/hcl:\#[0-9a-f]{6}[ \n\t]/g)[0].trim().split(":");
-//     let ecl = items.match(/ecl:(amb|blu|brn|gry|grn|hxl|oth)[ \n\t]/g)[0].trim().split(":");
-//     let pid = items.match(/pid:[0-9]{9}[ \n\t]/g)[0].trim().split(":");
-//     if( ( byr[1].length == 4 && 1920 <= byr[1] && byr[1] <= 2002 ) &&
-//         ( iyr[1].length == 4 && 2010 <= iyr[1] && iyr[1] <= 2020 ) &&
-//         ( eyr[1].length == 4 && 2020 <= eyr[1] && iyr[1] <= 2030 ) &&
-//         ( ( hgt[1].slice[1](-2) == "cm" && 150 <= hgtNum && hgtNum <= 193 ) ||
-//           ( hgt[1].slice[1](-2) == "in" && 59 <= hgtNum && hgtNum <= 76 ) ) &&
-//         ( hcl[1].length == 7 ) &&
-//         ( ecl.length == 2 ) &&
-//         ( pid.length == 9 ) ){
     if( cont == true ){
       ++moreValid;
       items.push( "valid" );
       console.log( items );
     } else {
-      items.push( "Error: " + cont );
+      items.push( "Error:" + cont );
       console.log( items );
     }
   }
