@@ -12,7 +12,7 @@ var total = 0;
 
 $.get( "input.txt", function( data ) {
   // part 1
-  data.sort(function(a, b){return a-b}).split(/\r?\n/).forEach(calculateArea);
+  data.split(/\r?\n/).sort(function(a, b){return a-b}).forEach(calculateArea);
   let len = data.length - 1;
   $('#input span').text( "(Bytes:" +  len + ")" );
   $('#answer span').text( total );
