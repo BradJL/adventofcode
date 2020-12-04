@@ -50,7 +50,7 @@ function parseportList(value, index, array) {
           }
           break;
         case "hcl":
-          if( tmp[1].length != 7 || tmp[1].slice(0,1) != '#' || tmp[1].replace(/[0-9]/g,"").length ! =1 ){ cont = false; }
+          if( tmp[1].length != 7 || tmp[1].slice(0,1) != '#' || tmp[1].replace(/[0-9]/g,"").length != 1 ){ cont = false; }
           break;
         case "ecl":
           switch( tmp[1] ){
