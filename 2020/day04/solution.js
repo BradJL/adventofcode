@@ -7,7 +7,7 @@ var moreValid = 0;
 function parseportList(value, index, array) {
   if( value == null || value == "" || value == undefined ) return;
   let items = value.replace(/cid:[0-9]*/,"").replace(/[^:]/g,"");
-  console.log( items.length );
+  //console.log( items.length );
   if( items.length == 7 ){
     // part 1
     ++valid;
@@ -18,7 +18,7 @@ function parseportList(value, index, array) {
     //items = items.replace(/cid:[0-9]*/g,"").trim();
     //items=items.split(/[ \n\t]/);
     
-    console.log( items );
+    //console.log( items );
     
     let tmp;
     let cont = true;
@@ -95,6 +95,9 @@ function parseportList(value, index, array) {
 //         ( pid.length == 9 ) ){
     if( cont ){
       ++moreValid;
+      console.log( items );
+//     } else {
+//       console.log( items );
     }
   }
   
