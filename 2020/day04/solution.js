@@ -78,7 +78,7 @@ function parseportList(value, index, array) {
       items.push( "valid" );
       console.log( items );
     } else {
-      items.push( "Error:" + cont );
+      items.push( "xError:" + cont );
       console.log( items );
     }
   }
