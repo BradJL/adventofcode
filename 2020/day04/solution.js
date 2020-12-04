@@ -7,45 +7,38 @@ var moreValid = 0;
 function parseportList(value, index, array) {
   if( value == null || value == "" || value == undefined ) return;
   let items = value.replace(/cid:[0-9]*/,"").replace(/[^:]/g,"");
-  //console.log( items.length );
   if( items.length == 7 ){
     // part 1
     ++valid;
     
     // part 2
-    //items = value.replace(/cid:[0-9]*[ \n\t]/g,"");
     items = value.trim().split(/[ \n\t]/);//.replace(/[ \n\t]/g," ");
-    //items = items.replace(/cid:[0-9]*/g,"").trim();
-    //items=items.split(/[ \n\t]/);
-    
-    //console.log( items );
-    
     let tmp;
     let cont = true;
-    for( let i = 0; i < items.length && cont; ++i ){
+    for( let i = 0; i < items.length && cont == true; ++i ){
       tmp = items[i].split(":");
       switch( tmp[0] ){
         case "byr":
-          if( tmp[1].length != 4 || 1920 > tmp[1] || tmp[1] > 2002 ){ cont = false; }
+          if( tmp[1].length != 4 || 1920 > tmp[1] || tmp[1] > 2002 ){ cont = "byr"; }
           break;
         case "iyr":
-          if( tmp[1].length != 4 || 2010 > tmp[1] || tmp[1] > 2020 ){ cont = false; }
+          if( tmp[1].length != 4 || 2010 > tmp[1] || tmp[1] > 2020 ){ cont = "iyr"; }
           break;
         case "eyr":
-          if( tmp[1].length != 4 || 2020 > tmp[1] || tmp[1] > 2030 ){ cont = false; }
+          if( tmp[1].length != 4 || 2020 > tmp[1] || tmp[1] > 2030 ){ cont = "eyr"; }
           break;
         case "hgt":
           let tmpUnit = tmp[1].slice(-2);
           let tmpNum = tmp[1].replace(/[^0-9]/,"");
           switch( tmpUnit ){
             case "cm":
-              if( 150 > tmp[1] || tmp[1] > 193 ){ cont = false; }
+              if( 150 > tmp[1] || tmp[1] > 193 ){ cont = "hgt-cm"; }
               break;
             case "in":
-              if( 59 > tmp[1] || tmp[1] > 76 ){ cont = false; }
+              if( 59 > tmp[1] || tmp[1] > 76 ){ cont = "hgt-in"; }
               break;
             default:
-              cont = false;
+              cont = "hgt not cm|in";
               break;
           }
           break;
@@ -93,11 +86,13 @@ function parseportList(value, index, array) {
 //         ( hcl[1].length == 7 ) &&
 //         ( ecl.length == 2 ) &&
 //         ( pid.length == 9 ) ){
-    if( cont ){
+    if( cont == true ){
       ++moreValid;
+      items.push( "valid" );
       console.log( items );
-//     } else {
-//       console.log( items );
+    } else {
+      items.push( cont );
+      console.log( items );
     }
   }
   
