@@ -35,7 +35,7 @@ function parseportList(value, index, array) {
               if( 150 > parseInt(tmp[1]) || parseInt(tmp[1]) > 193 ){ cont = "hgt-cm"; }
               break;
             case "in":
-              if( 59 > tmp[1] || tmp[1] > 76 ){ cont = "hgt-in"; }
+              if( 59 > parseInt(tmp[1]) || parseInt(tmp[1]) > 76 ){ cont = "hgt-in"; }
               break;
             default:
               cont = "hgt-not-cm|in";
