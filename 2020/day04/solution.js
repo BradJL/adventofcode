@@ -13,6 +13,7 @@ function parseport(value, index, array) {
     ++valid;
     
     // part 2
+    console.log( "[" + items + "]" );
     items = value.replace(/cid:[0-9]*[ \n\t]/g,"");
     let byr = items.match(/byr:[0-9]*[ \n\t]/g)[0].trim().split(":");
     let iyr = items.match(/iyr:[0-9]*[ \n\t]/g)[0].trim().split(":");
