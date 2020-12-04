@@ -68,7 +68,7 @@ function parseportList(value, index, array) {
           }
           break;
         case "pid":
-          if( tmp[1].length != 9 || tmp[i].replace(/[0-9]/g, "").length != 0 ){ cont = false; }
+          if( tmp[1].length != 9 || tmp[1].replace(/[0-9]/g, "").length != 0 ){ cont = false; }
           break;
         case "cid":
           break;
