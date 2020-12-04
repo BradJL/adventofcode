@@ -93,7 +93,7 @@ function parseportList(value, index, array) {
 //         ( hcl[1].length == 7 ) &&
 //         ( ecl.length == 2 ) &&
 //         ( pid.length == 9 ) ){
-    if( continue ){
+    if( cont ){
       ++moreValid;
     }
   }
