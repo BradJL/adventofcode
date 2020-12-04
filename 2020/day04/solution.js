@@ -43,7 +43,7 @@ function parseportList(value, index, array) {
           }
           break;
         case "hcl":
-          if( tmp[1].length != 7 || tmp[1].slice(0,1) != '#' || tmp[1].replace(/[0-9]/g,"").length != 1 ){ cont = false; }
+          if( tmp[1].length != 7 || tmp[1].slice(0,1) != '#' || tmp[1].replace(/[0-9]/g,"").length != 1 ){ cont = "hcl"; }
           break;
         case "ecl":
           switch( tmp[1] ){
@@ -56,12 +56,12 @@ function parseportList(value, index, array) {
             case "oth":
               break;
             default:
-              cont = false;
+              cont = "ecl";
               break;
           }
           break;
         case "pid":
-          if( tmp[1].length != 9 || tmp[1].replace(/[0-9]/g, "").length != 0 ){ cont = false; }
+          if( tmp[1].length != 9 || tmp[1].replace(/[0-9]/g, "").length != 0 ){ cont = "pid"; }
           break;
         case "cid":
           break;
@@ -91,7 +91,7 @@ function parseportList(value, index, array) {
       items.push( "valid" );
       console.log( items );
     } else {
-      items.push( cont );
+      items.push( "Error: " + cont );
       console.log( items );
     }
   }
