@@ -5,7 +5,8 @@ function calculateArea(value, index, array) {
   if( value == null || value == "" || value == undefined ) return;
 
   let values = value.split(/x/);
-  total += 3*values[0] + 2*values[1] + 2*values[2];
+  console.log( values );
+  total += (3*values[0] + 2*values[1] + 2*values[2]);
 }
 
 var total = 0;
