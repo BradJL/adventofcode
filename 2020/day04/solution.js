@@ -5,9 +5,9 @@ var valid = 0;
 
 function parseport(value, index, array) {
   if( value == null || value == "" || value == undefined ) return;
-  let items = value.replace(/cid:[0-9]*/,"").split(/[ \t\n]/);
+  let items = value.replace(/cid:[0-9]*/,"").replace(/[^:]/g,"");
   console.log( items.length );
-  if( items.length == 8 ){
+  if( items.length == 7 ){
     ++valid;
   }
 }
