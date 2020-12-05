@@ -11,14 +11,18 @@ function doItNTimes(value, index, array) {
   switch( value ){
   case '>':
     ++x;
+    break;
   case '<':
     --x;
+    break;
   case '^':
     --y;
+    break;
   case 'v':
     ++y;
     break;
   }
+  console.log( x + "," + y );
   houses.add( x + "," + y );
   
   // part 2
