@@ -26,7 +26,7 @@ function doItNTimes(value, index, array) {
 
 $.get( "input.txt", function( data ) {
   data.trim().split('').forEach(doItNTimes);
-  $('#input span').text( "(Bytes:" +  len + ")" );
+  $('#input span').text( "(Bytes:" +  data.length + ")" );
   $('#answer span').text( houses.length );
   
   $('#answer2 span').text( linearFeet );
