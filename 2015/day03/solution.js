@@ -39,7 +39,7 @@ function doItNTimes(value, index, array) {
 
 $.get( "input.txt", function( data ) {
   data.trim().split('').forEach(doItNTimes);
-  $('#input span').text( "(Directions:" +  data.length + ")" );
+  $('#input span').text( "(Directions:" +  data.trim().length + ")" );
   $('#answer span').text( houses.size );  
   $('#answer2 span').text( houses2.size );
 });
