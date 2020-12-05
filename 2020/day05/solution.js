@@ -20,6 +20,7 @@ function seatingChart(){
   return retval;
 }
 
+// Parse the next line of input.
 function doItNTimes(value, index, array) {
   if( value == null || value == "" || value == undefined ) return; // May not be necessary anymore with the trim() call, below.
   
