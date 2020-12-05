@@ -3,7 +3,7 @@ $('#answer2 span').text('Calculating...');
 
 var seats = [];
 for( let i = 0; i < 128; ++i ){
-  seats.push( "12345678 : " & i );
+  seats.push( "12345678 : " & i*8 );
 }
 
 var highestID = -1;
@@ -20,7 +20,7 @@ function doItNTimes(value, index, array) {
   
   let id = row * 8 + column;
   
-  seats[row][column] = 'x';
+  seats[row].charAt(column) = 'x';
   //console.log( row + "," + column + "," + id );
   
 //  let thisID = 127;
