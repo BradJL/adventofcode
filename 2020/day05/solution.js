@@ -15,6 +15,7 @@ function seatingChart(){
   let retval ="";
   for( let i = 0; i < 32; ++i ){
     retval = retval.concat( seats.substring(i*8,i*8+8),
+                            i.toString().length,
                             "&nbsp;",
                             i.toString().length < 3 ? " " : "", i.toString().length < 2 ? "&nbsp;" : "&nbsp;", i,
                             newline );
