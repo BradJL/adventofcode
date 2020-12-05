@@ -17,10 +17,7 @@ function seatingChart(){
     let txt = (i*8).toString() + "-" + (i*8+8).toString() + " ";
     //txt = "&nbsp;".repeat( 9 - txt.length ) + txt;
     
-    retval = retval.concat( seats.substring(i*8,i*8+8),
-                            "&nbsp;",
-                            i.toString().length < 3 ? "&nbsp;" : "", i.toString().length < 2 ? "&nbsp;" : "&nbsp;", i,
-                            newline );
+    retval = retval.concat( txt, seats.substring(i*8,i*8+8), newline );
   }
   return retval;
 }
