@@ -7,18 +7,14 @@ String.prototype.replaceAt = function(index, replacement) {
 
 const newline = "<br />";
 
-var seats = [];
-for( let i = 0; i < 128; ++i ){
-  seats.push( "12345678 : " + i*8 );
-}
-seats = '□'.repeat(128 * 8);
+var seats = '□'.repeat(128 * 8);
 
 var highestID = -1;
 
 function seatingChart(){
   let retval ="";
-  for( let i = 0; i < 128; ++i ){
-    retval = retval.concat( seats.substring(i*8,i*8+8), newline );
+  for( let i = 0; i < 32; ++i ){
+    retval = retval.concat( seats.substring(i*8,i*8+8), i.length < 3 ? " " : "", i.length < 2 ? " " : "", i, newline );
   }
   return retval;
 }
