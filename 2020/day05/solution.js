@@ -2,13 +2,14 @@ $('#answer span').text('Calculating...');
 $('#answer2 span').text('Calculating...');
 
 String.prototype.replaceAt = function(index, replacement) {
-    return this.substr(0, index) + replacement + this.substr(index + replacement.length);
-}
+  return this.substr(0, index) + replacement + this.substr(index + replacement.length);
+}  // Thanks, internet.
 
 var seats = [];
 for( let i = 0; i < 128; ++i ){
   seats.push( "12345678 : " + i*8 );
 }
+seats = '□'.repeat(128 * 8);
 
 var highestID = -1;
 
@@ -24,7 +25,7 @@ function doItNTimes(value, index, array) {
   
   let id = row * 8 + column;
   
-  seats[row] =seats[row].replaceAt(column, 'x');
+  seats[row] =seats[row].replaceAt(column, '■');
   //console.log( row + "," + column + "," + id );
   
 //  let thisID = 127;
@@ -38,14 +39,10 @@ function doItNTimes(value, index, array) {
 }
 
 //doItNTimes( "BBFFBBFRLL" );
-//console.log( seats );
 
 $.get( "input.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
   data.trim().split(/\r?\n/).forEach(doItNTimes);
-for( let i = 0; i < 128; ++i ){
-  console.log(seats[i]);
-}
   $('#answer span').text(highestID);
-  $('#answer2 span').text(seats);
+  $('#answer2 span').text(seats.indexOf("■□■")+1;
 });
