@@ -5,7 +5,6 @@ var seats = [];
 for( let i = 0; i < 128; ++i ){
   seats.push( "12345678 : " & i*8 );
 }
-console.log( seats );
 
 var highestID = -1;
 
@@ -15,7 +14,7 @@ function doItNTimes(value, index, array) {
   let row = value.replace(/[LR]/g, '').replace(/B/g, '1' ).replace(/F/g, '0' );
   let column = value.replace(/[BF]/g, '').replace(/R/g, '1' ).replace(/L/g, '0' );
   
-  console.log( row + "," + column );
+  //console.log( row + "," + column );
   row = parseInt( row, 2 );
   column = parseInt( column, 2 );
   
@@ -35,6 +34,7 @@ function doItNTimes(value, index, array) {
 }
 
 //doItNTimes( "BBFFBBFRLL" );
+console.log( seats );
 
 $.get( "input.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
