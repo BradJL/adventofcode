@@ -7,10 +7,8 @@ String.prototype.replaceAt = function(index, replacement) {
 
 const newline = "<br />";
 
-var seats = '□'.repeat(128 * 8);
-
-var highestID = -1;
-
+// Returns: HTML to display an airplane seat selection style seating chart (ascii art).
+// Why? Just for fun.
 function seatingChart(){
   let retval ="";
   for( let i = 0; i < 128; ++i ){
@@ -40,7 +38,10 @@ function doItNTimes(value, index, array) {
   }
 }
 
-//doItNTimes( "BBFFBBFRLL" );
+var seats = '□'.repeat(128 * 8);
+var highestID = -1;
+
+//doItNTimes( "BBFFBBFRLL" ); //debug
 
 $.get( "input.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
