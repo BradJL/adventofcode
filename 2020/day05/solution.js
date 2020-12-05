@@ -10,10 +10,13 @@ function doItNTimes(value, index, array) {
   let row = value.replace(/[LR]/g, '').replace( 'B', '1' ).replace( 'F', '0' );
   let column = value.replace(/[BF]/g, '').replace( 'R', '1' ).replace( 'L', '0' );
   
+  console.log( row + "," + column );
   row = parseInt( row, 2 );
   column = parseInt( column, 2 );
   
   let id = row * 8 + column;
+  
+  console.log( row + "," + column + "," + id );
   
 //  let thisID = 127;
 //  if( value[0] = 'F' ){ thisID /= 2; thisID.floor(); }
