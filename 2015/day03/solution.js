@@ -29,5 +29,5 @@ $.get( "input.txt", function( data ) {
   $('#input span').text( "(Bytes:" +  data.length + ")" );
   $('#answer span').text( houses.length );
   
-  $('#answer2 span').text( linearFeet );
+  //$('#answer2 span').text();
 });
