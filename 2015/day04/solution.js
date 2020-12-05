@@ -6,7 +6,7 @@ $.get( "input.txt", function( data ) {
   let i = 1;
   let md5hash = md5(data.trim() + i);
   
-  while( md5hash.substring(0,5) != "000000" ){
+  while( md5hash.substring(0,6) != "000000" ){
     ++i;
     md5hash = md5(data.trim() + i);
     if( md5hash.substring(0,5) != "00000" ){
