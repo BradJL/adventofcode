@@ -24,7 +24,7 @@ function doItNTimes(value, index, array) {
   
   let id = row * 8 + column;
   
-  seats[row].replaceAt(column, 'x');
+  seats[row] =seats[row].replaceAt(column, 'x');
   //console.log( row + "," + column + "," + id );
   
 //  let thisID = 127;
