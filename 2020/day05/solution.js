@@ -39,13 +39,13 @@ function doItNTimes(value, index, array) {
 
 //doItNTimes( "BBFFBBFRLL" );
 //console.log( seats );
-for( let i = 0; i < 128; ++i ){
-  console.log(seats[i]);
-}
 
 $.get( "input.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
   data.trim().split(/\r?\n/).forEach(doItNTimes);
+for( let i = 0; i < 128; ++i ){
+  console.log(seats[i]);
+}
   $('#answer span').text(highestID);
-  $('#answer2 span').text("xxxxxxxx".replaceAt(2,"Y"));
+  $('#answer2 span').text(seats);
 });
