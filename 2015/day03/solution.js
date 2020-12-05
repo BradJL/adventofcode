@@ -3,7 +3,7 @@ $('#answer2 span').text('Calculating...');
 
 var x = 0;
 var y = 0;
-var houses = new Set();
+var houses = new Set([x + "," + y]);
 
 function doItNTimes(value, index, array) {
   //if( value == null || value == "" || value == undefined ) return;
