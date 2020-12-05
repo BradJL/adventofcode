@@ -8,6 +8,7 @@ var sY = 0;
 var rsX = 0;
 var rsY = 0;
 var houses = new Set([x + "," + y]);
+var houses2 = new Set([sX + "," + sY]);
 var santasTurn = true;
 
 function doItNTimes(value, index, array) {
@@ -32,6 +33,8 @@ function doItNTimes(value, index, array) {
   }
 //   console.log( x + "," + y );
   houses.add( x + "," + y );
+  houses2.add( sX + "," + sY );
+  houses2.add( rsX + "," + rsY );
   
   santasturn = !santasturn;
   // part 2
