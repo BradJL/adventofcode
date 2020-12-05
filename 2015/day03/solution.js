@@ -1,4 +1,4 @@
-$('#answer span').text('Calculating...');
+//$('#answer span').text('Calculating...');
 $('#answer2 span').text('Calculating...');
 
 var x = 0;
