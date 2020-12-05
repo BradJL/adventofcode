@@ -5,6 +5,8 @@ String.prototype.replaceAt = function(index, replacement) {
   return this.substr(0, index) + replacement + this.substr(index + replacement.length);
 }  // Thanks, internet.
 
+const newline = "\\\n";
+
 var seats = [];
 for( let i = 0; i < 128; ++i ){
   seats.push( "12345678 : " + i*8 );
@@ -16,7 +18,7 @@ var highestID = -1;
 function seatingChart(){
   let retval ="";
   for( let i = 0; i < 128; ++i ){
-    retval = retval.concat( seats.substring(i*8,i*8+8), "\n" );
+    retval = retval.concat( seats.substring(i*8,i*8+8), newline );
   }
   return retval;
 }
@@ -51,6 +53,6 @@ $.get( "input.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
   data.trim().split(/\r?\n/).forEach(doItNTimes);
   $('#answer span').text(highestID);
-  $('#answer2 span').text( (seats.indexOf("■□■")+1 ) + "<br>" + seatingChart() );
+  $('#answer2 span').text( (seats.indexOf("■□■")+1 ) + newline + seatingChart() );
   printSeats();
 });
