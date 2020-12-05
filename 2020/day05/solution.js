@@ -15,7 +15,7 @@ function seatingChart(){
   let retval ="";
   for( let i = 0; i < 128; ++i ){
     let txt = (i*8).toString() + "-" + (i*8+8).toString() + " ";
-    txt = "&nbsp;".repeat( 9 - txt.length ) + txt;
+    //txt = "&nbsp;".repeat( 9 - txt.length ) + txt;
     
     retval = retval.concat( seats.substring(i*8,i*8+8),
                             "&nbsp;",
