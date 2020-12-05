@@ -15,7 +15,7 @@ var highestID = -1;
 
 function printSeats(){
   for( let i = 0; i < 128; ++i ){
-    console.log( seats.substring(i*8,i*8+8)
+    console.log( seats.substring(i*8,i*8+8) );
   }
 }
 function doItNTimes(value, index, array) {
