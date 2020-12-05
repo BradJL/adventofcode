@@ -22,7 +22,7 @@ function seatingChart(){
 
 // Parse the next line of input.
 function doItNTimes(value, index, array) {
-  if( value == null || value == "" || value == undefined ) return; // May not be necessary anymore with the trim() call, below.
+  //if( value == null || value == "" || value == undefined ) return; // May not be necessary anymore with the trim() call, below.
   
   let row = value.replace(/[LR]/g, '').replace(/B/g, '1' ).replace(/F/g, '0' );
   let column = value.replace(/[BF]/g, '').replace(/R/g, '1' ).replace(/L/g, '0' );
