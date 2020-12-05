@@ -12,7 +12,6 @@ var houses2 = new Set([sX + "," + sY]);
 var santasTurn = true;
 
 function doItNTimes(value, index, array) {
-  // part 1
   switch( value ){
   case '>':
     ++x;
@@ -40,7 +39,7 @@ function doItNTimes(value, index, array) {
 
 $.get( "input.txt", function( data ) {
   data.trim().split('').forEach(doItNTimes);
-  $('#input span').text( "(Bytes:" +  data.length + ")" );
+  $('#input span').text( "(Directions:" +  data.length + ")" );
   $('#answer span').text( houses.size );  
   $('#answer2 span').text( houses2.size );
 });
