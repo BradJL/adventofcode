@@ -13,6 +13,11 @@ seats = '□'.repeat(128 * 8);
 
 var highestID = -1;
 
+function printSeats(){
+  for( let i = 0; i < 128; ++i ){
+    console.log( seats.substring(i*8,i*8+8)
+  }
+}
 function doItNTimes(value, index, array) {
   if( value == null || value == "" || value == undefined ) return; // May not be necessary anymore with the trim() call, below.
   
@@ -45,4 +50,5 @@ $.get( "input.txt", function( data ) {
   data.trim().split(/\r?\n/).forEach(doItNTimes);
   $('#answer span').text(highestID);
   $('#answer2 span').text(seats.indexOf("■□■")+1);
+  printSeats();
 });
