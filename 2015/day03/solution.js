@@ -31,19 +31,16 @@ function doItNTimes(value, index, array) {
     santasTurn ? ++sY : ++rsY;
     break;
   }
-//   console.log( x + "," + y );
   houses.add( x + "," + y );
   houses2.add( sX + "," + sY );
   houses2.add( rsX + "," + rsY );
   
   santasTurn = !santasTurn;
-  // part 2
 }
 
 $.get( "input.txt", function( data ) {
   data.trim().split('').forEach(doItNTimes);
   $('#input span').text( "(Bytes:" +  data.length + ")" );
-  $('#answer span').text( houses.size );
-  
+  $('#answer span').text( houses.size );  
   $('#answer2 span').text( houses2.size );
 });
