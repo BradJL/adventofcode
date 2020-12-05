@@ -7,8 +7,8 @@ var highestID = -1;
 function doItNTimes(value, index, array) {
   if( value == null || value == "" || value == undefined ) return; // May not be necessary anymore with the trim() call, below.
   
-  let row = value.substitute(/[LR]/g, '').( 'B', '1' ).substitute( 'F', '0' );
-  let column = value.substitute(/[BF]/g, '').( 'R', '1' ).substitute( 'L', '0' );
+  let row = value.substitute(/[LR]/g, '').substitute( 'B', '1' ).substitute( 'F', '0' );
+  let column = value.substitute(/[BF]/g, '').substitute( 'R', '1' ).substitute( 'L', '0' );
   
   row = parseInt( row, 2 );
   column = parseInt( column, 2 );
