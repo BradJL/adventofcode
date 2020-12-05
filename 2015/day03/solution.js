@@ -3,28 +3,37 @@ $('#answer2 span').text('Calculating...');
 
 var x = 0;
 var y = 0;
+var sX = 0;
+var sY = 0;
+var rsX = 0;
+var rsY = 0;
 var houses = new Set([x + "," + y]);
+var santasTurn = true;
 
 function doItNTimes(value, index, array) {
-  //if( value == null || value == "" || value == undefined ) return;
   // part 1
   switch( value ){
   case '>':
     ++x;
+    santasTurn ? ++sX : ++rsX;
     break;
   case '<':
     --x;
+    santasTurn ? --sX : --rsX;
     break;
   case '^':
     --y;
+    santasTurn ? --sY : --rsY;
     break;
   case 'v':
     ++y;
+    santasTurn ? ++sY : ++rsY;
     break;
   }
-  console.log( x + "," + y );
+//   console.log( x + "," + y );
   houses.add( x + "," + y );
   
+  santasturn = !santasturn;
   // part 2
 }
 
