@@ -6,6 +6,6 @@ $.get( "input.txt", function( data ) {
   var md5hash = md5(data.trim() + i);
 
   $('#input span').text( "(Bytes:" +  data.length + ")" );
-  $('#answer span').text( md5hash );
+  $('#answer span').text( md5hash.substring(0,5) );
   //$('#answer2 span').text(  );
 });
