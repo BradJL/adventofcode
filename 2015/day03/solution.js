@@ -36,7 +36,7 @@ function doItNTimes(value, index, array) {
   houses2.add( sX + "," + sY );
   houses2.add( rsX + "," + rsY );
   
-  santasturn = !santasturn;
+  santasTurn = !santasTurn;
   // part 2
 }
 
