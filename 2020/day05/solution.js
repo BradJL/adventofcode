@@ -3,7 +3,7 @@ $('#answer2 span').text('Calculating...');
 
 var seats = [];
 for( let i = 0; i < 128; ++i ){
-  seats.push( "12345678 : " & i*8 );
+  seats.push( "12345678 : " + i*8 );
 }
 
 var highestID = -1;
