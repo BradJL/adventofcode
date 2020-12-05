@@ -1,4 +1,4 @@
-//$('#answer span').text('Calculating...');
+$('#answer span').text('Calculating...');
 $('#answer2 span').text('Calculating...');
 
 var x = 0;
@@ -31,7 +31,7 @@ function doItNTimes(value, index, array) {
 $.get( "input.txt", function( data ) {
   data.trim().split('').forEach(doItNTimes);
   $('#input span').text( "(Bytes:" +  data.length + ")" );
-  $('#answer span').text( houses.length );
+  $('#answer span').text( houses.size );
   
   //$('#answer2 span').text();
 });
