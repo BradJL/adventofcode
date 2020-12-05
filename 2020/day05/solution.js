@@ -14,7 +14,7 @@ var highestID = -1;
 function seatingChart(){
   let retval ="";
   for( let i = 0; i < 128; ++i ){
-    let txt = (i*8).toString() + "-" + (i*8+8).toString() + " ";
+    let txt = (i*8).toString() + "-" + (i*8+7).toString() + " ";
     txt = "&nbsp;".repeat( 10 - txt.length ) + txt;
     
     retval = retval.concat( txt, seats.substring(i*8,i*8+8), newline );
