@@ -40,7 +40,7 @@ function doItNTimes(value, index, array) {
 //doItNTimes( "BBFFBBFRLL" );
 //console.log( seats );
 for( let i = 0; i < 128; ++i ){
-  seats[i];
+  console.log(seats[i]);
 }
 
 $.get( "input.txt", function( data ) {
