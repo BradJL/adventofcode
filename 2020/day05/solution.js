@@ -1,6 +1,10 @@
 $('#answer span').text('Calculating...');
 $('#answer2 span').text('Calculating...');
 
+String.prototype.replaceAt = function(index, replacement) {
+    return this.substr(0, index) + replacement + this.substr(index + replacement.length);
+}
+
 var seats = [];
 for( let i = 0; i < 128; ++i ){
   seats.push( "12345678 : " + i*8 );
@@ -20,7 +24,7 @@ function doItNTimes(value, index, array) {
   
   let id = row * 8 + column;
   
-  seats[row].charAt(column) = 'x';
+  seats[row].replaceAt(column) = 'x';
   //console.log( row + "," + column + "," + id );
   
 //  let thisID = 127;
@@ -34,7 +38,10 @@ function doItNTimes(value, index, array) {
 }
 
 //doItNTimes( "BBFFBBFRLL" );
-console.log( seats );
+//console.log( seats );
+for( let i = 0; i < 128; ++i ){
+  seats[i];
+}
 
 $.get( "input.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
