@@ -51,6 +51,6 @@ $.get( "input.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
   data.trim().split(/\r?\n/).forEach(doItNTimes);
   $('#answer span').text(highestID);
-  $('#answer2 span').text( (seats.indexOf("■□■")+1 ) + "\n" + seatingChart() );
+  $('#answer2 span').text( (seats.indexOf("■□■")+1 ) + "<br>" + seatingChart() );
   printSeats();
 });
