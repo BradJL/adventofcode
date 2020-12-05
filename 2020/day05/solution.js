@@ -1,7 +1,11 @@
 $('#answer span').text('Calculating...');
 $('#answer2 span').text('Calculating...');
 
-var seats = new Array(128*44)
+var seats = [];
+for( let i = 0; i < 128; ++i ){
+  seats.push( "12345678 : " & i );
+}
+
 var highestID = -1;
 
 function doItNTimes(value, index, array) {
@@ -16,7 +20,8 @@ function doItNTimes(value, index, array) {
   
   let id = row * 8 + column;
   
-  console.log( row + "," + column + "," + id );
+  seats[row][column] = 'x';
+  //console.log( row + "," + column + "," + id );
   
 //  let thisID = 127;
 //  if( value[0] = 'F' ){ thisID /= 2; thisID.floor(); }
@@ -33,6 +38,6 @@ function doItNTimes(value, index, array) {
 $.get( "input.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
   data.trim().split(/\r?\n/).forEach(doItNTimes);
-   $('#answer span').text(highestID);
-  $('#answer2 span').text("Answer 2");
+  $('#answer span').text(highestID);
+  $('#answer2 span').text(seats);
 });
