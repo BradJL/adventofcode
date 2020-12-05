@@ -8,7 +8,7 @@ function doItNTimes(value, index, array) {
 
 $.get( "input.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
-  data.trim.split(/\r?\n/).forEach(doItNTimes);
+  data.trim().split(/\r?\n/).forEach(doItNTimes);
   $('#answer span').text("Answer 1");
   $('#answer2 span').text("Answer 2");
 });
