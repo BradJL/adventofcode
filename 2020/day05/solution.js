@@ -5,7 +5,7 @@ String.prototype.replaceAt = function(index, replacement) {
   return this.substr(0, index) + replacement + this.substr(index + replacement.length);
 }  // Thanks, internet.
 
-const newline = "\\\n";
+const newline = "<br />";
 
 var seats = [];
 for( let i = 0; i < 128; ++i ){
@@ -54,5 +54,5 @@ $.get( "input.txt", function( data ) {
   data.trim().split(/\r?\n/).forEach(doItNTimes);
   $('#answer span').text(highestID);
   $('#answer2 span').text( (seats.indexOf("■□■")+1 ) );
-  $('#bonus span').text( seatingChart() );
+  $('#bonus span').html( seatingChart() );
 });
