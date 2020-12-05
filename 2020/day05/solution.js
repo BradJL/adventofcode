@@ -5,6 +5,7 @@ var seats = [];
 for( let i = 0; i < 128; ++i ){
   seats.push( "12345678 : " & i*8 );
 }
+console.log( seats );
 
 var highestID = -1;
 
