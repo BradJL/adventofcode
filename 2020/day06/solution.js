@@ -7,26 +7,21 @@ var debug = "";
 
 function doItNTimes(value, index, array) {
   let tmpstring = value.trim().replace(/[\r\n\t ]/g,"");
-  let yesses = tmpstring.split('');
+  let yesses = tmpstring.split(''); yesses.sort();
   let yessesSet = new Set( yesses );
   sum += yessesSet.size;
   
   let individuals = value.trim().split('\n');
-//   let allYesses = new Set( value.trim().replace(/[\r\n\t ]/g,"").split('') );
-  yesses.sort();
-  let i = 0;
-  let tmpsum = 0;
-//   for( let i = 0; i < yesses.length - individuals.length; ++i ){
-    
+//   let i = 0;
+//   let tmpsum = 0;
+//   while( i < (yesses.length - individuals.length) ){
+//     if( new Set( yesses.slice(i,i+individuals.length-1) ).size == 1 ){
+//       ++tmpsum;
+//       i += individuals.length - 1;
+//     } else {
+//       ++i;
+//     }
 //   }
-  while( i < (yesses.length - individuals.length) ){
-    if( new Set( yesses.slice(i,i+individuals.length-1) ).size == 1 ){
-      ++tmpsum;
-      i += individuals.length - 1;
-    } else {
-      ++i;
-    }
-  }
   
 //   while( i < (yesses.length - (individuals.length-1)) ){
 //     if( yesses[ i+individuals.length-1 ] == yesses[i] ){
