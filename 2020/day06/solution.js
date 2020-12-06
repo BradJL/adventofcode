@@ -17,7 +17,7 @@ function doItNTimes(value, index, array) {
 //   let allYesses = new Set( value.trim().replace(/[\r\n\t ]/g,"").split('') );
   yesses.sort();
   let i = 0;
-  while( i < yesses.length ){
+  while( i < (yesses.length - individuals.length) ){
     if( yesses[ i+individuals.length ] = yesses[i] ){
       i += individuals.length;
       ++sum2;
