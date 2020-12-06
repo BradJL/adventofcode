@@ -16,17 +16,17 @@ function doItNTimes(value, index, array) {
   yesses.sort();
 //  let i = 0;
   let tmpsum = 0;
-  for( let i = 0; i < yesses.length - individuals.length; ++i ){
+//   for( let i = 0; i < yesses.length - individuals.length; ++i ){
     
-  }
-//   while( i < (yesses.length - individuals.length) ){
-//     if( new Set( yesses.slice(i,i+individuals.length) ).size == 1 ){
-//       ++tmpsum;
-//       i += individuals.length - 1;
-//     } else {
-//       ++i;
-//     }
 //   }
+  while( i < (yesses.length - individuals.length) ){
+    if( new Set( yesses.slice(i,i+individuals.length-1) ).size == 1 ){
+      ++tmpsum;
+      i += individuals.length - 1;
+    } else {
+      ++i;
+    }
+  }
   
 //   while( i < (yesses.length - (individuals.length-1)) ){
 //     if( yesses[ i+individuals.length-1 ] == yesses[i] ){
