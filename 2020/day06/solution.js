@@ -22,8 +22,8 @@ function doItNTimes(value, index, array) {
   let i = 0;
   let tmpsum = 0
   while( i < (yesses.length - individuals.length) ){
-    if( yesses[ i+individuals.length ] == yesses[i] ){
-      i += individuals.length;
+    if( yesses[ i+individuals.length-1 ] == yesses[i] ){
+      i += individuals.length-1;
       ++tmpsum;
     } else{ 
       ++i;
