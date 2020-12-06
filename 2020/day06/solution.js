@@ -13,7 +13,7 @@ function doItNTimes(value, index, array) {
   
   let individuals = value.trim().split('\n');
 //   let i = 0;
-//   let tmpsum = 0;
+  let tmpsum = 0;
 //   while( i < (yesses.length - individuals.length) ){
 //     if( new Set( yesses.slice(i,i+individuals.length-1) ).size == 1 ){
 //       ++tmpsum;
