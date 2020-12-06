@@ -6,58 +6,26 @@ var sum2 = 0;
 var debug = "";
 
 function doItNTimes(value, index, array) {
-  let tmpstring = value.trim().replace(/[\r\n\t ]/g,"");
-  let yesses = tmpstring.split(''); yesses.sort();
+  let yesses = value.trim().replace(/[\r\n\t ]/g,"").split(''); yesses.sort();
   let yessesString = yesses.join().replace(/,/g,'');
   let yessesSet = new Set( yesses );
+  
+  // part 1
   sum += yessesSet.size;
   
   let individuals = value.trim().split('\n');
   let union = individuals
   let tmpsum = 0;
   
+  // part 2
   yessesSet.forEach(yes => {
-    //console.log(`Hey ${yes}!`);
-    console.log(yes);
     if( yessesString.match(new RegExp(yes, "g")).length == individuals.length ){
       ++tmpsum;
     }
   });
-//   for( let i = 0; i < yessesSet.size; ++i ){
-//     if( yessesString.match(new RegExp(yessesSet[i], "g")).length == individuals.length ){
-//       ++tmpsum;
-//     }
-//   }
-//   while( i < (yesses.length - individuals.length) ){
-//     if( new Set( yesses.slice(i,i+individuals.length-1) ).size == 1 ){
-//       ++tmpsum;
-//       i += individuals.length - 1;
-//     } else {
-//       ++i;
-//     }
-//   }
-  
-//   while( i < (yesses.length - (individuals.length-1)) ){
-//     if( yesses[ i+individuals.length-1 ] == yesses[i] ){
-//       i += individuals.length-1;
-//       ++tmpsum;
-//     } else{ 
-//       ++i;
-//     }
-//   }
-  debug += (tmpsum + "(" + individuals.length + ")" + ": [" + tmpstring + "] " + yesses.join().replace(/,/g,"") + "<br />" )
+
+  //debug += (tmpsum + "(" + individuals.length + ")" + ": " + yesses.join().replace(/,/g,"") + "<br />" )
   sum2 += tmpsum;
-  
-//   if( individuals.length == 1 ){ sum2 += individuals[0].length; return; }
-  
-//   let groupYesses = individuals[0].split;
-//   for( let i = 1; i < individuals.length; ++i ){
-//     groupYesses = _.intersection( groupYesses, individuals[i] );
-//   }
-//   //let groupYesses = _.intersection( individuals );
-//   sum2 += groupYesses.length;
-  
-  
 }
 
 $.get( "input.txt", function( data ) {
