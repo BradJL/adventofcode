@@ -19,7 +19,7 @@ function doItNTimes(value, index, array) {
 //     groupYesses = intersect( groupYesses, individuals[i] );
 //   }
   let groupYesses = _.intersection( individuals );
-  sum2 = groupYesses.length;
+  sum2 += groupYesses.length;
 }
 
 $.get( "input.txt", function( data ) {
