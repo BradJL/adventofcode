@@ -14,7 +14,7 @@ function doItNTimes(value, index, array) {
   let individuals = value.trim().split('\n');
 //   let allYesses = new Set( value.trim().replace(/[\r\n\t ]/g,"").split('') );
   yesses.sort();
-//  let i = 0;
+  let i = 0;
   let tmpsum = 0;
 //   for( let i = 0; i < yesses.length - individuals.length; ++i ){
     
