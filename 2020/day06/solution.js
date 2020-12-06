@@ -20,15 +20,15 @@ function doItNTimes(value, index, array) {
 //   let allYesses = new Set( value.trim().replace(/[\r\n\t ]/g,"").split('') );
   yesses.sort();
   let i = 0;
-  let tmpsum = 0
-  while( i < (yesses.length - (individuals.length-1)) ){
-    if( yesses[ i+individuals.length-1 ] == yesses[i] ){
-      i += individuals.length-1;
-      ++tmpsum;
-    } else{ 
-      ++i;
-    }
-  }
+  let tmpsum = 0;
+//   while( i < (yesses.length - (individuals.length-1)) ){
+//     if( yesses[ i+individuals.length-1 ] == yesses[i] ){
+//       i += individuals.length-1;
+//       ++tmpsum;
+//     } else{ 
+//       ++i;
+//     }
+//   }
   debug += (tmpsum + "(" + individuals.length + ")" + ": [" + tmpstring + "] " + yesses.join().replace(/,/g,"") + "<br />" )
   sum2 += tmpsum;
   
