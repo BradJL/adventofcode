@@ -8,12 +8,19 @@ var debug = "";
 function doItNTimes(value, index, array) {
   let tmpstring = value.trim().replace(/[\r\n\t ]/g,"");
   let yesses = tmpstring.split(''); yesses.sort();
+  let yessesString = yessesString.join().replace(/,/g,'');
   let yessesSet = new Set( yesses );
   sum += yessesSet.size;
   
   let individuals = value.trim().split('\n');
-//   let i = 0;
+  let union = individuals
   let tmpsum = 0;
+  
+  for( let i = 0; i < yessesSet.size; ++i ){
+    if( yessesString.match(new RegExp(yessesSet[i], "g")).length == individuals.length ){
+      ++tmpsum;
+    }
+  }
 //   while( i < (yesses.length - individuals.length) ){
 //     if( new Set( yesses.slice(i,i+individuals.length-1) ).size == 1 ){
 //       ++tmpsum;
