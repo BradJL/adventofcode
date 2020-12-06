@@ -20,7 +20,7 @@ function doItNTimes(value, index, array) {
     
 //   }
   while( i < (yesses.length - individuals.length) ){
-    if( new Set( yesses.slice(i,i+individuals.length-1) ).size == 1 ){
+    if( new Set( yesses.slice(i,i+individuals.length) ).size == 1 ){
       ++tmpsum;
       i += individuals.length - 1;
     } else {
