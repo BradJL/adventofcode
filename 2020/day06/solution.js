@@ -14,10 +14,11 @@ function doItNTimes(value, index, array) {
   sum += yesses.size;
   
   let individuals = value.trim().split('\n');
-  let groupYesses = individuals[0].split;
-  for( let i = 1; i < individuals.length; ++i ){
-    groupYesses = intersect( groupYesses, individuals[i] );
-  }
+//   let groupYesses = individuals[0].split;
+//   for( let i = 1; i < individuals.length; ++i ){
+//     groupYesses = intersect( groupYesses, individuals[i] );
+//   }
+  let groupYesses = _.intersection( individuals );
   sum2 = groupYesses.length;
 }
 
