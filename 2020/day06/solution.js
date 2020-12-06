@@ -19,6 +19,9 @@ function doItNTimes(value, index, array) {
   yessesSet.forEach(yes => {
     //console.log(`Hey ${yes}!`);
     console.log(yes);
+    if( yessesString.match(new RegExp(yes, "g")).length == individuals.length ){
+      ++tmpsum;
+    }
   });
 //   for( let i = 0; i < yessesSet.size; ++i ){
 //     if( yessesString.match(new RegExp(yessesSet[i], "g")).length == individuals.length ){
