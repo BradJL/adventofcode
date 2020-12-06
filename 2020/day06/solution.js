@@ -19,8 +19,8 @@ function doItNTimes(value, index, array) {
 //   for( let i = 0; i < yesses.length - individuals.length; ++i ){
     
 //   }
-  while( i < (yesses.length - individuals.length) ){
-    if( new Set( yesses.slice(i,i+individuals.length-1) ).size == 1 ){
+  while( i < (yesses.length - individuals.length - 1) ){
+    if( new Set( yesses.slice(i,i+individuals.length) ).size == 1 ){
       ++tmpsum;
       i += individuals.length - 1;
     } else {
