@@ -16,11 +16,14 @@ function doItNTimes(value, index, array) {
   let union = individuals
   let tmpsum = 0;
   
-  for( let i = 0; i < yessesSet.size; ++i ){
-    if( yessesString.match(new RegExp(yessesSet[i], "g")).length == individuals.length ){
-      ++tmpsum;
-    }
-  }
+  yessesSet.forEach(yes => {
+    console.log(`Hey ${yes}!`);
+  });
+//   for( let i = 0; i < yessesSet.size; ++i ){
+//     if( yessesString.match(new RegExp(yessesSet[i], "g")).length == individuals.length ){
+//       ++tmpsum;
+//     }
+//   }
 //   while( i < (yesses.length - individuals.length) ){
 //     if( new Set( yesses.slice(i,i+individuals.length-1) ).size == 1 ){
 //       ++tmpsum;
