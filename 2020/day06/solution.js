@@ -8,23 +8,28 @@ function intersect(a, b) {
 
 var sum = 0;
 var sum2 = 0;
+var debug = "";
 
 function doItNTimes(value, index, array) {
-  let yesses = /*new Set(*/ value.trim().replace(/[\r\n\t ]/g,"").split('') //);
+  let tmpstring = value.trim().replace(/[\r\n\t ]/g,"");
+  let yesses = /*new Set(*/ tmpstring.split('') //);
   sum += (new Set( yesses )).size;
   
   let individuals = value.trim().split('\n');
 //   let allYesses = new Set( value.trim().replace(/[\r\n\t ]/g,"").split('') );
   yesses.sort();
   let i = 0;
+  let tmpsum = 0
   while( i < (yesses.length - individuals.length) ){
     if( yesses[ i+individuals.length ] = yesses[i] ){
       i += individuals.length;
-      ++sum2;
+      ++tmpsum;
     } else{ 
       ++i;
     }
   }
+  debug += (tmpsum + ": " + tmpstring + "<br />" )
+  sum2 += tmpsum;
   
   
 //   if( individuals.length == 1 ){ sum2 += individuals[0].length; return; }
@@ -44,5 +49,5 @@ $.get( "input.txt", function( data ) {
   data.trim().split(/\n\n/).forEach(doItNTimes);
   $('#answer span').text( sum );
   $('#answer2 span').text( sum2 );
-  //$('#bonus span').html(  );
+  $('#bonus span').html( debug );
 });
