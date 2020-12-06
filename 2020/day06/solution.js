@@ -1,11 +1,6 @@
 $('#answer span').text('Calculating...');
 $('#answer2 span').text('Calculating...');
 
-// function intersect(a, b) {
-//   var setB = new Set(b);
-//   return [...new Set(a)].filter(x => setB.has(x));
-// } // Thanks, internet
-
 var sum = 0;
 var sum2 = 0;
 var debug = "";
