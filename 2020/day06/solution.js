@@ -14,6 +14,9 @@ function doItNTimes(value, index, array) {
   sum += yesses.size;
   
   let individuals = value.trim().split('\n');
+  
+  if( individuals.length == 1 ){ sum2 += individuals[0].length; return; }
+  
   let groupYesses = individuals[0].split;
   for( let i = 1; i < individuals.length; ++i ){
     groupYesses = _.intersection( groupYesses, individuals[i] );
