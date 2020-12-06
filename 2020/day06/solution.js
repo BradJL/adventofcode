@@ -12,8 +12,9 @@ var debug = "";
 
 function doItNTimes(value, index, array) {
   let tmpstring = value.trim().replace(/[\r\n\t ]/g,"");
-  let yesses = /*new Set(*/ tmpstring.split('') //);
-  sum += (new Set( yesses )).size;
+  let yesses = tmpstring.split('');
+  let yessesSet = new Set( yesses );
+  sum += yessesSet.size;
   
   let individuals = value.trim().split('\n');
 //   let allYesses = new Set( value.trim().replace(/[\r\n\t ]/g,"").split('') );
@@ -21,14 +22,14 @@ function doItNTimes(value, index, array) {
   let i = 0;
   let tmpsum = 0
   while( i < (yesses.length - individuals.length) ){
-    if( yesses[ i+individuals.length ] = yesses[i] ){
+    if( yesses[ i+individuals.length ] == yesses[i] ){
       i += individuals.length;
       ++tmpsum;
     } else{ 
       ++i;
     }
   }
-  debug += (tmpsum + "(" + individuals.length + ")" + ": " + yesses.join().replace(/,/g,"") + "<br />" )
+  debug += (tmpsum + "(" + individuals.length + ")" + ": [" + tmpstring + "] " + yesses.join().replace(/,/g,"") + "<br />" )
   sum2 += tmpsum;
   
 //   if( individuals.length == 1 ){ sum2 += individuals[0].length; return; }
