@@ -28,7 +28,7 @@ function doItNTimes(value, index, array) {
       ++i;
     }
   }
-  debug += (tmpsum + "(" + individuals.length + ")" + ": " + ''.concatenate(yesses) + "<br />" )
+  debug += (tmpsum + "(" + individuals.length + ")" + ": " + ''.concat(yesses) + "<br />" )
   sum2 += tmpsum;
   
 //   if( individuals.length == 1 ){ sum2 += individuals[0].length; return; }
