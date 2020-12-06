@@ -1,6 +1,10 @@
 $('#answer span').text('Calculating...');
 $('#answer2 span').text('Calculating...');
 
+var filteredArray = array1.filter(function(n) {
+    return array2.indexOf(n) !== -1;
+}); // Thanks, internet!
+
 var sum = 0;
 var sum2 = 0;
 
