@@ -5,7 +5,7 @@ var sum = 0;
 
 function doItNTimes(value, index, array) {
   let yesses = new Set( value.trim().replace(/[\r\n\t ]/g,"").split('') );
-  sum += yesses.size();
+  sum += yesses.size;
 }
 
 $.get( "input.txt", function( data ) {
