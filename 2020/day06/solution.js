@@ -26,6 +26,6 @@ $.get( "input.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
   data.trim().split(/\n\n/).forEach(doItNTimes);
   $('#answer span').text( sum );
-  //$('#answer2 span').text(  );
+  $('#answer2 span').text( sum2 );
   //$('#bonus span').html(  );
 });
