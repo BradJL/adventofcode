@@ -1,10 +1,10 @@
 $('#answer span').text('Calculating...');
 $('#answer2 span').text('Calculating...');
 
-function intersect(a, b) {
-  var setB = new Set(b);
-  return [...new Set(a)].filter(x => setB.has(x));
-} // Thanks, internet
+// function intersect(a, b) {
+//   var setB = new Set(b);
+//   return [...new Set(a)].filter(x => setB.has(x));
+// } // Thanks, internet
 
 var sum = 0;
 var sum2 = 0;
@@ -28,7 +28,7 @@ function doItNTimes(value, index, array) {
       ++i;
     }
   }
-  debug += (tmpsum + "(" + individuals.length + ")" + ": " + ''.concat(yesses) + "<br />" )
+  debug += (tmpsum + "(" + individuals.length + ")" + ": " + yesses.join().replace(/,/g,"") + "<br />" )
   sum2 += tmpsum;
   
 //   if( individuals.length == 1 ){ sum2 += individuals[0].length; return; }
