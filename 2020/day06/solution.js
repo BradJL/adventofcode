@@ -8,7 +8,7 @@ var debug = "";
 function doItNTimes(value, index, array) {
   let tmpstring = value.trim().replace(/[\r\n\t ]/g,"");
   let yesses = tmpstring.split(''); yesses.sort();
-  let yessesString = yessesString.join().replace(/,/g,'');
+  let yessesString = yesses.join().replace(/,/g,'');
   let yessesSet = new Set( yesses );
   sum += yessesSet.size;
   
