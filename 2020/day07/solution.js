@@ -43,10 +43,10 @@ function innerBags( bag, data ){
       num = parseInt((item.match(/[0-9]+/))[0]);
       newBag = (item.match(/[a-z]+ [a-z ]*bag/))[0];
       console.log( num + " x " + newBag );
-      add = num * innerBags(newBag, data);
+      add = num + num * innerBags(newBag, data);
       //console.log( num + " x " + newBag )
     } catch(e){
-      add = 1;
+      add = 0;
       //console.log( 1 )
     }
     //console.log( "num: " + num );
