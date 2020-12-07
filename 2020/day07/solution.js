@@ -1,8 +1,8 @@
 $('#answer span').text('Calculating...');
 $('#answer2 span').text('Calculating...');
 
-let bagArray = [ "shiny gold bag" ];
-let bagSet = new Set( bagArray );
+var bagArray = [ "shiny gold bag" ];
+var bagSet = new Set( bagArray );
 var input = "";
 
 function add( value ) {
