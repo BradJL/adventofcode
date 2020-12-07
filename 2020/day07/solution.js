@@ -23,13 +23,13 @@ function outerBags( data ){
         add(item);
       });
     }
+  let bonusTxt = "";
 //   bagsSet.forEach(function(item) {
 //     bonusTxt += (item + "<br />");
 //   });
   //$('#bonus span').html( bonusTxt );
   }
   $('#answer span').text( bagsSet.size - 1);
-  let bonusTxt = "";
 }
 
 $.get( "input.txt", function( data ) {
