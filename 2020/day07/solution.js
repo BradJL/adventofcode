@@ -30,6 +30,6 @@ $.get( "input.txt", function( data ) {
   let bonusTxt = "";
   bagsSet.forEach(function(item) {
     bonusTxt += (item + "<br />");
-  }
+  });
   $('#bonus span').html( "[" + bonusTxt + "]" );
 });
