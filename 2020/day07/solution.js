@@ -42,6 +42,7 @@ function innerBags( bag, data ){
     } catch(e){
     }
   });
+  console.log( "total: " + total );
   return total;
 }
 
