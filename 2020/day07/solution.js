@@ -37,7 +37,7 @@ function innerBags( bag, data ){
   newBags[0].replace( bag + "s contain ", '' ).replace( '\.', '' ).split(/,/).forEach(function(item) {
     console.log( item );
     total += parseInt((item.match(/[0-9]+/))[0])
-             * (item.match(/[a-z]+ [a-z ]*bag/))[0];
+             * innerBags((item.match(/[a-z]+ [a-z ]*bag/))[0], data);
   });
   return total;
 }
