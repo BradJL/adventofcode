@@ -33,8 +33,10 @@ function outerBags( data ){
 
 function innerBags( bag, data ){
   let newBags = data.match( new RegExp( bag + "s contain.*", 'g' ) );
-  return newBags[0].replace( bag + "s contain ", '' ).replace( '\.', '' ).split(/,/);
-  //return newBags[0];
+  newBags[0].replace( bag + "s contain ", '' ).replace( '\.', '' ).split(/,/).forEach(function(item) {
+    console.log( item );
+  });
+  return newBags[0];
 }
 
 $.get( "input.txt", function( data ) {
