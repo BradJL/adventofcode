@@ -18,9 +18,12 @@ $.get( "input.txt", function( data ) {
   while( bagsArray.length ){
     let bag = bagsArray.pop();
     console.log( bag );
-    data.match( new RegExp( ".*contain.*" + bag, 'g' ) ).forEach(function(item) {
-      add(item);
-    });
+    let newBags = data.match( new RegExp( ".*contain.*" + bag, 'g' ) )
+    if( newBags ){
+      newBags.forEach(function(item) {
+        add(item);
+      });
+    }
   }
   $('#answer span').text( bagsSet.size );
   //$('#answer2 span').text(  );
