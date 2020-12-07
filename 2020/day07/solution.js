@@ -31,11 +31,12 @@ function outerBags( data ){
   $('#answer span').text( bagsSet.size - 1);
 }
 
-function innerBags( data ){
+function innerBags( bag, data ){
+  return 0;
 }
 
 $.get( "input.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
   outerBags( data );
-  //$('#answer2 span').text(  );
+  $('#answer2 span').text( innerBags( "shiny gold bag", data ) );
 });
