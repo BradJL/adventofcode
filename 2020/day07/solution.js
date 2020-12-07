@@ -1,16 +1,16 @@
 $('#answer span').text('Calculating...');
 $('#answer2 span').text('Calculating...');
 
-var bagArray = [ "shiny gold bag" ];
-var bagSet = new Set( bagArray );
+var bagsArray = [ "shiny gold bag" ];
+var bagsSet = new Set( bagsArray );
 var input = "";
 
 function add( value ) {
   value = value.replace(/s* contain/);
-  let tmpSize = bagSet.size;
-  bagSet.add( value );
-  if( bagSet.size > tmpSize ){
-    bagArray.push( value );
+  let tmpSize = bagsSet.size;
+  bagsSet.add( value );
+  if( bagsSet.size > tmpSize ){
+    bagsArray.push( value );
   }
 }
 
@@ -24,6 +24,6 @@ while( bagsArray.size() ){
     add(item);
   });
 }
-$('#answer span').text( bagSet.size );
+$('#answer span').text( bagsSet.size );
 //$('#answer2 span').text(  );
-$('#bonus span').html( bagSet );
+$('#bonus span').html( bagsSet );
