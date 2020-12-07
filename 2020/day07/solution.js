@@ -32,7 +32,8 @@ function outerBags( data ){
 }
 
 function innerBags( bag, data ){
-  let newBags = data.match( new RegExp( bag + "s contain.*", 'g' ) )
+  let newBags = data.match( new RegExp( bag + "s contain.*", 'g' ) );
+  return newBags.replace( bag + "s contain ", '' ).replace( '\.', '' );
   return newBags[0];
 }
 
