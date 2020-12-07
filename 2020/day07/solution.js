@@ -31,6 +31,5 @@ $.get( "input.txt", function( data ) {
   Array.from(bagsSet)).forEach(function(item) {
     bonusTxt += (item + "<br />");
   }
-  
-  $('#bonus span').html( "[" +  + "]" );
+  $('#bonus span').html( "[" + bonusTxt + "]" );
 });
