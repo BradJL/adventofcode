@@ -32,11 +32,13 @@ function outerBags( data ){
 }
 
 function innerBags( bag, data ){
+  let total = 0;
   let newBags = data.match( new RegExp( bag + "s contain.*", 'g' ) );
   newBags[0].replace( bag + "s contain ", '' ).replace( '\.', '' ).split(/,/).forEach(function(item) {
     console.log( item );
+    total += parseInt( item.match( /[0-9]+/ )[0] ) * item.match( /[a-z]+ [a-z ]*bag/ )[0] );
   });
-  return newBags[0];
+  return total;
 }
 
 $.get( "input.txt", function( data ) {
