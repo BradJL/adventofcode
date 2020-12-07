@@ -37,12 +37,15 @@ function innerBags( bag, data ){
   newBags[0].replace( bag + "s contain ", '' ).replace( '\.', '' ).split(/,/).forEach(function(item) {
     console.log( item );
     try{
-      total += parseInt((item.match(/[0-9]+/))[0])
-               * innerBags((item.match(/[a-z]+ [a-z ]*bag/))[0], data);
+      let num = parseInt((item.match(/[0-9]+/))[0]);
+      let newBag = (item.match(/[a-z]+ [a-z ]*bag/))[0];
+      total += num * innerBags(newBag, data);
+      console.log( "num: " + num );
+      console.log( "newBag: " + newBag );
+      console.log( "total: " + total );
     } catch(e){
     }
   });
-  console.log( "total: " + total );
   return total;
 }
 
