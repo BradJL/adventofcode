@@ -13,8 +13,7 @@ function add( value ) {
   }
 }
 
-$.get( "input.txt", function( data ) {
-  $('#input span').text('(Bytes: ' + (data.length) + ')');
+function outerBags( data ){
   while( bagsArray.length ){
     let bag = bagsArray.pop();
     console.log( bag );
@@ -24,13 +23,18 @@ $.get( "input.txt", function( data ) {
         add(item);
       });
     }
-  }
-  $('#answer span').text( bagsSet.size - 1);
-  //$('#answer2 span').text(  );
-  let bonusTxt = "";
-  //bagsSet.sort();
 //   bagsSet.forEach(function(item) {
 //     bonusTxt += (item + "<br />");
 //   });
   //$('#bonus span').html( bonusTxt );
+  }
+  $('#answer span').text( bagsSet.size - 1);
+  let bonusTxt = "";
+}
+
+$.get( "input.txt", function( data ) {
+  $('#input span').text('(Bytes: ' + (data.length) + ')');
+  outerBags( data );
+  //$('#answer2 span').text(  );
+  //bagsSet.sort();
 });
