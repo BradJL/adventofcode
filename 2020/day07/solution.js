@@ -5,7 +5,7 @@ var bagsArray = [ "shiny gold bag" ];
 var bagsSet = new Set( bagsArray );
 
 function add( value ) {
-  let bag = value.replace(/s* contain.*/);
+  let bag = value.replace(/s* contain.*/,"");
   let tmpSize = bagsSet.size;
   bagsSet.add( bag );
   if( bagsSet.size > tmpSize ){
