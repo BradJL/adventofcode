@@ -15,7 +15,6 @@ function outerBags( data ){
   let bagsSet = new Set( bagsArray );
   while( bagsArray.length ){
     let bag = bagsArray.pop();
-    //console.log( bag );
     let newBags = data.match( new RegExp( ".*contain.*" + bag, 'g' ) )
     if( newBags ){
       newBags.forEach(function(item) {
@@ -35,26 +34,18 @@ function innerBags( bag, data ){
   let total = 0;
   let newBags = data.match( new RegExp( bag + "s contain.*", 'g' ) );
   newBags[0].replace( bag + "s contain ", '' ).replace( '\.', '' ).split(/,/).forEach(function(item) {
-    //console.log( item );
-      let num;
-      let newBag;
-      let add;
+    let num;
+    let newBag;
+    let add;
     try{
       num = parseInt((item.match(/[0-9]+/))[0]);
       newBag = (item.match(/[a-z]+ [a-z ]*bag/))[0];
-      console.log( num + " x " + newBag );
       add = num + num * innerBags(newBag, data);
-      //console.log( num + " x " + newBag )
     } catch(e){
       add = 0;
-      //console.log( 1 )
     }
-    //console.log( "num: " + num );
-    //console.log( "newBag: " + newBag );
-    //console.log( "add: " + add );
     total += add;
   });
-  console.log( total );
   return total;
 }
 
