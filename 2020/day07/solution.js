@@ -20,7 +20,7 @@ $.get( "input.txt", function( data ) {
 });
 
 while( bayArray.size() ){
-  input.match( new RegEx( ".*contain.*shiny gold bag", 'g' ).forEach(function(item) {
+  input.match( new RegEx( ".*contain.*shiny gold bag", 'g' ) ).forEach(function(item) {
     add(item);
   });
 }
