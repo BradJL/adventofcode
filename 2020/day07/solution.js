@@ -15,7 +15,7 @@ function outerBags( data ){
   let bagsSet = new Set( bagsArray );
   while( bagsArray.length ){
     let bag = bagsArray.pop();
-    console.log( bag );
+    //console.log( bag );
     let newBags = data.match( new RegExp( ".*contain.*" + bag, 'g' ) )
     if( newBags ){
       newBags.forEach(function(item) {
@@ -32,7 +32,7 @@ function outerBags( data ){
 }
 
 function innerBags( bag, data ){
-  let newBags = data.match( new RegExp( bag + "s contain.*" + bag, 'g' ) )
+  let newBags = data.match( new RegExp( bag + "s contain.*", 'g' ) )
   return newBags[0];
 }
 
