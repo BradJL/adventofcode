@@ -32,8 +32,8 @@ function outerBags( data ){
 }
 
 function innerBags( bag, data ){
-  let newBags = data.match( new RegExp( bag + "s contain.*" + bag, '' ) )
-  return newBags;
+  let newBags = data.match( new RegExp( bag + "s contain.*" + bag, 'g' ) )
+  return newBags[0];
 }
 
 $.get( "input.txt", function( data ) {
