@@ -28,7 +28,7 @@ $.get( "input.txt", function( data ) {
   $('#answer span').text( bagsSet.size );
   //$('#answer2 span').text(  );
   let bonusTxt = "";
-  Array.from(bagsSet)).forEach(function(item) {
+  bagsSet.forEach(function(item) {
     bonusTxt += (item + "<br />");
   }
   $('#bonus span').html( "[" + bonusTxt + "]" );
