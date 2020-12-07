@@ -27,7 +27,10 @@ $.get( "input.txt", function( data ) {
   }
   $('#answer span').text( bagsSet.size );
   //$('#answer2 span').text(  );
-  $('#bonus span').html( "[" + (Array.from(bagsSet)).forEach(function(item) {
-        return item + "<br />";
-      }) + "]" );
+  let bonusTxt = "";
+  Array.from(bagsSet)).forEach(function(item) {
+    bonusTxt += (item + "<br />");
+  }
+  
+  $('#bonus span').html( "[" +  + "]" );
 });
