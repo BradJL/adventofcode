@@ -36,8 +36,11 @@ function innerBags( bag, data ){
   let newBags = data.match( new RegExp( bag + "s contain.*", 'g' ) );
   newBags[0].replace( bag + "s contain ", '' ).replace( '\.', '' ).split(/,/).forEach(function(item) {
     console.log( item );
-    total += parseInt((item.match(/[0-9]+/))[0])
-             * innerBags((item.match(/[a-z]+ [a-z ]*bag/))[0], data);
+    try{
+      total += parseInt((item.match(/[0-9]+/))[0])
+               * innerBags((item.match(/[a-z]+ [a-z ]*bag/))[0], data);
+    } catch(e){
+    }
   });
   return total;
 }
