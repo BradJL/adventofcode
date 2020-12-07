@@ -9,7 +9,7 @@ function add( value ) {
   let tmpSize = bagsSet.size;
   bagsSet.add( bag );
   if( bagsSet.size > tmpSize ){
-    bagsArray.concat( bag );
+    bagsArray.push( bag );
   }
 }
 
