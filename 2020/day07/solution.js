@@ -44,6 +44,7 @@ function innerBags( bag, data ){
       console.log( "newBag: " + newBag );
       console.log( "total: " + total );
     } catch(e){
+      total += 1;
     }
   });
   return total;
