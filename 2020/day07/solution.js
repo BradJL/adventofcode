@@ -27,7 +27,7 @@ $.get( "input.txt", function( data ) {
   }
   $('#answer span').text( bagsSet.size );
   //$('#answer2 span').text(  );
-  $('#bonus span').html( "[" + bagsSet.foreach(function(item) {
+  $('#bonus span').html( "[" + (Array.from(bagsSet)).foreach(function(item) {
         return item + "<br />";
       }) + "]" );
 });
