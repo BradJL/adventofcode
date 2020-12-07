@@ -21,6 +21,7 @@ $.get( "input.txt", function( data ) {
 
 while( bagsArray.length ){
   let bag = bagsArray.pop();
+  console.log( bag );
   input.match( new RegExp( ".*contain.*" + bag, 'g' ) ).forEach(function(item) {
     add(item);
   });
