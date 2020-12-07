@@ -28,8 +28,9 @@ $.get( "input.txt", function( data ) {
   $('#answer span').text( bagsSet.size );
   //$('#answer2 span').text(  );
   let bonusTxt = "";
+  bagsSet.sort();
   bagsSet.forEach(function(item) {
     bonusTxt += (item + "<br />");
   });
-  $('#bonus span').html( "[" + bonusTxt + "]" );
+  $('#bonus span').html( bonusTxt );
 });
