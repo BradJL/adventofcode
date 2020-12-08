@@ -47,12 +47,13 @@ $.get( "input.txt", function( data ) {
 
   let i = 1;
 //   let i = 0;
-//   let part2Data;
-//   do {
-//     console.log("Trying: " + i);
+  let part2Data;
+  do {
+    console.log("Trying: " + i);
     part2Data = part1( data, i );
-//     if( part2Data[0] >= data.length ){ console.log("Terminated Normally! " + part2Data[0]); }
-//   } while( part2Data[0] < data.length );
+    if( part2Data[0] >= data.length ){ console.log("Terminated Normally! " + part2Data[0]); }
+    ++i;
+  } while( part2Data[0] < data.length );
   $('#answer2 span').text( part2Data[1] );
   $('#bonus span').html( part2Data[0] + " == " + data.length );
 });
