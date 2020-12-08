@@ -21,6 +21,7 @@ function part1(data) {
       break;
     }
     line += increment;
+    console.log( "Next line: " + line );
   }
   $('#answer span').text( acc );
 }
