@@ -8,9 +8,11 @@ function part1(data) {
   let increment = 0;
   
   while( !visitedLines.has( line ) ){
-    console.log(line);
+//     console.log(line);
     visitedLines.add( line );
-    switch( data[line].replace(/ .*$/,'') ){
+    let command = data[line].replace(/ .*$/,'');
+    console.log( line + ": " + command );
+    switch( command ){
     case "acc":
       acc += parseInt(data[line].replace(/[a-z +]/g,''));
     case "nop":
