@@ -41,7 +41,7 @@ function part1(data, changeNum) {
 $.get( "input.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
   data = data.trim().split(/\r?\n/);
-  let part1Data = part1( data, -999999 );
+  //let part1Data = part1( data, -999999 );
   $('#answer span').text( part1Data[1] );
   $('#bonus span').html( part1Data[0] );
 
