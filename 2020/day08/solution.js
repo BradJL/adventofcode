@@ -27,6 +27,7 @@ function part1(data) {
 $.get( "input.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
   data.trim().split(/\r?\n/);//.forEach(doItNTimes);
+  part1( data );
   //$('#answer span').text(  );
   //$('#answer2 span').text(  );
   //$('#bonus span').html(  );
