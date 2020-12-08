@@ -1,7 +1,7 @@
 $('#answer span').text('Calculating...');
 $('#answer2 span').text('Calculating...');
 
-function part1(data, changeNum) {
+function process(data, changeNum) {
   let acc = 0;
   let line = 0;
   let visitedLines = new Set();
@@ -17,7 +17,6 @@ function part1(data, changeNum) {
         command = "jmp";
       }
     }
-    //console.log( line + ": " + command );
     switch( command ){
     case "acc":
       acc += parseInt(data[line].replace(/[a-z +]/g,''));
@@ -33,7 +32,6 @@ function part1(data, changeNum) {
       break;
     }
     line += increment;
-    //console.log( "Next line: " + line + ", Increment was: " + increment );
   }
   return [ line, acc ];
 }
@@ -41,16 +39,15 @@ function part1(data, changeNum) {
 $.get( "input.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
   data = data.trim().split(/\r?\n/);
-  let part1Data = part1( data, 0 );
+  let part1Data = process( data, 0 );
   $('#answer span').text( part1Data[1] );
 //   $('#bonus span').html( part1Data[0] );
 
   let i = 1;
-//   let i = 0;
   let part2Data;
   do {
     console.log("Trying: " + i);
-    part2Data = part1( data, i );
+    part2Data = process( data, i );
     if( part2Data[0] >= data.length ){ console.log("Terminated Normally! " + part2Data[0]); }
     ++i;
   } while( part2Data[0] < data.length );
