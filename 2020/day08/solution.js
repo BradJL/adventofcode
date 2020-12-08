@@ -46,8 +46,9 @@ $.get( "input.txt", function( data ) {
   $('#bonus span').html( part1Data[0] );
 
   let i = 0;
+  let part2Data;
   do {
-    let part2Data = part1( data, i );
+    part2Data = part1( data, i );
   } while( part2Data[0] < data.length );
   $('#answer2 span').text( part2Data[1] );
   //$('#bonus span').html(  );
