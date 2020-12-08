@@ -1,23 +1,34 @@
 $('#answer span').text('Calculating...');
 $('#answer2 span').text('Calculating...');
 
-function part1(data) {
+function part1(data, changeNum) {
   let acc = 0;
   let line = 0;
   let visitedLines = new Set();
   let increment = 0;
-  
+  let jmpsAndNops = 0;
   while( !visitedLines.has( line ) && line < data.length ){
     visitedLines.add( line );
     let command = data[line].replace(/ .*$/,'');
+    if( changeNum == jmpsAndNops + 1 && (command == "jmp" || command == "nop" ) ){
+      if( command == "jmp" ){
+        command = "nop";
+      } else {
+        command = "jmp";
+      }
+    }
     console.log( line + ": " + command );
     switch( command ){
     case "acc":
       acc += parseInt(data[line].replace(/[a-z +]/g,''));
+      increment = 1;
+      break;
     case "nop":
+      ++jmpsAndNops;
       increment = 1;
       break;
     case "jmp":
+      ++jmpsAndNops;
       increment = parseInt(data[line].replace(/[a-z +]/g,''));
       break;
     }
@@ -30,11 +41,14 @@ function part1(data) {
 $.get( "input.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
   data = data.trim().split(/\r?\n/);
-  let part1Data = part1( data );
+  let part1Data = part1( data, -999999 );
   $('#answer span').text( part1Data[1] );
   $('#bonus span').html( part1Data[0] );
 
-  //$('#answer span').text(  );
-  //$('#answer2 span').text(  );
+  let i = 0;
+  do {
+    let part2Data = part1( data, i );
+  } while( part2Data[0] < data.length );
+  $('#answer2 span').text( part2Data[0] );
   //$('#bonus span').html(  );
 });
