@@ -10,7 +10,7 @@ function part1(data) {
   while( !visitedLines.has( line ) ){
     console.log(line);
     visitedLines.add( line );
-    switch( data[line] ){
+    switch( data[line].replace(/ .*$/,'') ){
     case "acc":
       acc += parseInt(data[line].replace(/[a-z +]/g,''));
     case "nop":
