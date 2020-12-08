@@ -21,7 +21,7 @@ function part1(data) {
       break;
     }
     line += increment;
-    console.log( "Next line: " + line );
+    console.log( "Next line: " + line + ", Increment was: " + increment );
   }
   $('#answer span').text( acc );
 }
