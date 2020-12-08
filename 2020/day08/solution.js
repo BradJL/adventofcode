@@ -54,5 +54,5 @@ $.get( "input.txt", function( data ) {
 //     if( part2Data[0] >= data.length ){ console.log("Terminated Normally! " + part2Data[0]); }
 //   } while( part2Data[0] < data.length );
   $('#answer2 span').text( part2Data[1] );
-  $('#bonus span').html( part2Data[0] + == " + data.length );
+  $('#bonus span').html( part2Data[0] + " == " + data.length );
 });
