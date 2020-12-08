@@ -7,6 +7,7 @@ function part1(data) {
   let visitedLines = new Set();
   
   while( !visitedLines.has( line ) ){
+    console.log(line);
     visitedLines.add( line );
     switch( data[line] ){
     case acc:
