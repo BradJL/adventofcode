@@ -10,12 +10,12 @@ function part1(data) {
     console.log(line);
     visitedLines.add( line );
     switch( data[line] ){
-    case acc:
+    case "acc":
       acc += parseInt(data[line].replace(/[a-z +]/g,''));
-    case nop:
+    case "nop":
       increment = 1;
       break;
-    case jmp:
+    case "jmp":
       increment = parseInt(data[line].replace(/[a-z +]/g,''));
       break;
     }
