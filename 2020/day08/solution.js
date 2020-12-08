@@ -5,6 +5,7 @@ function part1(data) {
   let acc = 0;
   let line = 0;
   let visitedLines = new Set();
+  let increment = 0;
   
   while( !visitedLines.has( line ) ){
     console.log(line);
