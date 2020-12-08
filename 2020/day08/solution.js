@@ -30,7 +30,7 @@ function part1(data) {
 
 $.get( "input.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
-  data.trim().split(/\r?\n/);//.forEach(doItNTimes);
+  data = data.trim().split(/\r?\n/);
   part1( data );
   //$('#answer span').text(  );
   //$('#answer2 span').text(  );
