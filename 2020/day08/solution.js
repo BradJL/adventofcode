@@ -7,8 +7,7 @@ function part1(data) {
   let visitedLines = new Set();
   let increment = 0;
   
-  while( !visitedLines.has( line ) ){
-//     console.log(line);
+  while( !visitedLines.has( line ) && line < data.length ){
     visitedLines.add( line );
     let command = data[line].replace(/ .*$/,'');
     console.log( line + ": " + command );
@@ -25,13 +24,16 @@ function part1(data) {
     line += increment;
     console.log( "Next line: " + line + ", Increment was: " + increment );
   }
-  $('#answer span').text( acc );
+  return [ line, acc ];
 }
 
 $.get( "input.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
   data = data.trim().split(/\r?\n/);
-  part1( data );
+  let part1Data = part1( data );
+  $('#answer span').text( part1Data[1] );
+  $('#bonus span').html( part1Data[0] );
+
   //$('#answer span').text(  );
   //$('#answer2 span').text(  );
   //$('#bonus span').html(  );
