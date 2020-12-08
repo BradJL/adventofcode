@@ -41,17 +41,16 @@ function part1(data, changeNum) {
 $.get( "input.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
   data = data.trim().split(/\r?\n/);
-  //let part1Data = part1( data, -999999 );
+  let part1Data = part1( data, -999999 );
   $('#answer span').text( part1Data[1] );
   $('#bonus span').html( part1Data[0] );
 
-  let i = 0;
-  let part2Data;
-  do {
-    console.log("Trying: " + i);
-    part2Data = part1( data, i );
-    if( part2Data[0] >= data.length ){ console.log("Terminated Normally! " + part2Data[0]); }
-  } while( part2Data[0] < data.length );
-  $('#answer2 span').text( part2Data[1] );
-  //$('#bonus span').html(  );
+//   let i = 0;
+//   let part2Data;
+//   do {
+//     console.log("Trying: " + i);
+//     part2Data = part1( data, i );
+//     if( part2Data[0] >= data.length ){ console.log("Terminated Normally! " + part2Data[0]); }
+//   } while( part2Data[0] < data.length );
+//   $('#answer2 span').text( part2Data[1] );
 });
