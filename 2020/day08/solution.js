@@ -17,7 +17,7 @@ function part1(data, changeNum) {
         command = "jmp";
       }
     }
-    console.log( line + ": " + command );
+    //console.log( line + ": " + command );
     switch( command ){
     case "acc":
       acc += parseInt(data[line].replace(/[a-z +]/g,''));
@@ -33,7 +33,7 @@ function part1(data, changeNum) {
       break;
     }
     line += increment;
-    console.log( "Next line: " + line + ", Increment was: " + increment );
+    //console.log( "Next line: " + line + ", Increment was: " + increment );
   }
   return [ line, acc ];
 }
@@ -48,7 +48,9 @@ $.get( "input.txt", function( data ) {
   let i = 0;
   let part2Data;
   do {
+    console.log("Trying: " + i);
     part2Data = part1( data, i );
+    if( part2Data[0] >= data.length ){ console.log("Terminated Normally! " + part2Data[0]); }
   } while( part2Data[0] < data.length );
   $('#answer2 span').text( part2Data[1] );
   //$('#bonus span').html(  );
