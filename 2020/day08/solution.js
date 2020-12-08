@@ -45,7 +45,7 @@ $.get( "input.txt", function( data ) {
   $('#answer span').text( part1Data[1] );
 //   $('#bonus span').html( part1Data[0] );
 
-  let 1 = 1;
+  let i = 1;
 //   let i = 0;
 //   let part2Data;
 //   do {
