@@ -6,7 +6,7 @@ function part1( data ) {
   
 //   while( curVal < data.length ){    
     let sortData = data.slice(curVal-25,curVal);
-    sortData.sort();
+    sortData.sort(function(a, b){return a-b});
     let i = 0;
     let j = 24;
     while( i != j ){
