@@ -1,7 +1,7 @@
 $('#answer span').text('Calculating...');
 $('#answer2 span').text('Calculating...');
 
-function part1( data ) {
+function parts1and2( data ) {
   let curVal = 25;
   
   while( curVal < data.length ){    
@@ -10,11 +10,11 @@ function part1( data ) {
     let i = 0;
     let j = 24;
     while( i != j ){
-      if( parseInt(sortData[i]) + parseInt(sortData[j]) == parseInt(data[curVal]) ){
+      if( sortData[i] + sortData[j] == data[curVal] ){
         console.log( "Found " + curVal );
         ++curVal;
         break;
-      } else if( parseInt(sortData[i]) + parseInt(sortData[j]) > parseInt(data[curVal]) ){
+      } else if( sortData[i] + sortData[j] > data[curVal] ){
         console.log( sortData[i] + " + " + sortData[j] + " > " + data[curVal] );
         --j;
       } else {
@@ -25,14 +25,14 @@ function part1( data ) {
     if( i == j ){
       console.log( "Didn't find " + curVal );
       for( i = 0; i < data.length; ++i ){
-        let sum = parseInt( data[i] );
-        for( j = i+1; sum < parseInt( data[curVal] ); ++j ){
-          sum += parseInt( data[j] );
+        let sum = data[i];
+        for( j = i+1; sum < data[curVal]; ++j ){
+          sum += data[j];
         }
-        if( sum == parseInt( data[curVal] ) ){
+        if( sum == data[curVal] ){
           sortData = data.slice( i, j+1 );
           sortData.sort();
-          $('#answer2 span').text( parseInt(sortData[0]) + parseInt(sortData[sortData.length-1] ) );
+          $('#answer2 span').text( sortData[0] + sortData[sortData.length-1] );
           break;
         }
       }
@@ -49,7 +49,5 @@ $.get( "input.txt", function( data ) {
     input.push( parseInt(number) )
   });
   
-  part1( input );
-  //$('#answer2 span').text(  );
-  //$('#bonus span').html(  );
+  parts1and2( input );
 });
