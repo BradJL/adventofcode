@@ -10,11 +10,11 @@ function part1( data ) {
     let i = 0;
     let j = 24;
     while( i != j ){
-      if( sortData[i] + sortData[j] == data[curVal] ){
+      if( parseInt(sortData[i]) + parseInt(sortData[j]) == parseInt(data[curVal]) ){
         console.log( "Found " + curVal );
         ++curVal;
         break;
-      } else if( sortData[i] + sortData[j] > data[curVal] ){
+      } else if( parseInt(sortData[i]) + parseInt(sortData[j]) > parseInt(data[curVal]) ){
         console.log( sortData[i] + " + " + sortData[j] + " > " + data[curVal] );
         --j;
       } else {
