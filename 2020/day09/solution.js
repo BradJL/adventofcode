@@ -24,6 +24,7 @@ function part1( data ) {
     }
     if( i == j ){
       console.log( "Didn't find " + curVal );
+      break;
     }
   }
   $('#answer span').text( data[curVal] );
