@@ -1,7 +1,7 @@
 $('#answer span').text('Calculating...');
 $('#answer2 span').text('Calculating...');
 
-function part1() {
+function part1( data ) {
   let curVal = 25;
   
   while( curVal < data.length ){
@@ -25,7 +25,7 @@ $.get( "input.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
   data = data.trim().split(/\r?\n/);
   
-  part1();
+  part1( data );
   //$('#answer2 span').text(  );
   //$('#bonus span').html(  );
 });
