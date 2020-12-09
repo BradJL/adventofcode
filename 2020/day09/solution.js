@@ -24,6 +24,18 @@ function part1( data ) {
     }
     if( i == j ){
       console.log( "Didn't find " + curVal );
+      for( i = 0; i < data.length; ++i ){
+        let sum = parseInt( data[i] );
+        for( j = i+1; sum < parseInt( data[curVal] ); ++j ){
+          sum += parseInt( data[j] );
+        }
+        if( sum == parseInt( data[curVal] ) ){
+          sortData = data.slice( i, j+1 );
+          sortData.sort();
+          $('#answer2 span').text( parseInt(sortData[0]) + parseInt(sortData[sortData.length-1] ) );
+          break;
+        }
+      }
       break;
     }
   }
