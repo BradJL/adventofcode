@@ -13,10 +13,11 @@ function part1( data ) {
     let i = 0;
     let j = 24;
     while( i != j ){
-      if( data[i] + data[j] == curVal ){
+      if( sortData[i] + sortData[j] == data[curVal] ){
+        console.log( "Found " + curVal );
         ++curVal;
         break;
-      } else if( data[i] + data[j] > curVal ){
+      } else if( sortData[i] + sortData[j] > data[curVal] ){
         --j;
       } else {
         ++i;
