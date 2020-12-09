@@ -4,10 +4,7 @@ $('#answer2 span').text('Calculating...');
 function part1( data ) {
   let curVal = 25;
   
-  while( curVal < data.length ){
-//     let i = curVal - 25
-//     let j = curVal - 1;
-    
+//   while( curVal < data.length ){    
     let sortData = data.slice(curVal-25,curVal);
     sortData.sort();
     let i = 0;
@@ -23,7 +20,10 @@ function part1( data ) {
         ++i;
       }
     }
-  }
+    if( i == j ){
+      console.log( "Didn't find " + curVal );
+    }
+//   }
   $('#answer span').text( data[curVal] );
 }
 
