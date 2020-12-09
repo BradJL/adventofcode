@@ -44,9 +44,12 @@ function part1( data ) {
 
 $.get( "input.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
-  data = data.trim().split(/\r?\n/);
+  let input = []
+  data.trim().split(/\r?\n/).forEach(function(number) {
+    input.push( parseInt(number) )
+  });
   
-  part1( data );
+  part1( input );
   //$('#answer2 span').text(  );
   //$('#bonus span').html(  );
 });
