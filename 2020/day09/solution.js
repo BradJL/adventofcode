@@ -5,13 +5,18 @@ function part1( data ) {
   let curVal = 25;
   
   while( curVal < data.length ){
-    let i = curVal - 25
-    let j = curVal - 1;
+//     let i = curVal - 25
+//     let j = curVal - 1;
+    
+    let sortData = data.slice(curVal-25,curVal);
+    sortData.sort();
+    let i = 0;
+    let j = 24;
     while( i != j ){
-      if( input[i] + input[j] == curVal ){
+      if( data[i] + data[j] == curVal ){
         ++curVal;
         break;
-      } else if( input[i] + input[j] > 2020 ){
+      } else if( data[i] + data[j] > curVal ){
         --j;
       } else {
         ++i;
