@@ -15,8 +15,10 @@ function part1( data ) {
         ++curVal;
         break;
       } else if( sortData[i] + sortData[j] > data[curVal] ){
+        console.log( sortData[i] + " + " + sortData[j] + " > " + data[curVal] );
         --j;
       } else {
+        console.log( sortData[i] + " + " + sortData[j] + " <= " + data[curVal] );
         ++i;
       }
     }
