@@ -1,7 +1,8 @@
 $('#answer span').text('Calculating...');
 $('#answer2 span').text('Calculating...');
 
-function doItNTimes(value, index, array) {
+function valid(data) {
+  
 }
 
 function arrangements( data, index ){
@@ -48,27 +49,9 @@ function part2( data ){
   let val = 1;
   data.push( 0 );
   data.sort(function(a, b){return a-b});
-  console.log( data );
-  let one = 0;
-  let two = 0;
-  let three = 0;
-  let i = 0
-  while( i < data.length ){
-    if( parseInt(data[i]) + 3 >= parseInt(data[i+3]) ){
-      ++three;
-      val *= 4;
-      console.log( data[i] + ":" + val );
-      i+=3;
-    } else if( parseInt(data[i]) + 3 >= parseInt(data[i+2]) ){
-      ++two;
-      val *= 2;
-      console.log( data[i] + ":" + val );
-      i+=1;
-    } else {
-      ++one;
-      console.log( data[i] + ":" + val );
-      i+=1;
-    }
+  
+  let num_in_a_row = 0; // consecutive removable numbers
+  for( let i = 0; i < data.length, ++i ){
   }
   $('#answer2 span').text( val );
   //$('#bonus span').html(  );
@@ -76,8 +59,11 @@ function part2( data ){
 
 $.get( "input2.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
-  data = data.trim().split(/\r?\n/);
+  let input = []
+  data.trim().split(/\r?\n/).forEach(function(number) {
+    input.push( parseInt(number) )
+  });
 //   data.forEach(doItNTimes);
-  //part1( data );
-  part2( data );
+  part1( input );
+  part2( input );
 });
