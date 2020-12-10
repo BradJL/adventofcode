@@ -2,8 +2,6 @@ $('#answer span').text('Calculating...');
 $('#answer2 span').text('Calculating...');
 
 function part1( data ){
-  //data.forEach(function(value, index, array) {
-  //});
   let val = 0;
   data.sort(function(a, b){return a-b});
   let one = 0;
@@ -28,8 +26,6 @@ function part1( data ){
   //$('#bonus span').html(  );
 }
 function part2( data ){
-  let arrangemnet = 0;
-  let val = 1;
   data.push( 0 );
   data.sort(function(a, b){return a-b});
   
@@ -40,7 +36,7 @@ function part2( data ){
   //$('#bonus span').html(  );
 }
 
-$.get( "input2.txt", function( data ) {
+$.get( "input.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
   data = data.trim().split(/\r?\n/);
   part1( data );
