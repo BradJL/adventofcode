@@ -51,7 +51,7 @@ function part2( data ){
         val *= 12;
         break;
       }
-      console.log(num_in_a_row + " " + val);
+      console.log(i + " " + num_in_a_row + " " + val);
       num_in_a_row = 0;
     }
   }
