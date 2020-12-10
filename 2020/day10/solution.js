@@ -7,7 +7,7 @@ function part1( data ){
   let one = 0;
   let three = 1;
   for( let i = 0; i < data.length; ++i ){
-    switch( parseInt(data[i]) - val ){
+    switch( data[i] - val ){
       case 1:
         ++one;
         //console.log( val + " => " + data[i] + " : one(" + one + ")" )
@@ -20,7 +20,7 @@ function part1( data ){
         //console.log( val + " => " + data[i] )
         break;
     }
-    val = parseInt(data[i]);
+    val = data[i];
   }
   $('#answer span').text( one * three );
   //$('#bonus span').html(  );
@@ -31,8 +31,8 @@ function part2( data ){
   data.sort(function(a, b){return a-b});
   
   let num_in_a_row = 0; // consecutive removable numbers
-  for( let i = 1; i < data.length-1; ++i ){
-    if( data[i+1] - data[i-1] < 3 ){
+  for( let i = 1; i < data.length; ++i ){
+    if( i != data.length - 1 && data[i+1] - data[i-1] < 3 ){
       ++num_in_a_row;
     } else {
       switch( num_in_a_row ){
