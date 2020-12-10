@@ -3,6 +3,20 @@ $('#answer2 span').text('Calculating...');
 
 function doItNTimes(value, index, array) {
 }
+
+function arrangements( data, index ){
+  let retVal = 0;
+  if( index < data.length && parseInt(data[index]) - parseint(data[index-1]) <= 3){
+    retVal += arrangements( data, index + 1 );
+  }
+  if( index + 1 < data.length && parseInt(data[index + 1]) - parseint(data[index-1]) <= 3){
+    retVal += arrangements( data, index + 2 );
+  }
+  if( index + 2 < data.length && parseInt(data[index + 2]) - parseint(data[index-1]) <= 3){
+    retVal += arrangements( data, index + 3 );
+  }
+  return retVal;
+}
 function part1( data ){
   //data.forEach(function(value, index, array) {
   //});
@@ -34,9 +48,10 @@ function part2( data ){
   let val = 0;
   data.sort(function(a, b){return a-b});
   console.log( data );
+  val = arrangements( data, 1 );
 //   data.forEach(function(value, index, array) {
 //   });
-  //$('#answer2 span').text(  );
+  $('#answer2 span').text( val );
   //$('#bonus span').html(  );
 }
 
