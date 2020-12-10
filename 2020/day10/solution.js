@@ -61,7 +61,7 @@ function part2( data ){
       ++one;
     }
   }
-  $('#answer2 span').text( two + three + 1 );
+  $('#answer2 span').text( three * 4 + two * 2 );
   //$('#bonus span').html(  );
 }
 
