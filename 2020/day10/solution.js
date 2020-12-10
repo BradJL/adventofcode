@@ -46,12 +46,22 @@ function part1( data ){
 function part2( data ){
   let arrangemnet = 0;
   let val = 0;
+  data.push( 0 );
   data.sort(function(a, b){return a-b});
   console.log( data );
-  val = arrangements( data, 1 );
-//   data.forEach(function(value, index, array) {
-//   });
-  $('#answer2 span').text( val );
+  let one = 0;
+  let two = 0;
+  let three = 0;
+  for( let i = 0; i < data.length; ++i ){
+    if( parseInt(data[i]) + 3 <= parseInt(data[i+3]) ){
+      ++three;
+    } else( parseInt(data[i]) + 3 <= parseInt(data[i+2]) ){
+      ++two;
+    } else( parseInt(data[i]) + 3 <= parseInt(data[i+1]) ){
+      ++one;
+    }
+  }
+  $('#answer2 span').text( two + three + 1 );
   //$('#bonus span').html(  );
 }
 
