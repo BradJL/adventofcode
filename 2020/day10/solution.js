@@ -51,7 +51,7 @@ function part2( data ){
   data.sort(function(a, b){return a-b});
   
   let num_in_a_row = 0; // consecutive removable numbers
-  for( let i = 0; i < data.length, ++i ){
+  for( let i = 0; i < data.length; ++i ){
   }
   $('#answer2 span').text( val );
   //$('#bonus span').html(  );
