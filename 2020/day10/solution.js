@@ -32,7 +32,7 @@ function part2( data ){
   
   let num_in_a_row = 0; // consecutive removable numbers
   for( let i = 1; i < data.length-1; ++i ){
-    if( data[i+1] - data[i-1] > 3 ){
+    if( data[i+1] - data[i-1] < 3 ){
       ++num_in_a_row;
     } else {
       switch( num_in_a_row ){
@@ -51,6 +51,7 @@ function part2( data ){
         val *= 12;
         break;
       }
+      console.log(num_in_a_row + " " + val);
       num_in_a_row = 0;
     }
   }
