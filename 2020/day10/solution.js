@@ -47,7 +47,6 @@ function part2( data ){
         val *= ( 7 + 5 * (num_in_a_row - 3) );
         break;
       }
-      console.log(i + " " + num_in_a_row + " " + val);
       num_in_a_row = 0;
     }
   }
