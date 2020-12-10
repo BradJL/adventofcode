@@ -9,7 +9,7 @@ function part1( data ){
   let val = 0;
   data.sort(function(a, b){return a-b});
   let one = 0;
-  let three = 0;
+  let three = 1;
   for( let i = 0; i < data.length; ++i ){
     switch( parseInt(data[i]) - val ){
       case 1:
