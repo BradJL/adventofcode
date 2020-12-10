@@ -64,6 +64,7 @@ function part2( data ){
       val *= 2;
     } else {
       ++one;
+      i+=1;
     }
   }
   $('#answer2 span').text( val );
