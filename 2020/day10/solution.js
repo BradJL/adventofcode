@@ -11,7 +11,7 @@ function part1( data ){
   let one = 0;
   let three = 0;
   for( let i = 0; i < data.length; ++i ){
-    switch( data[i] ){
+    switch( parseInt(data[i]) ){
       case 1:
         ++one;
         break;
@@ -21,7 +21,7 @@ function part1( data ){
       default:
         break;
     }
-    val = data[i];
+    val = parseInt(data[i]);
   }
   $('#answer span').text( one * three );
   //$('#bonus span').html(  );
