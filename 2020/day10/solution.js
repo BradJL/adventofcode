@@ -74,7 +74,7 @@ function part2( data ){
   //$('#bonus span').html(  );
 }
 
-$.get( "input.txt", function( data ) {
+$.get( "input2.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
   data = data.trim().split(/\r?\n/);
 //   data.forEach(doItNTimes);
