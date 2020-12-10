@@ -45,23 +45,28 @@ function part1( data ){
 }
 function part2( data ){
   let arrangemnet = 0;
-  let val = 0;
+  let val = 1;
   data.push( 0 );
   data.sort(function(a, b){return a-b});
   console.log( data );
   let one = 0;
   let two = 0;
   let three = 0;
-  for( let i = 0; i < data.length; ++i ){
+  let i = 0
+  while( i < data.length ){
     if( parseInt(data[i]) + 3 <= parseInt(data[i+3]) ){
       ++three;
+      i+=3;
+      val *= 4;
     } else if( parseInt(data[i]) + 3 <= parseInt(data[i+2]) ){
       ++two;
+      i+=1;
+      val *= 2;
     } else {
       ++one;
     }
   }
-  $('#answer2 span').text( three * 4 + two * 2 );
+  $('#answer2 span').text( val );
   //$('#bonus span').html(  );
 }
 
