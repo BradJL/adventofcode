@@ -37,6 +37,6 @@ $.get( "input.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
   data = data.trim().split(/\r?\n/);
 //   data.forEach(doItNTimes);
-//   part1( data );
+  part1( data );
 //   part2( data );
 });
