@@ -56,14 +56,17 @@ function part2( data ){
   while( i < data.length ){
     if( parseInt(data[i]) + 3 <= parseInt(data[i+3]) ){
       ++three;
-      i+=3;
       val *= 4;
+      console.log( data[i] + ":" + val );
+      i+=3;
     } else if( parseInt(data[i]) + 3 <= parseInt(data[i+2]) ){
       ++two;
-      i+=1;
       val *= 2;
+      console.log( data[i] + ":" + val );
+      i+=1;
     } else {
       ++one;
+      console.log( data[i] + ":" + val );
       i+=1;
     }
   }
