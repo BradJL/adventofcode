@@ -4,26 +4,22 @@ $('#answer2 span').text('Calculating...');
 function part1( data ){
   let val = 0;
   data.sort(function(a, b){return a-b});
-  let one = 0;
-  let three = 1;
+  let ones = 0;
+  let threes = 1;
   for( let i = 0; i < data.length; ++i ){
     switch( data[i] - val ){
       case 1:
-        ++one;
-        //console.log( val + " => " + data[i] + " : one(" + one + ")" )
-        break;
+        ++ones;
+       break;
       case 3:
-        ++three;
-        //console.log( val + " => " + data[i] + " : three(" + three + ")" )
+        ++threes;
         break;
       default:
-        //console.log( val + " => " + data[i] )
         break;
     }
     val = data[i];
   }
-  $('#answer span').text( one * three );
-  //$('#bonus span').html(  );
+  $('#answer span').text( ones * threes );
 }
 function part2( data ){
   let val = 1;
@@ -47,8 +43,8 @@ function part2( data ){
       case 3:
         val *= 7;
         break;
-      case 4:
-        val *= 12;
+      default:
+        val *= ( 7 + 5 * (num_in_a_row - 3) );
         break;
       }
       console.log(i + " " + num_in_a_row + " " + val);
