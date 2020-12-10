@@ -55,9 +55,9 @@ function part2( data ){
   for( let i = 0; i < data.length; ++i ){
     if( parseInt(data[i]) + 3 <= parseInt(data[i+3]) ){
       ++three;
-    } else( parseInt(data[i]) + 3 <= parseInt(data[i+2]) ){
+    } else if( parseInt(data[i]) + 3 <= parseInt(data[i+2]) ){
       ++two;
-    } else( parseInt(data[i]) + 3 <= parseInt(data[i+1]) ){
+    } else {
       ++one;
     }
   }
