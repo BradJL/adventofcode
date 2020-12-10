@@ -6,13 +6,13 @@ function doItNTimes(value, index, array) {
 
 function arrangements( data, index ){
   let retVal = 0;
-  if( index < data.length && parseInt(data[index]) - parseint(data[index-1]) <= 3){
+  if( index < data.length && parseInt(data[index]) - parseInt(data[index-1]) <= 3){
     retVal += arrangements( data, index + 1 );
   }
-  if( index + 1 < data.length && parseInt(data[index + 1]) - parseint(data[index-1]) <= 3){
+  if( index + 1 < data.length && parseInt(data[index + 1]) - parseInt(data[index-1]) <= 3){
     retVal += arrangements( data, index + 2 );
   }
-  if( index + 2 < data.length && parseInt(data[index + 2]) - parseint(data[index-1]) <= 3){
+  if( index + 2 < data.length && parseInt(data[index + 2]) - parseInt(data[index-1]) <= 3){
     retVal += arrangements( data, index + 3 );
   }
   return retVal;
