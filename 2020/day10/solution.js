@@ -1,23 +1,6 @@
 $('#answer span').text('Calculating...');
 $('#answer2 span').text('Calculating...');
 
-function valid(data) {
-  
-}
-
-function arrangements( data, index ){
-  let retVal = 0;
-  if( index < data.length && parseInt(data[index]) - parseInt(data[index-1]) <= 3){
-    retVal += arrangements( data, index + 1 );
-  }
-  if( index + 1 < data.length && parseInt(data[index + 1]) - parseInt(data[index-1]) <= 3){
-    retVal += arrangements( data, index + 2 );
-  }
-  if( index + 2 < data.length && parseInt(data[index + 2]) - parseInt(data[index-1]) <= 3){
-    retVal += arrangements( data, index + 3 );
-  }
-  return retVal;
-}
 function part1( data ){
   //data.forEach(function(value, index, array) {
   //});
@@ -59,11 +42,12 @@ function part2( data ){
 
 $.get( "input2.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
-  let input = []
-  data.trim().split(/\r?\n/).forEach(function(number) {
+  data = data.trim().split(/\r?\n/);
+  part1( data );
+
+  let input = [];
+  data.forEach(function(number) {
     input.push( parseInt(number) )
   });
-//   data.forEach(doItNTimes);
-  part1( input );
   part2( input );
 });
