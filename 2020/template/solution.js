@@ -1,8 +1,6 @@
 $('#answer span').text('Calculating...');
 $('#answer2 span').text('Calculating...');
 
-function doItNTimes(value, index, array) {
-}
 function part1( data ){
   data.forEach(function(value, index, array) {
   });
@@ -19,7 +17,13 @@ function part2( data ){
 $.get( "input.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
   data = data.trim().split(/\r?\n/);
-//   data.forEach(doItNTimes);
 //   part1( data );
 //   part2( data );
+  
+  let input = [];
+  data.forEach(function(number, index, array) {
+    input.push(parseInt(number))
+  });
+  part1( input );
+  part2( input );
 });
