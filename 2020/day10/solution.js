@@ -54,12 +54,12 @@ function part2( data ){
   let three = 0;
   let i = 0
   while( i < data.length ){
-    if( parseInt(data[i]) + 3 <= parseInt(data[i+3]) ){
+    if( parseInt(data[i]) + 3 >= parseInt(data[i+3]) ){
       ++three;
       val *= 4;
       console.log( data[i] + ":" + val );
       i+=3;
-    } else if( parseInt(data[i]) + 3 <= parseInt(data[i+2]) ){
+    } else if( parseInt(data[i]) + 3 >= parseInt(data[i+2]) ){
       ++two;
       val *= 2;
       console.log( data[i] + ":" + val );
