@@ -11,14 +11,17 @@ function part1( data ){
   let one = 0;
   let three = 0;
   for( let i = 0; i < data.length; ++i ){
-    switch( parseInt(data[i]) ){
+    switch( parseInt(data[i]) - val ){
       case 1:
+        console.log( val + " => " + data[i] + " : one" )
         ++one;
         break;
       case 3:
+        console.log( val + " => " + data[i] + " : three" )
         ++three;
         break;
       default:
+        console.log( val + " => " + data[i] )
         break;
     }
     val = parseInt(data[i]);
