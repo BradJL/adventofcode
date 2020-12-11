@@ -15,15 +15,21 @@ function part1(value, index, array) {
 
 function part2( data ){
   let niceStringsCount2 = 0;
-  
-  data.forEach( function(value, index, array){
+  data.forEach(function(value) {
     let pairRepeat = value.match(/(..).*\1/);
     if( pairRepeat && pairRepeat[0].length > 3 ){ pairRepeat = true; } else { pairRepeat = false };
     let charRepeatWOneCharBetwixt = value.match(/(.).*\1/);
     if( charRepeatWOneCharBetwixt && charRepeatWOneCharBetwixt[0].length > 3 ){ charRepeatWOneCharBetwixt = true; } else { charRepeatWOneCharBetwixt = false; };
     if( pairRepeat && charRepeatWOneCharBetwixt ){ ++niceStringsCount2; };
   });
-  $('#answer2 span').text( part2( niceStringsCount2 ) );
+//   data.forEach( function(value, index, array){
+//     let pairRepeat = value.match(/(..).*\1/);
+//     if( pairRepeat && pairRepeat[0].length > 3 ){ pairRepeat = true; } else { pairRepeat = false };
+//     let charRepeatWOneCharBetwixt = value.match(/(.).*\1/);
+//     if( charRepeatWOneCharBetwixt && charRepeatWOneCharBetwixt[0].length > 3 ){ charRepeatWOneCharBetwixt = true; } else { charRepeatWOneCharBetwixt = false; };
+//     if( pairRepeat && charRepeatWOneCharBetwixt ){ ++niceStringsCount2; };
+//   });
+  $('#answer2 span').text( niceStringsCount2 );
 }
 
 $.get( "input.txt", function( data ) {
@@ -32,6 +38,4 @@ $.get( "input.txt", function( data ) {
   data.forEach(part1);
   $('#answer span').text( niceStringsCount );
   part2( data );
-//   $('#answer2 span').text( part2( data ) );
-  //$('#bonus span').html(  );
 });
