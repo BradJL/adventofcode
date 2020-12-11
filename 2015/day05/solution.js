@@ -14,7 +14,9 @@ function doItNTimes(value, index, array) {
 }
 
 function part2( data ){
-  return data.match(/(..).*\1/)
+  let pairRepeat = data.match(/(..).*\1/);
+  if( pairRepeat && pairRepeat[0].length > 3 ){ pairRepeat = true; };
+  return pairRepeat;
 }
 
 $.get( "input.txt", function( data ) {
