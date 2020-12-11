@@ -10,7 +10,7 @@ function getNextSeat( data, row, column, direction, mode ){
     if( row == 0 ) return ".";
     switch( data[i-1].charAt(j) ){
     case ".":
-      if( keepGoing ) return getNextSeat( data, row-1, column, direction );
+      if( keepGoing ) return getNextSeat( data, row-1, column, direction, mode );
     case "#":
     case "L":
       return data[i-1].charAt(j);
@@ -21,7 +21,7 @@ function getNextSeat( data, row, column, direction, mode ){
     if( row == data.length - 1 ) return ".";
     switch( data[i+1].charAt(j) ){
     case ".":
-      if( keepGoing ) return getNextSeat( data, row+1, column, direction );
+      if( keepGoing ) return getNextSeat( data, row+1, column, direction, mode );
     case "#":
     case "L":
       return data[i+1].charAt(j);
@@ -32,7 +32,7 @@ function getNextSeat( data, row, column, direction, mode ){
     if( column == 0 ) return ".";
     switch( data[i].charAt(j-1) ){
     case ".":
-      if( keepGoing ) return getNextSeat( data, row, column-1, direction );
+      if( keepGoing ) return getNextSeat( data, row, column-1, direction, mode );
     case "#":
     case "L":
       return data[i].charAt(j-1);
@@ -43,7 +43,7 @@ function getNextSeat( data, row, column, direction, mode ){
     if( column == data[i].length - 1 ) return ".";
     switch( data[i].charAt(j+1) ){
     case ".":
-      if( keepGoing ) return getNextSeat( data, row, column+1, direction );
+      if( keepGoing ) return getNextSeat( data, row, column+1, direction, mode );
     case "#":
     case "L":
       return data[i].charAt(j+1);
@@ -54,7 +54,7 @@ function getNextSeat( data, row, column, direction, mode ){
     if( row == 0 || column == 0 ) return ".";
     switch( data[i-1].charAt(j-1) ){
     case ".":
-      if( keepGoing ) return getNextSeat( data, row-1, column-1, direction );
+      if( keepGoing ) return getNextSeat( data, row-1, column-1, direction, mode );
     case "#":
     case "L":
       return data[i-1].charAt(j-1);
@@ -65,7 +65,7 @@ function getNextSeat( data, row, column, direction, mode ){
     if( row == 0 || column == data[i].length - 1 ) return ".";
     switch( data[i-1].charAt(j+1) ){
     case ".":
-      if( keepGoing ) return getNextSeat( data, row-1, column+1, direction );
+      if( keepGoing ) return getNextSeat( data, row-1, column+1, direction, mode );
     case "#":
     case "L":
       return data[i-1].charAt(j+1);
@@ -76,7 +76,7 @@ function getNextSeat( data, row, column, direction, mode ){
     if( row == data.length - 1 || column == 0 ) return ".";
     switch( data[i+1].charAt(j-1) ){
     case ".":
-      if( keepGoing ) return getNextSeat( data, row+1, column-1, direction );
+      if( keepGoing ) return getNextSeat( data, row+1, column-1, direction, mode );
     case "#":
     case "L":
       return data[i+1].charAt(j-1);
@@ -87,7 +87,7 @@ function getNextSeat( data, row, column, direction, mode ){
     if( row == data.length - 1 || column == data[i].length - 1 ) return ".";
     switch( data[i+1].charAt(j+1) ){
     case ".":
-      if( keepGoing ) return getNextSeat( data, row+1, column+1, direction );
+      if( keepGoing ) return getNextSeat( data, row+1, column+1, direction, mode );
     case "#":
     case "L":
       return data[i+1].charAt(j+1);
