@@ -15,7 +15,7 @@ function part1(value, index, array) {
 
 function part2( data ){
   let niceStringsCount2 = 0;
-  data.forEach(function(value) {
+  data.forEach(function(value, index, array) {
     let pairRepeat = value.match(/(..).*\1/);
     if( pairRepeat && pairRepeat[0].length > 3 ){ pairRepeat = true; } else { pairRepeat = false };
     let charRepeatWOneCharBetwixt = value.match(/(.).*\1/);
