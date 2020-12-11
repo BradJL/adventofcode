@@ -66,7 +66,7 @@ function getNextSeat( data, row, column, direction ){
     }
     break;
   case "upRight":
-    if( row == 0 || data[i].length - 1 ) return ".";
+    if( row == 0 || column == data[i].length - 1 ) return ".";
     switch( data[i-1].charAt(j+1) ){
     case "#":
     case "L":
@@ -90,7 +90,7 @@ function getNextSeat( data, row, column, direction ){
     }
     break;
   case "downRight":
-    if( row == data.length - 1 || data[i].length - 1 ) return ".";
+    if( row == data.length - 1 || column == data[i].length - 1 ) return ".";
     switch( data[i+1].charAt(j+1) ){
     case "#":
     case "L":
