@@ -14,7 +14,7 @@ function part1( data ){
     newData = [];
     for( let i = 0; i < data.length; ++i ){
       newData.push( "" );
-      console.log( "data.length: " + data.length + " string pushed: " + newData );
+      //console.log( "data.length: " + data.length + " string pushed: " + newData );
       for( let j = 0; j < data[i].length; ++j ){
         let count = 0;
         if( data[i].charAt(j) == 'L' || data[i].charAt(j) == '#' ){
@@ -46,12 +46,12 @@ function part1( data ){
         } else {
           newData[i] = newData[i] + '.';
         }
-        console.log( "i should be 1: " + i + " data.length should be 10: " + data.length );
+        //console.log( "i should be 1: " + i + " data.length should be 10: " + data.length );
       }
-//     }
+    }
     console.log( newData );
     data = newData;
-  }  
+//   }  
   $('#answer span').text( openSeats );
   $('#bonus span').html( data );
 }
