@@ -62,8 +62,8 @@ function part2( data ){
 }
 
 $.get( "input.txt", function( data ) {
-  $('#input span').text('(Bytes: ' + (data.length) + ')');
   data = data.trim().split(/\r?\n/);
+  $('#input span').text('(Lines: ' + (data.length) + ')');
   part1( data );
 //   part2( data );
   
