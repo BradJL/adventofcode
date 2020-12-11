@@ -214,7 +214,7 @@ function part2( data ){
   $('#bonus span').html( bonus );
 }
 
-$.get( "input1.txt", function( data ) {
+$.get( "input.txt", function( data ) {
   data = data.trim().split(/\r?\n/);
   $('#input span').text('(Lines: ' + (data.length) + ')');
   part1( data );
