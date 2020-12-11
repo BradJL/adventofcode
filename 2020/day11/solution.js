@@ -13,7 +13,7 @@ function part1( data ){
     changed = false;
     newData = [];
     for( let i = 0; i < data.length; ++i ){
-      newData[i] = "";
+      newData.push( "" );
       for( let j = 0; j < data[i].length; ++j ){
         let count = 0;
         if( data[i].charAt(j) == 'L' || data[i].charAt(j) == '#' ){
