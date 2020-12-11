@@ -23,7 +23,7 @@ function part1( data ){
     }
   }
   
-  $('#answer span').text( data );
+  $('#answer span').text( newData );
   //$('#bonus span').html(  );
 }
 function part2( data ){
