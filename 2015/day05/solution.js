@@ -27,6 +27,6 @@ $.get( "input.txt", function( data ) {
   data.trim().split(/\r?\n/).forEach(part1);
   $('#answer span').text( niceStringsCount );
   
-  $('#answer2 span').text( part2( "uurcxstgmygtbstg" ) );
+  $('#answer2 span').text( part2( "ieodomkazucvgmuy" ) );
   //$('#bonus span').html(  );
 });
