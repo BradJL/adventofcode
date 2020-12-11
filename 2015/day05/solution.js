@@ -50,9 +50,6 @@ function part2( data ){
 $.get( "input.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
   data = data.trim().split(/\r?\n/);
-//   data.forEach(part1);
-//   $('#answer span').text( niceStringsCount );
   part1( data );
   part2( data );
-  //part2( ["qjhvhtzxzqqjkmpb", "xxyxx", "uurcxstgmygtbstg", "ieodomkazucvgmuy" ] );
 });
