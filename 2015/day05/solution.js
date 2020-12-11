@@ -16,15 +16,35 @@ function part1(data) {
 }
 
 function part2( data ){
-  let niceStringsCount2 = 0;
+  let niceStringsCount = 0;
   data.forEach(function(value, index, array) {
-    let pairRepeat = value.match(/(..).*\1/);
-    if( pairRepeat && pairRepeat[0].length > 3 ){ pairRepeat = true; } else { pairRepeat = false };
-    let charRepeatWOneCharBetwixt = value.match(/(.).\1/);
-    if( charRepeatWOneCharBetwixt && charRepeatWOneCharBetwixt[0].length > 3 ){ charRepeatWOneCharBetwixt = true; } else { charRepeatWOneCharBetwixt = false; };
-    if( pairRepeat && charRepeatWOneCharBetwixt ){ ++niceStringsCount2; };
+    let pairRepeats = value.match(/(..).*\1/);
+    let pairRepeat = false;
+    if( pairRepeats ){
+      for(let i = 0; i < pairRepeats.length; ++i ){
+        if( pairRepeats[i].length > 3 ){
+          pairRepeat = true;
+          console.log( value + " has a pairRepeat: " + pairRepeats[i] );
+        }
+      }
+    };
+
+    let charRepeatWOneCharBetwixts = value.match(/(.).\1/);
+    let charRepeatWOneCharBetwixt = false;
+    if( charRepeatWOneCharBetwixts ) {
+      for( let i = 0; i < charRepeatWOneCharBetwixts.length; ++i ){
+        if( charRepeatWOneCharBetwixts[i].length >= 3 ){
+          charRepeatWOneCharBetwixt = true;
+          console.log( value + " has a charRepeatWOneCharBetwixt: " + charRepeatWOneCharBetwixt[i] );
+        }
+      }
+    };
+    
+    if( pairRepeat && charRepeatWOneCharBetwixt ){
+      ++niceStringsCount;
+    };
   });
-  $('#answer2 span').text( niceStringsCount2 );
+  $('#answer2 span').text( niceStringsCount );
 }
 
 $.get( "input.txt", function( data ) {
