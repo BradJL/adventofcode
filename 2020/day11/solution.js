@@ -6,7 +6,7 @@ function getNextSeat( data, row, column, direction ){
   let j = column;
   switch( direction ){
   case "up":
-    if( row == 0 ) return "L";
+    if( row == 0 ) return ".";
     switch( data[i-1].charAt(j) ){
     case "#":
     case "L":
@@ -218,5 +218,17 @@ $.get( "input1.txt", function( data ) {
   data = data.trim().split(/\r?\n/);
   $('#input span').text('(Lines: ' + (data.length) + ')');
   part1( data );
-  part2( data );
+//   part2( data );
+  let testData = [
+    "#.##.##.##",
+    "#######.##",
+    "#.#.#..#..",
+    "####.##.##",
+    "#.##.##.##",
+    "#.#####.##",
+    "..#.#.....",
+    "##########",
+    "#.######.#",
+    "#.#####.##" ]
+  $('#answer2 span').text( getNextSeat( data, 0, 2, "upLeft" ) );
 });
