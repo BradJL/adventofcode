@@ -153,7 +153,7 @@ function part1( data ){
 // mode "adjacent": the next spot (part 1)
 //      or "visible": the next non-floor spot (part 2)
 // occupiedNum = threshold # for when a person will abandon their seat
-function part2( data, mode, occupiedNum ){
+function modelSeating( data, mode, occupiedNum ){
   let newData = [];
   let changed = true;
   let openSeats = 0;
@@ -201,8 +201,9 @@ function part2( data, mode, occupiedNum ){
       }
     }
     data = newData;
-  }  
-  $('#answer2 span').text( occupiedSeats );
+  }
+  //$('#answer2 span').text( occupiedSeats );
+  return occupiedSeats;
 //   let bonus = "";
 //   for( let i = 0; i < data.length; ++i ){
 //     bonus += data[i] + "<br />";
@@ -213,6 +214,6 @@ function part2( data, mode, occupiedNum ){
 $.get( "input.txt", function( data ) {
   data = data.trim().split(/\r?\n/);
   $('#input span').text('(Lines: ' + (data.length) + ')');
-  part2( data, "adjacent", 4 );
-  part2( data, "visible", 5 );
+  $('#answer span').text( modelSeating( data, "adjacent", 4 ) );
+  $('#answer2 span').text( modelSeating( data, "visible", 5 ) );
 });
