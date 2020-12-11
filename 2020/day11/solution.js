@@ -14,7 +14,7 @@ function part1( data ){
     newData = [];
     for( let i = 0; i < data.length; ++i ){
       newData.push( "" );
-      console.log( "string pushed: " + newData );
+      console.log( "data.length: " + data.length + " string pushed: " + newData );
       for( let j = 0; j < data[i].length; ++j ){
         let count = 0;
         if( data[i].charAt(j) == 'L' || data[i].charAt(j) == '#' ){
