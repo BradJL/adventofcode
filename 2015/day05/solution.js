@@ -2,7 +2,6 @@ $('#answer span').text('Calculating...');
 $('#answer2 span').text('Calculating...');
 
 var niceStringsCount = 0;
-var niceStringsCount2 = 0;
 
 function part1(value, index, array) {
   let vowels = value.replace(/[^aeiou]/g,"");
@@ -15,18 +14,24 @@ function part1(value, index, array) {
 }
 
 function part2( data ){
-  let pairRepeat = data.match(/(..).*\1/);
-  if( pairRepeat && pairRepeat[0].length > 3 ){ pairRepeat = true; } else { pairRepeat = false };
-  let charRepeatWOneCharBetwixt = data.match(/(.).*\1/);
-  if( charRepeatWOneCharBetwixt && charRepeatWOneCharBetwixt[0].length > 3 ){ charRepeatWOneCharBetwixt = true; } else { charRepeatWOneCharBetwixt = false; };
-  return pairRepeat && charRepeatWOneCharBetwixt;
+  let niceStringsCount2 = 0;
+  
+  data.forEach( function(value, index, array){
+    let pairRepeat = data.match(/(..).*\1/);
+    if( pairRepeat && pairRepeat[0].length > 3 ){ pairRepeat = true; } else { pairRepeat = false };
+    let charRepeatWOneCharBetwixt = data.match(/(.).*\1/);
+    if( charRepeatWOneCharBetwixt && charRepeatWOneCharBetwixt[0].length > 3 ){ charRepeatWOneCharBetwixt = true; } else { charRepeatWOneCharBetwixt = false; };
+    if( pairRepeat && charRepeatWOneCharBetwixt ){ ++niceStringsCount2; };
+  });
+  $('#answer2 span').text( part2( niceStringsCount2 ) );
 }
 
 $.get( "input.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
-  data.trim().split(/\r?\n/).forEach(part1);
+  data = data.trim().split(/\r?\n/);
+  data.forEach(part1);
   $('#answer span').text( niceStringsCount );
-  
-  $('#answer2 span').text( part2( "ieodomkazucvgmuy" ) );
+  part2( data );
+//   $('#answer2 span').text( part2( data ) );
   //$('#bonus span').html(  );
 });
