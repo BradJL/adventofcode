@@ -16,7 +16,7 @@ function part1( data ){
       if( i < data.length - 1 && j > 0 && data[i+1].charAt(j - 1) == "#" ) ++count;
       if( i < data.length - 1 && data[i+1].charAt(j) == "#" ) ++count;
       if( i < data.length - 1 && j < data.length - 1 && data[i+1].charAt(j + 1) == "#" ) ++count;
-      if( count >= 1 ){
+      if( count <= 1 ){
         data[i] = data[i].substring(0,i) + '#' + data[i].substring(i+1);
       }
     }
