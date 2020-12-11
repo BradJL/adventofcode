@@ -8,8 +8,10 @@ function part1( data ){
   let newData = [];
   let changed = true;
   let openSeats = 0;
+  let occupiedSeats = 0;
   while( changed ){
     openSeats = 0;
+    occupiedSeats = 0;
     changed = false;
     newData = [];
     for( let i = 0; i < data.length; ++i ){
@@ -29,6 +31,7 @@ function part1( data ){
           if( data[i].charAt(j) == 'L' ) {
             if( count == 0 ){
               newData[i] = newData[i] + '#';
+              ++occupiedSeats;
               changed = true;
             } else {
               newData[i] = newData[i] + 'L';
@@ -41,6 +44,7 @@ function part1( data ){
               ++openSeats;
             } else {
               newData[i] = newData[i] + '#';
+              ++occupiedSeats;
             }
           }
         } else {
@@ -49,10 +53,10 @@ function part1( data ){
         //console.log( "i should be 1: " + i + " data.length should be 10: " + data.length );
       }
     }
-    console.log( newData );
+    //console.log( newData );
     data = newData;
   }  
-  $('#answer span').text( openSeats );
+  $('#answer span').text( occupiedSeats );
   $('#bonus span').html( data );
 }
 function part2( data ){
