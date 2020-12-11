@@ -242,4 +242,9 @@ $.get( "input1.txt", function( data ) {
   if( getNextSeat( data, i, j, "down" ) == "#" ) ++count;
   if( getNextSeat( data, i, j, "downRight" ) == "#" ) ++count;
   $('#answer2 span').text( count );
+  let bonus =
+      getNextSeat( data, i, j, "upLeft" ) + getNextSeat( data, i, j, "up" ) + getNextSeat( data, i, j, "upRight" ) + "<br />" +
+      getNextSeat( data, i, j, "left" ) + " " + getNextSeat( data, i, j, "right" ) + "<br />" +
+      getNextSeat( data, i, j, "downLeft" ) + getNextSeat( data, i, j, "down" ) + getNextSeat( data, i, j, "downRight" );
+  $('#bonus span').html( bonus );
 });
