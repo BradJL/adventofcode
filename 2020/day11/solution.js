@@ -149,7 +149,11 @@ function part1( data ){
   $('#answer span').text( occupiedSeats );
   //$('#bonus span').html( data );
 }
-function part2( data, mode ){
+// data = input data
+// mode "adjacent": the next spot (part 1)
+//      or "visible": the next non-floor spot (part 2)
+// occupiedNum = threshold # for when a person will abandon their seat
+function part2( data, mode, occupiedNum ){
   let newData = [];
   let changed = true;
   let openSeats = 0;
@@ -182,7 +186,7 @@ function part2( data, mode ){
               ++openSeats;
             }
           } else {
-            if( count >= 5 ){
+            if( count >= occupiedNum ){
               newData[i] = newData[i] + 'L';
               changed = true;
               ++openSeats;
@@ -209,6 +213,6 @@ function part2( data, mode ){
 $.get( "input.txt", function( data ) {
   data = data.trim().split(/\r?\n/);
   $('#input span').text('(Lines: ' + (data.length) + ')');
-  part1( data, "adjacent" );
-  part2( data, "visible" );
+  part2( data, "adjacent", 4 );
+  part2( data, "visible", 5 );
 });
