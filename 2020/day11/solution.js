@@ -189,7 +189,7 @@ function part2( data ){
               ++openSeats;
             }
           } else {
-            if( count >= 4 ){
+            if( count >= 5 ){
               newData[i] = newData[i] + 'L';
               changed = true;
               ++openSeats;
