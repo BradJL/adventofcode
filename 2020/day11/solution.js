@@ -204,12 +204,17 @@ function part2( data ){
       }
     }
     data = newData;
+    console.log(data);
   }  
   $('#answer2 span').text( occupiedSeats );
-  //$('#bonus span').html(  );
+  let bonus = "";
+  for( let i = 0; i < data.length; ++i ){
+    bonus += data[i] + "<br />";
+  }
+  $('#bonus span').html( bonus );
 }
 
-$.get( "input.txt", function( data ) {
+$.get( "input1.txt", function( data ) {
   data = data.trim().split(/\r?\n/);
   $('#input span').text('(Lines: ' + (data.length) + ')');
   part1( data );
