@@ -26,7 +26,7 @@ function part1( data ){
           if( i < data.length - 1 && data[i+1].charAt(j) == "#" ) ++count;
           if( i < data.length - 1 && j < data.length - 1 && data[i+1].charAt(j + 1) == "#" ) ++count;
           if( data[i].charAt(j) == 'L' ) {
-            if( count <= 1 ){
+            if( count == 0 ){
               newData[i] = newData[i] + '#';
               changed = true;
             } else {
