@@ -1,103 +1,96 @@
 $('#answer span').text('Calculating...');
 $('#answer2 span').text('Calculating...');
 
-function getNextSeat( data, row, column, direction ){
+function getNextSeat( data, row, column, direction, mode ){
+  let keepGoing = (mode == "visible" ? true : false);
   let i = row;
   let j = column;
   switch( direction ){
   case "up":
     if( row == 0 ) return ".";
     switch( data[i-1].charAt(j) ){
+    case ".":
+      if( keepGoing ) return getNextSeat( data, row-1, column, direction );
     case "#":
     case "L":
       return data[i-1].charAt(j);
-      break;
-    case ".":
-      return getNextSeat( data, row-1, column, direction );
       break;
     }
     break;
   case "down":
     if( row == data.length - 1 ) return ".";
     switch( data[i+1].charAt(j) ){
+    case ".":
+      if( keepGoing ) return getNextSeat( data, row+1, column, direction );
     case "#":
     case "L":
       return data[i+1].charAt(j);
-      break;
-    case ".":
-      return getNextSeat( data, row+1, column, direction );
       break;
     }
     break;
   case "left":
     if( column == 0 ) return ".";
     switch( data[i].charAt(j-1) ){
+    case ".":
+      if( keepGoing ) return getNextSeat( data, row, column-1, direction );
     case "#":
     case "L":
       return data[i].charAt(j-1);
-      break;
-    case ".":
-      return getNextSeat( data, row, column-1, direction );
       break;
     }
     break;
   case "right":
     if( column == data[i].length - 1 ) return ".";
     switch( data[i].charAt(j+1) ){
+    case ".":
+      if( keepGoing ) return getNextSeat( data, row, column+1, direction );
     case "#":
     case "L":
       return data[i].charAt(j+1);
-      break;
-    case ".":
-      return getNextSeat( data, row, column+1, direction );
       break;
     }
     break;
   case "upLeft":
     if( row == 0 || column == 0 ) return ".";
     switch( data[i-1].charAt(j-1) ){
+    case ".":
+      if( keepGoing ) return getNextSeat( data, row-1, column-1, direction );
     case "#":
     case "L":
       return data[i-1].charAt(j-1);
-      break;
-    case ".":
-      return getNextSeat( data, row-1, column-1, direction );
       break;
     }
     break;
   case "upRight":
     if( row == 0 || column == data[i].length - 1 ) return ".";
     switch( data[i-1].charAt(j+1) ){
+    case ".":
+      if( keepGoing ) return getNextSeat( data, row-1, column+1, direction );
     case "#":
     case "L":
       return data[i-1].charAt(j+1);
-      break;
-    case ".":
-      return getNextSeat( data, row-1, column+1, direction );
       break;
     }
     break;
   case "downLeft":
     if( row == data.length - 1 || column == 0 ) return ".";
     switch( data[i+1].charAt(j-1) ){
+    case ".":
+      if( keepGoing ) return getNextSeat( data, row+1, column-1, direction );
     case "#":
     case "L":
       return data[i+1].charAt(j-1);
-      break;
-    case ".":
-      return getNextSeat( data, row+1, column-1, direction );
       break;
     }
     break;
   case "downRight":
     if( row == data.length - 1 || column == data[i].length - 1 ) return ".";
     switch( data[i+1].charAt(j+1) ){
+    case ".":
+      if( keepGoing ) return getNextSeat( data, row+1, column+1, direction );
     case "#":
     case "L":
       return data[i+1].charAt(j+1);
-      break;
-    case ".":
-      return getNextSeat( data, row+1, column+1, direction );
       break;
     }
     break;
@@ -171,14 +164,14 @@ function part2( data ){
       for( let j = 0; j < data[i].length; ++j ){
         let count = 0;
         if( data[i].charAt(j) == 'L' || data[i].charAt(j) == '#' ){
-          if( getNextSeat( data, i, j, "upLeft" ) == "#" ) ++count;
-          if( getNextSeat( data, i, j, "up" ) == "#" ) ++count;
-          if( getNextSeat( data, i, j, "upRight" ) == "#" ) ++count;
-          if( getNextSeat( data, i, j, "left" ) == "#" ) ++count;
-          if( getNextSeat( data, i, j, "right" ) == "#" ) ++count;
-          if( getNextSeat( data, i, j, "downLeft" ) == "#" ) ++count;
-          if( getNextSeat( data, i, j, "down" ) == "#" ) ++count;
-          if( getNextSeat( data, i, j, "downRight" ) == "#" ) ++count;
+          if( getNextSeat( data, i, j, "upLeft", "visible" ) == "#" ) ++count;
+          if( getNextSeat( data, i, j, "up", "visible" ) == "#" ) ++count;
+          if( getNextSeat( data, i, j, "upRight", "visible" ) == "#" ) ++count;
+          if( getNextSeat( data, i, j, "left", "visible" ) == "#" ) ++count;
+          if( getNextSeat( data, i, j, "right", "visible" ) == "#" ) ++count;
+          if( getNextSeat( data, i, j, "downLeft", "visible" ) == "#" ) ++count;
+          if( getNextSeat( data, i, j, "down", "visible" ) == "#" ) ++count;
+          if( getNextSeat( data, i, j, "downRight", "visible" ) == "#" ) ++count;
           if( data[i].charAt(j) == 'L' ) {
             if( count == 0 ){
               newData[i] = newData[i] + '#';
@@ -207,11 +200,11 @@ function part2( data ){
     console.log(data);
   }  
   $('#answer2 span').text( occupiedSeats );
-  let bonus = "";
-  for( let i = 0; i < data.length; ++i ){
-    bonus += data[i] + "<br />";
-  }
-  $('#bonus span').html( bonus );
+//   let bonus = "";
+//   for( let i = 0; i < data.length; ++i ){
+//     bonus += data[i] + "<br />";
+//   }
+//   $('#bonus span').html( bonus );
 }
 
 $.get( "input.txt", function( data ) {
@@ -219,32 +212,4 @@ $.get( "input.txt", function( data ) {
   $('#input span').text('(Lines: ' + (data.length) + ')');
   part1( data );
   part2( data );
-//   let testData = [
-//     "#.##.##.##",
-//     "#######.##",
-//     "#.#.#..#..",
-//     "####.##.##",
-//     "#.##.##.##",
-//     "#.#####.##",
-//     "..#.#.....",
-//     "##########",
-//     "#.######.#",
-//     "#.#####.##" ]
-//   let count = 0;
-//   let i = 0;
-//   let j = 2;
-//   if( getNextSeat( testData, i, j, "upLeft" ) == "#" ) ++count;
-//   if( getNextSeat( testData, i, j, "up" ) == "#" ) ++count;
-//   if( getNextSeat( testData, i, j, "upRight" ) == "#" ) ++count;
-//   if( getNextSeat( testData, i, j, "left" ) == "#" ) ++count;
-//   if( getNextSeat( testData, i, j, "right" ) == "#" ) ++count;
-//   if( getNextSeat( testData, i, j, "downLeft" ) == "#" ) ++count;
-//   if( getNextSeat( testData, i, j, "down" ) == "#" ) ++count;
-//   if( getNextSeat( testData, i, j, "downRight" ) == "#" ) ++count;
-//   $('#answer2 span').text( count );
-//   let bonus =
-//       getNextSeat( testData, i, j, "upLeft" ) + getNextSeat( testData, i, j, "up" ) + getNextSeat( testData, i, j, "upRight" ) + "<br />" +
-//       getNextSeat( testData, i, j, "left" ) + " " + getNextSeat( testData, i, j, "right" ) + "<br />" +
-//       getNextSeat( testData, i, j, "downLeft" ) + getNextSeat( testData, i, j, "down" ) + getNextSeat( testData, i, j, "downRight" );
-//   $('#bonus span').html( bonus );
 });
