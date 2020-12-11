@@ -2,6 +2,8 @@ $('#answer span').text('Calculating...');
 $('#answer2 span').text('Calculating...');
 
 function getNextSeat( data, row, column, direction ){
+  let i = row;
+  let j = column;
   switch( direction ){
   case "up":
     if( row == 0 ) return "L";
