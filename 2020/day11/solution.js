@@ -218,33 +218,33 @@ $.get( "input1.txt", function( data ) {
   data = data.trim().split(/\r?\n/);
   $('#input span').text('(Lines: ' + (data.length) + ')');
   part1( data );
-//   part2( data );
-  let testData = [
-    "#.##.##.##",
-    "#######.##",
-    "#.#.#..#..",
-    "####.##.##",
-    "#.##.##.##",
-    "#.#####.##",
-    "..#.#.....",
-    "##########",
-    "#.######.#",
-    "#.#####.##" ]
-  let count = 0;
-  let i = 0;
-  let j = 2;
-  if( getNextSeat( testData, i, j, "upLeft" ) == "#" ) ++count;
-  if( getNextSeat( testData, i, j, "up" ) == "#" ) ++count;
-  if( getNextSeat( testData, i, j, "upRight" ) == "#" ) ++count;
-  if( getNextSeat( testData, i, j, "left" ) == "#" ) ++count;
-  if( getNextSeat( testData, i, j, "right" ) == "#" ) ++count;
-  if( getNextSeat( testData, i, j, "downLeft" ) == "#" ) ++count;
-  if( getNextSeat( testData, i, j, "down" ) == "#" ) ++count;
-  if( getNextSeat( testData, i, j, "downRight" ) == "#" ) ++count;
-  $('#answer2 span').text( count );
-  let bonus =
-      getNextSeat( testData, i, j, "upLeft" ) + getNextSeat( testData, i, j, "up" ) + getNextSeat( testData, i, j, "upRight" ) + "<br />" +
-      getNextSeat( testData, i, j, "left" ) + " " + getNextSeat( testData, i, j, "right" ) + "<br />" +
-      getNextSeat( testData, i, j, "downLeft" ) + getNextSeat( testData, i, j, "down" ) + getNextSeat( testData, i, j, "downRight" );
-  $('#bonus span').html( bonus );
+  part2( data );
+//   let testData = [
+//     "#.##.##.##",
+//     "#######.##",
+//     "#.#.#..#..",
+//     "####.##.##",
+//     "#.##.##.##",
+//     "#.#####.##",
+//     "..#.#.....",
+//     "##########",
+//     "#.######.#",
+//     "#.#####.##" ]
+//   let count = 0;
+//   let i = 0;
+//   let j = 2;
+//   if( getNextSeat( testData, i, j, "upLeft" ) == "#" ) ++count;
+//   if( getNextSeat( testData, i, j, "up" ) == "#" ) ++count;
+//   if( getNextSeat( testData, i, j, "upRight" ) == "#" ) ++count;
+//   if( getNextSeat( testData, i, j, "left" ) == "#" ) ++count;
+//   if( getNextSeat( testData, i, j, "right" ) == "#" ) ++count;
+//   if( getNextSeat( testData, i, j, "downLeft" ) == "#" ) ++count;
+//   if( getNextSeat( testData, i, j, "down" ) == "#" ) ++count;
+//   if( getNextSeat( testData, i, j, "downRight" ) == "#" ) ++count;
+//   $('#answer2 span').text( count );
+//   let bonus =
+//       getNextSeat( testData, i, j, "upLeft" ) + getNextSeat( testData, i, j, "up" ) + getNextSeat( testData, i, j, "upRight" ) + "<br />" +
+//       getNextSeat( testData, i, j, "left" ) + " " + getNextSeat( testData, i, j, "right" ) + "<br />" +
+//       getNextSeat( testData, i, j, "downLeft" ) + getNextSeat( testData, i, j, "down" ) + getNextSeat( testData, i, j, "downRight" );
+//   $('#bonus span').html( bonus );
 });
