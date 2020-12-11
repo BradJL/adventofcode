@@ -6,24 +6,47 @@ function part1( data ){
   //});
   
   let newData = [];
-  for( let i = 0; i < data.length; ++i ){
-    for( let j = 0; j < data[i].length; ++j ){
-      let count = 0;
-      if( i > 0 && j > 0 && data[i-1].charAt(j - 1) == "#" ) ++count;
-      if( i > 0 && data[i-1].charAt(j) == "#" ) ++count;
-      if( i > 0 && j < data.length - 1 && data[i-1].charAt(j + 1) == "#" ) ++count;
-      if( j > 0 && data[i].charAt(j - 1) == "#" ) ++count;
-      if( j < data.length - 1 && data[i].charAt(j + 1) == "#" ) ++count;
-      if( i < data.length - 1 && j > 0 && data[i+1].charAt(j - 1) == "#" ) ++count;
-      if( i < data.length - 1 && data[i+1].charAt(j) == "#" ) ++count;
-      if( i < data.length - 1 && j < data.length - 1 && data[i+1].charAt(j + 1) == "#" ) ++count;
-      if( count <= 1 ){
-        newData[i] = newData[i] + '#';
+  let changed = true;
+  let openSeats = 0;
+  while( changed ){
+    openSeats = 0;
+    changed = false;
+    for( let i = 0; i < data.length; ++i ){
+      for( let j = 0; j < data[i].length; ++j ){
+        let count = 0;
+        if( data[i].charAt(j) == 'L' || data[i].charAt(j) == '#' ){
+          if( i > 0 && j > 0 && data[i-1].charAt(j - 1) == "#" ) ++count;
+          if( i > 0 && data[i-1].charAt(j) == "#" ) ++count;
+          if( i > 0 && j < data.length - 1 && data[i-1].charAt(j + 1) == "#" ) ++count;
+          if( j > 0 && data[i].charAt(j - 1) == "#" ) ++count;
+          if( j < data.length - 1 && data[i].charAt(j + 1) == "#" ) ++count;
+          if( i < data.length - 1 && j > 0 && data[i+1].charAt(j - 1) == "#" ) ++count;
+          if( i < data.length - 1 && data[i+1].charAt(j) == "#" ) ++count;
+          if( i < data.length - 1 && j < data.length - 1 && data[i+1].charAt(j + 1) == "#" ) ++count;
+          if( data[i].charAt(j) == 'L' ) {
+            if( count <= 1 ){
+              newData[i] = newData[i] + '#';
+              changed = true;
+            } else {
+              newData[i] = newData[i] + 'L';
+              ++openSeats;
+            }
+          } else {
+            if( count >= 4 ){
+              newData[i] = newData[i] + 'L';
+              changed = true;
+              ++openSeats;
+            } else {
+              newData[i] = newData[i] + '#';
+            }
+          }
+        } else {
+          newData[i] = newData[i] + '.';
+        }
       }
     }
-  }
-  
-  $('#answer span').text( newData );
+  }  
+  $('#answer span').text( openSeats );
   //$('#bonus span').html(  );
 }
 function part2( data ){
