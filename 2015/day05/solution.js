@@ -33,5 +33,6 @@ $.get( "input.txt", function( data ) {
 //   data.forEach(part1);
 //   $('#answer span').text( niceStringsCount );
   part1( data );
-  part2( data );
+  //part2( data );
+  part2( ["qjhvhtzxzqqjkmpb", "xxyxx", "uurcxstgmygtbstg", "ieodomkazucvgmuy" ];
 });
