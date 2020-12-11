@@ -18,7 +18,7 @@ function getNextSeat( data, row, column, direction ){
     }
     break;
   case "down":
-    if( row == data.length - 1 ) return "L";
+    if( row == data.length - 1 ) return ".";
     switch( data[i+1].charAt(j) ){
     case "#":
     case "L":
@@ -30,7 +30,7 @@ function getNextSeat( data, row, column, direction ){
     }
     break;
   case "left":
-    if( column == 0 ) return "L";
+    if( column == 0 ) return ".";
     switch( data[i].charAt(j-1) ){
     case "#":
     case "L":
@@ -42,7 +42,7 @@ function getNextSeat( data, row, column, direction ){
     }
     break;
   case "right":
-    if( column == data[i].length - 1 ) return "L";
+    if( column == data[i].length - 1 ) return ".";
     switch( data[i].charAt(j+1) ){
     case "#":
     case "L":
@@ -54,7 +54,7 @@ function getNextSeat( data, row, column, direction ){
     }
     break;
   case "upLeft":
-    if( row == 0 || column == 0 ) return "L";
+    if( row == 0 || column == 0 ) return ".";
     switch( data[i-1].charAt(j-1) ){
     case "#":
     case "L":
@@ -66,7 +66,7 @@ function getNextSeat( data, row, column, direction ){
     }
     break;
   case "upRight":
-    if( row == 0 || data[i].length - 1 ) return "L";
+    if( row == 0 || data[i].length - 1 ) return ".";
     switch( data[i-1].charAt(j+1) ){
     case "#":
     case "L":
@@ -78,7 +78,7 @@ function getNextSeat( data, row, column, direction ){
     }
     break;
   case "downLeft":
-    if( row == data.length - 1 || column == 0 ) return "L";
+    if( row == data.length - 1 || column == 0 ) return ".";
     switch( data[i+1].charAt(j-1) ){
     case "#":
     case "L":
@@ -90,7 +90,7 @@ function getNextSeat( data, row, column, direction ){
     }
     break;
   case "downRight":
-    if( row == data.length - 1 || data[i].length - 1 ) return "L";
+    if( row == data.length - 1 || data[i].length - 1 ) return ".";
     switch( data[i+1].charAt(j+1) ){
     case "#":
     case "L":
@@ -230,5 +230,16 @@ $.get( "input1.txt", function( data ) {
     "##########",
     "#.######.#",
     "#.#####.##" ]
-  $('#answer2 span').text( getNextSeat( data, 0, 2, "upLeft" ) );
+  let count = 0;
+  let i = 0;
+  let j = 2;
+  if( getNextSeat( data, i, j, "upLeft" ) == "#" ) ++count;
+  if( getNextSeat( data, i, j, "up" ) == "#" ) ++count;
+  if( getNextSeat( data, i, j, "upRight" ) == "#" ) ++count;
+  if( getNextSeat( data, i, j, "left" ) == "#" ) ++count;
+  if( getNextSeat( data, i, j, "right" ) == "#" ) ++count;
+  if( getNextSeat( data, i, j, "downLeft" ) == "#" ) ++count;
+  if( getNextSeat( data, i, j, "down" ) == "#" ) ++count;
+  if( getNextSeat( data, i, j, "downRight" ) == "#" ) ++count;
+  $('#answer2 span').text( count );
 });
