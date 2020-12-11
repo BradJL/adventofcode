@@ -1,7 +1,7 @@
 $('#answer span').text('Calculating...');
 $('#answer2 span').text('Calculating...');
 
-function part1(value, index, array) {
+function part1(data) {
   let niceStringsCount = 0;
   data.forEach(function(value, index, array) {
     let vowels = value.replace(/[^aeiou]/g,"");
