@@ -97,58 +97,6 @@ function getNextSeat( data, row, column, direction, mode ){
   }
 }
 
-function part1( data ){
-  let newData = [];
-  let changed = true;
-  let openSeats = 0;
-  let occupiedSeats = 0;
-  while( changed ){
-    openSeats = 0;
-    occupiedSeats = 0;
-    changed = false;
-    newData = [];
-    for( let i = 0; i < data.length; ++i ){
-      newData.push( "" );
-      for( let j = 0; j < data[i].length; ++j ){
-        let count = 0;
-        if( data[i].charAt(j) == 'L' || data[i].charAt(j) == '#' ){
-          if( i > 0 && j > 0 && data[i-1].charAt(j - 1) == "#" ) ++count;
-          if( i > 0 && data[i-1].charAt(j) == "#" ) ++count;
-          if( i > 0 && j < data.length - 1 && data[i-1].charAt(j + 1) == "#" ) ++count;
-          if( j > 0 && data[i].charAt(j - 1) == "#" ) ++count;
-          if( j < data.length - 1 && data[i].charAt(j + 1) == "#" ) ++count;
-          if( i < data.length - 1 && j > 0 && data[i+1].charAt(j - 1) == "#" ) ++count;
-          if( i < data.length - 1 && data[i+1].charAt(j) == "#" ) ++count;
-          if( i < data.length - 1 && j < data.length - 1 && data[i+1].charAt(j + 1) == "#" ) ++count;
-          if( data[i].charAt(j) == 'L' ) {
-            if( count == 0 ){
-              newData[i] = newData[i] + '#';
-              ++occupiedSeats;
-              changed = true;
-            } else {
-              newData[i] = newData[i] + 'L';
-              ++openSeats;
-            }
-          } else {
-            if( count >= 4 ){
-              newData[i] = newData[i] + 'L';
-              changed = true;
-              ++openSeats;
-            } else {
-              newData[i] = newData[i] + '#';
-              ++occupiedSeats;
-            }
-          }
-        } else {
-          newData[i] = newData[i] + '.';
-        }
-      }
-    }
-    data = newData;
-  }  
-  $('#answer span').text( occupiedSeats );
-  //$('#bonus span').html( data );
-}
 // data = input data
 // mode "adjacent": the next spot (part 1)
 //      or "visible": the next non-floor spot (part 2)
@@ -176,6 +124,7 @@ function modelSeating( data, mode, occupiedNum ){
           if( getNextSeat( data, i, j, "downLeft", mode ) == "#" ) ++count;
           if( getNextSeat( data, i, j, "down", mode ) == "#" ) ++count;
           if( getNextSeat( data, i, j, "downRight", mode ) == "#" ) ++count;
+          
           if( data[i].charAt(j) == 'L' ) {
             if( count == 0 ){
               newData[i] = newData[i] + '#';
@@ -202,13 +151,12 @@ function modelSeating( data, mode, occupiedNum ){
     }
     data = newData;
   }
-  //$('#answer2 span').text( occupiedSeats );
-  return occupiedSeats;
 //   let bonus = "";
 //   for( let i = 0; i < data.length; ++i ){
 //     bonus += data[i] + "<br />";
 //   }
 //   $('#bonus span').html( bonus );
+  return occupiedSeats;
 }
 
 $.get( "input.txt", function( data ) {
