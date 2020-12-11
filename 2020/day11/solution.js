@@ -46,6 +46,7 @@ function part1( data ){
         } else {
           newData[i] = newData[i] + '.';
         }
+        console.log( "i should be 1: " + i + " data.length should be 10: " + data.length );
       }
 //     }
     console.log( newData );
