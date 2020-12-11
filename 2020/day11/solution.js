@@ -149,7 +149,7 @@ function part1( data ){
   $('#answer span').text( occupiedSeats );
   //$('#bonus span').html( data );
 }
-function part2( data ){
+function part2( data, mode ){
   let newData = [];
   let changed = true;
   let openSeats = 0;
@@ -164,14 +164,14 @@ function part2( data ){
       for( let j = 0; j < data[i].length; ++j ){
         let count = 0;
         if( data[i].charAt(j) == 'L' || data[i].charAt(j) == '#' ){
-          if( getNextSeat( data, i, j, "upLeft", "visible" ) == "#" ) ++count;
-          if( getNextSeat( data, i, j, "up", "visible" ) == "#" ) ++count;
-          if( getNextSeat( data, i, j, "upRight", "visible" ) == "#" ) ++count;
-          if( getNextSeat( data, i, j, "left", "visible" ) == "#" ) ++count;
-          if( getNextSeat( data, i, j, "right", "visible" ) == "#" ) ++count;
-          if( getNextSeat( data, i, j, "downLeft", "visible" ) == "#" ) ++count;
-          if( getNextSeat( data, i, j, "down", "visible" ) == "#" ) ++count;
-          if( getNextSeat( data, i, j, "downRight", "visible" ) == "#" ) ++count;
+          if( getNextSeat( data, i, j, "upLeft", mode ) == "#" ) ++count;
+          if( getNextSeat( data, i, j, "up", mode ) == "#" ) ++count;
+          if( getNextSeat( data, i, j, "upRight", mode ) == "#" ) ++count;
+          if( getNextSeat( data, i, j, "left", mode ) == "#" ) ++count;
+          if( getNextSeat( data, i, j, "right", mode ) == "#" ) ++count;
+          if( getNextSeat( data, i, j, "downLeft", mode ) == "#" ) ++count;
+          if( getNextSeat( data, i, j, "down", mode ) == "#" ) ++count;
+          if( getNextSeat( data, i, j, "downRight", mode ) == "#" ) ++count;
           if( data[i].charAt(j) == 'L' ) {
             if( count == 0 ){
               newData[i] = newData[i] + '#';
@@ -197,7 +197,6 @@ function part2( data ){
       }
     }
     data = newData;
-    console.log(data);
   }  
   $('#answer2 span').text( occupiedSeats );
 //   let bonus = "";
@@ -210,6 +209,6 @@ function part2( data ){
 $.get( "input.txt", function( data ) {
   data = data.trim().split(/\r?\n/);
   $('#input span').text('(Lines: ' + (data.length) + ')');
-  part1( data );
-  part2( data );
+  part1( data, "adjacent" );
+  part2( data, "visible" );
 });
