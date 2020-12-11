@@ -6,7 +6,8 @@ function part1(data) {
   data.forEach(function(value, index, array) {
     let vowels = value.replace(/[^aeiou]/g,"");
     let badStrings = value.match(/(ab|cd|pq|xy)/);
-    let doubleLetters = value.match(/(aa|bb|cc|dd|ee|ff|gg|hh|ii|jj|kk|ll|mm|nn|oo|pp|qq|rr|ss|tt|uu|vv|ww|xx|yy|zz)/);
+//     let doubleLetters = value.match(/(aa|bb|cc|dd|ee|ff|gg|hh|ii|jj|kk|ll|mm|nn|oo|pp|qq|rr|ss|tt|uu|vv|ww|xx|yy|zz)/);
+    let doubleLetters = value.match(/(.)\1/);
 
     if( vowels.length >= 3 && badStrings == null && doubleLetters != null ){
       ++niceStringsCount;
@@ -24,7 +25,6 @@ function part2( data ){
       for(let i = 0; i < pairRepeats.length; ++i ){
         if( pairRepeats[i].length > 3 ){
           pairRepeat = true;
-          console.log( value + " has a pairRepeat: " + pairRepeats[i] );
         }
       }
     };
@@ -35,7 +35,6 @@ function part2( data ){
       for( let i = 0; i < charRepeatWOneCharBetwixts.length; ++i ){
         if( charRepeatWOneCharBetwixts[i].length >= 3 ){
           charRepeatWOneCharBetwixt = true;
-          console.log( value + " has a charRepeatWOneCharBetwixt: " + charRepeatWOneCharBetwixt[i] );
         }
       }
     };
