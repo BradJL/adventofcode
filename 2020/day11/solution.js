@@ -11,7 +11,9 @@ function part1( data ){
   while( changed ){
     openSeats = 0;
     changed = false;
+    newData = [];
     for( let i = 0; i < data.length; ++i ){
+      newData[i] = "";
       for( let j = 0; j < data[i].length; ++j ){
         let count = 0;
         if( data[i].charAt(j) == 'L' || data[i].charAt(j) == '#' ){
@@ -45,9 +47,11 @@ function part1( data ){
         }
       }
     }
+    console.log( newData );
+    data = newData;
   }  
   $('#answer span').text( openSeats );
-  //$('#bonus span').html(  );
+  $('#bonus span').html( data );
 }
 function part2( data ){
   data.forEach(function(value, index, array) {
