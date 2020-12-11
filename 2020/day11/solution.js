@@ -233,18 +233,18 @@ $.get( "input1.txt", function( data ) {
   let count = 0;
   let i = 0;
   let j = 2;
-  if( getNextSeat( data, i, j, "upLeft" ) == "#" ) ++count;
-  if( getNextSeat( data, i, j, "up" ) == "#" ) ++count;
-  if( getNextSeat( data, i, j, "upRight" ) == "#" ) ++count;
-  if( getNextSeat( data, i, j, "left" ) == "#" ) ++count;
-  if( getNextSeat( data, i, j, "right" ) == "#" ) ++count;
-  if( getNextSeat( data, i, j, "downLeft" ) == "#" ) ++count;
-  if( getNextSeat( data, i, j, "down" ) == "#" ) ++count;
-  if( getNextSeat( data, i, j, "downRight" ) == "#" ) ++count;
+  if( getNextSeat( testData, i, j, "upLeft" ) == "#" ) ++count;
+  if( getNextSeat( testData, i, j, "up" ) == "#" ) ++count;
+  if( getNextSeat( testData, i, j, "upRight" ) == "#" ) ++count;
+  if( getNextSeat( testData, i, j, "left" ) == "#" ) ++count;
+  if( getNextSeat( testData, i, j, "right" ) == "#" ) ++count;
+  if( getNextSeat( testData, i, j, "downLeft" ) == "#" ) ++count;
+  if( getNextSeat( testData, i, j, "down" ) == "#" ) ++count;
+  if( getNextSeat( testData, i, j, "downRight" ) == "#" ) ++count;
   $('#answer2 span').text( count );
   let bonus =
-      getNextSeat( data, i, j, "upLeft" ) + getNextSeat( data, i, j, "up" ) + getNextSeat( data, i, j, "upRight" ) + "<br />" +
-      getNextSeat( data, i, j, "left" ) + " " + getNextSeat( data, i, j, "right" ) + "<br />" +
-      getNextSeat( data, i, j, "downLeft" ) + getNextSeat( data, i, j, "down" ) + getNextSeat( data, i, j, "downRight" );
+      getNextSeat( testData, i, j, "upLeft" ) + getNextSeat( testData, i, j, "up" ) + getNextSeat( testData, i, j, "upRight" ) + "<br />" +
+      getNextSeat( testData, i, j, "left" ) + " " + getNextSeat( testData, i, j, "right" ) + "<br />" +
+      getNextSeat( testData, i, j, "downLeft" ) + getNextSeat( testData, i, j, "down" ) + getNextSeat( testData, i, j, "downRight" );
   $('#bonus span').html( bonus );
 });
