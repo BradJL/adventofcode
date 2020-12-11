@@ -16,9 +16,9 @@ function part1(value, index, array) {
 
 function part2( data ){
   let pairRepeat = data.match(/(..).*\1/);
-  if( pairRepeat && pairRepeat[0].length > 3 ){ pairRepeat = true; };
+  if( pairRepeat && pairRepeat[0].length > 3 ){ pairRepeat = true; } else { pairRepeat = false };
   let charRepeatWOneCharBetwixt = data.match(/(.).*\1/);
-  if( charRepeatWOneCharBetwixt && charRepeatWOneCharBetwixt[0].length > 3 ){ charRepeatWOneCharBetwixt = true; };
+  if( charRepeatWOneCharBetwixt && charRepeatWOneCharBetwixt[0].length > 3 ){ charRepeatWOneCharBetwixt = true; } else { charRepeatWOneCharBetwixt = false; };
   return pairRepeat && charRepeatWOneCharBetwixt;
 }
 
