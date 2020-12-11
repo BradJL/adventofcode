@@ -13,10 +13,15 @@ function doItNTimes(value, index, array) {
   }
 }
 
+function part2( data ){
+  return data.match(/(..).*\1/)
+}
+
 $.get( "input.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
   data.trim().split(/\r?\n/).forEach(doItNTimes);
   $('#answer span').text( niceStringsCount );
-  //$('#answer2 span').text(  );
+  
+  $('#answer2 span').text( part2( "abcdefcdghij" ) );
   //$('#bonus span').html(  );
 });
