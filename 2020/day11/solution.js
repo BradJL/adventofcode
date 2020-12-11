@@ -8,7 +8,7 @@ function part1( data ){
   let newData = [];
   let changed = true;
   let openSeats = 0;
-//   while( changed ){
+  while( changed ){
     openSeats = 0;
     changed = false;
     newData = [];
@@ -51,7 +51,7 @@ function part1( data ){
     }
     console.log( newData );
     data = newData;
-//   }  
+  }  
   $('#answer span').text( openSeats );
   $('#bonus span').html( data );
 }
