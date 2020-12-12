@@ -17,9 +17,15 @@ function makeArray(w, h, val) {
     return arr;
 } // thanks, internet!
 
+function makeGreyRGB( value ){
+  value = value.toString(16);
+  if( value.length == 1 ){ value = "0" + value; }
+  return "#" + value;
+}
+
 function part1( data ){
   for( let e = 0; e <= 42; ++e ){
-    console.log( "#" + (e * 6 + 3).toString(16) );
+    console.log( "#" + makeGreyRGB(e * 6 + 3) );
   }
   let drawIt = true;
   let lights = makeArray( 1000, 1000, false );
