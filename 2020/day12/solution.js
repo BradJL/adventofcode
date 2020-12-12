@@ -100,6 +100,12 @@ $.get( "input.txt", function( data ) {
 //   $('#input span').text('(Bytes: ' + (data.length) + ')');
   data = data.trim().split(/\r?\n/);
   $('#input span').text('(Lines: ' + (data.length) + ')');
+  data = [
+"F10",
+"N3",
+"F7",
+"L90",
+"F11 ];
   part1( data );
 //   part2( data );
   
