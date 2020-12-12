@@ -89,8 +89,8 @@ function part1( data ){
       break;
     }
     ctx.beginPath();
-    ctx.moveTo(750 - prevE/2, 100 - prevN/2);
-    ctx.lineTo(750 - e/2, 100 - n/2);
+    ctx.moveTo(250 - prevE/2, 50 - prevN/2);
+    ctx.lineTo(250 - e/2, 50 - n/2);
     ctx.stroke();
     prevN = n;
     prevE = e;
@@ -179,8 +179,8 @@ function part2( data ){
     }
     ctx2.strokeStyle = "#FF0000";
     ctx2.beginPath();
-    ctx2.moveTo(500 - prevE/20, 500 - prevN/20);
-    ctx2.lineTo(500 - e/20, 500 - n/20);
+    ctx2.moveTo(250 - prevE/20, 250 - prevN/20);
+    ctx2.lineTo(250 - e/20, 250 - n/20);
     ctx2.stroke();
     prevN = n;
     prevE = e;
