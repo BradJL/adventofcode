@@ -86,7 +86,7 @@ function part1( data ){
       break;
     }
   });
-  $('#answer span').text( n + e );
+  $('#answer span').text( abs(n) + abs(e) );
   //$('#bonus span').html(  );
 }
 function part2( data ){
