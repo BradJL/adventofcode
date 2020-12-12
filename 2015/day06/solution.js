@@ -26,6 +26,7 @@ function part1( data ){
 
   let lit = 0;
   let brightness = 0;
+  let maxBrightness = 0;
     
   data.forEach(function(value, index, array) {
     //console.log( value );
@@ -51,6 +52,9 @@ function part1( data ){
           }
           ++(lights2[x][y]);
           ++brightness;
+          if( light2[x][y] > maxBrightness ){
+            maxBrightness = light2[x][y];
+          }
         }
       }
       break;
@@ -94,6 +98,9 @@ function part1( data ){
           }
           lights2[x][y] += 2;
           brightness += 2;
+          if( light2[x][y] > maxBrightness ){
+            maxBrightness = light2[x][y];
+          }
         }
       }
       break;
@@ -101,7 +108,7 @@ function part1( data ){
   });
   $('#answer span').text( lit );
   $('#answer2 span').text( brightness );
-  //$('#bonus span').html(  );
+  $('#bonus span').html( maxBrightness );
 }
 
 $.get( "input.txt", function( data ) {;
