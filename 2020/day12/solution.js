@@ -95,6 +95,7 @@ function part2( data ){
   let degrees = 0;
   let n = 0;
   let e = 0;
+  let oldWN;
   data.forEach(function(value, index, array) {
     let inst = value.charAt(0);
     let num = parseInt(value.substring(1));
@@ -120,7 +121,7 @@ function part2( data ){
       case 0:
         break;
       case 90:
-        let oldWN = wN;
+        oldWN = wN;
         wN = wE;
         wE = -oldWN;
         break;
@@ -129,7 +130,7 @@ function part2( data ){
         wE = -wE;
         break;
       case 270:
-        let oldWN = wN;
+        oldWN = wN;
         wN = -wE;
         wE = oldWN;
         break;
@@ -141,7 +142,7 @@ function part2( data ){
       case 0:
         break;
       case 90:
-        let oldWN = wN;
+        oldWN = wN;
         wN = -wE;
         wE = oldWN;
         break;
@@ -150,7 +151,7 @@ function part2( data ){
         wE = -wE;
         break;
       case 270:
-        let oldWN = wN;
+        oldWN = wN;
         wN = wE;
         wE = -oldWN;
         break;
