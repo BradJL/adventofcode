@@ -24,7 +24,7 @@ function getInputs( outputWire, data ){
 }
 
 function getWires( circuit ){
-  return data.match( /[a-z]+/g );
+  return circuit.match( /[a-z]+/g );
 }
 
 $.get( "input.txt", function( data ) {
