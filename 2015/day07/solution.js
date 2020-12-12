@@ -20,7 +20,7 @@ function part2( data ){
 }
 
 function getInputs( outputWire, data ){
-  return (data.match( new RegExp("\n.* -> " + wire + "\n", 'g') )[0]).replace(/ -> .*/, '');
+  return (data.match( new RegExp("\n.* -> " + outputWire + "\n", 'g') )[0]).replace(/ -> .*/, '');
 }
 
 function getWires( circuit ){
