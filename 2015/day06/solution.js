@@ -91,7 +91,7 @@ function part1( data ){
           } else {
             --brightness;
           }
-          console.log(makeGreyRGB((lights2[x][y]) * 6 + 3));
+//           console.log(makeGreyRGB((lights2[x][y]) * 6 + 3));
 //           ctx2.fillStyle = makeGreyRGB((lights2[x][y]) * 6 + 3);
 //           ctx2.fillRect(x, y, 1, 1);
         }
