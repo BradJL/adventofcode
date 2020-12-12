@@ -160,7 +160,7 @@ function part2( data ){
       break;
     case 'F':
       n += num * wN;
-      e =+ num * wE;
+      e += num * wE;
       console.log( "F" + num + " N" + n + "E" + e );
       break;
     }
