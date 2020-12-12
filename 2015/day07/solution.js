@@ -20,9 +20,11 @@ function part2( data ){
 }
 
 $.get( "input.txt", function( data ) {
-//   $('#input span').text('(Bytes: ' + (data.length) + ')');
-  data = data.trim().split(/\r?\n/);
-  $('#input span').text('(Lines: ' + (data.length) + ')');
+  $('#input span').text('(Bytes: ' + (data.length) + ')');
+//   data = data.trim().split(/\r?\n/);
+  let wire = 'a';
+  $('#answer span').text( data.match( new RegExp("^.* -> " + wire + "$", 'g') ) );
+//   $('#input span').text('(Lines: ' + (data.length) + ')');
 //   part1( data );
 //   part2( data );
   
