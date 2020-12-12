@@ -159,7 +159,7 @@ function part1( data ){
   //$('#bonus span').html( maxBrightness );
   
   draw( lights, ctx );
-  //draw( lights2, ctx2 );
+  draw( lights2, ctx2 );
 }
 
 $.get( "input.txt", function( data ) {;
