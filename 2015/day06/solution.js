@@ -54,7 +54,7 @@ function part1( data ){
           }
           ++(lights2[x][y]);
           ++brightness;
-          console.log(lights2[x][y]+": #"+(3 + 6 * lights2[x][y]).toString(16)+(3 + 6 * lights2[x][y]).toString(16)+(3 + 6 * lights2[x][y]).toString(16));
+          console.log("" + (lights2[x][y])+": #"+(3 + 6 * (lights2[x][y])).toString(16)+(3 + 6 * (lights2[x][y])).toString(16)+(3 + 6 * (lights2[x][y])).toString(16));
 //           ctx2.fillStyle = "#"+(3 + 6 * lights2[x][y]).toString(16)+(3 + 6 * lights2[x][y]).toString(16)+(3 + 6 * lights2[x][y]).toString(16);
 //           ctx2.fillRect(x, y, 1, 1);
 
@@ -107,7 +107,7 @@ function part1( data ){
           }
           lights2[x][y] += 2;
           brightness += 2;
-          console.log(lights2[x][y]+": #"+(3 + 6 * lights2[x][y]).toString(16)+(3 + 6 * lights2[x][y]).toString(16)+(3 + 6 * lights2[x][y]).toString(16));
+          console.log("" + (lights2[x][y])+": #"+(3 + 6 * (lights2[x][y])).toString(16)+(3 + 6 * (lights2[x][y])).toString(16)+(3 + 6 * (lights2[x][y])).toString(16));
 //           ctx2.fillStyle = "#"+(3 + 6 * lights2[x][y]).toString(16)+(3 + 6 * lights2[x][y]).toString(16)+(3 + 6 * lights2[x][y]).toString(16);
 //           ctx2.fillRect(x, y, 1, 1);
 
