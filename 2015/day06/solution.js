@@ -60,8 +60,8 @@ function part1( data ){
     switch( action ){
     case "on":
 //       if( drawIt ){
-//         ctx2.fillStyle = "#FFFFFF";
-//         ctx2.fillRect(startX, startY, endX-startX+1, endY-startY+1);
+//         ctx.fillStyle = "#FFFFFF";
+//         ctx.fillRect(startX, startY, endX-startX+1, endY-startY+1);
 //       }
       for( x = startX; x <= endX; ++x ){
         for( y = startY; y <= endY; ++y ){
@@ -73,8 +73,8 @@ function part1( data ){
           ++brightness;
           if( drawIt ){
             //log( makeGreyRGB((lights2[x][y]) * 6 + 3) );
-            ctx.fillStyle = makeGreyRGB((lights2[x][y]) * 6 + 3);
-            ctx.fillRect(x, y, 1, 1);
+            ctx2.fillStyle = makeGreyRGB((lights2[x][y]) * 6 + 3);
+            ctx2.fillRect(x, y, 1, 1);
           }
 
           if( lights2[x][y] > maxBrightness ){
@@ -86,8 +86,8 @@ function part1( data ){
       break;
     case "off":
 //       if( drawIt ){
-//         ctx2.fillStyle = "#000000";
-//         ctx2.fillRect(startX, startY, endX-startX+1, endY-startY+1);
+//         ctx.fillStyle = "#000000";
+//         ctx.fillRect(startX, startY, endX-startX+1, endY-startY+1);
 //       }
       for( x = startX; x <= endX; ++x ){
         for( y = startY; y <= endY; ++y ){
