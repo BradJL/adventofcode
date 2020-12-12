@@ -30,9 +30,9 @@ function getWires( circuit ){
 $.get( "input.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
 //   data = data.trim().split(/\r?\n/);
-  let circuit = 'a';
+  let circuit = ' a ';
   let wiresSet = new Set(getWires( circuit ));
-  let a = Array.from(wiresSet, e => circuit = circuit.replace( " " + e + " ", " (" + getInputs( e, data ) + ") " ));
+  let a = Array.from(wiresSet, e => circuit = circuit.replace( " " + e + " ", " ( " + getInputs( e, data ) + " ) " ));
   
   $('#answer span').text( circuit );
 //   $('#input span').text('(Lines: ' + (data.length) + ')');
