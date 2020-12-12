@@ -60,8 +60,8 @@ function part1( data ){
     switch( action ){
     case "on":
       if( drawIt ){
-        ctx.fillStyle = "#FFFFFF";
-        ctx.fillRect(startX, startY, endX-startX+1, endY-startY+1);
+        ctx2.fillStyle = "#FFFFFF";
+        ctx2.fillRect(startX, startY, endX-startX+1, endY-startY+1);
       }
       for( x = startX; x <= endX; ++x ){
         for( y = startY; y <= endY; ++y ){
@@ -72,7 +72,7 @@ function part1( data ){
           ++(lights2[x][y]);
           ++brightness;
           if( drawIt ){
-            log( makeGreyRGB((lights2[x][y]) * 6 + 3) );
+//             log( makeGreyRGB((lights2[x][y]) * 6 + 3) );
 //             ctx2.fillStyle = makeGreyRGB((lights2[x][y]) * 6 + 3);
 //             ctx2.fillRect(x, y, 1, 1);
           }
@@ -86,8 +86,8 @@ function part1( data ){
       break;
     case "off":
       if( drawIt ){
-        ctx.fillStyle = "#000000";
-        ctx.fillRect(startX, startY, endX-startX+1, endY-startY+1);
+        ctx2.fillStyle = "#000000";
+        ctx2.fillRect(startX, startY, endX-startX+1, endY-startY+1);
       }
       for( x = startX; x <= endX; ++x ){
         for( y = startY; y <= endY; ++y ){
@@ -115,8 +115,8 @@ function part1( data ){
             lights[x][y] = false;
             --lit;
             if( drawIt ){
-              ctx.fillStyle = "#000000";
-              ctx.fillRect(x, y, 1, 1);
+              ctx2.fillStyle = "#000000";
+              ctx2.fillRect(x, y, 1, 1);
             }
           } else {
             lights[x][y] = true;
@@ -129,8 +129,8 @@ function part1( data ){
           lights2[x][y] += 2;
           brightness += 2;
           if( drawIt ){
-            ctx2.fillStyle = makeGreyRGB((lights2[x][y]) * 6 + 3);
-            ctx2.fillRect(x, y, 1, 1);
+            ctx1.fillStyle = makeGreyRGB((lights2[x][y]) * 6 + 3);
+            ctx1.fillRect(x, y, 1, 1);
           }
           if( lights2[x][y] > maxBrightness ){
             maxBrightness = lights2[x][y];
