@@ -90,7 +90,7 @@ function part1( data ){
     }
     ctx.beginPath();
     ctx.moveTo(750 - prevE, 100 - prevN);
-    ctx.lineTo(500 - e, 500 - n);
+    ctx.lineTo(750 - e, 100 - n);
     ctx.stroke();
     prevN = n;
     prevE = e;
