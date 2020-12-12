@@ -58,11 +58,11 @@ function part1( data ){
             lights[x][y] = false;
             --lit;
             --(lights2[x][y]);
-            if( lights2[x][y] == -1 ){
-              lights2[x][y] = 0;
-            } else {
-              --brightness;
-            }
+          }
+          if( lights2[x][y] == -1 ){
+            lights2[x][y] = 0;
+          } else {
+            --brightness;
           }
         }
       }
@@ -70,8 +70,6 @@ function part1( data ){
     case "toggle":
       for( x = startX; x <= endX; ++x ){
         for( y = startY; y <= endY; ++y ){
-          lights2[x][y] += 2;
-          brightness += 2;
           if( lights[x][y] == true ){
             lights[x][y] = false;
             --lit;
@@ -83,6 +81,8 @@ function part1( data ){
             ctx.fillStyle = "#FFFFFF";
             ctx.fillRect(x, y, 1, 1);
           }
+          lights2[x][y] += 2;
+          brightness += 2;
         }
       }
       break;
@@ -92,23 +92,9 @@ function part1( data ){
   $('#answer2 span').text( brightness );
   //$('#bonus span').html(  );
 }
-function part2( data ){
-  data.forEach(function(value, index, array) {
-  });
-  //$('#answer2 span').text(  );
-  //$('#bonus span').html(  );
-}
 
 $.get( "input.txt", function( data ) {;
   $('#input span').text('(Bytes: ' + (data.length) + ')');
   data = data.trim().split(/\r?\n/);
-   part1( data );
-//   part2( data );
-  
-//   let input = [];
-//   data.forEach(function(number, index, array) {
-//     input.push(parseInt(number))
-//   });
-//   part1( input );
-//   part2( input );
+  part1( data );
 });
