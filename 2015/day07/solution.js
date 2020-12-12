@@ -30,7 +30,7 @@ function getWires( circuit ){
 $.get( "input.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
 //   data = data.trim().split(/\r?\n/);
-  let circuit = ' a ';
+  let circuit = '( lx )';
   let wiresSet = new Set(getWires( circuit ));
   while( wiresSet.size > 0 ){
     let a = Array.from(wiresSet)
