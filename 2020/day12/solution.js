@@ -138,7 +138,7 @@ function part2( data ){
       console.log( "L" + num + ": wN" + wN + "wE" + wE );
       break;
     case 'R':
-      switch( degrees ){
+      switch( num ){
       case 0:
         break;
       case 90:
