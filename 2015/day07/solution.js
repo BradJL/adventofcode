@@ -32,8 +32,11 @@ $.get( "input.txt", function( data ) {
 //   data = data.trim().split(/\r?\n/);
   let circuit = ' a ';
   let wiresSet = new Set(getWires( circuit ));
-  let a = Array.from(wiresSet, e => circuit = circuit.replace( " " + e + " ", " ( " + getInputs( e, data ) + " ) " ));
-  
+  while( wiresSet.size > 0 ){
+    let a = Array.from(wiresSet, e => circuit = circuit.replace( " " + e + " ", " ( " + getInputs( e, data ) + " ) " ));
+    console.log( circuit );
+    wiresSet = new Set(getWires( circuit ));
+  }
   $('#answer span').text( circuit );
 //   $('#input span').text('(Lines: ' + (data.length) + ')');
 //   part1( data );
