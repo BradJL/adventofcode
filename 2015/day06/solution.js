@@ -20,12 +20,12 @@ function makeArray(w, h, val) {
 function makeGreyRGB( value ){
   value = value.toString(16);
   if( value.length == 1 ){ value = "0" + value; }
-  return "#" + value;
+  return "#" + value.repeat(3);
 }
 
 function part1( data ){
   for( let e = 0; e <= 42; ++e ){
-    console.log( "#" + makeGreyRGB(e * 6 + 3) );
+    console.log( makeGreyRGB(e * 6 + 3) );
   }
   let drawIt = true;
   let lights = makeArray( 1000, 1000, false );
