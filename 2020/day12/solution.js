@@ -101,9 +101,6 @@ function part1( data ){
 function part2( data ){
   let wE = 10;
   let wN = 1;
-  let prevWN = 10;
-  let prevWE = 1;
-  let degrees = 0;
   let n = 0;
   let e = 0;
   let prevN = 0;
@@ -184,13 +181,6 @@ function part2( data ){
     ctx2.stroke();
     prevN = n;
     prevE = e;
-    ctx2.strokeStyle = "#00FF00";
-    ctx2.beginPath();
-    ctx2.moveTo(420 - prevWE/75, 180 - prevWN/75);
-    ctx2.lineTo(420 - wE/75, 180 - wN/75);
-    ctx2.stroke();
-    prevWN = wN;
-    prevWE = wE;
   });
   $('#answer2 span').text( Math.abs(n) + Math.abs(e) );
 }
