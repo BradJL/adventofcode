@@ -101,19 +101,19 @@ function part2( data ){
     let num = parseInt(value.substring(1));
     switch( inst ){
     case 'N':
-      wn += num;
+      wN += num;
       console.log( "N" + num + " wN" + wN + "wE" + wE );
       break;
     case 'S':
-      wn -= num;
+      wN -= num;
       console.log( "S" + num + " wN" + wN + "wE" + wE );
       break;
     case 'E':
-      e += num;
+      wE += num;
       console.log( "E" + num + " wN" + wN + "wE" + wE );
       break;
     case 'W':
-      e -= num;
+      wE -= num;
       console.log( "W" + num + " wN" + wN + "wE" + wE );
       break;
     case 'L':
