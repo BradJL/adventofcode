@@ -6,6 +6,13 @@ var ctx = canvas.getContext("2d");
 var canvas2 = document.getElementById("visualization2");
 var ctx2 = canvas2.getContext("2d");
 
+lastLog = "";
+function log( txt ){
+  if( txt != lastLog ){
+    console.log( txt );
+  }
+}
+
 function makeArray(w, h, val) {
     var arr = [];
     for(let i = 0; i < h; i++) {
@@ -63,10 +70,11 @@ function part1( data ){
           }
           ++(lights2[x][y]);
           ++brightness;
-//           if( drawIt ){
+          if( drawIt ){
+            log( makeGreyRGB((lights2[x][y]) * 6 + 3) );
 //             ctx2.fillStyle = makeGreyRGB((lights2[x][y]) * 6 + 3);
 //             ctx2.fillRect(x, y, 1, 1);
-//           }
+          }
 
           if( lights2[x][y] > maxBrightness ){
             maxBrightness = lights2[x][y];
@@ -125,7 +133,7 @@ function part1( data ){
           }
           if( lights2[x][y] > maxBrightness ){
             maxBrightness = lights2[x][y];
-            console.log(makeGreyRGB((lights2[x][y]) * 6 + 3));
+            //console.log(makeGreyRGB((lights2[x][y]) * 6 + 3));
           }
         }
       }
