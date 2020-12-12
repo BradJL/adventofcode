@@ -16,11 +16,14 @@ function makeArray(w, h, val) {
 } // thanks, internet!
 
 function part1( data ){
+  let drawIt = false;
   let lights = makeArray( 1000, 1000, false );
   let lights2 = makeArray( 1000, 1000, 0 );
-  ctx.fillStyle = "#000000";
-  ctx.fillRect(0,0,999,999);
-    
+  if( drawIt ){
+    ctx.fillStyle = "#000000";
+    ctx.fillRect(0,0,999,999);
+  }
+
   let lit = 0;
   let brightness = 0;
     
@@ -36,8 +39,10 @@ function part1( data ){
 
     switch( action ){
     case "on":
-      ctx.fillStyle = "#FFFFFF";
-      ctx.fillRect(startX, startY, endX-startX+1, endY-startY+1);
+      if( drawIt ){
+        ctx.fillStyle = "#FFFFFF";
+        ctx.fillRect(startX, startY, endX-startX+1, endY-startY+1);
+      }
       for( x = startX; x <= endX; ++x ){
         for( y = startY; y <= endY; ++y ){
           if( lights[x][y] == false ){
@@ -50,15 +55,17 @@ function part1( data ){
       }
       break;
     case "off":
-      ctx.fillStyle = "#000000";
-      ctx.fillRect(startX, startY, endX-startX+1, endY-startY+1);
+      if( drawIt ){
+        ctx.fillStyle = "#000000";
+        ctx.fillRect(startX, startY, endX-startX+1, endY-startY+1);
+      }
       for( x = startX; x <= endX; ++x ){
         for( y = startY; y <= endY; ++y ){
           if( lights[x][y] == true ){
             lights[x][y] = false;
             --lit;
-            --(lights2[x][y]);
           }
+          --(lights2[x][y]);
           if( lights2[x][y] == -1 ){
             lights2[x][y] = 0;
           } else {
@@ -73,13 +80,17 @@ function part1( data ){
           if( lights[x][y] == true ){
             lights[x][y] = false;
             --lit;
-            ctx.fillStyle = "#000000";
-            ctx.fillRect(x, y, 1, 1);
+            if( drawIt ){
+              ctx.fillStyle = "#000000";
+              ctx.fillRect(x, y, 1, 1);
+            }
           } else {
             lights[x][y] = true;
             ++lit;
-            ctx.fillStyle = "#FFFFFF";
-            ctx.fillRect(x, y, 1, 1);
+            if( drawIt ){
+              ctx.fillStyle = "#FFFFFF";
+              ctx.fillRect(x, y, 1, 1);
+            }
           }
           lights2[x][y] += 2;
           brightness += 2;
