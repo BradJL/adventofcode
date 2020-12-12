@@ -81,7 +81,7 @@ function part1( data ){
           } else {
             --brightness;
           }
-          console.log(lights2[x][y]+": #"+(3 + 6 * lights2[x][y]).toString(16)+(3 + 6 * lights2[x][y]).toString(16)+(3 + 6 * lights2[x][y]).toString(16));
+          console.log("" + (lights2[x][y])+": #"+(3 + 6 * (lights2[x][y])).toString(16)+(3 + 6 * (lights2[x][y])).toString(16)+(3 + 6 * (lights2[x][y])).toString(16));
 //           ctx2.fillStyle = "#"+(3 + 6 * lights2[x][y]).toString(16)+(3 + 6 * lights2[x][y]).toString(16)+(3 + 6 * lights2[x][y]).toString(16);
 //           ctx2.fillRect(x, y, 1, 1);
         }
