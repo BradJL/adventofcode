@@ -179,8 +179,8 @@ function part2( data ){
     }
     ctx2.strokeStyle = "#FF0000";
     ctx2.beginPath();
-    ctx2.moveTo(400 - prevE/40, 100 - prevN/40);
-    ctx2.lineTo(400 - e/40, 100 - n/40);
+    ctx2.moveTo(400 - prevE/50, 100 - prevN/50);
+    ctx2.lineTo(400 - e/50, 100 - n/50);
     ctx2.stroke();
     prevN = n;
     prevE = e;
