@@ -21,7 +21,7 @@ function part1( data ){
   let lit = 0;
   data.forEach(function(value, index, array) {
     //console.log( value );
-    let args = value.replace("turn ", '').replace(',', ' ').replace("through ", '').split(' ');
+    let args = value.replace("turn ", '').replace(/,/g, ' ').replace("through ", '').split(' ');
     console.log( args );
     let action = args[0];
     let startX = parseInt(args[1]);
