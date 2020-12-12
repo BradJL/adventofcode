@@ -63,14 +63,14 @@ function part1( data ){
           }
           ++(lights2[x][y]);
           ++brightness;
-          if( drawIt ){
-            ctx2.fillStyle = makeGreyRGB((lights2[x][y]) * 6 + 3);
-            ctx2.fillRect(x, y, 1, 1);
-          }
+//           if( drawIt ){
+//             ctx2.fillStyle = makeGreyRGB((lights2[x][y]) * 6 + 3);
+//             ctx2.fillRect(x, y, 1, 1);
+//           }
 
           if( lights2[x][y] > maxBrightness ){
             maxBrightness = lights2[x][y];
-            console.log(makeGreyRGB((lights2[x][y]) * 6 + 3));
+            //console.log(makeGreyRGB((lights2[x][y]) * 6 + 3));
           }
         }
       }
