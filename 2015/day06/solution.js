@@ -17,9 +17,10 @@ function makeArray(w, h, val) {
 
 function part1( data ){
   let lights = makeArray( 1000, 1000, false );
-  
+    
+  let lit = 0;
   data.forEach(function(value, index, array) {
-    console.log( value );
+    //console.log( value );
     let args = value.replace("turn ", '').replace(',', ' ').replace("through ", '').split(' ');
     console.log( args );
     let action = args[0];
@@ -28,7 +29,6 @@ function part1( data ){
     let endX = parseInt(args[3]);
     let endY = parseInt(args[4]);
 
-    let lit = 0;
     switch( action ){
     case "on":
       ctx.fillStyle = "#FFFFFF";
