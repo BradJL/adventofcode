@@ -89,8 +89,8 @@ function part1( data ){
       break;
     }
     ctx.beginPath();
-    ctx.moveTo(750 - prevE, 100 - prevN);
-    ctx.lineTo(750 - e, 100 - n);
+    ctx.moveTo(750 - prevE/2, 100 - prevN/2);
+    ctx.lineTo(750 - e/2, 100 - n/2);
     ctx.stroke();
     prevN = n;
     prevE = e;
