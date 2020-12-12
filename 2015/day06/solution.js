@@ -54,8 +54,8 @@ function part1( data ){
           }
           ++(lights2[x][y]);
           ++brightness;
-          ctx2.fillStyle = "#"+(3 + 6 * lights2[x][y]).toString(16)+(3 + 6 * lights2[x][y]).toString(16)+(3 + 6 * lights2[x][y]).toString(16);
-          ctx2.fillRect(x, y, 1, 1);
+//           ctx2.fillStyle = "#"+(3 + 6 * lights2[x][y]).toString(16)+(3 + 6 * lights2[x][y]).toString(16)+(3 + 6 * lights2[x][y]).toString(16);
+//           ctx2.fillRect(x, y, 1, 1);
 
           if( lights2[x][y] > maxBrightness ){
             maxBrightness = lights2[x][y];
@@ -80,8 +80,8 @@ function part1( data ){
           } else {
             --brightness;
           }
-          ctx2.fillStyle = "#"+(3 + 6 * lights2[x][y]).toString(16)+(3 + 6 * lights2[x][y]).toString(16)+(3 + 6 * lights2[x][y]).toString(16);
-          ctx2.fillRect(x, y, 1, 1);
+//           ctx2.fillStyle = "#"+(3 + 6 * lights2[x][y]).toString(16)+(3 + 6 * lights2[x][y]).toString(16)+(3 + 6 * lights2[x][y]).toString(16);
+//           ctx2.fillRect(x, y, 1, 1);
         }
       }
       break;
@@ -105,8 +105,8 @@ function part1( data ){
           }
           lights2[x][y] += 2;
           brightness += 2;
-          ctx2.fillStyle = "#"+(3 + 6 * lights2[x][y]).toString(16)+(3 + 6 * lights2[x][y]).toString(16)+(3 + 6 * lights2[x][y]).toString(16);
-          ctx2.fillRect(x, y, 1, 1);
+//           ctx2.fillStyle = "#"+(3 + 6 * lights2[x][y]).toString(16)+(3 + 6 * lights2[x][y]).toString(16)+(3 + 6 * lights2[x][y]).toString(16);
+//           ctx2.fillRect(x, y, 1, 1);
 
           if( lights2[x][y] > maxBrightness ){
             maxBrightness = lights2[x][y];
