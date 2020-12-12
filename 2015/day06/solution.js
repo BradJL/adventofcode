@@ -19,6 +19,7 @@ function part1( data ){
   let lights = makeArray( 1000, 1000, false );
   
   data.forEach(function(value, index, array) {
+    console.log( value );
     let args = value.replace("turn ", '').replace(',', ' ').replace("through ", '').split(' ');
     console.log( args );
     let action = args[0];
