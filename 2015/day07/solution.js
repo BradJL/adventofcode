@@ -35,7 +35,7 @@ $.get( "input.txt", function( data ) {
   while( wiresSet.size > 0 ){
     let a = Array.from(wiresSet, e => circuit = circuit.replace( " " + e + " ", " ( " + getInputs( e, data ) + " ) " ));
     wiresSet = new Set(getWires( circuit ));
-    console.log( circuit + " | " + wiresSet );
+    console.log( circuit + " | " + Array.from(wiresSet) );
   }
   $('#answer span').text( circuit );
 //   $('#input span').text('(Lines: ' + (data.length) + ')');
