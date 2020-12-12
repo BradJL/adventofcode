@@ -35,7 +35,7 @@ $.get( "input.txt", function( data ) {
   while( wiresSet.size > 0 ){
     let a = Array.from(wiresSet)
     a.forEach(function(value, index, array) {
-      circuit = circuit.replace( " " + value + " ", " ( " + getInputs( value, data ) + " ) " ));
+      circuit = circuit.replace( " " + value + " ", " ( " + getInputs( value, data ) + " ) " );
     });
     wiresSet = new Set(getWires( circuit ));
     console.log( circuit + "|" + Array.from(wiresSet) + "|" );
