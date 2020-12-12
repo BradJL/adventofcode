@@ -16,15 +16,19 @@ function part1( data ){
     let num = parseInt(value.substring(1));
     switch( inst ){
     case 'N':
+      console.log( "N" + num );
       n += num;
       break;
     case 'S':
+      console.log( "S" + num );
       n -= num;
       break;
     case 'E':
+      console.log( "E" + num );
       e += num;
       break;
     case 'W':
+      console.log( "W" + num );
       e -= num;
       break;
     case 'L':
@@ -43,6 +47,7 @@ function part1( data ){
         direction = 'N';
         break;
       }
+      console.log( "L" + num + ": " + direction );
       break;
     case 'R':
       degrees = (degrees + num) % 360;
@@ -60,6 +65,7 @@ function part1( data ){
         direction = 'N';
         break;
       }
+      console.log( "R" + num + ": " + direction );
       break;
     case 'F':
       switch( direction ){
@@ -75,6 +81,7 @@ function part1( data ){
       case 'W':
         e -= num;
         break;
+        console.log( "F-" + direction + num );
       }
       break;
     }
