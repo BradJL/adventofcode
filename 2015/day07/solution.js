@@ -19,12 +19,22 @@ function part2( data ){
   //$('#bonus span').html(  );
 }
 
+function getInputs( outputWire, data ){
+  return (data.match( new RegExp("\n.* -> " + wire + "\n", 'g') )[0]).replace(/ -> .*/, '');
+}
+
+function getWires( circuit ){
+  return data.match( /[a-z]+/g );
+}
+
 $.get( "input.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
 //   data = data.trim().split(/\r?\n/);
-  let wire = 'a';
-  wire = (data.match( new RegExp("\n.* -> " + wire + "\n", 'g') )[0]).replace(/ -> .*/, '');
-  $('#answer span').text( wire );
+  let circuit = 'a';
+  let wiresSet = new Set(getWires( circuit ));
+  let a = Array.from(a, e => getInputs( e, data ));
+  
+  $('#answer span').text( a );
 //   $('#input span').text('(Lines: ' + (data.length) + ')');
 //   part1( data );
 //   part2( data );
