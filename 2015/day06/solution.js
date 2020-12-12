@@ -73,7 +73,6 @@ function lightShow( data ){
           ++brightness;
           if( lights2[x][y] > maxBrightness ){
             maxBrightness = lights2[x][y];
-            //console.log(makeGreyRGB((lights2[x][y]) * 6 + 3));
           }
         }
       }
@@ -108,7 +107,6 @@ function lightShow( data ){
           brightness += 2;
           if( lights2[x][y] > maxBrightness ){
             maxBrightness = lights2[x][y];
-            //console.log(makeGreyRGB((lights2[x][y]) * 6 + 3));
           }
         }
       }
@@ -117,7 +115,7 @@ function lightShow( data ){
   });
   $('#answer span').text( lit );
   $('#answer2 span').text( brightness );
-  //$('#bonus span').html( maxBrightness );
+  //$('#bonus span').html( "Max brightness: " + maxBrightness );
   
   if( drawIt ){
     draw( lights, ctx );
