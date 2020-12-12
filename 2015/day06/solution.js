@@ -18,6 +18,9 @@ function makeArray(w, h, val) {
 } // thanks, internet!
 
 function part1( data ){
+  for( let e = 0; e <= 42; ++e ){
+    console.log( "#" + (e * 6 + 3).toString(16) );
+  }
   let drawIt = true;
   let lights = makeArray( 1000, 1000, false );
   let lights2 = makeArray( 1000, 1000, 0 );
