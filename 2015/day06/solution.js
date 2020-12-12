@@ -31,6 +31,19 @@ function makeGreyRGB( value ){
   return "#" + value.repeat(3);
 }
 
+function draw( lights, ctx ){
+  for( let x = 0; x < lights.length; ++x ){
+    for( let y = 0; y < lights[x].length; ++y ){
+      if( lights[x][y] === true ){
+        ctx.fillStyle = makeGreyRGB(255);
+      } else {
+        ctx.fillStyle = makeGreyRGB((lights[x][y]) * 6 + 3);
+      }
+      ctx.fillRect(x, y, 1, 1);
+    }
+  }
+}
+
 function part1( data ){
 //   for( let e = 0; e <= 42; ++e ){
 //     console.log( makeGreyRGB(e * 6 + 3) );
@@ -38,12 +51,12 @@ function part1( data ){
   let drawIt = true;
   let lights = makeArray( 1000, 1000, false );
   let lights2 = makeArray( 1000, 1000, 0 );
-  if( drawIt ){
-    ctx.fillStyle = "#000000";
-    ctx.fillRect(0,0,999,999);
-    ctx2.fillStyle = "#000000";
-    ctx2.fillRect(0,0,999,999);
-  }
+//   if( drawIt ){
+//     ctx.fillStyle = "#000000";
+//     ctx.fillRect(0,0,999,999);
+//     ctx2.fillStyle = "#000000";
+//     ctx2.fillRect(0,0,999,999);
+//   }
 
   let lit = 0;
   let brightness = 0;
@@ -63,19 +76,19 @@ function part1( data ){
 //         ctx.fillStyle = "#FFFFFF";
 //         ctx.fillRect(startX, startY, endX-startX+1, endY-startY+1);
 //       }
-      for( x = startX; x <= endX; ++x ){
-        for( y = startY; y <= endY; ++y ){
+      for( let x = startX; x <= endX; ++x ){
+        for(let y = startY; y <= endY; ++y ){
           if( lights[x][y] == false ){
             lights[x][y] = true;
             ++lit;
           }
           ++(lights2[x][y]);
           ++brightness;
-          if( drawIt ){
-            //log( makeGreyRGB((lights2[x][y]) * 6 + 3) );
-            ctx2.fillStyle = makeGreyRGB((lights2[x][y]) * 6 + 3);
-            ctx2.fillRect(x, y, 1, 1);
-          }
+//           if( drawIt ){
+//             //log( makeGreyRGB((lights2[x][y]) * 6 + 3) );
+//             ctx2.fillStyle = makeGreyRGB((lights2[x][y]) * 6 + 3);
+//             ctx2.fillRect(x, y, 1, 1);
+//           }
 
           if( lights2[x][y] > maxBrightness ){
             maxBrightness = lights2[x][y];
@@ -89,8 +102,8 @@ function part1( data ){
 //         ctx.fillStyle = "#000000";
 //         ctx.fillRect(startX, startY, endX-startX+1, endY-startY+1);
 //       }
-      for( x = startX; x <= endX; ++x ){
-        for( y = startY; y <= endY; ++y ){
+      for( let x = startX; x <= endX; ++x ){
+        for( let y = startY; y <= endY; ++y ){
           if( lights[x][y] == true ){
             lights[x][y] = false;
             --lit;
@@ -109,8 +122,8 @@ function part1( data ){
       }
       break;
     case "toggle":
-      for( x = startX; x <= endX; ++x ){
-        for( y = startY; y <= endY; ++y ){
+      for( let x = startX; x <= endX; ++x ){
+        for( let y = startY; y <= endY; ++y ){
           if( lights[x][y] == true ){
             lights[x][y] = false;
             --lit;
@@ -128,10 +141,10 @@ function part1( data ){
           }
           lights2[x][y] += 2;
           brightness += 2;
-          if( drawIt ){
-            ctx2.fillStyle = makeGreyRGB((lights2[x][y]) * 6 + 3);
-            ctx2.fillRect(x, y, 1, 1);
-          }
+//           if( drawIt ){
+//             ctx2.fillStyle = makeGreyRGB((lights2[x][y]) * 6 + 3);
+//             ctx2.fillRect(x, y, 1, 1);
+//           }
           if( lights2[x][y] > maxBrightness ){
             maxBrightness = lights2[x][y];
             //console.log(makeGreyRGB((lights2[x][y]) * 6 + 3));
