@@ -63,7 +63,7 @@ function part1( data ){
           }
           ++(lights2[x][y]);
           ++brightness;
-          console.log(makeGreyRGB(e * 6 + 3));
+          console.log(makeGreyRGB((lights2[x][y]) * 6 + 3));
 //           ctx2.fillStyle = "#"+(3 + 6 * lights2[x][y]).toString(16)+(3 + 6 * lights2[x][y]).toString(16)+(3 + 6 * lights2[x][y]).toString(16);
 //           ctx2.fillRect(x, y, 1, 1);
 
