@@ -105,7 +105,7 @@ $.get( "input.txt", function( data ) {
 "N3",
 "F7",
 "L90",
-"F11 ];
+"F11" ];
   part1( data );
 //   part2( data );
   
