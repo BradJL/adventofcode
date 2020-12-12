@@ -16,20 +16,20 @@ function part1( data ){
     let num = parseInt(value.substring(1));
     switch( inst ){
     case 'N':
-      console.log( "N" + num + " N" + n + "E" + e );
       n += num;
+      console.log( "N" + num + " N" + n + "E" + e );
       break;
     case 'S':
-      console.log( "S" + num + " N" + n + "E" + e );
       n -= num;
+      console.log( "S" + num + " N" + n + "E" + e );
       break;
     case 'E':
-      console.log( "E" + num + " N" + n + "E" + e );
       e += num;
+      console.log( "E" + num + " N" + n + "E" + e );
       break;
     case 'W':
-      console.log( "W" + num + " N" + n + "E" + e );
       e -= num;
+      console.log( "W" + num + " N" + n + "E" + e );
       break;
     case 'L':
       degrees = (degrees - num) % 360;
