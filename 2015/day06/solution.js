@@ -9,6 +9,7 @@ var ctx2 = canvas2.getContext("2d");
 lastLog = "";
 function log( txt ){
   if( txt != lastLog ){
+    lastLog = txt;
     console.log( txt );
   }
 }
