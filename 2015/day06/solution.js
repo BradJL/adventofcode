@@ -1,7 +1,7 @@
 $('#answer span').text('Calculating...');
 $('#answer2 span').text('Calculating...');
 
-var canvas = document.getElementById("myCanvas");
+var canvas = document.getElementById("visualization");
 var ctx = canvas.getContext("2d");
 
 function makeArray(w, h, val) {
