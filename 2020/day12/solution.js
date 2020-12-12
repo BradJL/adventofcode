@@ -81,8 +81,8 @@ function part1( data ){
       case 'W':
         e -= num;
         break;
-        console.log( "F-" + direction + num );
       }
+      console.log( "F-" + direction + num );
       break;
     }
   });
