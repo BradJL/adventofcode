@@ -186,11 +186,9 @@ function part2( data ){
     prevE = e;
   });
   $('#answer2 span').text( Math.abs(n) + Math.abs(e) );
-  //$('#bonus span').html(  );
 }
 
 $.get( "input.txt", function( data ) {
-//   $('#input span').text('(Bytes: ' + (data.length) + ')');
   data = data.trim().split(/\r?\n/);
   $('#input span').text('(Lines: ' + (data.length) + ')');
   part1( data );
