@@ -17,6 +17,8 @@ function makeArray(w, h, val) {
 
 function part1( data ){
   let lights = makeArray( 1000, 1000, false );
+  ctx.fillStyle = "#000000";
+  ctx.fillRect(0,0,999,999);
     
   let lit = 0;
   data.forEach(function(value, index, array) {
