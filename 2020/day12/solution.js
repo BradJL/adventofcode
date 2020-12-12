@@ -135,7 +135,7 @@ function part2( data ){
         wE = oldWN;
         break;
       }
-      console.log( "L" + num + ": " + direction );
+      console.log( "L" + num + ": wN" + wN + "wE" + wE );
       break;
     case 'R':
       switch( degrees ){
@@ -156,12 +156,12 @@ function part2( data ){
         wE = -oldWN;
         break;
       }
-      console.log( "R" + num + ": " + direction );
+      console.log( "R" + num + ": wN" + wN + "wE" + wE );
       break;
     case 'F':
       n += num * wN;
       e =+ num * wE;
-      console.log( "F-" + direction + num + " N" + n + "E" + e );
+      console.log( "F" + num + " N" + n + "E" + e );
       break;
     }
   });
