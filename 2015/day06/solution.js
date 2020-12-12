@@ -44,19 +44,10 @@ function draw( lights, ctx ){
   }
 }
 
-function part1( data ){
-//   for( let e = 0; e <= 42; ++e ){
-//     console.log( makeGreyRGB(e * 6 + 3) );
-//   }
+function lightShow( data ){
   let drawIt = true;
   let lights = makeArray( 1000, 1000, false );
   let lights2 = makeArray( 1000, 1000, 0 );
-//   if( drawIt ){
-//     ctx.fillStyle = "#000000";
-//     ctx.fillRect(0,0,999,999);
-//     ctx2.fillStyle = "#000000";
-//     ctx2.fillRect(0,0,999,999);
-//   }
 
   let lit = 0;
   let brightness = 0;
@@ -72,10 +63,6 @@ function part1( data ){
 
     switch( action ){
     case "on":
-//       if( drawIt ){
-//         ctx.fillStyle = "#FFFFFF";
-//         ctx.fillRect(startX, startY, endX-startX+1, endY-startY+1);
-//       }
       for( let x = startX; x <= endX; ++x ){
         for(let y = startY; y <= endY; ++y ){
           if( lights[x][y] == false ){
@@ -84,12 +71,6 @@ function part1( data ){
           }
           ++(lights2[x][y]);
           ++brightness;
-//           if( drawIt ){
-//             //log( makeGreyRGB((lights2[x][y]) * 6 + 3) );
-//             ctx2.fillStyle = makeGreyRGB((lights2[x][y]) * 6 + 3);
-//             ctx2.fillRect(x, y, 1, 1);
-//           }
-
           if( lights2[x][y] > maxBrightness ){
             maxBrightness = lights2[x][y];
             //console.log(makeGreyRGB((lights2[x][y]) * 6 + 3));
@@ -98,10 +79,6 @@ function part1( data ){
       }
       break;
     case "off":
-//       if( drawIt ){
-//         ctx.fillStyle = "#000000";
-//         ctx.fillRect(startX, startY, endX-startX+1, endY-startY+1);
-//       }
       for( let x = startX; x <= endX; ++x ){
         for( let y = startY; y <= endY; ++y ){
           if( lights[x][y] == true ){
@@ -114,10 +91,6 @@ function part1( data ){
           } else {
             --brightness;
           }
-//           if( drawIt ){
-//             ctx2.fillStyle = makeGreyRGB((lights2[x][y]) * 6 + 3);
-//             ctx2.fillRect(x, y, 1, 1);
-//           }
         }
       }
       break;
@@ -127,24 +100,12 @@ function part1( data ){
           if( lights[x][y] == true ){
             lights[x][y] = false;
             --lit;
-//             if( drawIt ){
-//               ctx2.fillStyle = "#000000";
-//               ctx2.fillRect(x, y, 1, 1);
-//             }
           } else {
             lights[x][y] = true;
             ++lit;
-//             if( drawIt ){
-//               ctx2.fillStyle = "#FFFFFF";
-//               ctx2.fillRect(x, y, 1, 1);
-//             }
           }
           lights2[x][y] += 2;
           brightness += 2;
-//           if( drawIt ){
-//             ctx2.fillStyle = makeGreyRGB((lights2[x][y]) * 6 + 3);
-//             ctx2.fillRect(x, y, 1, 1);
-//           }
           if( lights2[x][y] > maxBrightness ){
             maxBrightness = lights2[x][y];
             //console.log(makeGreyRGB((lights2[x][y]) * 6 + 3));
@@ -158,12 +119,14 @@ function part1( data ){
   $('#answer2 span').text( brightness );
   //$('#bonus span').html( maxBrightness );
   
-  draw( lights, ctx );
-  draw( lights2, ctx2 );
+  if( drawIt ){
+    draw( lights, ctx );
+    draw( lights2, ctx2 );
+  }
 }
 
 $.get( "input.txt", function( data ) {;
-  $('#input span').text('(Bytes: ' + (data.length) + ')');
   data = data.trim().split(/\r?\n/);
-  part1( data );
+  $('#input span').text('(Instructions: ' + (data.length) + ')');
+  lightShow( data );
 });
