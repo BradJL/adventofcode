@@ -32,7 +32,7 @@ function part1( data ){
       console.log( "W" + num + " N" + n + "E" + e );
       break;
     case 'L':
-      degrees = (degrees - num) % 360;
+      degrees = (degrees + 360 - num) % 360;
       switch( degrees ){
       case 0:
         direction = 'E';
