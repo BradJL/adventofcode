@@ -1,16 +1,19 @@
 $('#answer span').text('Calculating...');
 $('#answer2 span').text('Calculating...');
 
-// var canvas = document.getElementById("visualization");
-// var ctx = canvas.getContext("2d");
+var canvas = document.getElementById("visualization");
+var ctx = canvas.getContext("2d");
 // var canvas2 = document.getElementById("visualization2");
 // var ctx2 = canvas2.getContext("2d");
 
 function part1( data ){
+  ctx.strokeStyle = "#FF0000";
   let direction = 'E';
   let degrees = 0;
   let n = 0;
   let e = 0;
+  let prevN = 0;
+  let prevE = 0;
   data.forEach(function(value, index, array) {
     let inst = value.charAt(0);
     let num = parseInt(value.substring(1));
@@ -85,6 +88,12 @@ function part1( data ){
       console.log( "F-" + direction + num + " N" + n + "E" + e );
       break;
     }
+    ctx.beginPath();
+    ctx.moveTo(500 - prevE, 500 - prevN);
+    ctx.lineTo(500 - e, 500 - n);
+    ctx.stroke();
+    prevN = n;
+    prevE = e;
   });
   $('#answer span').text( Math.abs(n) + Math.abs(e) );
   //$('#bonus span').html(  );
@@ -173,12 +182,6 @@ $.get( "input.txt", function( data ) {
 //   $('#input span').text('(Bytes: ' + (data.length) + ')');
   data = data.trim().split(/\r?\n/);
   $('#input span').text('(Lines: ' + (data.length) + ')');
-//   data = [
-// "F10",
-// "N3",
-// "F7",
-// "R90",
-// "F11" ];
   part1( data );
   part2( data );
   
