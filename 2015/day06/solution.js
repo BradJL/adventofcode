@@ -33,9 +33,7 @@ function part1( data ){
   let maxBrightness = 0;
     
   data.forEach(function(value, index, array) {
-    //console.log( value );
     let args = value.replace("turn ", '').replace(/,/g, ' ').replace("through ", '').split(' ');
-    //console.log( args );
     let action = args[0];
     let startX = parseInt(args[1]);
     let startY = parseInt(args[2]);
@@ -56,8 +54,8 @@ function part1( data ){
           }
           ++(lights2[x][y]);
           ++brightness;
-//           ctx2.fillStyle = "rgb(" + (3 + 6 * lights2[x][y]) + ", " + (3 + 6 * lights2[x][y]) + ", "+ (3 + 6 * lights2[x][y]) + ")";
-//           ctx2.fillRect(x, y, 1, 1);
+          ctx2.fillStyle = "#"+(3 + 6 * lights2[x][y]).toString(16)+(3 + 6 * lights2[x][y]).toString(16)+(3 + 6 * lights2[x][y]).toString(16);
+          ctx2.fillRect(x, y, 1, 1);
 
           if( lights2[x][y] > maxBrightness ){
             maxBrightness = lights2[x][y];
@@ -82,8 +80,8 @@ function part1( data ){
           } else {
             --brightness;
           }
-//           ctx2.fillStyle = "rgb(" + (3 + 6 * lights2[x][y]) + ", " + (3 + 6 * lights2[x][y]) + ", "+ (3 + 6 * lights2[x][y]) + ")";
-//           ctx2.fillRect(x, y, 1, 1);
+          ctx2.fillStyle = "#"+(3 + 6 * lights2[x][y]).toString(16)+(3 + 6 * lights2[x][y]).toString(16)+(3 + 6 * lights2[x][y]).toString(16);
+          ctx2.fillRect(x, y, 1, 1);
         }
       }
       break;
@@ -107,8 +105,8 @@ function part1( data ){
           }
           lights2[x][y] += 2;
           brightness += 2;
-//           ctx2.fillStyle = "rgb(" + (3 + 6 * lights2[x][y]) + ", " + (3 + 6 * lights2[x][y]) + ", "+ (3 + 6 * lights2[x][y]) + ")";
-//           ctx2.fillRect(x, y, 1, 1);
+          ctx2.fillStyle = "#"+(3 + 6 * lights2[x][y]).toString(16)+(3 + 6 * lights2[x][y]).toString(16)+(3 + 6 * lights2[x][y]).toString(16);
+          ctx2.fillRect(x, y, 1, 1);
 
           if( lights2[x][y] > maxBrightness ){
             maxBrightness = lights2[x][y];
