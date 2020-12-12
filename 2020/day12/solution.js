@@ -16,19 +16,19 @@ function part1( data ){
     let num = parseInt(value.substring(1));
     switch( inst ){
     case 'N':
-      console.log( "N" + num );
+      console.log( "N" + num + " N" + n + "E" + e );
       n += num;
       break;
     case 'S':
-      console.log( "S" + num );
+      console.log( "S" + num + " N" + n + "E" + e );
       n -= num;
       break;
     case 'E':
-      console.log( "E" + num );
+      console.log( "E" + num + " N" + n + "E" + e );
       e += num;
       break;
     case 'W':
-      console.log( "W" + num );
+      console.log( "W" + num + " N" + n + "E" + e );
       e -= num;
       break;
     case 'L':
@@ -82,7 +82,7 @@ function part1( data ){
         e -= num;
         break;
       }
-      console.log( "F-" + direction + num );
+      console.log( "F-" + direction + num + " N" + n + "E" + e );
       break;
     }
   });
