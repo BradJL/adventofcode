@@ -59,10 +59,10 @@ function part1( data ){
 
     switch( action ){
     case "on":
-      if( drawIt ){
-        ctx2.fillStyle = "#FFFFFF";
-        ctx2.fillRect(startX, startY, endX-startX+1, endY-startY+1);
-      }
+//       if( drawIt ){
+//         ctx2.fillStyle = "#FFFFFF";
+//         ctx2.fillRect(startX, startY, endX-startX+1, endY-startY+1);
+//       }
       for( x = startX; x <= endX; ++x ){
         for( y = startY; y <= endY; ++y ){
           if( lights[x][y] == false ){
@@ -72,9 +72,9 @@ function part1( data ){
           ++(lights2[x][y]);
           ++brightness;
           if( drawIt ){
-//             log( makeGreyRGB((lights2[x][y]) * 6 + 3) );
-//             ctx2.fillStyle = makeGreyRGB((lights2[x][y]) * 6 + 3);
-//             ctx2.fillRect(x, y, 1, 1);
+            log( makeGreyRGB((lights2[x][y]) * 6 + 3) );
+            ctx.fillStyle = makeGreyRGB((lights2[x][y]) * 6 + 3);
+            ctx.fillRect(x, y, 1, 1);
           }
 
           if( lights2[x][y] > maxBrightness ){
@@ -85,10 +85,10 @@ function part1( data ){
       }
       break;
     case "off":
-      if( drawIt ){
-        ctx2.fillStyle = "#000000";
-        ctx2.fillRect(startX, startY, endX-startX+1, endY-startY+1);
-      }
+//       if( drawIt ){
+//         ctx2.fillStyle = "#000000";
+//         ctx2.fillRect(startX, startY, endX-startX+1, endY-startY+1);
+//       }
       for( x = startX; x <= endX; ++x ){
         for( y = startY; y <= endY; ++y ){
           if( lights[x][y] == true ){
@@ -114,17 +114,17 @@ function part1( data ){
           if( lights[x][y] == true ){
             lights[x][y] = false;
             --lit;
-            if( drawIt ){
-              ctx2.fillStyle = "#000000";
-              ctx2.fillRect(x, y, 1, 1);
-            }
+//             if( drawIt ){
+//               ctx2.fillStyle = "#000000";
+//               ctx2.fillRect(x, y, 1, 1);
+//             }
           } else {
             lights[x][y] = true;
             ++lit;
-            if( drawIt ){
-              ctx2.fillStyle = "#FFFFFF";
-              ctx2.fillRect(x, y, 1, 1);
-            }
+//             if( drawIt ){
+//               ctx2.fillStyle = "#FFFFFF";
+//               ctx2.fillRect(x, y, 1, 1);
+//             }
           }
           lights2[x][y] += 2;
           brightness += 2;
