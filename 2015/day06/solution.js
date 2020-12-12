@@ -157,6 +157,9 @@ function part1( data ){
   $('#answer span').text( lit );
   $('#answer2 span').text( brightness );
   //$('#bonus span').html( maxBrightness );
+  
+  draw( lights, ctx );
+  //draw( lights2, ctx2 );
 }
 
 $.get( "input.txt", function( data ) {;
