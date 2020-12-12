@@ -184,6 +184,13 @@ function part2( data ){
     ctx2.stroke();
     prevN = n;
     prevE = e;
+    ctx2.strokeStyle = "#00FF00";
+    ctx2.beginPath();
+    ctx2.moveTo(420 - prevWE/75, 180 - prevWN/75);
+    ctx2.lineTo(420 - wE/75, 180 - wN/75);
+    ctx2.stroke();
+    prevWN = wN;
+    prevWE = wE;
   });
   $('#answer2 span').text( Math.abs(n) + Math.abs(e) );
 }
