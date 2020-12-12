@@ -187,7 +187,7 @@ function part2( data ){
 
 $.get( "input.txt", function( data ) {
   data = data.trim().split(/\r?\n/);
-  $('#input span').text('(Lines: ' + (data.length) + ')');
+  $('#input span').text('(Nav Instructions: ' + (data.length) + ')');
   part1( data );
   part2( data );
 });
