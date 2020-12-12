@@ -17,10 +17,13 @@ function makeArray(w, h, val) {
 
 function part1( data ){
   let lights = makeArray( 1000, 1000, false );
+  let lights2 = makeArray( 1000, 1000, 0 );
   ctx.fillStyle = "#000000";
   ctx.fillRect(0,0,999,999);
     
   let lit = 0;
+  let brightness = 0;
+    
   data.forEach(function(value, index, array) {
     //console.log( value );
     let args = value.replace("turn ", '').replace(/,/g, ' ').replace("through ", '').split(' ');
@@ -41,6 +44,8 @@ function part1( data ){
             lights[x][y] = true;
             ++lit;
           }
+          ++(lights2[x][y]);
+          ++brightness;
         }
       }
       break;
@@ -52,6 +57,12 @@ function part1( data ){
           if( lights[x][y] == true ){
             lights[x][y] = false;
             --lit;
+            --(lights2[x][y]);
+            if( lights2[x][y] == -1 ){
+              lights2[x][y] = 0;
+            } else {
+              --brightness;
+            }
           }
         }
       }
@@ -67,6 +78,8 @@ function part1( data ){
           } else {
             lights[x][y] = true;
             ++lit;
+            lights2[x][y] += 2;
+            brightness += 2;
             ctx.fillStyle = "#FFFFFF";
             ctx.fillRect(x, y, 1, 1);
           }
@@ -76,6 +89,7 @@ function part1( data ){
     }
   });
   $('#answer span').text( lit );
+  $('#answer2 span').text( brightness );
   //$('#bonus span').html(  );
 }
 function part2( data ){
