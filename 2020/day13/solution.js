@@ -14,15 +14,17 @@ function part1( data ){
   });
   
   let bonus = "";
-  let finalAnswer = 9999999;
+  let smallestWait = 9999999;
+  let smallWaitId = 0;
   ids.forEach(function(id, index, array) {
-    let answer = (id - (timestamp % id)) * id;
-    if( answer < finalAnswer ){
-      finalAnswer = answer;
+    let wait = (id - (timestamp % id));
+    if( wait < smallestWait ){
+      smallestWait = wait;
+      smallWaitId = id;
     }
     bonus += id + ": " + (id - (timestamp % id)) + "<br />";
   });
-  $('#answer span').text( finalAnswer );
+  $('#answer span').text( smallestWait * smallWaitId );
   $('#bonus span').html( bonus );
 }
 function part2( data ){
