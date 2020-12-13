@@ -36,7 +36,7 @@ function addNumber( array, config ){
   let offset = config[2];
   let newCount = config[3] + 1;
   
-  array[index].push( newCount * number - offset );
+  array[index] = ( newCount * number - offset );
   config[3] = newCount;
 }
 
@@ -57,7 +57,6 @@ function part3(){
                  //[] // fourtyones
                ];
   for( let i = 0; i < configs.length; ++i ){
-    values.push( [] );
     addNumber( values, configs[i] );
   }
   let iterationsRemaining = 3;
@@ -66,8 +65,7 @@ function part3(){
     data = Array.from( data ).sort(function(a, b){return a-b});
     nextNumToCheck = data.pop();
     for( let i = 0; i < values.length; ++i ){
-      while( values[i][0] < nextNumToCheck ){
-        values[i].pop();
+      while( values[i] < nextNumToCheck ){
         addNumber( values, configs[i] );
       }
     }
