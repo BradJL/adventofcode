@@ -60,9 +60,9 @@ function part3(){
     values.push( [] );
     addNumber( values, configs[i] );
   }
-  
+  let iterationsRemaining = 1;
   let data = new Set( values );
-  while( data.size != 1 ){
+  while( data.size != 1 && --iterationsRemaining ){
     data = Array.from( data ).sort(function(a, b){return a-b});
     nextNumToCheck = data.pop();
     for( let i = 0; i < values.length; ++i ){
