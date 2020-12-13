@@ -73,7 +73,7 @@ function part3(){
     }
     data = new Set( values );
   }
-  $('#answer2 span').text( data );
+  $('#answer2 span').text( Array.from(data) );
   $('#bonus span').text( iterationsRemaining + ": " + configs );
 }
 function part2( data ){
