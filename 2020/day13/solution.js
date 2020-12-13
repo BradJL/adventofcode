@@ -38,7 +38,7 @@ function part2( data ){
       offsets.push( parseInt(index) );
     }
   });
-  let timestamp = Math.floor(100000000000000/ids[0])*ids[0];
+  let timestamp = Math.floor(100000000000000/ids[0])*ids[0]-ids[0];
   let found = false;
   let iterations = 0;
   while( !found && iterations < 1000000){
