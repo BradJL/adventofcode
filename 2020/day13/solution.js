@@ -61,7 +61,8 @@ $.get( "input.txt", function( data ) {
   $('#input span').text('(Lines: ' + (data.length) + ')');
   part1( data );
   //part2( "7,13,x,x,59,x,31,19" );
-  part2( "17,x,13,19" );
+  //part2( "17,x,13,19" );
+  part2( "67,7,59,61" );
   //part2( data[1] );
   
 //   let input = [];
