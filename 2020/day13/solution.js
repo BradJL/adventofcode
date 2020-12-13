@@ -43,7 +43,7 @@ function part2( data ){
   
   let found = false;
   let iterations = 0;
-  while( !found && iterations < 1000000){
+  while( !found && iterations < 100000){
     timestamp += 787//ids[0];
     console.log( iterations + ": " + timestamp );
     found = true;
