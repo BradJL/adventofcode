@@ -31,13 +31,13 @@ function part1( data ){
 }
 
 function addNumber( array, config ){
-  let index = config[0] + 1;
+  let index = config[0];
   let number = config[1];
   let offset = config[2];
-  let newCount = config[3];
+  let newCount = config[3] + 1;
   
   array[index].push( newCount * number - offset );
-  config[0] = index;
+  config[3] = newCount;
 }
 
 function part3(){
