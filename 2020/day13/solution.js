@@ -42,13 +42,13 @@ function part2( data ){
     }
   });
   //let timestamp = Math.floor(100 000 000 000 000/ids[0])*ids[0]-ids[0];
-  let timestamp = 739 + 787*500000000*MULTIPLIER; //Math.floor(750000/ids[0])*ids[0]-ids[0];
+  let timestamp = 0;//739 + 787*500000000*MULTIPLIER; //Math.floor(750000/ids[0])*ids[0]-ids[0];
   
   let found = false;
   let iterations = 0;
   console.log( iterations + ": " + timestamp );
   while( !found && iterations < 500000000){
-    timestamp += 787//ids[0];
+    timestamp += ids[0];//787//ids[0];
     //console.log( iterations + ": " + timestamp );
     found = true;
     ids.forEach(function(id, index, array) {
@@ -72,9 +72,9 @@ $.get( "input.txt", function( data ) {
   //part1( data );
   //part2( "7,13,x,x,59,x,31,19" );
   //part2( "17,x,13,19" );
-  //part2( "67,7,59,61" );
+  part2( "67,7,59,61" ); // 754018
   //part2( "67,x,7,59,61" );
-  part2( data[1] );
+//   part2( data[1] );
   
 //   let input = [];
 //   data.forEach(function(number, index, array) {
