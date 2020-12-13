@@ -38,10 +38,10 @@ function part2( data ){
       offsets.push( parseInt(index) );
     }
   });
-  let timestamp = 100000000000000;
+  let timestamp = 0;
   let found = false;
   let iterations = 0;
-  while( !found && iterations < 10000){
+  while( !found && iterations < 50000){
     timestamp += 1//ids[0];
     console.log( timestamp );
     //$('#bonus span').html( timestamp )
@@ -55,6 +55,7 @@ function part2( data ){
     });
     ++iterations;
   }
+  if( !found ){ timestamp = -timestamp; }
   $('#answer2 span').text( timestamp );
   //$('#bonus span').html( bonus );
 }
