@@ -60,7 +60,7 @@ function part3(){
     values.push( [] );
     addNumber( values, configs[i] );
   }
-  let iterationsRemaining = 1;
+  let iterationsRemaining = 2;
   let data = new Set( values );
   while( data.size != 1 && --iterationsRemaining ){
     data = Array.from( data ).sort(function(a, b){return a-b});
