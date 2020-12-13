@@ -38,13 +38,13 @@ function part2( data ){
       offsets.push( parseInt(index) );
     }
   });
-  //let timestamp = Math.floor(100000000000000/ids[0])*ids[0]-ids[0];
-  let timestamp = 739 + 787*100000*3; //Math.floor(750000/ids[0])*ids[0]-ids[0];
+  //let timestamp = Math.floor(100 000 000 000 000/ids[0])*ids[0]-ids[0];
+  let timestamp = 739 + 787*100000*0; //Math.floor(750000/ids[0])*ids[0]-ids[0];
   
   let found = false;
   let iterations = 0;
   console.log( iterations + ": " + timestamp );
-  while( !found && iterations < 100000){
+  while( !found && iterations < 1000000){
     timestamp += 787//ids[0];
     //console.log( iterations + ": " + timestamp );
     found = true;
