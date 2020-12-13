@@ -57,7 +57,7 @@ function part3(){
                ];
   for( let i = 0; i < configs.length; ++i ){
     values.push( [] );
-    addNumber( values, config[i] );
+    addNumber( values, configs[i] );
   }
   $('#answer2 span').text( values );
   //$('#bonus span').html( bonus );
