@@ -72,11 +72,12 @@ $.get( "input.txt", function( data ) {
   //part1( data );
   //part2( "7,13,x,x,59,x,31,19" );
   //part2( "17,x,13,19" );
-  part2( "67,7,59" ); // 754018
+  //part2( "67,7,59" ); // 6901
   //part2( "67,7,59,61" ); // 754018
   //part2( "67,x,7,59,61" );
 //   part2( data[1] );
-  
+  part2( "17,x,x,x,x,x,x,41" );
+//   part2( "17,x,x,x,x,x,x,41,x,x,x,x,x,x,x,x,x,523,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,13,19,x,x,x,23,x,x,x,x,x,x,x,787,x,x,x,x,x,37,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,29" );
 //   let input = [];
 //   data.forEach(function(number, index, array) {
 //     input.push(parseInt(number))
