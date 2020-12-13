@@ -41,9 +41,10 @@ function part2( data ){
   let timestamp = 100000000000000;
   let found = false;
   let iterations = 0;
-  while( !found && iterations < 1000){
+  while( !found && iterations < 10000){
     timestamp += 1//ids[0];
-    $('#bonus span').html( timestamp )
+    console.log( timestamp );
+    //$('#bonus span').html( timestamp )
     found = true;
     ids.forEach(function(id, index, array) {
       if( (timestamp + offsets[index]) % id == 0 ){
