@@ -41,6 +41,7 @@ function addNumber( array, config ){
 }
 
 function part3(){
+  let bonus = ""
   let number = 1;
   let seventeenConfig = [0, // index of array
                          17, // incremnet/mod value
@@ -59,8 +60,11 @@ function part3(){
     values.push( [] );
     addNumber( values, configs[i] );
   }
+  if( new Set( values ).size != 1 ){
+    bonus = "Not found yet.";
+  }
   $('#answer2 span').text( values );
-  //$('#bonus span').html( bonus );
+  $('#bonus span').html( bonus );
 }
 function part2( data ){
   let bonus = "";
