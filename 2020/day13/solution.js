@@ -59,10 +59,15 @@ function part3(){
                          13, // increment/mod value
                          35, // offset/subtract value
                          0]; // count added
+  let nineteensConfig = [4, // index of array
+                         19, // increment/mod value
+                         36, // offset/subtract value
+                         0]; // count added
   let configs = [ seventeenConfig,
                   fourtyOneConfig,
                   fiveTwentyThreesConfig,
-                  thirteensConfig
+                  thirteensConfig,
+                  nineteensConfig
                 ];
   let values = [ //[], // seventeens
                  //[] // fourtyones
