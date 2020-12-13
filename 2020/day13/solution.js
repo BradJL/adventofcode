@@ -40,7 +40,8 @@ function part2( data ){
   });
   let timestamp = 100000000000000;
   let found = false;
-  while( !found ){
+  let iterations = 0;
+  while( !found && iterations < 1000){
     timestamp += 1//ids[0];
     $('#bonus span').html( timestamp )
     found = true;
@@ -51,6 +52,7 @@ function part2( data ){
         found = false;
       }
     });
+    ++iterations;
   }
   $('#answer2 span').text( timestamp );
   //$('#bonus span').html( bonus );
