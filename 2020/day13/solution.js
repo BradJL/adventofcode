@@ -29,10 +29,27 @@ function part1( data ){
 }
 function part2( data ){
   let bonus = "";
+  let ids = [];
+  let offsets = [];
   data.split(/,/).forEach(function(value, index, array) {
-    if( value != "x" ) bonus += value + " @ t+" + index + "<br />";
+    if( value != "x" ){
+      bonus += value + " @ t+" + index + "<br />";
+      ids.push( value );
+      offsets.push( index );
+    }
   });
-  //$('#answer2 span').text(  );
+  let timestamp = 0;
+  let found = true;
+  while( !found ){
+    ++timestamp;
+    found = true;
+    ids.forEach(function(id, index, array) {
+      if( (timestamp + offsets[index]) % id != 0 ){
+        found = false;
+      }
+    });
+  }
+  $('#answer2 span').text( timestamp );
   $('#bonus span').html( bonus );
 }
 ;
