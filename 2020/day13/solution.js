@@ -98,7 +98,13 @@ function part3(){
     data = new Set( values );
   }
   $('#answer2 span').text( Array.from(data) );
-  $('#bonus span').text( iterationsRemaining + ": " + configs );
+  let bonus = "iterationsRemaining: " + iterationsRemaining + "<br />  let configs = [";
+  configs.forEach(function(contents, index, array) {
+    bonus += " [ " + contents + " ], <br />";
+  });
+  bonus += "          ]";
+  
+  $('#bonus span').html( bonus );
 }
 function part2( data ){
   let bonus = "";
