@@ -44,7 +44,7 @@ function part2( data ){
     ++timestamp;
     found = true;
     ids.forEach(function(id, index, array) {
-      if( (timestamp + offsets[index]) % id != 0 ){
+      if( (timestamp + offsets[index]) % id /*!= 0*/ ){
         found = false;
       }
     });
