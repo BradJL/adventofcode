@@ -44,20 +44,26 @@ function part3(){
   let nextNumToCheck = 0;
   let number = 1;
   let seventeenConfig = [0, // index of array
-                         17, // incremnet/mod value
+                         17, // increment/mod value
                          0, // offset/subtract value
                          0]; // count added
   let fourtyOneConfig = [1, // index of array
-                         41, // incremnet/mod value
+                         41, // increment/mod value
                          7, // offset/subtract value
                          0]; // count added
   let fiveTwentyThreesConfig = [2, // index of array
-                                523, // incremnet/mod value
+                                523, // increment/mod value
                                 17, // offset/subtract value
                                 0]; // count added
+  let thirteensConfig = [3, // index of array
+                         13, // increment/mod value
+                         35, // offset/subtract value
+                         0]; // count added
   let configs = [ seventeenConfig,
                   fourtyOneConfig,
-                  fiveTwentyThreesConfig ];
+                  fiveTwentyThreesConfig,
+                  thirteensConfig
+                ];
   let values = [ //[], // seventeens
                  //[] // fourtyones
                ];
