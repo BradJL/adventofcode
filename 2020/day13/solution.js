@@ -71,6 +71,7 @@ function part3(){
         addNumber( values, configs[i] );
       }
     }
+    data = new Set( values );
   }
   $('#answer2 span').text( values );
   $('#bonus span').html( nextValueToCheck );
