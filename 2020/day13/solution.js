@@ -12,6 +12,11 @@ function part1( data ){
   data[1].trim().split(/,/).forEach(function(number, index, array) {
     ids.push(parseInt(number))
   });
+  
+  let bonus = "";
+  ids.forEach(function(number, index, array) {
+    bonus += number + ": " + (timestamp % number) + "<br />";
+  });
   $('#answer span').text( timestamp );
   $('#bonus span').html( ids );
 }
