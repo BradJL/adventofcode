@@ -38,10 +38,10 @@ function part2( data ){
       offsets.push( parseInt(index) );
     }
   });
-  let timestamp = 0;
+  let timestamp = 100000000000000;
   let found = false;
   while( !found ){
-    timestamp += ids[0];
+    timestamp += 1//ids[0];
     found = true;
     ids.forEach(function(id, index, array) {
       if( (timestamp + offsets[index]) % id == 0 ){
@@ -62,8 +62,8 @@ $.get( "input.txt", function( data ) {
   part1( data );
   //part2( "7,13,x,x,59,x,31,19" );
   //part2( "17,x,13,19" );
-  part2( "67,7,59,61" );
-  //part2( data[1] );
+  //part2( "67,7,59,61" );
+  part2( data[1] );
   
 //   let input = [];
 //   data.forEach(function(number, index, array) {
