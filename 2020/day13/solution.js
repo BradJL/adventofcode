@@ -74,7 +74,7 @@ function part3(){
     data = new Set( values );
   }
   $('#answer2 span').text( values );
-  $('#bonus span').html( nextValueToCheck );
+  $('#bonus span').text( configs );
 }
 function part2( data ){
   let bonus = "";
