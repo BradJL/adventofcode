@@ -28,7 +28,7 @@ function part1( data ){
   //$('#bonus span').html( bonus );
 }
 function part2( data ){
-  //let bonus = "";
+  let bonus = "";
   let ids = [];
   let offsets = [];
   data.split(/,/).forEach(function(value, index, array) {
@@ -38,13 +38,12 @@ function part2( data ){
       offsets.push( parseInt(index) );
     }
   });
-  let timestamp = 100000000000000;
+  let timestamp = Math.floor(100000000000000/ids[0])*ids[0];
   let found = false;
   let iterations = 0;
-  while( !found && iterations < 100000){
-    timestamp += 1//ids[0];
+  while( !found && iterations < 1000000){
+    timestamp += ids[0];
     console.log( timestamp );
-    //$('#bonus span').html( timestamp )
     found = true;
     ids.forEach(function(id, index, array) {
       if( (timestamp + offsets[index]) % id == 0 ){
@@ -57,7 +56,7 @@ function part2( data ){
   }
   if( !found ){ timestamp = -timestamp; }
   $('#answer2 span').text( timestamp );
-  //$('#bonus span').html( bonus );
+  $('#bonus span').html( bonus );
 }
 ;
 $.get( "input.txt", function( data ) {
