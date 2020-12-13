@@ -52,7 +52,7 @@ function part3(){
                          0]; // count added
   let configs = [ seventeenConfig,
                   fourtyOneConfig ];
-  let values = [ [], // seventeens
+  //let values = [ [], // seventeens
                  [] // fourtyones
                ];
   for( let i = 0; i < configs.length; ++i ){
