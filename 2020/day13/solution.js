@@ -39,7 +39,7 @@ function part2( data ){
     }
   });
   //let timestamp = Math.floor(100000000000000/ids[0])*ids[0]-ids[0];
-  let timestamp = 739 + 787*100000*2; //Math.floor(750000/ids[0])*ids[0]-ids[0];
+  let timestamp = 739 + 787*100000*3; //Math.floor(750000/ids[0])*ids[0]-ids[0];
   
   let found = false;
   let iterations = 0;
@@ -66,7 +66,7 @@ $.get( "input.txt", function( data ) {
 //   $('#input span').text('(Bytes: ' + (data.length) + ')');
   data = data.trim().split(/\r?\n/);
   $('#input span').text('(Lines: ' + (data.length) + ')');
-  part1( data );
+  //part1( data );
   //part2( "7,13,x,x,59,x,31,19" );
   //part2( "17,x,13,19" );
   //part2( "67,7,59,61" );
