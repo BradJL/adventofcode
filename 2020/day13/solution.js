@@ -39,12 +39,12 @@ function part2( data ){
     }
   });
   //let timestamp = Math.floor(100 000 000 000 000/ids[0])*ids[0]-ids[0];
-  let timestamp = 739 + 787*10000000*0; //Math.floor(750000/ids[0])*ids[0]-ids[0];
+  let timestamp = 739 + 787*100000000*0; //Math.floor(750000/ids[0])*ids[0]-ids[0];
   
   let found = false;
   let iterations = 0;
   console.log( iterations + ": " + timestamp );
-  while( !found && iterations < 10000000){
+  while( !found && iterations < 100000000){
     timestamp += 787//ids[0];
     //console.log( iterations + ": " + timestamp );
     found = true;
