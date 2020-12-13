@@ -60,7 +60,7 @@ function part3(){
     values.push( [] );
     addNumber( values, configs[i] );
   }
-  let iterationsRemaining = 2;
+  let iterationsRemaining = 3;
   let data = new Set( values );
   while( data.size != 1 && --iterationsRemaining ){
     data = Array.from( data ).sort(function(a, b){return a-b});
@@ -73,8 +73,8 @@ function part3(){
     }
     data = new Set( values );
   }
-  $('#answer2 span').text( values );
-  $('#bonus span').text( configs );
+  $('#answer2 span').text( data );
+  $('#bonus span').text( iterationsRemaining + ": " + configs );
 }
 function part2( data ){
   let bonus = "";
