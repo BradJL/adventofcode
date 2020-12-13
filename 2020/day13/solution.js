@@ -38,10 +38,10 @@ function part2( data ){
       offsets.push( parseInt(index) );
     }
   });
-  let timestamp = 0;
+  let timestamp = 100000000000000;
   let found = false;
   let iterations = 0;
-  while( !found && iterations < 50000){
+  while( !found && iterations < 100000){
     timestamp += 1//ids[0];
     console.log( timestamp );
     //$('#bonus span').html( timestamp )
