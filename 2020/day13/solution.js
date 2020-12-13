@@ -41,7 +41,7 @@ function part2( data ){
   let timestamp = 0;
   let found = false;
   while( !found ){
-    ++timestamp;
+    timestamp += ids[0];
     found = true;
     ids.forEach(function(id, index, array) {
       if( (timestamp + offsets[index]) % id == 0 ){
