@@ -60,8 +60,10 @@ function part3(){
     values.push( [] );
     addNumber( values, configs[i] );
   }
-  if( new Set( values ).size != 1 ){
-    bonus = "Not found yet.";
+  let data = new Set( values );
+  if( data.size != 1 ){
+    data = Array.from( data ).sort(function(a, b){return a-b});
+    bonus = values.pop();
   }
   $('#answer2 span').text( values );
   $('#bonus span').html( bonus );
