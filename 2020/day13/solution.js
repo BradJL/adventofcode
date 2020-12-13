@@ -39,13 +39,14 @@ function part2( data ){
     }
   });
   //let timestamp = Math.floor(100000000000000/ids[0])*ids[0]-ids[0];
-  let timestamp = 739 + 787*100000*1; //Math.floor(750000/ids[0])*ids[0]-ids[0];
+  let timestamp = 739 + 787*100000*2; //Math.floor(750000/ids[0])*ids[0]-ids[0];
   
   let found = false;
   let iterations = 0;
+  console.log( iterations + ": " + timestamp );
   while( !found && iterations < 100000){
     timestamp += 787//ids[0];
-    console.log( iterations + ": " + timestamp );
+    //console.log( iterations + ": " + timestamp );
     found = true;
     ids.forEach(function(id, index, array) {
       if( (timestamp + offsets[index]) % id == 0 ){
