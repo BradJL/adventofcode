@@ -34,14 +34,14 @@ function part2( data ){
   data.split(/,/).forEach(function(value, index, array) {
     if( value != "x" ){
 //       bonus += value + " @ t+" + index + "<br />";
-      ids.push( value );
-      offsets.push( index );
+      ids.push( parseInt(value) );
+      offsets.push( parseInt(index) );
     }
   });
   let timestamp = 0;
   let found = false;
   while( !found ){
-    timestamp += 1;
+    timestamp += ids[0];
     found = true;
     ids.forEach(function(id, index, array) {
       if( (timestamp + offsets[index]) % id == 0 ){
