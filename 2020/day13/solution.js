@@ -63,11 +63,21 @@ function part3(){
                          19, // increment/mod value
                          36, // offset/subtract value
                          0]; // count added
+  let twentyThreesConfig = [5, // index of array
+                            23, // increment/mod value
+                            40, // offset/subtract value
+                            0]; // count added
+  let sevenEightySevensConfig = [6, // index of array
+                                787, // increment/mod value
+                                48, // offset/subtract value
+                                0]; // count added
   let configs = [ seventeenConfig,
                   fourtyOneConfig,
                   fiveTwentyThreesConfig,
                   thirteensConfig,
-                  nineteensConfig
+                  nineteensConfig,
+                  twentyThreesConfig,
+                  sevenEightySevensConfig
                 ];
   let values = [ //[], // seventeens
                  //[] // fourtyones
