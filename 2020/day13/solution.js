@@ -1,7 +1,7 @@
 $('#answer span').text('Calculating...');
 $('#answer2 span').text('Calculating...');
 
-var MULTIPLIER = 10;
+var MULTIPLIER = 11;
 
 // var canvas = document.getElementById("visualization");
 // var ctx = canvas.getContext("2d");
@@ -36,6 +36,7 @@ function part2( data ){
   data.split(/,/).forEach(function(value, index, array) {
     if( value != "x" ){
 //       bonus += value + " @ t+" + index + "<br />";
+      bonus += "(t + " + offsets[index] + ") % " + id + "<br />"
       ids.push( parseInt(value) );
       offsets.push( parseInt(index) );
     }
@@ -52,7 +53,7 @@ function part2( data ){
     found = true;
     ids.forEach(function(id, index, array) {
       if( (timestamp + offsets[index]) % id == 0 ){
-//         bonus += value + " @ t+" + index + "<br />";
+         //bonus += value + " @ t+" + index + "<br />";
       } else {
         found = false;
       }
