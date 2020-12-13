@@ -22,16 +22,18 @@ function part1( data ){
       smallestWait = wait;
       smallWaitId = id;
     }
-    bonus += id + ": " + (id - (timestamp % id)) + "<br />";
+    //bonus += id + ": " + (id - (timestamp % id)) + "<br />";
   });
   $('#answer span').text( smallestWait * smallWaitId );
-  $('#bonus span').html( bonus );
+  //$('#bonus span').html( bonus );
 }
 function part2( data ){
-  data.forEach(function(value, index, array) {
+  let bonus = "";
+  data.split(/,/).forEach(function(value, index, array) {
+    if( value != "x" ) bonus += value + " @ t+" + index + "<br />";
   });
   //$('#answer2 span').text(  );
-  //$('#bonus span').html(  );
+  $('#bonus span').html( bonus );
 }
 ;
 $.get( "input.txt", function( data ) {
@@ -39,7 +41,8 @@ $.get( "input.txt", function( data ) {
   data = data.trim().split(/\r?\n/);
   $('#input span').text('(Lines: ' + (data.length) + ')');
   part1( data );
-//   part2( data );
+  part2( "7,13,x,x,59,x,31,19" );
+  //part2( data[1] );
   
 //   let input = [];
 //   data.forEach(function(number, index, array) {
