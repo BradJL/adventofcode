@@ -14,10 +14,15 @@ function part1( data ){
   });
   
   let bonus = "";
+  let finalAnswer = 9999999;
   ids.forEach(function(id, index, array) {
+    let answer = (id - (timestamp % id)) * id;
+    if( answer < finalAnswer ){
+      finalAnswer = answer;
+    }
     bonus += id + ": " + (id - (timestamp % id)) + "<br />";
   });
-  $('#answer span').text( timestamp );
+  $('#answer span').text( finalAnswer );
   $('#bonus span').html( bonus );
 }
 function part2( data ){
