@@ -51,8 +51,13 @@ function part3(){
                          41, // incremnet/mod value
                          7, // offset/subtract value
                          0]; // count added
+  let fiveTwentyThreesConfig = [2, // index of array
+                                523, // incremnet/mod value
+                                17, // offset/subtract value
+                                0]; // count added
   let configs = [ seventeenConfig,
-                  fourtyOneConfig ];
+                  fourtyOneConfig,
+                  fiveTwentyThreesConfig ];
   let values = [ //[], // seventeens
                  //[] // fourtyones
                ];
