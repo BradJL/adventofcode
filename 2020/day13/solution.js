@@ -7,10 +7,13 @@ $('#answer2 span').text('Calculating...');
 // var ctx2 = canvas2.getContext("2d");
 
 function part1( data ){
-  data.forEach(function(value, index, array) {
+  let timestamp = parseInt( data[0] );
+  let ids = [];
+  data[1].trim().split(/,/).forEach(function(number, index, array) {
+    ids.push(parseInt(number))
   });
-  //$('#answer span').text(  );
-  //$('#bonus span').html(  );
+  $('#answer span').text( timestamp );
+  $('#bonus span').html( ids );
 }
 function part2( data ){
   data.forEach(function(value, index, array) {
@@ -18,12 +21,12 @@ function part2( data ){
   //$('#answer2 span').text(  );
   //$('#bonus span').html(  );
 }
-
+;
 $.get( "input.txt", function( data ) {
 //   $('#input span').text('(Bytes: ' + (data.length) + ')');
   data = data.trim().split(/\r?\n/);
   $('#input span').text('(Lines: ' + (data.length) + ')');
-//   part1( data );
+  part1( data );
 //   part2( data );
   
 //   let input = [];
