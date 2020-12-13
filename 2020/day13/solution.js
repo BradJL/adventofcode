@@ -1,6 +1,8 @@
 $('#answer span').text('Calculating...');
 $('#answer2 span').text('Calculating...');
 
+var MULTIPLIER = 3;
+
 // var canvas = document.getElementById("visualization");
 // var ctx = canvas.getContext("2d");
 // var canvas2 = document.getElementById("visualization2");
@@ -39,7 +41,7 @@ function part2( data ){
     }
   });
   //let timestamp = Math.floor(100 000 000 000 000/ids[0])*ids[0]-ids[0];
-  let timestamp = 739 + 787*500000000*2; //Math.floor(750000/ids[0])*ids[0]-ids[0];
+  let timestamp = 739 + 787*500000000*MULTIPLIER; //Math.floor(750000/ids[0])*ids[0]-ids[0];
   
   let found = false;
   let iterations = 0;
