@@ -47,7 +47,7 @@ function part2( data ){
   let found = false;
   let iterations = 0;
   console.log( iterations + ": " + timestamp );
-  while( !found && iterations < 500000000){
+  while( !found && iterations < 10){//500000000){
     timestamp += ids[0];//787//ids[0];
     //console.log( iterations + ": " + timestamp );
     found = true;
@@ -79,9 +79,9 @@ $.get( "input.txt", function( data ) {
 //   part2( "17,x,x,x,x,x,x,41" ); //34
 //   part2( "17,x,x,x,x,x,x,41,x,x,x,x,x,x,x,x,x,523" ); //106675
 //   part2( "17,x,x,x,x,x,x,41,x,x,x,x,x,x,x,x,x,523,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,13" ); //1200268
-//   part2( "17,x,x,x,x,x,x,41,x,x,x,x,x,x,x,x,x,523,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,13,19" );
-  part2( "17,x,x,x,x,x,x,41,x,x,x,x,x,x,x,x,x,523,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,13,19,x,x,x,23,x,x,x,x,x,x,x,787" );
-//   part2( "17,x,x,x,x,x,x,41,x,x,x,x,x,x,x,x,x,523,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,13,19,x,x,x,23,x,x,x,x,x,x,x,787,x,x,x,x,x,37,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,29" );
+//   part2( "17,x,x,x,x,x,x,41,x,x,x,x,x,x,x,x,x,523,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,13,19" ); //81761619
+//   part2( "17,x,x,x,x,x,x,41,x,x,x,x,x,x,x,x,x,523,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,13,19,x,x,x,23,x,x,x,x,x,x,x,787" );
+  part2( "17,x,x,x,x,x,x,41,x,x,x,x,x,x,x,x,x,523,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,13,19,x,x,x,23,x,x,x,x,x,x,x,787,x,x,x,x,x,37,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,29" );
 //   let input = [];
 //   data.forEach(function(number, index, array) {
 //     input.push(parseInt(number))
