@@ -1,7 +1,7 @@
 $('#answer span').text('Calculating...');
 $('#answer2 span').text('Calculating...');
 
-var MULTIPLIER = 5;
+var MULTIPLIER = 6;
 
 // var canvas = document.getElementById("visualization");
 // var ctx = canvas.getContext("2d");
