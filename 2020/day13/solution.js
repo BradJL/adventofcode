@@ -39,7 +39,7 @@ function part2( data ){
     }
   });
   //let timestamp = Math.floor(100 000 000 000 000/ids[0])*ids[0]-ids[0];
-  let timestamp = 739 + 787*500000000*1; //Math.floor(750000/ids[0])*ids[0]-ids[0];
+  let timestamp = 739 + 787*500000000*2; //Math.floor(750000/ids[0])*ids[0]-ids[0];
   
   let found = false;
   let iterations = 0;
