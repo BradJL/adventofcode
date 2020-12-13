@@ -18,7 +18,7 @@ function part1( data ){
     bonus += number + ": " + (timestamp % number) + "<br />";
   });
   $('#answer span').text( timestamp );
-  $('#bonus span').html( ids );
+  $('#bonus span').html( bonus );
 }
 function part2( data ){
   data.forEach(function(value, index, array) {
