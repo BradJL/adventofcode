@@ -41,7 +41,7 @@ function addNumber( array, config ){
 }
 
 function part3(){
-  let bonus = ""
+  let nextNumToCheck = 0;
   let number = 1;
   let seventeenConfig = [0, // index of array
                          17, // incremnet/mod value
@@ -60,13 +60,20 @@ function part3(){
     values.push( [] );
     addNumber( values, configs[i] );
   }
+  
   let data = new Set( values );
-  if( data.size != 1 ){
+  while( data.size != 1 ){
     data = Array.from( data ).sort(function(a, b){return a-b});
-    bonus = values.pop();
+    nextNumToCheck = data.pop();
+    for( let i = 0; i < values.length; ++i ){
+      while( values[i][0] < nextNumToCheck ){
+        values[i].pop();
+        addNumber( values, configs[i] );
+      }
+    }
   }
   $('#answer2 span').text( values );
-  $('#bonus span').html( bonus );
+  $('#bonus span').html( nextValueToCheck );
 }
 function part2( data ){
   let bonus = "";
