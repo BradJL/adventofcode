@@ -28,7 +28,7 @@ function part1( data ){
   //$('#bonus span').html( bonus );
 }
 function part2( data ){
-  let bonus = "";
+  //let bonus = "";
   let ids = [];
   let offsets = [];
   data.split(/,/).forEach(function(value, index, array) {
@@ -52,7 +52,7 @@ function part2( data ){
     });
   }
   $('#answer2 span').text( timestamp );
-  $('#bonus span').html( bonus );
+  //$('#bonus span').html( bonus );
 }
 ;
 $.get( "input.txt", function( data ) {
@@ -60,8 +60,8 @@ $.get( "input.txt", function( data ) {
   data = data.trim().split(/\r?\n/);
   $('#input span').text('(Lines: ' + (data.length) + ')');
   part1( data );
-  part2( "7,13,x,x,59,x,31,19" );
-  //part2( data[1] );
+  //part2( "7,13,x,x,59,x,31,19" );
+  part2( data[1] );
   
 //   let input = [];
 //   data.forEach(function(number, index, array) {
