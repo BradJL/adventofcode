@@ -42,6 +42,7 @@ function part2( data ){
   let found = false;
   while( !found ){
     timestamp += 1//ids[0];
+    $('#bonus span').html( timestamp )
     found = true;
     ids.forEach(function(id, index, array) {
       if( (timestamp + offsets[index]) % id == 0 ){
