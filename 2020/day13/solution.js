@@ -36,7 +36,7 @@ function part2( data ){
   data.split(/,/).forEach(function(value, index, array) {
     if( value != "x" ){
 //       bonus += value + " @ t+" + index + "<br />";
-      bonus += "(t + " + offsets[index] + ") % " + id + "<br />"
+      bonus += "(t + " + offsets[index] + ") % " + value + "<br />"
       ids.push( parseInt(value) );
       offsets.push( parseInt(index) );
     }
