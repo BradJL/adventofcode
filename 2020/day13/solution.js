@@ -14,8 +14,8 @@ function part1( data ){
   });
   
   let bonus = "";
-  ids.forEach(function(number, index, array) {
-    bonus += number + ": " + (timestamp % number) + "<br />";
+  ids.forEach(function(id, index, array) {
+    bonus += id + ": " + (id - (timestamp % id)) + "<br />";
   });
   $('#answer span').text( timestamp );
   $('#bonus span').html( bonus );
