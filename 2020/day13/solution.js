@@ -29,6 +29,39 @@ function part1( data ){
   $('#answer span').text( smallestWait * smallWaitId );
   //$('#bonus span').html( bonus );
 }
+
+function addNumber( array, config ){
+  let index = config[0] + 1;
+  let number = config[1];
+  let offset = config[2];
+  let newCount = config[3];
+  
+  array[index].push( newCount * number - offset );
+  config[0] = index;
+}
+
+function part3(){
+  let number = 1;
+  let seventeenConfig = [0, // index of array
+                         17, // incremnet/mod value
+                         0, // offset/subtract value
+                         0]; // count added
+  let fourtyOneConfig = [1, // index of array
+                         41, // incremnet/mod value
+                         7, // offset/subtract value
+                         0]; // count added
+  let configs = [ seventeenConfig,
+                  fourtyOneConfig ];
+  let values = [ [], // seventeens
+                 [] // fourtyones
+               ];
+  for( let i = 0; i < configs.length; ++i ){
+    values.push( [] );
+    addNumber( values, config[i] );
+  }
+  $('#answer2 span').text( values );
+  //$('#bonus span').html( bonus );
+}
 function part2( data ){
   let bonus = "";
   let ids = [];
@@ -64,7 +97,7 @@ function part2( data ){
   $('#answer2 span').text( timestamp );
   $('#bonus span').html( bonus );
 }
-;
+
 $.get( "input.txt", function( data ) {
 //   $('#input span').text('(Bytes: ' + (data.length) + ')');
   data = data.trim().split(/\r?\n/);
@@ -81,11 +114,6 @@ $.get( "input.txt", function( data ) {
 //   part2( "17,x,x,x,x,x,x,41,x,x,x,x,x,x,x,x,x,523,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,13" ); //1200268
 //   part2( "17,x,x,x,x,x,x,41,x,x,x,x,x,x,x,x,x,523,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,13,19" ); //81761619
 //   part2( "17,x,x,x,x,x,x,41,x,x,x,x,x,x,x,x,x,523,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,13,19,x,x,x,23,x,x,x,x,x,x,x,787" );
-  part2( "17,x,x,x,x,x,x,41,x,x,x,x,x,x,x,x,x,523,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,13,19,x,x,x,23,x,x,x,x,x,x,x,787,x,x,x,x,x,37,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,29" );
-//   let input = [];
-//   data.forEach(function(number, index, array) {
-//     input.push(parseInt(number))
-//   });
-//   part1( input );
-//   part2( input );
+//  part2( "17,x,x,x,x,x,x,41,x,x,x,x,x,x,x,x,x,523,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,13,19,x,x,x,23,x,x,x,x,x,x,x,787,x,x,x,x,x,37,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,29" );
+   part3();
 });
