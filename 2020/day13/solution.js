@@ -36,7 +36,7 @@ function part2( data ){
   data.split(/,/).forEach(function(value, index, array) {
     if( value != "x" ){
 //       bonus += value + " @ t+" + index + "<br />";
-      bonus += "(t + " + offsets[index] + ") % " + value + "<br />"
+      bonus += "(t + " + index + ") % " + value + "<br />"
       ids.push( parseInt(value) );
       offsets.push( parseInt(index) );
     }
@@ -72,7 +72,8 @@ $.get( "input.txt", function( data ) {
   //part1( data );
   //part2( "7,13,x,x,59,x,31,19" );
   //part2( "17,x,13,19" );
-  part2( "67,7,59,61" ); // 754018
+  part2( "67,7,59" ); // 754018
+  //part2( "67,7,59,61" ); // 754018
   //part2( "67,x,7,59,61" );
 //   part2( data[1] );
   
