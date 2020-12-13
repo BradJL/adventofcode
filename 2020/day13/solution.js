@@ -33,18 +33,20 @@ function part2( data ){
   let offsets = [];
   data.split(/,/).forEach(function(value, index, array) {
     if( value != "x" ){
-      bonus += value + " @ t+" + index + "<br />";
+//       bonus += value + " @ t+" + index + "<br />";
       ids.push( value );
       offsets.push( index );
     }
   });
   let timestamp = 0;
-  let found = true;
+  let found = false;
   while( !found ){
     ++timestamp;
     found = true;
     ids.forEach(function(id, index, array) {
-      if( (timestamp + offsets[index]) % id /*!= 0*/ ){
+      if( (timestamp + offsets[index]) % id == 0 ){
+//         bonus += value + " @ t+" + index + "<br />";
+      } else {
         found = false;
       }
     });
