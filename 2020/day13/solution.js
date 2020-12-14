@@ -132,7 +132,7 @@ function part3(){
     if( contents < min ){ min = contents; }
     if( contents > max ){ max = contents; }
   });
-  while( min != max && --iterationsRemaining ){
+  while( min != max /*&& --iterationsRemaining*/ ){
 //     data = Array.from( data ).sort(function(a, b){return a-b});
 //     nextNumToCheck = data.pop();
 //     nextNumToCheck = max;
