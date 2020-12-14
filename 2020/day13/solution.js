@@ -118,8 +118,8 @@ function part3(){
     addNumber( values, configs[i] );
   }
   let iterationsRemaining = 9999999;
-  //data = [...values];
-  data = values.map((x) => x);
+  data = [...values];
+//   data = values.map((x) => x);
   data.sort(function(a, b){return a-b});
   while( data[0] != data[data.length] && --iterationsRemaining ){
 //     data = Array.from( data ).sort(function(a, b){return a-b});
@@ -131,7 +131,9 @@ function part3(){
       }
     }
 //     data = new Set( values );
-    data = data.sort(function(a, b){return a-b});
+    data = [...values];
+//     data = values.map((x) => x);
+    data.sort(function(a, b){return a-b});
 //     if( iterationsRemaining == 3 ){
 //       bonus = JSON.stringify( configs );
 //     }
@@ -181,7 +183,7 @@ function part2( data ){
   }
   if( !found ){ timestamp = -timestamp; }
   $('#answer2 span').text( timestamp );
-  $('#bonus span').html( bonus );
+  $('#bonus span').html( "[ " + bonus + "]" );
 }
 
 $.get( "input.txt", function( data ) {
