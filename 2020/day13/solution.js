@@ -129,7 +129,7 @@ let configs = [ [ 0,17,0,9258823346 - 1 ],
       }
     }
     data = new Set( values );
-    if( iterationsRemaining == 2 ){
+    if( iterationsRemaining == 3 ){
       bonus = JSON.stringify( configs );
     }
   }
