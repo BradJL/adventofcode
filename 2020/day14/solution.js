@@ -123,7 +123,16 @@ $.get( "input.txt", function( data ) {
 //          "mem[1060] = 234632920" + "\n" +
 //          "mem[20694] = 38159" + "\n" +
 //          "mem[45046] = 58906955";
-  data = data.trim().split(/\r?\n/);
+//   data = data.trim().split(/\r?\n/);
+  data = [
+    "mask = 00101X10011X0X111110010X010011X10101",
+    "mem[41248] = 4595332",
+    "mem[26450] = 60",
+    "mem[32210] = 982366",
+    "mem[1060] = 234632920",
+    "mem[20694] = 38159",
+    "mem[45046] = 58906955"
+  ];
   $('#input span').text('(Lines: ' + (data.length) + ')');
 //   part1( data );
   part2( data );
