@@ -112,9 +112,7 @@ function part3(){
 // [ 5,23,40,6843478127 - 1 ],
 // [ 6,787,48,199999997 - 1 ],
 // ];
-  let values = [ //[], // seventeens
-                 //[] // fourtyones
-               ];
+  let values = [];
   let data;
   for( let i = 0; i < configs.length; ++i ){
     addNumber( values, configs[i] );
@@ -122,6 +120,7 @@ function part3(){
   let iterationsRemaining = 9999999;
   //data = [...values];
   data = values.map((x) => x);
+  $('#bonus span').html( data );
   data.sort(function(a, b){return a-b});
   while( data[0] != data[data.length] && --iterationsRemaining ){
 //     data = Array.from( data ).sort(function(a, b){return a-b});
@@ -147,7 +146,6 @@ function part3(){
   
   $('#answer2 span').text( values );
 //   $('#bonus span').html( bonus );
-  $('#bonus span').html( data );
 }
 function part2( data ){
   let bonus = "";
