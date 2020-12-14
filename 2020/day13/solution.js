@@ -71,14 +71,22 @@ function part3(){
                                 787, // increment/mod value
                                 48, // offset/subtract value
                                 0]; // count added
-  let configs = [ seventeenConfig,
-                  fourtyOneConfig,
-                  fiveTwentyThreesConfig,
-                  thirteensConfig,
-                  nineteensConfig,
-                  twentyThreesConfig,
-                  sevenEightySevensConfig
-                ];
+//   let configs = [ seventeenConfig,
+//                   fourtyOneConfig,
+//                   fiveTwentyThreesConfig,
+//                   thirteensConfig,
+//                   nineteensConfig,
+//                   twentyThreesConfig,
+//                   sevenEightySevensConfig
+//                 ];
+  let configs = [ [ 0,17,0,2314705859 - 1 ],
+[ 1,41,7,959756088 - 1 ],
+[ 2,523,17,75239005 - 1 ],
+[ 3,13,35,3026923049 - 1 ],
+[ 4,19,36,2071052613 - 1 ],
+[ 5,23,40,1710869550 - 1 ],
+[ 6,787,48,50000000 - 1 ],
+]
   let values = [ //[], // seventeens
                  //[] // fourtyones
                ];
