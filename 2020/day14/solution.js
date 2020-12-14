@@ -87,7 +87,8 @@ function part2( data ){
   let mask = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
   let memory = [];
   let sum = 0;
-  let lastVal = 0;
+//   let lastVal = 0;
+  let indicies = new Set();
   data.forEach(function(value, index, array) {
     let leftRight = value.split(/ = /);
     if( leftRight[0] == "mask" ){
@@ -96,19 +97,20 @@ function part2( data ){
       let numbers = value.match(/[0-9]+/g);
       
       getMemoryLocations( mask, parseInt( numbers[0] ) ).forEach(function(value, index, array) {
-        lastVal = value;
+//         lastVal = value;
         memory[value] = parseInt( numbers[1] );
+        indicies.add( value );
         console.log( "Wrote " + parseInt( numbers[1] ) + " to " + value + " | " + memory[value] );
       });
-      console.log( "memory[LastVal] = memory[" + lastVal + "] = " + memory[lastVal] );
+//       console.log( "memory[LastVal] = memory[" + lastVal + "] = " + memory[lastVal] );
     }
   });
   
-  console.log( "memory[11379077079] = " + memory[11379077079] );
+//   console.log( "memory[11379077079] = " + memory[11379077079] );
   console.log( "summing up the memory[" + memory.length + "]..." );
-  memory.forEach(function(value, index, array) {
-    console.log( "Sum: " + sum + " + " + value + " = " + (sum + value) );
-    sum += value;
+  indicies.forEach(function(value, index, array) {
+    console.log( "Sum: " + sum + " + " + memory[value] + " = " + (sum + memory[value]) );
+    sum += memory[value];
   });
   $('#answer2 span').text( sum );
   //$('#bonus span').html(  );
