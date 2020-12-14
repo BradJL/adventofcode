@@ -72,14 +72,14 @@ function part3(){
                                 787, // increment/mod value
                                 48, // offset/subtract value
                                 0]; // count added
-//   let configs = [ seventeenConfig,
-//                   fourtyOneConfig,
-//                   fiveTwentyThreesConfig,
-//                   thirteensConfig,
-//                   nineteensConfig,
-//                   twentyThreesConfig,
-//                   sevenEightySevensConfig
-//                 ];
+  let configs = [ seventeenConfig,
+                  fourtyOneConfig,
+                  fiveTwentyThreesConfig,
+                  thirteensConfig,
+                  nineteensConfig,
+                  twentyThreesConfig//,
+                  //sevenEightySevensConfig
+                ];
 //   let configs = [ [ 0,17,0,2314705859 - 1 ],
 // [ 1,41,7,959756088 - 1 ],
 // [ 2,523,17,75239005 - 1 ],
@@ -104,14 +104,14 @@ function part3(){
 // [ 5,23,40,5132608601 - 1 ],
 // [ 6,787,48,149999998 - 1 ],
 // ]
-let configs = [ [ 0,17,0,9258823346 - 1 ],
-[ 1,41,7,3839024315 - 1 ],
-[ 2,523,17,300956017 - 1 ],
-[ 3,13,35,12107692070 - 1 ],
-[ 4,19,36,8284210364 - 1 ],
-[ 5,23,40,6843478127 - 1 ],
-[ 6,787,48,199999997 - 1 ],
-];
+// let configs = [ [ 0,17,0,9258823346 - 1 ],
+// [ 1,41,7,3839024315 - 1 ],
+// [ 2,523,17,300956017 - 1 ],
+// [ 3,13,35,12107692070 - 1 ],
+// [ 4,19,36,8284210364 - 1 ],
+// [ 5,23,40,6843478127 - 1 ],
+// [ 6,787,48,199999997 - 1 ],
+// ];
   let values = [ //[], // seventeens
                  //[] // fourtyones
                ];
@@ -119,16 +119,19 @@ let configs = [ [ 0,17,0,9258823346 - 1 ],
     addNumber( values, configs[i] );
   }
   let iterationsRemaining = 9999999;
-  let data = new Set( values );
-  while( data.size != 1 && --iterationsRemaining ){
-    data = Array.from( data ).sort(function(a, b){return a-b});
+  let data = values;
+  data.sort(function(a, b){return a-b});
+  while( data[0] != data[data.length] && --iterationsRemaining ){
+//     data = Array.from( data ).sort(function(a, b){return a-b});
+//     nextNumToCheck = data.pop();
     nextNumToCheck = data.pop();
     for( let i = 0; i < values.length; ++i ){
       while( values[i] < nextNumToCheck ){
         addNumber( values, configs[i] );
       }
     }
-    data = new Set( values );
+//     data = new Set( values );
+    data = data.sort(function(a, b){return a-b});
     if( iterationsRemaining == 3 ){
       bonus = JSON.stringify( configs );
     }
