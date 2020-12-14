@@ -127,7 +127,7 @@ function part3(){
 //     nextNumToCheck = data.pop();
     nextNumToCheck = data.pop();
     for( let i = 0; i < values.length; ++i ){
-      while( values[i] < nextNumToCheck ){
+      while( values[i] < nextNudataeck ){
         addNumber( values, configs[i] );
       }
     }
@@ -146,6 +146,7 @@ function part3(){
   
   $('#answer2 span').text( values );
   $('#bonus span').html( bonus );
+  $('#bonus span').html( data );
 }
 function part2( data ){
   let bonus = "";
