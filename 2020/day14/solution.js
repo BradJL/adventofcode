@@ -11,13 +11,14 @@ function applyMask( mask, number ){
   outputNumber = "";
   for( let i = 0; i < mask.length; ++i ){
     if( mask.charAt(i) == 0 ){
-      console.log( "found a 0" );
-      outputNumber = number.substring(0, i); + '0' + number.substring(i);
+//       console.log( "found a 0" );
+      outputNumber += '0'
     } else if( mask.charAt(i) == 1 ){
-      console.log( "found a 1" );
-      outputNumber = number.substring(0, i); + '1' + number.substring(i);
+//       console.log( "found a 1" );
+      outputNumber += '1';
     } else {
-      console.log( "found an X" );
+//       console.log( "found an X" );
+      outputNumber += number.charAt(i);
     }
   }
   console.log( outputNumber + " : " + number );
