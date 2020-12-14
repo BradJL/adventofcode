@@ -18,7 +18,7 @@ function getMemoryLocations( mask, number ){
   for( let i = 0; i < mask.length; ++i ){
     if( mask.charAt(i) == 0 ){
       outputNumbers.forEach(function(value, index, array) {
-        outputNumbers[index] = value + '0';
+        outputNumbers[index] = value + number.charAt(i);
       });
     } else if( mask.charAt(i) == 1 ){
       outputNumbers.forEach(function(value, index, array) {
@@ -26,7 +26,7 @@ function getMemoryLocations( mask, number ){
       });
     } else {
       outputNumbers.forEach(function(value, index, array) {
-//         outputNumbers.push( value + '0' );
+        outputNumbers.push( value + '0' );
         outputNumbers[index] = value + '1';
       });
     }
