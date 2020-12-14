@@ -121,7 +121,6 @@ function part3(){
   //data = [...values];
   data = values.map((x) => x);
   data.sort(function(a, b){return a-b});
-  $('#bonus span').text( data );
   while( data[0] != data[data.length] && --iterationsRemaining ){
 //     data = Array.from( data ).sort(function(a, b){return a-b});
 //     nextNumToCheck = data.pop();
@@ -146,6 +145,7 @@ function part3(){
   
 //  $('#answer2 span').text( values );
 //   $('#bonus span').html( bonus );
+  $('#bonus span').text( data );
   $('#answer2 span').text( values );
 }
 function part2( data ){
