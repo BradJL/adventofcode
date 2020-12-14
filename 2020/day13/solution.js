@@ -117,6 +117,7 @@ function part3(){
   for( let i = 0; i < configs.length; ++i ){
     addNumber( values, configs[i] );
   }
+  $('#answer2 span').text( values );
   let iterationsRemaining = 9999999;
   //data = [...values];
   data = values.map((x) => x);
@@ -137,14 +138,14 @@ function part3(){
 //       bonus = JSON.stringify( configs );
 //     }
   }
-  $('#answer2 span').text( bonus );
+//   $('#answer2 span').text( bonus );
 //   bonus = "iterationsRemaining: " + iterationsRemaining + "<br />  let configs = [";
 //   configs.forEach(function(contents, index, array) {
 //     bonus += " [ " + contents + " - 1 ], <br />";
 //   });
 //   bonus += "          ]";
   
-  $('#answer2 span').text( values );
+//  $('#answer2 span').text( values );
 //   $('#bonus span').html( bonus );
 }
 function part2( data ){
