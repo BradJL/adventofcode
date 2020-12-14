@@ -94,7 +94,7 @@ function part2( data ){
       
       getMemoryLocations( mask, parseInt( numbers[0] ) ).forEach(function(value, index, array) {
         memory[parseInt( numbers[0] )] = parseInt( numbers[1] );
-        console.log( "Wrote " + parseInt( numbers[1] + " to " + parseInt( numbers[0] ) ) );
+        console.log( "Wrote " + parseInt( numbers[1] ) + " to " + parseInt( numbers[0] ) );
       });
 //       console.log( memory[parseInt( numbers[0] )] );
     }
