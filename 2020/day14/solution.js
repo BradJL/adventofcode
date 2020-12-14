@@ -43,8 +43,8 @@ function part2( data ){
 
 $.get( "input.txt", function( data ) {
 //   $('#input span').text('(Bytes: ' + (data.length) + ')');
-  data = data.trim().split(/\r?\n/);
   data = "mask = XXXXXXXXXXXXXXXXXXXXXXXXXXXXX1XXXX0X\nmem[8] = 11\nmem[7] = 101\nmem[8] = 0";
+  data = data.trim().split(/\r?\n/);
   $('#input span').text('(Lines: ' + (data.length) + ')');
   part1( data );
 //   part2( data );
