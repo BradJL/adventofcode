@@ -87,6 +87,7 @@ function part2( data ){
   let mask = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
   let memory = [];
   let sum = 0;
+  let lastVal = 0;
   data.forEach(function(value, index, array) {
     let leftRight = value.split(/ = /);
     if( leftRight[0] == "mask" ){
@@ -95,13 +96,15 @@ function part2( data ){
       let numbers = value.match(/[0-9]+/g);
       
       getMemoryLocations( mask, parseInt( numbers[0] ) ).forEach(function(value, index, array) {
+        lastVal = value;
         memory[value] = parseInt( numbers[1] );
         console.log( "Wrote " + parseInt( numbers[1] ) + " to " + value + " | " + memory[value] );
       });
-//       console.log( memory[parseInt( numbers[0] )] );
+      console.log( "memory[LastVal] = memory[" + lastVal + "] = " + memory[lastVal] )] );
     }
   });
   
+  console.log( "memory[11379077079] = " + memory[11379077079] );
   console.log( "summing up the memory[" + memory.length + "]..." );
   memory.forEach(function(value, index, array) {
     console.log( "Sum: " + sum + " + " + value + " = " + (sum + value) );
@@ -136,11 +139,4 @@ $.get( "input.txt", function( data ) {
   $('#input span').text('(Lines: ' + (data.length) + ')');
 //   part1( data );
   part2( data );
-  
-//   let input = [];
-//   data.forEach(function(number, index, array) {
-//     input.push(parseInt(number))
-//   });
-//   part1( input );
-//   part2( input );
 });
