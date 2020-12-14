@@ -12,6 +12,8 @@ function getMemoryLocations( mask, number ){
   while( number.length < 36 ){
     number = "0" + number;
   }
+  console.log( "binary address: " + number );
+  
   outputNumbers = [ "" ];
   for( let i = 0; i < mask.length; ++i ){
     if( mask.charAt(i) == 0 ){
@@ -24,7 +26,7 @@ function getMemoryLocations( mask, number ){
       });
     } else {
       outputNumbers.forEach(function(value, index, array) {
-        outputNumbers.push( value + '0' );
+//         outputNumbers.push( value + '0' );
         outputNumbers[index] = value + '1';
       });
     }
