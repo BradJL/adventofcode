@@ -31,6 +31,7 @@ function applyMask( mask, number ){
 function part1( data ){
   let mask = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
   let memory = [];
+  let sum = 0;
   data.forEach(function(value, index, array) {
     let leftRight = value.split(/ = /);
     if( leftRight[0] == "mask" ){
@@ -40,6 +41,10 @@ function part1( data ){
       memory[parseInt( numbers[0] )] = applyMask( mask, parseInt( numbers[1] ) );
       console.log( memory[parseInt( numbers[0] )] );
     }
+  });
+  
+  memory.forEach(function(value, index, array) {
+    sum += value;
   });
   //$('#answer span').text(  );
   //$('#bonus span').html(  );
