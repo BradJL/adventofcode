@@ -7,6 +7,7 @@ $('#answer2 span').text('Calculating...');
 // var ctx2 = canvas2.getContext("2d");
 
 function getMemoryLocations( mask, number ){
+  console.log( "called getMemoryLocations( mask: " + mask + ", number: " + number + " )" );
   number = number.toString(2);
   while( number.length < 36 ){
     number = "0" + number;
@@ -31,7 +32,7 @@ function getMemoryLocations( mask, number ){
   for( let i = 0; i < outputNumbers.length; ++i ){
     outputNumbers[i] = parseInt(outputNumbers[i], 2)
   }
-  console.log( outputNumbers );
+  console.log( "getMemoryLocations returned: " + outputNumbers );
   return outputNumbers;
 }
 function applyMask( mask, number ){
