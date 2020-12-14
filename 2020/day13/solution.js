@@ -162,7 +162,7 @@ function part3(){
   
 //  $('#answer2 span').text( values );
 //   $('#bonus span').html( bonus );
-  $('#answer2 span').text( min == max ? max : min = ", " + max );
+  $('#answer2 span').text( min == max ? max : min + ", " + max );
   $('#bonus span').text( "iterationsRemaining: " + iterationsRemaining );
 }
 function part2( data ){
