@@ -93,8 +93,8 @@ function part2( data ){
       let numbers = value.match(/[0-9]+/g);
       
       getMemoryLocations( mask, parseInt( numbers[0] ) ).forEach(function(value, index, array) {
-        memory[parseInt( numbers[0] )] = parseInt( numbers[1] );
-        console.log( "Wrote " + parseInt( numbers[1] ) + " to " + parseInt( numbers[0] ) );
+        memory[value] = parseInt( numbers[1] );
+        console.log( "Wrote " + parseInt( numbers[1] ) + " to " + value );
       });
 //       console.log( memory[parseInt( numbers[0] )] );
     }
