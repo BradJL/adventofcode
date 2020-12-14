@@ -144,7 +144,7 @@ function part3(){
   });
   bonus += "          ]";
   
-  $('#answer2 span').text( data );
+  $('#answer2 span').text( values );
   $('#bonus span').html( bonus );
 }
 function part2( data ){
