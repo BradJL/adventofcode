@@ -140,6 +140,7 @@ let configs = [ [ 0,17,0,9258823346 - 1 ],
   });
   bonus += "          ]";
   
+  $('#answer2 span').text( data );
   $('#bonus span').html( bonus );
 }
 function part2( data ){
