@@ -31,11 +31,11 @@ function getMemoryLocations( mask, number ){
       });
     }
   }
-  console.log( "getMemoryLocations temp: " + outputNumbers );
+//   console.log( "getMemoryLocations temp: " + outputNumbers );
   for( let i = 0; i < outputNumbers.length; ++i ){
     outputNumbers[i] = parseInt(outputNumbers[i], 2)
   }
-  console.log( "getMemoryLocations returned: " + outputNumbers );
+//   console.log( "getMemoryLocations returned: " + outputNumbers );
   return outputNumbers;
 }
 
@@ -100,16 +100,16 @@ function part2( data ){
 //         lastVal = value;
         memory[value] = parseInt( numbers[1] );
         indicies.add( value );
-        console.log( "Wrote " + parseInt( numbers[1] ) + " to " + value + " | " + memory[value] );
+//         console.log( "Wrote " + parseInt( numbers[1] ) + " to " + value + " | " + memory[value] );
       });
 //       console.log( "memory[LastVal] = memory[" + lastVal + "] = " + memory[lastVal] );
     }
   });
   
 //   console.log( "memory[11379077079] = " + memory[11379077079] );
-  console.log( "summing up the memory[" + memory.length + "]..." );
+//   console.log( "summing up the memory[" + memory.length + "]..." );
   indicies.forEach(function(value, index, array) {
-    console.log( "Sum: " + sum + " + " + memory[value] + " = " + (sum + memory[value]) );
+//     console.log( "Sum: " + sum + " + " + memory[value] + " = " + (sum + memory[value]) );
     sum += memory[value];
   });
   $('#answer2 span').text( sum );
