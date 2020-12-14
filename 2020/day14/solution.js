@@ -139,6 +139,6 @@ $.get( "input.txt", function( data ) {
 //     "mem[45046] = 58906955"
 //   ];
   $('#input span').text('(Lines: ' + (data.length) + ')');
-//   part1( data );
+  part1( data );
   part2( data );
 });
