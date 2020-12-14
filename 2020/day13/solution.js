@@ -163,7 +163,7 @@ function part3(){
 //  $('#answer2 span').text( values );
 //   $('#bonus span').html( bonus );
   $('#bonus span').text( data );
-  $('#answer2 span').text( max );
+  $('#answer2 span').text( iterationsRemaining );
 }
 function part2( data ){
   let bonus = "";
