@@ -118,7 +118,7 @@ let configs = [ [ 0,17,0,9258823346 - 1 ],
   for( let i = 0; i < configs.length; ++i ){
     addNumber( values, configs[i] );
   }
-  let iterationsRemaining = 99999999;
+  let iterationsRemaining = 9999999;
   let data = new Set( values );
   while( data.size != 1 && --iterationsRemaining ){
     data = Array.from( data ).sort(function(a, b){return a-b});
