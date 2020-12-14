@@ -100,7 +100,7 @@ function part2( data ){
         memory[value] = parseInt( numbers[1] );
         console.log( "Wrote " + parseInt( numbers[1] ) + " to " + value + " | " + memory[value] );
       });
-      console.log( "memory[LastVal] = memory[" + lastVal + "] = " + memory[lastVal] )] );
+      console.log( "memory[LastVal] = memory[" + lastVal + "] = " + memory[lastVal] );
     }
   });
   
