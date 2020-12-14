@@ -78,7 +78,7 @@ function part3(){
                   thirteensConfig,
                   nineteensConfig,
                   twentyThreesConfig,
-                  //sevenEightySevensConfig
+                  sevenEightySevensConfig,
                 ];
 //   let configs = [ [ 0,17,0,2314705859 - 1 ],
 // [ 1,41,7,959756088 - 1 ],
