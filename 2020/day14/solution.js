@@ -28,7 +28,7 @@ function part1( data ){
     } else {
       let numbers = value.match(/[0-9]+/g);
       memory[parseInt( numbers[0] )] = applyMask( mask, parseInt( numbers[1] ) );
-      console.log( memory[parseInt( numbers[0] )];
+      console.log( memory[parseInt( numbers[0] )] );
     }
   });
   //$('#answer span').text(  );
@@ -47,7 +47,7 @@ $.get( "input.txt", function( data ) {
   data = "mask = XXXXXXXXXXXXXXXXXXXXXXXXXXXXX1XXXX0X\nmem[8] = 11\nmem[7] = 101\nmem[8] = 0";
   $('#input span').text('(Lines: ' + (data.length) + ')');
   part1( data );
-  part2( data );
+//   part2( data );
   
 //   let input = [];
 //   data.forEach(function(number, index, array) {
