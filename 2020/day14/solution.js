@@ -8,6 +8,9 @@ $('#answer2 span').text('Calculating...');
 
 function applyMask( mask, number ){
   number = number.toString(2);
+  while( number.length < 36 ){
+    number = "0" + number;
+  }
   outputNumber = "";
   for( let i = 0; i < mask.length; ++i ){
     if( mask.charAt(i) == 0 ){
