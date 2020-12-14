@@ -115,11 +115,12 @@ function part3(){
   let values = [ //[], // seventeens
                  //[] // fourtyones
                ];
+  let data;
   for( let i = 0; i < configs.length; ++i ){
     addNumber( values, configs[i] );
   }
   let iterationsRemaining = 9999999;
-  let data = values;
+  data = [...values];
   data.sort(function(a, b){return a-b});
   while( data[0] != data[data.length] && --iterationsRemaining ){
 //     data = Array.from( data ).sort(function(a, b){return a-b});
