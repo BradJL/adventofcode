@@ -41,6 +41,7 @@ function addNumber( array, config ){
 }
 
 function part3(){
+  let bonus = "";
   let nextNumToCheck = 0;
   let number = 1;
   let seventeenConfig = [0, // index of array
@@ -128,8 +129,11 @@ let configs = [ [ 0,17,0,9258823346 - 1 ],
       }
     }
     data = new Set( values );
+    if( iterationsRemaining == 1 ){
+      bonus = JSON.stringify( configs );
+    }
   }
-  $('#answer2 span').text( Array.from(data) );
+  $('#answer2 span').text( bonus );
   let bonus = "iterationsRemaining: " + iterationsRemaining + "<br />  let configs = [";
   configs.forEach(function(contents, index, array) {
     bonus += " [ " + contents + " - 1 ], <br />";
