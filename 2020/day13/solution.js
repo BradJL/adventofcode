@@ -143,7 +143,7 @@ function part3(){
   });
   bonus += "          ]";
   
-  $('#answer2 span').text( Array.from(data) );
+  $('#answer2 span').text( data );
   $('#bonus span').html( bonus );
 }
 function part2( data ){
