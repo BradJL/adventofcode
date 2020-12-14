@@ -111,7 +111,7 @@ let configs = [ [ 0,17,0,9258823346 - 1 ],
 [ 4,19,36,8284210364 - 1 ],
 [ 5,23,40,6843478127 - 1 ],
 [ 6,787,48,199999997 - 1 ],
-]
+];
   let values = [ //[], // seventeens
                  //[] // fourtyones
                ];
@@ -134,7 +134,7 @@ let configs = [ [ 0,17,0,9258823346 - 1 ],
     }
   }
   $('#answer2 span').text( bonus );
-  let bonus = "iterationsRemaining: " + iterationsRemaining + "<br />  let configs = [";
+  bonus = "iterationsRemaining: " + iterationsRemaining + "<br />  let configs = [";
   configs.forEach(function(contents, index, array) {
     bonus += " [ " + contents + " - 1 ], <br />";
   });
