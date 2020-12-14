@@ -117,7 +117,6 @@ function part3(){
   for( let i = 0; i < configs.length; ++i ){
     addNumber( values, configs[i] );
   }
-  $('#answer2 span').text( values );
   let iterationsRemaining = 9999999;
   //data = [...values];
   data = values.map((x) => x);
@@ -147,6 +146,7 @@ function part3(){
   
 //  $('#answer2 span').text( values );
 //   $('#bonus span').html( bonus );
+  $('#answer2 span').text( values );
 }
 function part2( data ){
   let bonus = "";
