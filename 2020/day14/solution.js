@@ -10,9 +10,13 @@ function applyMask( mask, number ){
   number = number.toString(2);
   for( let i = 0; i < mask.length; ++i ){
     if( mask.charAt(i) == 0 ){
+      console.log( "found a 0" );
       number = number.substring(0, i); + '0' + number.substring(i);
     } else if( mask.charAt(i) == 1 ){
+      console.log( "found a 1" );
       number = number.substring(0, i); + '1' + number.substring(i);
+    } else {
+      console.log( "found an X" );
     }
   }
   return( parseInt(number, 2) );
