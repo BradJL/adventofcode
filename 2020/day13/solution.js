@@ -121,7 +121,7 @@ function part3(){
   let iterationsRemaining = 9999999;
   //data = [...values];
   data = values.map((x) => x);
-  $('#bonus span').html( data );
+  $('#bonus span').text( data );
   data.sort(function(a, b){return a-b});
   while( data[0] != data[data.length] && --iterationsRemaining ){
 //     data = Array.from( data ).sort(function(a, b){return a-b});
