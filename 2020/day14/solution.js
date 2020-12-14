@@ -114,15 +114,15 @@ function part2( data ){
 $.get( "input.txt", function( data ) {
 //   $('#input span').text('(Bytes: ' + (data.length) + ')');
 //   data = "mask = XXXXXXXXXXXXXXXXXXXXXXXXXXXXX1XXXX0X\nmem[8] = 11\nmem[7] = 101\nmem[8] = 0";
-//   data = "mask = 000000000000000000000000000000X1001X\nmem[42] = 100\nmask = 00000000000000000000000000000000X0XX\nmem[26] = 1";
+  data = "mask = 000000000000000000000000000000X1001X\nmem[42] = 100\nmask = 00000000000000000000000000000000X0XX\nmem[26] = 1";
 //   data = data + "\n" + data;
-  data = "mask = 00101X10011X0X111110010X010011X10101" + "\n" +
-         "mem[41248] = 4595332" + "\n" +
-         "mem[26450] = 60" + "\n" +
-         "mem[32210] = 982366" + "\n" +
-         "mem[1060] = 234632920" + "\n" +
-         "mem[20694] = 38159" + "\n" +
-         "mem[45046] = 58906955";
+//   data = "mask = 00101X10011X0X111110010X010011X10101" + "\n" +
+//          "mem[41248] = 4595332" + "\n" +
+//          "mem[26450] = 60" + "\n" +
+//          "mem[32210] = 982366" + "\n" +
+//          "mem[1060] = 234632920" + "\n" +
+//          "mem[20694] = 38159" + "\n" +
+//          "mem[45046] = 58906955";
   data = data.trim().split(/\r?\n/);
   $('#input span').text('(Lines: ' + (data.length) + ')');
 //   part1( data );
