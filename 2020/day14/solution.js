@@ -46,7 +46,7 @@ function part1( data ){
   memory.forEach(function(value, index, array) {
     sum += value;
   });
-  //$('#answer span').text(  );
+  $('#answer span').text( sum );
   //$('#bonus span').html(  );
 }
 function part2( data ){
