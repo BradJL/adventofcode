@@ -103,6 +103,7 @@ function part2( data ){
   });
   
   memory.forEach(function(value, index, array) {
+    console.log( "Sum: " + sum + " + " + value + " = " sum + value );
     sum += value;
   });
   $('#answer2 span').text( sum );
