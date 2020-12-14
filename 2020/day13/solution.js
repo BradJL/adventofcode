@@ -145,6 +145,8 @@ function part3(){
 //     data = [...values];
 //     data = values.map((x) => x);
 //     data.sort(function(a, b){return a-b});
+    max = 0;
+    min = Number.MAX_VALUE;
     values.forEach(function(contents, index, array) {
       if( contents < min ){ min = contents; }
       if( contents > max ){ max = contents; }
