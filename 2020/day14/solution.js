@@ -102,7 +102,7 @@ function part2( data ){
     }
   });
   
-  console.log( "summing up the memory..." );
+  console.log( "summing up the memory[" + memory.length + "]..." );
   memory.forEach(function(value, index, array) {
     console.log( "Sum: " + sum + " + " + value + " = " + (sum + value) );
     sum += value;
