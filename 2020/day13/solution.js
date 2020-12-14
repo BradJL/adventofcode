@@ -79,13 +79,21 @@ function part3(){
 //                   twentyThreesConfig,
 //                   sevenEightySevensConfig
 //                 ];
-  let configs = [ [ 0,17,0,2314705859 - 1 ],
-[ 1,41,7,959756088 - 1 ],
-[ 2,523,17,75239005 - 1 ],
-[ 3,13,35,3026923049 - 1 ],
-[ 4,19,36,2071052613 - 1 ],
-[ 5,23,40,1710869550 - 1 ],
-[ 6,787,48,50000000 - 1 ],
+//   let configs = [ [ 0,17,0,2314705859 - 1 ],
+// [ 1,41,7,959756088 - 1 ],
+// [ 2,523,17,75239005 - 1 ],
+// [ 3,13,35,3026923049 - 1 ],
+// [ 4,19,36,2071052613 - 1 ],
+// [ 5,23,40,1710869550 - 1 ],
+// [ 6,787,48,50000000 - 1 ]
+// ]
+let configs = [ [ 0,17,0,4629411688 - 1 ],
+[ 1,41,7,1919512164 - 1 ],
+[ 2,523,17,150478009 - 1 ],
+[ 3,13,35,6053846056 - 1 ],
+[ 4,19,36,4142105197 - 1 ],
+[ 5,23,40,3421739076 - 1 ],
+[ 6,787,48,99999999 - 1 ],
 ]
   let values = [ //[], // seventeens
                  //[] // fourtyones
@@ -108,7 +116,7 @@ function part3(){
   $('#answer2 span').text( Array.from(data) );
   let bonus = "iterationsRemaining: " + iterationsRemaining + "<br />  let configs = [";
   configs.forEach(function(contents, index, array) {
-    bonus += " [ " + contents + " ], <br />";
+    bonus += " [ " + contents + " - 1 ], <br />";
   });
   bonus += "          ]";
   
