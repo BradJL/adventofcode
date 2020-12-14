@@ -9,9 +9,9 @@ $('#answer2 span').text('Calculating...');
 function applyMask( mask, number ){
   number = number.toString(2);
   for( let i = 0; i < mask.length; ++i ){
-    if( mask[i] == 0 ){
+    if( mask.charAt(i) == 0 ){
       number = number.substring(0, i); + '0' + number.substring(i);
-    } else if( mask[i] == 1 ){
+    } else if( mask.charAt(i) == 1 ){
       number = number.substring(0, i); + '1' + number.substring(i);
     }
   }
