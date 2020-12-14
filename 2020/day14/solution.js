@@ -29,6 +29,7 @@ function getMemoryLocations( mask, number ){
       });
     }
   }
+  console.log( "getMemoryLocations temp: " + outputNumbers );
   for( let i = 0; i < outputNumbers.length; ++i ){
     outputNumbers[i] = parseInt(outputNumbers[i], 2)
   }
