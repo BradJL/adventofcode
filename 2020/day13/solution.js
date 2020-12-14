@@ -127,7 +127,7 @@ function part3(){
 //     nextNumToCheck = data.pop();
     nextNumToCheck = data.pop();
     for( let i = 0; i < values.length; ++i ){
-      while( values[i] < nextNudataeck ){
+      while( values[i] < nextNumToCheck ){
         addNumber( values, configs[i] );
       }
     }
