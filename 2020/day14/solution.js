@@ -7,14 +7,14 @@ $('#answer2 span').text('Calculating...');
 // var ctx2 = canvas2.getContext("2d");
 
 function getMemoryLocations( mask, number ){
-  console.log( "called getMemoryLocations( mask: " + mask + ", number: " + number + " )" );
+//   console.log( "called getMemoryLocations( mask: " + mask + ", number: " + number + " )" );
   number = number.toString(2);
   while( number.length < 36 ){
     number = "0" + number;
   }
-  console.log( "binary address: " + number );
+//   console.log( "binary address: " + number );
   
-  outputNumbers = [ "" ];
+  let outputNumbers = [ "" ];
   for( let i = 0; i < mask.length; ++i ){
     if( mask.charAt(i) == 0 ){
       outputNumbers.forEach(function(value, index, array) {
@@ -38,6 +38,7 @@ function getMemoryLocations( mask, number ){
   console.log( "getMemoryLocations returned: " + outputNumbers );
   return outputNumbers;
 }
+
 function applyMask( mask, number ){
   number = number.toString(2);
   while( number.length < 36 ){
@@ -81,6 +82,7 @@ function part1( data ){
   $('#answer span').text( sum );
   //$('#bonus span').html(  );
 }
+
 function part2( data ){
   let mask = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
   let memory = [];
@@ -110,7 +112,8 @@ function part2( data ){
 $.get( "input.txt", function( data ) {
 //   $('#input span').text('(Bytes: ' + (data.length) + ')');
 //   data = "mask = XXXXXXXXXXXXXXXXXXXXXXXXXXXXX1XXXX0X\nmem[8] = 11\nmem[7] = 101\nmem[8] = 0";
-//   data = "mask = 000000000000000000000000000000X1001X\nmem[42] = 100\nmask = 00000000000000000000000000000000X0XX\nmem[26] = 1";
+  data = "mask = 000000000000000000000000000000X1001X\nmem[42] = 100\nmask = 00000000000000000000000000000000X0XX\nmem[26] = 1";
+  data = data + "\n" + data;
   data = data.trim().split(/\r?\n/);
   $('#input span').text('(Lines: ' + (data.length) + ')');
 //   part1( data );
