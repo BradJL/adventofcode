@@ -42,7 +42,7 @@ function addNumber( array, config ){
 
 function part3(){
   let bonus = "";
-  let nextNumToCheck = 0;
+  //let nextNumToCheck = 0;
   let number = 1;
   let seventeenConfig = [0, // index of array
                          17, // increment/mod value
@@ -118,22 +118,32 @@ function part3(){
     addNumber( values, configs[i] );
   }
   let iterationsRemaining = 9999999;
-  data = [...values];
+//   data = [...values];
 //   data = values.map((x) => x);
-  data.sort(function(a, b){return a-b});
-  while( data[0] != data[data.length] && --iterationsRemaining ){
+//   data.sort(function(a, b){return a-b});
+  let max = 0;
+  let min = Number.MAX_VALUE;
+  values.forEach(function(contents, index, array) {
+    if( contents < min ){ min = contents; }
+    if( contents > max ){ max = contents; }
+  });
+  while( min != max && --iterationsRemaining ){
 //     data = Array.from( data ).sort(function(a, b){return a-b});
 //     nextNumToCheck = data.pop();
-    nextNumToCheck = data.pop();
+//     nextNumToCheck = max;
     for( let i = 0; i < values.length; ++i ){
-      while( values[i] < nextNumToCheck ){
+      while( values[i] < max ){
         addNumber( values, configs[i] );
       }
     }
 //     data = new Set( values );
-    data = [...values];
+//     data = [...values];
 //     data = values.map((x) => x);
-    data.sort(function(a, b){return a-b});
+//     data.sort(function(a, b){return a-b});
+    values.forEach(function(contents, index, array) {
+      if( contents < min ){ min = contents; }
+      if( contents > max ){ max = contents; }
+    });
 //     if( iterationsRemaining == 3 ){
 //       bonus = JSON.stringify( configs );
 //     }
@@ -148,7 +158,7 @@ function part3(){
 //  $('#answer2 span').text( values );
 //   $('#bonus span').html( bonus );
   $('#bonus span').text( data );
-  $('#answer2 span').text( values );
+  $('#answer2 span').text( max );
 }
 function part2( data ){
   let bonus = "";
@@ -183,7 +193,7 @@ function part2( data ){
   }
   if( !found ){ timestamp = -timestamp; }
   $('#answer2 span').text( timestamp );
-  $('#bonus span').html( "[ " + bonus + "]" );
+  $('#bonus span').html( bonus );
 }
 
 $.get( "input.txt", function( data ) {
