@@ -19,7 +19,6 @@ function part1( data ){
   });
   
   do {
-    ++turn;
     if(lastSpoken) { // if it's been said before
       console.log( "found " + lastNum );
       // The == and != operators consider null equal to only null or undefined
@@ -28,6 +27,7 @@ function part1( data ){
       console.log( "didn't find " + lastNum );
       lastNum = 0;
     }
+    ++turn;
     console.log( "saying " + lastNum );
     lastSpoken = numbers[lastNum];
     numbers[ lastNum ] = turn; console.log( "adding " + lastNum + "(" + turn + ")" );
