@@ -87,7 +87,7 @@ $.get( "input.txt", function( data ) {
             "y RSHIFT 2 -> g",
             "NOT x -> h",
             "NOT y -> i" ];
-   $('#answer span').text( "f: " + part1( data, 'f' ) );
+   $('#answer span').text( "h: " + part1( data, 'h' ) );
 //    $('#answer2 span').text( "e: " + part1( data, 'e' ) );
 //    $('#bonus span').html(
 //      "d: " + part1( data, 'f' ) + "<br />" +
