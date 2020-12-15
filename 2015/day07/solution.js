@@ -79,26 +79,26 @@ function getWires( circuit ){
 $.get( "input.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
   data = data.trim().split(/\r?\n/);
-  data = [ "123 -> x",
-            "456 -> y",
-            "x AND y -> d",
-            "x OR y -> e",
-            "x LSHIFT 2 -> f",
-            "y RSHIFT 2 -> g",
-            "NOT x -> h",
-            "NOT y -> i" ];
-//    $('#answer span').text( "h: " + part1( data, 'h' ) );
+//   data = [ "123 -> x",
+//             "456 -> y",
+//             "x AND y -> d",
+//             "x OR y -> e",
+//             "x LSHIFT 2 -> f",
+//             "y RSHIFT 2 -> g",
+//             "NOT x -> h",
+//             "NOT y -> i" ];
+   $('#answer span').text( "h: " + part1( data, 'a' ) );
 //    $('#answer2 span').text( "e: " + part1( data, 'e' ) );
-   $('#bonus span').html(
-     "d: " + part1( data, 'd' ) + "<br />" +
-     "e: " + part1( data, 'e' ) + "<br />" +
-     "f: " + part1( data, 'f' ) + "<br />" +
-     "g: " + part1( data, 'g' ) + "<br />" +
-     "h: " + part1( data, 'h' ) + "<br />" +
-     "i: " + part1( data, 'i' ) + "<br />" +
-     "x: " + part1( data, 'x' ) + "<br />" +
-     "y: " + part1( data, 'y' )
-                        );
+//    $('#bonus span').html(
+//      "d: " + part1( data, 'd' ) + "<br />" +
+//      "e: " + part1( data, 'e' ) + "<br />" +
+//      "f: " + part1( data, 'f' ) + "<br />" +
+//      "g: " + part1( data, 'g' ) + "<br />" +
+//      "h: " + part1( data, 'h' ) + "<br />" +
+//      "i: " + part1( data, 'i' ) + "<br />" +
+//      "x: " + part1( data, 'x' ) + "<br />" +
+//      "y: " + part1( data, 'y' )
+//                         );
   //   let circuit = '( lx )';
 //   let wiresSet = new Set(getWires( circuit ));
 //   while( wiresSet.size > 0 ){
