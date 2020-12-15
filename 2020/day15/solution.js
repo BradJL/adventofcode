@@ -20,11 +20,11 @@ function part1( data, iterations ){
   
   do {
     if(lastSpoken) { // if it's been said before
-      console.log( "found " + lastNum );
+      //console.log( "found " + lastNum );
       // The == and != operators consider null equal to only null or undefined
       lastNum = turn - lastSpoken;
     } else {
-      console.log( "didn't find " + lastNum );
+      //console.log( "didn't find " + lastNum );
       lastNum = 0;
     }
     ++turn;
@@ -47,7 +47,7 @@ $.get( "input.txt", function( data ) {
   data = data.trim();
   $('#input span').text('(Lines: ' + (data.length) + ')');
   part1( "0,3,6", 10 );
-  part1( "1,3,2", 2020 );
+//   part1( "1,3,2", 2020 );
 //   part1( data, 2020 );
 //   part2( data );
   
