@@ -7,6 +7,10 @@ $('#answer2 span').text('Calculating...');
 // var ctx2 = canvas2.getContext("2d");
 
 function recurse( wire, circuit ){
+  if( wire.match(/^[0-9]+$/) ){
+    console.log( "You game me a value of " + wire + ".  I'm giving you " + wire + " back." );
+    return parseInt( wire );
+  }
   console.log( "You gave me " + wire + ".  I found " + circuit[wire] );
   let retVal = 0;
   if( circuit[wire].match(/RSHIFT/) ){
