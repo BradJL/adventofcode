@@ -87,16 +87,18 @@ $.get( "input.txt", function( data ) {
             "y RSHIFT 2 -> g",
             "NOT x -> h",
             "NOT y -> i" ];
-   $('#answer span').text( "d: " + part1( data, 'd' ) );
-   $('#answer2 span').text( "e: " + part1( data, 'e' ) );
-   $('#bonus span').html(
-     "f: " + part1( data, 'f' ) + "<br />" +
-     "g: " + part1( data, 'g' ) + "<br />" +
-//      "h: " + part1( data, 'h' ) + "<br />" +
-//      "i: " + part1( data, 'i' ) + "<br />" +
-     "x: " + part1( data, 'x' ) + "<br />" +
-     "y: " + part1( data, 'y' )
-                        );
+   $('#answer span').text( "f: " + part1( data, 'f' ) );
+//    $('#answer2 span').text( "e: " + part1( data, 'e' ) );
+//    $('#bonus span').html(
+//      "d: " + part1( data, 'f' ) + "<br />" +
+//      "e: " + part1( data, 'f' ) + "<br />" +
+//      "f: " + part1( data, 'f' ) + "<br />" +
+//      "g: " + part1( data, 'g' ) + "<br />" +
+// //      "h: " + part1( data, 'h' ) + "<br />" +
+// //      "i: " + part1( data, 'i' ) + "<br />" +
+//      "x: " + part1( data, 'x' ) + "<br />" +
+//      "y: " + part1( data, 'y' )
+//                         );
   //   let circuit = '( lx )';
 //   let wiresSet = new Set(getWires( circuit ));
 //   while( wiresSet.size > 0 ){
