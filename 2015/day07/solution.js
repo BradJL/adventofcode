@@ -7,7 +7,7 @@ $('#answer2 span').text('Calculating...');
 // var ctx2 = canvas2.getContext("2d");
 
 function recurse( wire, circuit ){
-  console.log( "yougaveme " + wire + "." );
+  console.log( "yougaveme " + wire + ".  [" + wire.match(/^[0-9]+$/) + "]" );
   if( wire.match(/^[0-9]+$/) ){
     console.log( "You game me a value of " + wire + ".  I'm giving you " + wire + " back." );
     return parseInt( wire );
