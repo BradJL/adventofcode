@@ -8,37 +8,45 @@ $('#answer2 span').text('Calculating...');
 
 function recurse( wire, circuit ){
   console.log( circuit[wire] );
+  let retVal = 0;
   if( circuit[wire].match(/RSHIFT/) ){
     console.log( "RSHIFT" );
-    return( recurse( circuit[wire].match(/[a-z]+/), circuit ) >> parseInt(circuit[wire].match(/[0-9]+/)) );
+    retVal = recurse( circuit[wire].match(/[a-z]+/), circuit ) >> parseInt(circuit[wire].match(/[0-9]+/));
+    console.log( "returing " + retVal ); return retVal;
   }
   if( circuit[wire].match(/LSHIFT/) ){
     console.log( "LSHIFT" );
-    return( recurse( circuit[wire].match(/[a-z]+/), circuit ) < parseInt(circuit[wire].match(/[0-9]+/)) );
+    retVal = recurse( circuit[wire].match(/[a-z]+/), circuit ) < parseInt(circuit[wire].match(/[0-9]+/));
+    console.log( "returing " + retVal ); return retVal;
   }
   if( circuit[wire].match(/AND/) ){
     let wires = circuit[wire].match(/[a-z0-9]+/g);
     console.log( "AND " + wires[0] + "," + wires[1] );
-    return ( recurse(wires[0], circuit) & recurse(wires[1], circuit) );
+    retVal = recurse(wires[0], circuit) & recurse(wires[1], circuit);
+    console.log( "returing " + retVal ); return retVal;
   }
   if( circuit[wire].match(/OR/) ){
     console.log( "OR" );
     let wires = circuit[wire].match(/[a-z0-9]+/g);
-    return ( recurse(wires[0], circuit) | recurse(wires[1], circuit) );
+    retVal = recurse(wires[0], circuit) | recurse(wires[1], circuit);
+    console.log( "returing " + retVal ); return retVal;
   }
   if( circuit[wire].match(/NOT/) ){
     console.log( "NOT" );
     let wires = circuit[wire].match(/[0-9]+/);
-    return( ~(recurse( wires[0], circuit )) );
+    retVal = ~(recurse( wires[0], circuit ));
+    console.log( "returing " + retVal ); return retVal;
   }
   if( circuit[wire].match(/[a-z]+/) ){
     console.log( "wire" );
     let wires = circuit[wire].match(/[a-z]+/);
-    return( recurse( wires[0], circuit ) );
+    retVal = recurse( wires[0], circuit );
+    console.log( "returing " + retVal ); return retVal;
   }
-  if( circuit[wire].match(/[0-9]+/) ){
+  if( circuit[wire].match(/[0-9]+/) ){  // expected to only be numbers at this point.
     console.log( "value" );
-    return parseInt(wire);  // expected to only be numbers at this point.
+    retVal = parseInt(wire);
+    console.log( "returing " + retVal ); return retVal;
   }
   return ;
 }
