@@ -98,9 +98,9 @@ function part2( data, wire, part1Answer ){
 function readFile(filePath){
   $.get( filePath, function( data ) {
     $('#input span').text('(Bytes: ' + (data.length) + ')');
-    let part1Answer = part1( constData, 'a' );
+    let part1Answer = part1( data, 'a' );
     $('#answer span').text( part1Answer );
-    let part2Answer = part2( constData, 'a', part1Answer );
+    let part2Answer = part2( data, 'a', part1Answer );
     $('#answer2 span').text( part2Answer );
   });
 }
