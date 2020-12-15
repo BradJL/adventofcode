@@ -7,9 +7,27 @@ $('#answer2 span').text('Calculating...');
 // var ctx2 = canvas2.getContext("2d");
 
 function part1( data ){
-  data.forEach(function(value, index, array) {
+  let turn = 0
+  let lastNum;
+  let numbers = [];
+  data.split(/,/).forEach(function(value, index, array) {
+    ++turn;
+    lastNum = value;
+    numbers[ lastNum ] = turn;
   });
-  //$('#answer span').text(  );
+  
+  while( turn <= 10 ){
+    ++turn;
+    if (numbers[lastNum] != null) { // if it's been said before
+      // The == and != operators consider null equal to only null or undefined
+      lastNum = turn - numbers[lastNum];
+    } else {
+      lastNum = 0;
+    }
+    console.log( lastNum );
+    numbers[ lastNum ] = turn;
+  }
+  $('#answer span').text( lastNum );
   //$('#bonus span').html(  );
 }
 function part2( data ){
@@ -21,8 +39,9 @@ function part2( data ){
 
 $.get( "input.txt", function( data ) {
 //   $('#input span').text('(Bytes: ' + (data.length) + ')');
-  data = data.trim().split(/\r?\n/);
+  data = data.trim();
   $('#input span').text('(Lines: ' + (data.length) + ')');
+  part1( "0,3,6" );
 //   part1( data );
 //   part2( data );
   
