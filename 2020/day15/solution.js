@@ -47,6 +47,7 @@ $.get( "input.txt", function( data ) {
   data = data.trim();
   $('#input span').text('(Lines: ' + (data.length) + ')');
   part1( "0,3,6" );
+  part1( "1,3,2" );
 //   part1( data );
 //   part2( data );
   
