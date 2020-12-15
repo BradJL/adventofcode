@@ -213,7 +213,7 @@ $.get( "input.txt", function( data ) {
 //   $('#input span').text('(Bytes: ' + (data.length) + ')');
   data = data.trim().split(/\r?\n/);
   $('#input span').text('(Lines: ' + (data.length) + ')');
-  //part1( data );
+  part1( data );
   //part2( "7,13,x,x,59,x,31,19" );
   //part2( "17,x,13,19" );
   //part2( "67,7,59" ); // 6901
@@ -228,7 +228,7 @@ $.get( "input.txt", function( data ) {
 //  part2( "17,x,x,x,x,x,x,41,x,x,x,x,x,x,x,x,x,523,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,13,19,x,x,x,23,x,x,x,x,x,x,x,787,x,x,x,x,x,37,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,29" );
   let performanceString = "";
   var t0 = performance.now();
-  part3();
+  //part3();
   var t1 = performance.now();
   performanceString += "part3() took " + (t1 - t0) + " ms.<br />")
   $('#bonus span').html( performanceString );
