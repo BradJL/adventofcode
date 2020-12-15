@@ -34,7 +34,7 @@ function recurse( wire, circuit ){
   if( circuit[wire].match(/NOT/) ){
     console.log( "NOT" );
     let wires = circuit[wire].match(/[a-z]+/);
-    retVal = ~(recurse( wires[0], circuit ));
+    retVal = 0x0000FFFF & (~(recurse( wires[0], circuit )));
     console.log( "returing " + retVal ); return retVal;
   }
   if( circuit[wire].match(/[a-z]+/) ){
