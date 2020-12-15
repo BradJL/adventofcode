@@ -48,7 +48,7 @@ $.get( "input.txt", function( data ) {
 //     wiresSet = new Set(getWires( circuit ));
 //     console.log( circuit + "|" + Array.from(wiresSet) + "|" );
 //   }
-  $('#answer span').text( circuit );
+//   $('#answer span').text( circuit );
 //   $('#input span').text('(Lines: ' + (data.length) + ')');
 //   part1( data );
 //   part2( data );
