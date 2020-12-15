@@ -12,22 +12,23 @@ function part1( data ){
   let numbers = [];
   data.split(/,/).forEach(function(value, index, array) {
     ++turn;
-    lastNum = value;
-    numbers[ lastNum ] = turn;
+    lastNum = parseInt(value);
+    numbers[ lastNum ] = turn; console.log( "adding " + lastNum + "(" + turn + ")" );
   });
   
-  while( turn <= 10 ){
+  do {
     ++turn;
     if (numbers[lastNum] != turn - 1) { // if it's been said before
       console.log( "found " + lastNum );
       // The == and != operators consider null equal to only null or undefined
       lastNum = turn - numbers[lastNum];
     } else {
+      console.log( "didn't find " + lastNum );
       lastNum = 0;
     }
     console.log( "saying " + lastNum );
-    numbers[ lastNum ] = turn;
-  }
+    numbers[ lastNum ] = turn; console.log( "adding " + lastNum + "(" + turn + ")" );
+  } while( turn <= 10 );
   $('#answer span').text( lastNum );
   //$('#bonus span').html(  );
 }
