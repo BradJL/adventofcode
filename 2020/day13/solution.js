@@ -76,6 +76,10 @@ function part3(){
                             37, // increment/mod value
                             54, // offset/subtract value
                             0]; // count added
+  let twentyNinesConfig = [8, // index of array
+                            29, // increment/mod value
+                            77, // offset/subtract value
+                            0]; // count added
   let configs = [ seventeenConfig,
                   fourtyOneConfig,
                   fiveTwentyThreesConfig,
@@ -83,7 +87,8 @@ function part3(){
                   nineteensConfig,
                   twentyThreesConfig,
                   sevenEightySevensConfig,
-                  thirtySevensConfig
+                  thirtySevensConfig,
+                  twentyNinesConfig
                 ];
 //   let configs = [ [ 0,17,0,2314705859 - 1 ],
 // [ 1,41,7,959756088 - 1 ],
@@ -165,7 +170,8 @@ function part3(){
 //  $('#answer2 span').text( values );
 //   $('#bonus span').html( bonus );
   $('#answer2 span').text( min == max ? max : min + ", " + max );
-  $('#bonus span').text( iterationsRemaining: " + iterationsRemaining );
+  $('#bonus span').text( "iterationsRemaining: " + iterationsRemaining );
+  return( min == max ? max : min + ", " + max );
 }
 function part2( data ){
   let bonus = "";
