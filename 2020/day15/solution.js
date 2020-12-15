@@ -28,7 +28,7 @@ function part1( data, iterations ){
       lastNum = 0;
     }
     ++turn;
-    console.log( "saying " + lastNum );
+    //console.log( "saying " + lastNum );
     lastSpoken = numbers[lastNum];
     numbers[ lastNum ] = turn; console.log( "adding " + lastNum + "(" + turn + ")" );
   } while( turn < iterations );
@@ -44,7 +44,7 @@ function part2( data, iterations ){
     ++turn;
     lastNum = parseInt(value);
     lastSpoken = numbers[value];
-    numbers[ lastNum ] = turn; console.log( "adding " + lastNum + "(" + turn + ")" );
+    numbers[ lastNum ] = turn; //console.log( "adding " + lastNum + "(" + turn + ")" );
   });
   
   do {
@@ -57,9 +57,26 @@ function part2( data, iterations ){
       lastNum = 0;
     }
     ++turn;
-    console.log( "saying " + lastNum );
+    //console.log( "saying " + lastNum );
     lastSpoken = numbers[lastNum];
-    numbers[ lastNum ] = turn; console.log( "adding " + lastNum + "(" + turn + ")" );
+    numbers[ lastNum ] = turn; //console.log( "adding " + lastNum + "(" + turn + ")" );
+    switch( turn ){
+    case 1000000:
+    case 2000000:
+    case 3000000:
+    case 4000000:
+    case 5000000:
+    case 6000000:
+    case 7000000:
+    case 8000000:
+    case 9000000:
+    case 10000000:
+    case 15000000:
+    case 20000000:
+    case 25000000:
+        console.log( turn );
+        break;
+    }
   } while( turn < iterations );
   $('#answer2 span').text( lastNum );
   //$('#bonus span').html(  );
@@ -71,7 +88,7 @@ $.get( "input.txt", function( data ) {
   $('#input span').text('(Lines: ' + (data.length) + ')');
 //   part1( "0,3,6", 10 );
 //   part1( "1,3,2", 2020 );
-  part1( data, 2020 );
+//  part1( data, 2020 );
   part2( data, 30000000 );
 //   part2( data );
   
