@@ -1,35 +1,6 @@
 $('#answer span').text('Calculating...');
 $('#answer2 span').text('Calculating...');
 
-function part1( data, iterations ){
-  let turn = 0
-  let lastNum;
-  let lastSpoken = 0;
-  let numbers = [];
-  data.split(/,/).forEach(function(value, index, array) {
-    ++turn;
-    lastNum = parseInt(value);
-    lastSpoken = numbers[value];
-    numbers[ lastNum ] = turn; console.log( "adding " + lastNum + "(" + turn + ")" );
-  });
-  
-  do {
-    if(lastSpoken) { // if it's been said before
-      //console.log( "found " + lastNum );
-      // The == and != operators consider null equal to only null or undefined
-      lastNum = turn - lastSpoken;
-    } else {
-      //console.log( "didn't find " + lastNum );
-      lastNum = 0;
-    }
-    ++turn;
-    //console.log( "saying " + lastNum );
-    lastSpoken = numbers[lastNum];
-    numbers[ lastNum ] = turn; console.log( "adding " + lastNum + "(" + turn + ")" );
-  } while( turn < iterations );
-  $('#answer span').text( lastNum );
-  //$('#bonus span').html(  );
-}
 function doIt( data, iterations ){
   let turn = 0
   let lastNum;
@@ -79,10 +50,9 @@ function doIt( data, iterations ){
 $.get( "input.txt", function( data ) {
   data = data.trim();
   $('#input span').text('(Lines: ' + (data.length) + ')');
-//   part1( "0,3,6", 10 );
-//   part1( "1,3,2", 2020 );
-//  part1( data, 2020 );
+//  doIt( "0,3,6", 10 );
+//  doIt( "1,3,2", 2020 );
+//  doIt( data, 2020 );
   $('#answer span').text( doIt( data, 2020 ) );
   $('#answer2 span').text( doIt( data, 30000000 ) );
-//   part2( data );
 });
