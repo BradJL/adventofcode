@@ -28,7 +28,7 @@ function part1( data ){
     }
     console.log( "saying " + lastNum );
     numbers[ lastNum ] = turn; console.log( "adding " + lastNum + "(" + turn + ")" );
-  } while( turn <= 10 );
+  } while( turn < 10 );
   $('#answer span').text( lastNum );
   //$('#bonus span').html(  );
 }
