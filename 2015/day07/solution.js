@@ -7,7 +7,7 @@ $('#answer2 span').text('Calculating...');
 // var ctx2 = canvas2.getContext("2d");
 
 function recurse( wire, circuit ){
-  console.log( circuit[wire] );
+  console.log( "You gave me " + circuit + ".  I found " + circuit[wire] );
   let retVal = 0;
   if( circuit[wire].match(/RSHIFT/) ){
     console.log( "RSHIFT" );
