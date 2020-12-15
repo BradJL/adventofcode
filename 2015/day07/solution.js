@@ -8,11 +8,9 @@ $('#answer2 span').text('Calculating...');
 
 function recurse( wire, circuit ){
   if( typeof( wire ) == "number" ){
-  console.log( "You gave me number " + wire + ".  returning " + wire + "." );
+    console.log( "You gave me number " + wire + ".  returning " + wire + "." );
     return wire;
   }
-//   console.log( "yougaveme " + wire + "." );
-//   console.log( "yougaveme " + wire + ".  [" + wire.match(/^[0-9]+$/) + "]" );
   console.log( "You gave me " + wire + ".  I found " + circuit[wire] );
   let retVal = 0;
   if( circuit[wire] == null ){
