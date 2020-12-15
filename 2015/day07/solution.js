@@ -48,7 +48,7 @@ function recurse( wire, circuit ){
     retVal = parseInt(circuit[wire]);
     console.log( "returing " + retVal ); return retVal;
   }
-  return ;
+  return retVal;
 }
 
 function part1( data, wire ){
@@ -57,7 +57,8 @@ function part1( data, wire ){
     let leftAndRight = value.split(/ -> /);
     circuit[leftAndRight[1]] = leftAndRight[0];
   });
-  $('#answer span').text( recurse(wire, circuit) );
+  return recurse(wire, circuit);
+  //$('#answer span').text( recurse(wire, circuit) );
   //$('#bonus span').html(  );
 }
 function part2( data ){
@@ -86,8 +87,17 @@ $.get( "input.txt", function( data ) {
             "y RSHIFT 2 -> g",
             "NOT x -> h",
             "NOT y -> i" ];
-  part1( data, 'x' );
-//   let circuit = '( lx )';
+   $('#answer span').text( "d: " + part1( data, 'd' ) );
+   $('#answer2 span').text( "e: " + part1( data, 'e' ) );
+   $('#bonus span').html(
+     "f: " + part1( data, 'f' ) + "<br />" +
+     "g: " + part1( data, 'g' ) + "<br />" +
+     "h: " + part1( data, 'h' ) + "<br />" +
+     "i: " + part1( data, 'i' ) + "<br />" +
+     "x: " + part1( data, 'x' ) + "<br />" +
+     "y: " + part1( data, 'y' )
+                        );
+  //   let circuit = '( lx )';
 //   let wiresSet = new Set(getWires( circuit ));
 //   while( wiresSet.size > 0 ){
 //     let a = Array.from(wiresSet)
