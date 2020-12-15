@@ -1,11 +1,6 @@
 $('#answer span').text('Calculating...');
 $('#answer2 span').text('Calculating...');
 
-// var canvas = document.getElementById("visualization");
-// var ctx = canvas.getContext("2d");
-// var canvas2 = document.getElementById("visualization2");
-// var ctx2 = canvas2.getContext("2d");
-
 function part1( data, iterations ){
   let turn = 0
   let lastNum;
@@ -79,11 +74,9 @@ function part2( data, iterations ){
     }
   } while( turn < iterations );
   $('#answer2 span').text( lastNum );
-  //$('#bonus span').html(  );
 }
 
 $.get( "input.txt", function( data ) {
-//   $('#input span').text('(Bytes: ' + (data.length) + ')');
   data = data.trim();
   $('#input span').text('(Lines: ' + (data.length) + ')');
 //   part1( "0,3,6", 10 );
@@ -91,11 +84,4 @@ $.get( "input.txt", function( data ) {
 //  part1( data, 2020 );
   part2( data, 30000000 );
 //   part2( data );
-  
-//   let input = [];
-//   data.forEach(function(number, index, array) {
-//     input.push(parseInt(number))
-//   });
-//   part1( input );
-//   part2( input );
 });
