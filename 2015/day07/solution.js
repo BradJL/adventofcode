@@ -44,8 +44,8 @@ function recurse( wire, circuit ){
     console.log( "returing " + retVal ); return retVal;
   }
   if( circuit[wire].match(/[0-9]+/) ){  // expected to only be numbers at this point.
-    console.log( "value: " + wire );
-    retVal = parseInt(wire);
+    console.log( "value: " + circuit[wire] );
+    retVal = parseInt(circuit[wire]);
     console.log( "returing " + retVal ); return retVal;
   }
   return ;
