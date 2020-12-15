@@ -6,10 +6,17 @@ $('#answer2 span').text('Calculating...');
 // var canvas2 = document.getElementById("visualization2");
 // var ctx2 = canvas2.getContext("2d");
 
+function recurse( wire, circuit ){
+  return circuit[wire];
+}
+
 function part1( data ){
+  let circuit = [];
   data.forEach(function(value, index, array) {
+    let leftAndRight = value.split(/ -> /);
+    circuit[leftAndRight[1]] = leftAndRight[0];
   });
-  //$('#answer span').text(  );
+  $('#answer span').text( recurse('a') );
   //$('#bonus span').html(  );
 }
 function part2( data ){
@@ -29,17 +36,18 @@ function getWires( circuit ){
 
 $.get( "input.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
-//   data = data.trim().split(/\r?\n/);
-  let circuit = '( lx )';
-  let wiresSet = new Set(getWires( circuit ));
-  while( wiresSet.size > 0 ){
-    let a = Array.from(wiresSet)
-    a.forEach(function(value, index, array) {
-      circuit = circuit.replace( " " + value + " ", " ( " + getInputs( value, data ) + " ) " );
-    });
-    wiresSet = new Set(getWires( circuit ));
-    console.log( circuit + "|" + Array.from(wiresSet) + "|" );
-  }
+  data = data.trim().split(/\r?\n/);
+  part1( data );
+//   let circuit = '( lx )';
+//   let wiresSet = new Set(getWires( circuit ));
+//   while( wiresSet.size > 0 ){
+//     let a = Array.from(wiresSet)
+//     a.forEach(function(value, index, array) {
+//       circuit = circuit.replace( " " + value + " ", " ( " + getInputs( value, data ) + " ) " );
+//     });
+//     wiresSet = new Set(getWires( circuit ));
+//     console.log( circuit + "|" + Array.from(wiresSet) + "|" );
+//   }
   $('#answer span').text( circuit );
 //   $('#input span').text('(Lines: ' + (data.length) + ')');
 //   part1( data );
