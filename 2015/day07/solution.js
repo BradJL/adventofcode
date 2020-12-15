@@ -16,7 +16,7 @@ function part1( data ){
     let leftAndRight = value.split(/ -> /);
     circuit[leftAndRight[1]] = leftAndRight[0];
   });
-  $('#answer span').text( recurse('a') );
+  $('#answer span').text( recurse('a', circuit) );
   //$('#bonus span').html(  );
 }
 function part2( data ){
