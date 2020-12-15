@@ -18,7 +18,7 @@ function recurse( wire, circuit ){
   }
   if( circuit[wire].match(/AND/) ){
     let wires = circuit[wire].match(/[a-z0-9]+/g);
-    console.log( "AND: " + wires );
+    console.log( wires[0] + "AND: " + wires[1] );
     return recurse( (wires[0]) & (wires[1]) );
   }
   if( circuit[wire].match(/OR/) ){
