@@ -92,8 +92,8 @@ $.get( "input.txt", function( data ) {
    $('#bonus span').html(
      "f: " + part1( data, 'f' ) + "<br />" +
      "g: " + part1( data, 'g' ) + "<br />" +
-     "h: " + part1( data, 'h' ) + "<br />" +
-     "i: " + part1( data, 'i' ) + "<br />" +
+//      "h: " + part1( data, 'h' ) + "<br />" +
+//      "i: " + part1( data, 'i' ) + "<br />" +
      "x: " + part1( data, 'x' ) + "<br />" +
      "y: " + part1( data, 'y' )
                         );
