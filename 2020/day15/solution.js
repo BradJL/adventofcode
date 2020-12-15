@@ -46,9 +46,9 @@ $.get( "input.txt", function( data ) {
 //   $('#input span').text('(Bytes: ' + (data.length) + ')');
   data = data.trim();
   $('#input span').text('(Lines: ' + (data.length) + ')');
-  part1( "0,3,6", 10 );
+//   part1( "0,3,6", 10 );
 //   part1( "1,3,2", 2020 );
-//   part1( data, 2020 );
+  part1( data, 2020 );
 //   part2( data );
   
 //   let input = [];
