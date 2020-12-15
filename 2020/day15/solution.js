@@ -6,7 +6,7 @@ $('#answer2 span').text('Calculating...');
 // var canvas2 = document.getElementById("visualization2");
 // var ctx2 = canvas2.getContext("2d");
 
-function part1( data ){
+function part1( data, iterations ){
   let turn = 0
   let lastNum;
   let lastSpoken = 0;
@@ -31,7 +31,7 @@ function part1( data ){
     console.log( "saying " + lastNum );
     lastSpoken = numbers[lastNum];
     numbers[ lastNum ] = turn; console.log( "adding " + lastNum + "(" + turn + ")" );
-  } while( turn < 10 );
+  } while( turn < iterations );
   $('#answer span').text( lastNum );
   //$('#bonus span').html(  );
 }
@@ -46,9 +46,9 @@ $.get( "input.txt", function( data ) {
 //   $('#input span').text('(Bytes: ' + (data.length) + ')');
   data = data.trim();
   $('#input span').text('(Lines: ' + (data.length) + ')');
-  part1( "0,3,6" );
-  part1( "1,3,2" );
-//   part1( data );
+  part1( "0,3,6", 10 );
+  part1( "1,3,2", 2020 );
+//   part1( data, 2020 );
 //   part2( data );
   
 //   let input = [];
