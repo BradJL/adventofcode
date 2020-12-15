@@ -6,62 +6,66 @@ $('#answer2 span').text('Calculating...');
 // var canvas2 = document.getElementById("visualization2");
 // var ctx2 = canvas2.getContext("2d");
 
+function log( what ){
+  //console.log( what );
+}
+
 function recurse( wire, circuit ){
   if( typeof( wire ) == "number" ){
-    console.log( "You gave me number " + wire + ".  returning " + wire + "." );
+    log( "You gave me number " + wire + ".  returning " + wire + "." );
     return wire;
   }
-  console.log( "You gave me " + wire + ".  I found " + circuit[wire] );
+  log( "You gave me " + wire + ".  I found " + circuit[wire] );
   let retVal = 0;
   if( circuit[wire] == null ){
-    console.log( "VALUE" );
+    log( "VALUE" );
     retVal = parseInt(wire);
-    console.log( "returing " + retVal ); return retVal;
+    log( "returing " + retVal ); return retVal;
   }
   if( circuit[wire].match(/RSHIFT/) ){
-    console.log( "RSHIFT" );
+    log( "RSHIFT" );
     retVal = recurse( circuit[wire].match(/[a-z]+/), circuit ) >> parseInt(circuit[wire].match(/[0-9]+/));
-    console.log( "returing " + retVal ); return retVal;
+    log( "returing " + retVal ); return retVal;
   }
   if( circuit[wire].match(/LSHIFT/) ){
-    console.log( "LSHIFT" );
+    log( "LSHIFT" );
     retVal = recurse( circuit[wire].match(/[a-z]+/), circuit ) << parseInt(circuit[wire].match(/[0-9]+/));
-    console.log( "returing " + retVal ); return retVal;
+    log( "returing " + retVal ); return retVal;
   }
   if( circuit[wire].match(/AND/) ){
     let wires = circuit[wire].match(/[a-z0-9]+/g);
-    console.log( "AND " + wires[0] + "," + wires[1] );
+    log( "AND " + wires[0] + "," + wires[1] );
     retVal = recurse(wires[0], circuit) & recurse(wires[1], circuit);
-    console.log( "returing " + retVal ); return retVal;
+    log( "returing " + retVal ); return retVal;
   }
   if( circuit[wire].match(/OR/) ){
-    console.log( "OR" );
+    log( "OR" );
     let wires = circuit[wire].match(/[a-z0-9]+/g);
     retVal = recurse(wires[0], circuit) | recurse(wires[1], circuit);
-    console.log( "returing " + retVal ); return retVal;
+    log( "returing " + retVal ); return retVal;
   }
   if( circuit[wire].match(/NOT/) ){
-    console.log( "NOT" );
+    log( "NOT" );
     let wires = circuit[wire].match(/[a-z]+/);
     retVal = 0x0000FFFF & (~(recurse( wires[0], circuit )));
-    console.log( "returing " + retVal ); return retVal;
+    log( "returing " + retVal ); return retVal;
   }
   if( circuit[wire].match(/[a-z]+/) ){
-    console.log( "wire" );
+    log( "wire" );
     let wires = circuit[wire].match(/[a-z]+/);
     retVal = recurse( wires[0], circuit );
-    console.log( "returing " + retVal ); return retVal;
+    log( "returing " + retVal ); return retVal;
   }
   if( circuit[wire].match(/[0-9]+/) ){  // expected to only be numbers at this point.
-    console.log( "value: " + circuit[wire] );
+    log( "value: " + circuit[wire] );
     retVal = parseInt(circuit[wire]);
-    console.log( "returing " + retVal ); return retVal;
+    log( "returing " + retVal ); return retVal;
   }
   if( wire.match(/^[0-9]+$/) ){ // literally a number passed in
-    console.log( "VALUE: " + wire );
+    log( "VALUE: " + wire );
     retVal = parseInt(wire);
-    console.log( "returing " + retVal ); return retVal;
-//     console.log( "You game me a value of " + wire + ".  I'm giving you " + wire + " back." );
+    log( "returing " + retVal ); return retVal;
+//     log( "You game me a value of " + wire + ".  I'm giving you " + wire + " back." );
 //     return parseInt( wire );
   }
   
@@ -104,7 +108,7 @@ $.get( "input.txt", function( data ) {
 //             "y RSHIFT 2 -> g",
 //             "NOT x -> h",
 //             "NOT y -> i" ];
-   $('#answer span').text( "h: " + part1( data, 'a' ) );
+   $('#answer span').text( part1( data, 'a' ) );
 //    $('#answer2 span').text( "e: " + part1( data, 'e' ) );
 //    $('#bonus span').html(
 //      "d: " + part1( data, 'd' ) + "<br />" +
@@ -124,7 +128,7 @@ $.get( "input.txt", function( data ) {
 //       circuit = circuit.replace( " " + value + " ", " ( " + getInputs( value, data ) + " ) " );
 //     });
 //     wiresSet = new Set(getWires( circuit ));
-//     console.log( circuit + "|" + Array.from(wiresSet) + "|" );
+//     log( circuit + "|" + Array.from(wiresSet) + "|" );
 //   }
 //   $('#answer span').text( circuit );
 //   $('#input span').text('(Lines: ' + (data.length) + ')');
