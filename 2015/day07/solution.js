@@ -86,7 +86,7 @@ $.get( "input.txt", function( data ) {
             "y RSHIFT 2 -> g",
             "NOT x -> h",
             "NOT y -> i" ];
-  part1( data, 'd' );
+  part1( data, 'x' );
 //   let circuit = '( lx )';
 //   let wiresSet = new Set(getWires( circuit ));
 //   while( wiresSet.size > 0 ){
