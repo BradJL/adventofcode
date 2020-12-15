@@ -15,6 +15,11 @@ function recurse( wire, circuit ){
 //   console.log( "yougaveme " + wire + ".  [" + wire.match(/^[0-9]+$/) + "]" );
   console.log( "You gave me " + wire + ".  I found " + circuit[wire] );
   let retVal = 0;
+  if( circuit[wire] == null ){
+    console.log( "VALUE" );
+    retVal = parseInt(wire);
+    console.log( "returing " + retVal ); return retVal;
+  }
   if( circuit[wire].match(/RSHIFT/) ){
     console.log( "RSHIFT" );
     retVal = recurse( circuit[wire].match(/[a-z]+/), circuit ) >> parseInt(circuit[wire].match(/[0-9]+/));
