@@ -30,7 +30,7 @@ function part1( data, iterations ){
   $('#answer span').text( lastNum );
   //$('#bonus span').html(  );
 }
-function part2( data, iterations ){
+function doIt( data, iterations ){
   let turn = 0
   let lastNum;
   let lastSpoken = 0;
@@ -73,7 +73,7 @@ function part2( data, iterations ){
         break;
     }
   } while( turn < iterations );
-  $('#answer2 span').text( lastNum );
+  return lastNum;
 }
 
 $.get( "input.txt", function( data ) {
@@ -82,6 +82,7 @@ $.get( "input.txt", function( data ) {
 //   part1( "0,3,6", 10 );
 //   part1( "1,3,2", 2020 );
 //  part1( data, 2020 );
-  part2( data, 30000000 );
+  $('#answer span').text( doIt( data, 2020 ) );
+  $('#answer2 span').text( doIt( data, 30000000 ) );
 //   part2( data );
 });
