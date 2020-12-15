@@ -16,7 +16,7 @@ function recurse( wire, circuit ){
   }
   if( circuit[wire].match(/LSHIFT/) ){
     console.log( "LSHIFT" );
-    retVal = recurse( circuit[wire].match(/[a-z]+/), circuit ) < parseInt(circuit[wire].match(/[0-9]+/));
+    retVal = recurse( circuit[wire].match(/[a-z]+/), circuit ) << parseInt(circuit[wire].match(/[0-9]+/));
     console.log( "returing " + retVal ); return retVal;
   }
   if( circuit[wire].match(/AND/) ){
