@@ -7,7 +7,7 @@ $('#answer2 span').text('Calculating...');
 // var ctx2 = canvas2.getContext("2d");
 
 function log( what ){
-  //console.log( what );
+  console.log( what );
 }
 
 function recurse( wire, circuit ){
