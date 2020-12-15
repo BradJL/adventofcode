@@ -19,12 +19,13 @@ function part1( data ){
   while( turn <= 10 ){
     ++turn;
     if (numbers[lastNum] != null) { // if it's been said before
+      console.log( "found " + lastNum );
       // The == and != operators consider null equal to only null or undefined
       lastNum = turn - numbers[lastNum];
     } else {
       lastNum = 0;
     }
-    console.log( lastNum );
+    console.log( "saying " + lastNum );
     numbers[ lastNum ] = turn;
   }
   $('#answer span').text( lastNum );
