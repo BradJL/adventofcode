@@ -18,7 +18,7 @@ function part1( data ){
   
   while( turn <= 10 ){
     ++turn;
-    if (numbers[lastNum] != null) { // if it's been said before
+    if (numbers[lastNum] != turn - 1) { // if it's been said before
       console.log( "found " + lastNum );
       // The == and != operators consider null equal to only null or undefined
       lastNum = turn - numbers[lastNum];
