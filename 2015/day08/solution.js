@@ -24,7 +24,7 @@ $.get( "input1.txt", function( data ) {
 //   data = data.trim().split(/\r?\n/);
   let codeChars = data.replace(/\r?\n/g,'').length;
   let stringChars = 0;
-  $('#answer span').text( codeChars = stringChars );
+  $('#answer span').text( codeChars - stringChars );
 //   part1( data );
 //   part2( data );
   
