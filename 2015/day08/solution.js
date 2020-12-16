@@ -18,8 +18,8 @@ function part2( data ){
   let stringChars = 0;
   data.forEach(function(line, index, array) {
     let chars = line.replace(/\\/g,"__").replace(/"/,'__');
-    console.log( chars.length + ": " + chars );
-    stringChars += chars.length;
+    console.log( (chars.length + 2) + ": " + chars );
+    stringChars += (chars.length +2);
   });
   $('#answer2 span').text( stringChars + " - " + codeChars + " = " + (stringChars - codeChars) );
   //$('#bonus span').html(  );
