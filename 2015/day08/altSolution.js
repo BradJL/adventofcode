@@ -17,6 +17,7 @@ function getNumberOfCharacterInMemory(line){
             index += 3;
         }
     }
+    console.log( size - 2 );
     return size - 2; // Subtracts the two " around the word
 }
 
@@ -30,7 +31,7 @@ $.get( "input.txt", function( data ) {
     totalNumberOfCharacter += getTotalNumberOfCharacter(line);
     inMemoryNumberOfCharacter += getNumberOfCharacterInMemory(line);
   });
-  
+
   let result = totalNumberOfCharacter - inMemoryNumberOfCharacter;
   console.log( "The result found is " + result );
   console.log( totalNumberOfCharacter + " - " + inMemoryNumberOfCharacter );
