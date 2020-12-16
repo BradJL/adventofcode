@@ -17,7 +17,7 @@ function part2( data ){
   data = data.trim().split(/\r?\n/);
   let stringChars = 0;
   data.forEach(function(line, index, array) {
-    stringChars += 2 + line.replace(/\\/g,"\\").replace(/"/,'\"')
+    stringChars += 2 + line.replace(/\\/g,"\\").replace(/"/,'\"').length;
   });
   $('#answer2 span').text( stringChars + " - " + codeChars + " = " + (stringChars - codeChars) );
   //$('#bonus span').html(  );
