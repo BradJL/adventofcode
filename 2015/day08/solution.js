@@ -26,7 +26,7 @@ $.get( "input.txt", function( data ) {
   let stringChars = data.trim().replace(/\\x[0-9a-fA-F][0-9a-fA-F]/,'_')
   stringChars = stringChars.replace(/\\/,'');
   stringChars = stringChars.replace(/"\r?\n"/g,'').replace(/^"/,'').replace(/"$/,'');
-  $('#answer span').text( codeChars + " - " + stringChars + " = " + (codeChars - stringChars.length) );
+  $('#answer span').text( codeChars + " - " + stringChars.length + " = " + (codeChars - stringChars.length) );
   $('#bonus span').text( stringChars );
 //   part1( data );
 //   part2( data );
