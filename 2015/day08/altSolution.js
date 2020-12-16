@@ -33,4 +33,5 @@ $.get( "input.txt", function( data ) {
   
   let result = totalNumberOfCharacter - inMemoryNumberOfCharacter;
   console.log( "The result found is " + result );
+  console.log( totalNumberOfCharacter + " - " + inMemoryNumberOfCharacter );
 });
