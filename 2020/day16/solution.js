@@ -90,8 +90,8 @@ function readFile(filePath){
     $('#input span').text('(Bytes: ' + (data.length) + ')');
     let part1Answer = part1( data );
     $('#answer span').text( part1Answer[0] );
-    let part2Answer = part2( data );
-    $('#answer2 span').text( part2Answer, part1Answer[1] );
+    let part2Answer = part2( data, part1Answer[1] );
+    $('#answer2 span').text( part2Answer );
   });
 }
 
