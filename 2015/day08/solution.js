@@ -19,13 +19,9 @@ function part2( data ){
   //$('#bonus span').html(  );
 }
 
-$.get( "input.txt", function( data ) {
+$.get( "input1.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
 //   data = data.trim().split(/\r?\n/);
-  data = '""
-"abc"
-"aaa\"aaa"
-"\x27"';
   let codeChars = data.replace(/\r?\n/g,'').length;
   let stringChars = 0;
   $('#answer span').text( codeChars = stringChars );
