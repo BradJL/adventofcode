@@ -89,9 +89,9 @@ function readFile(filePath){
   $.get( filePath, function( data ) {
     $('#input span').text('(Bytes: ' + (data.length) + ')');
     let part1Answer = part1( data );
-    $('#answer span').text( part1Answer );
+    $('#answer span').text( part1Answer[0] );
     let part2Answer = part2( data );
-    $('#answer2 span').text( part2Answer );
+    $('#answer2 span').text( part2Answer, part1Answer[1] );
   });
 }
 
