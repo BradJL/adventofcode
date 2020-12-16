@@ -15,140 +15,128 @@
   <body>
     <div w3-include-html="header.html">Loading header...</div>
     <main>
-    <blockquote>
-      <a href="day01/">Day 1 <span style="color:#FFD700;">★★</span></a><br>
-      <a href="day02/">Day 2 <span style="color:#FFD700;">★★</span></a><br>
-      <a href="day03/">Day 3 <span style="color:#FFD700;">★★</span></a><br>
-      <a href="day04/">Day 4 <span style="color:#FFD700;">★★</span></a> (<20s)<br>
-      <a href="day05/">Day 5 <span style="color:#FFD700;">★★</span></a><br>
-      <a href="day06/">Day 6 <span style="color:#FFD700;">★★</span></a> (<6s)<br>
-      <a href="day07/">Day 7 <span style="color:#FFD700;">★★</span></a><br>
-      <a href="day08/">Day 8 <span style="color:#FFD700;">★★</span></a><br>
-    </blockquote>
+    <style>
+    .calendar a.calendar-complete, .calendar a.calendar-verycomplete {
+      color: #009900;
+    }
+    .calendar a.calendar-day25.calendar-complete,
+    .calendar a.calendar-day25.calendar-verycomplete{ color: #ffff66; }
+    .calendar a.calendar-day25.calendar-verycomplete{ text-shadow: 0 0 5px #ffff66; }
+
+    .calendar .calendar-trunk { color: #cccccc; }
+
+    .calendar a                       .calendar-ornament0 { color: inherit; }
+    .calendar a                       .calendar-ornament1 { color: inherit; }
+    .calendar a                       .calendar-ornament2 { color: inherit; }
+    .calendar a                       .calendar-ornament3 { color: inherit; }
+    .calendar a.calendar-verycomplete .calendar-ornament0 { color: #0066ff; text-shadow: 0 0 5px #0066ff; }
+    .calendar a.calendar-verycomplete .calendar-ornament1 { color: #ff9900; text-shadow: 0 0 5px #ff9900; }
+    .calendar a.calendar-verycomplete .calendar-ornament2 { color: #ff0000; text-shadow: 0 0 5px #ff0000; }
+    .calendar a.calendar-verycomplete .calendar-ornament3 { color: #ffff66; text-shadow: 0 0 5px #ffff66; }
+
+    .calendar.calendar-beckon .calendar-day1  { animation: anim-beckon 3s infinite -2.875s; }
+    .calendar.calendar-beckon .calendar-day2  { animation: anim-beckon 3s infinite -2.750s; }
+    .calendar.calendar-beckon .calendar-day3  { animation: anim-beckon 3s infinite -2.625s; }
+    .calendar.calendar-beckon .calendar-day4  { animation: anim-beckon 3s infinite -2.500s; }
+    .calendar.calendar-beckon .calendar-day5  { animation: anim-beckon 3s infinite -2.375s; }
+    .calendar.calendar-beckon .calendar-day6  { animation: anim-beckon 3s infinite -2.250s; }
+    .calendar.calendar-beckon .calendar-day7  { animation: anim-beckon 3s infinite -2.125s; }
+    .calendar.calendar-beckon .calendar-day8  { animation: anim-beckon 3s infinite -2.000s; }
+    .calendar.calendar-beckon .calendar-day9  { animation: anim-beckon 3s infinite -1.875s; }
+    .calendar.calendar-beckon .calendar-day10 { animation: anim-beckon 3s infinite -1.750s; }
+    .calendar.calendar-beckon .calendar-day11 { animation: anim-beckon 3s infinite -1.625s; }
+    .calendar.calendar-beckon .calendar-day12 { animation: anim-beckon 3s infinite -1.500s; }
+    .calendar.calendar-beckon .calendar-day13 { animation: anim-beckon 3s infinite -1.375s; }
+    .calendar.calendar-beckon .calendar-day14 { animation: anim-beckon 3s infinite -1.250s; }
+    .calendar.calendar-beckon .calendar-day15 { animation: anim-beckon 3s infinite -1.125s; }
+    .calendar.calendar-beckon .calendar-day16 { animation: anim-beckon 3s infinite -1.000s; }
+    .calendar.calendar-beckon .calendar-day17 { animation: anim-beckon 3s infinite -0.875s; }
+    .calendar.calendar-beckon .calendar-day18 { animation: anim-beckon 3s infinite -0.750s; }
+    .calendar.calendar-beckon .calendar-day19 { animation: anim-beckon 3s infinite -0.625s; }
+    .calendar.calendar-beckon .calendar-day20 { animation: anim-beckon 3s infinite -0.500s; }
+    .calendar.calendar-beckon .calendar-day21 { animation: anim-beckon 3s infinite -0.375s; }
+    .calendar.calendar-beckon .calendar-day22 { animation: anim-beckon 3s infinite -0.250s; }
+    .calendar.calendar-beckon .calendar-day23 { animation: anim-beckon 3s infinite -0.125s; }
+    .calendar.calendar-beckon .calendar-day24 { animation: anim-beckon 3s infinite -0.000s; }
+    .calendar.calendar-beckon > span { animation-name: anim-beckon-dark ! important; }
+    @keyframes anim-beckon {
+      0%   { color: #666666; }
+      80%  { color: #666666; }
+      90%  { color: #00ff00; }
+      100% { color: #666666; }
+    }
+    @keyframes anim-beckon-dark {
+      0%   { color: #333333; }
+      80%  { color: #333333; }
+      90%  { color: #009900; }
+      100% { color: #333333; }
+    }
+
+    .calendar-bkg {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+      color: #ffffff;
+      cursor: default;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: -moz-none;
+      -o-user-select: none;
+      user-select: none;
+    }
+    .calendar-bkg div:nth-child(1) { opacity: .04; }
+    .calendar-bkg div:nth-child(2) { opacity: .08; }
+    .calendar-bkg div:nth-child(3) { opacity: .12; }
+    .calendar-bkg div:nth-child(4) { opacity: .16; }
+    .calendar-bkg div {
+      text-align: justify;
+      margin-bottom: -1.2em;
+    }
+    .calendar-bkg div::after {
+      content: "_";
+      display: inline-block;
+      visibility: hidden;
+      width: 100%;
+    }
+    </style>
+    <pre class="calendar"><a aria-label="Day 25" href="day25" class="calendar-day25">                        *                          <span class="calendar-day">25</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+    <a aria-label="Day 24" href="day24" class="calendar-day24">                       &gt;<span class="calendar-ornament1">o</span>&lt;                         <span class="calendar-day">24</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+    <a aria-label="Day 23" href="day23" class="calendar-day23">                      &gt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;                        <span class="calendar-day">23</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+    <a aria-label="Day 22" href="day22" class="calendar-day22">                     &gt;<span class="calendar-ornament2">@</span>&lt;<span class="calendar-ornament1">o</span>&lt;<span class="calendar-ornament3">*</span>&lt;                       <span class="calendar-day">22</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+    <a aria-label="Day 21" href="day21" class="calendar-day21">                    &gt;&gt;<span class="calendar-ornament0">O</span>&gt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament2">@</span>&lt;                      <span class="calendar-day">21</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+    <a aria-label="Day 20" href="day20" class="calendar-day20">                   &gt;<span class="calendar-ornament2">@</span>&gt;<span class="calendar-ornament2">@</span>&gt;&gt;&gt;<span class="calendar-ornament2">@</span>&lt;&lt;&lt;                     <span class="calendar-day">20</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+    <a aria-label="Day 19" href="day19" class="calendar-day19">                  &gt;&gt;<span class="calendar-ornament3">*</span>&gt;&gt;<span class="calendar-ornament3">*</span>&gt;&gt;&gt;<span class="calendar-ornament0">O</span>&lt;&lt;&lt;                    <span class="calendar-day">19</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+    <a aria-label="Day 18" href="day18" class="calendar-day18">                 &gt;&gt;<span class="calendar-ornament3">*</span>&gt;&gt;&gt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament2">@</span>&gt;&gt;&gt;<span class="calendar-ornament3">*</span>&lt;&lt;                   <span class="calendar-day">18</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+    <a aria-label="Day 17" href="day17" class="calendar-day17">                &gt;&gt;<span class="calendar-ornament1">o</span>&gt;&gt;<span class="calendar-ornament1">o</span>&gt;&gt;&gt;<span class="calendar-ornament2">@</span>&gt;&gt;&gt;<span class="calendar-ornament0">O</span>&lt;&lt;&lt;                  <span class="calendar-day">17</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+    <a aria-label="Day 16" href="day16" class="calendar-day16">               &gt;<span class="calendar-ornament2">@</span>&lt;&lt;&lt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament1">o</span>&lt;&lt;&lt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament0">O</span>&lt;&lt;                 <span class="calendar-day">16</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+    <a aria-label="Day 15" href="day15" class="calendar-day15">              &gt;&gt;<span class="calendar-ornament1">o</span>&gt;&gt;&gt;<span class="calendar-ornament0">O</span>&gt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;<span class="calendar-ornament2">@</span>&lt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;                <span class="calendar-day">15</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+    <a aria-label="Day 14" href="day14" class="calendar-day14">             &gt;&gt;<span class="calendar-ornament1">o</span>&gt;&gt;&gt;<span class="calendar-ornament0">O</span>&gt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament2">@</span>&gt;&gt;&gt;<span class="calendar-ornament1">o</span>&gt;&gt;<span class="calendar-ornament0">O</span>&lt;&lt;<span class="calendar-ornament1">o</span>&lt;               <span class="calendar-day">14</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+    <a aria-label="Day 13" href="day13" class="calendar-day13">            &gt;&gt;<span class="calendar-ornament0">O</span>&lt;<span class="calendar-ornament3">*</span>&gt;&gt;<span class="calendar-ornament3">*</span>&gt;&gt;&gt;<span class="calendar-ornament1">o</span>&gt;&gt;<span class="calendar-ornament1">o</span>&lt;<span class="calendar-ornament0">O</span>&lt;&lt;&lt;<span class="calendar-ornament2">@</span>&lt;&lt;&lt;&lt;              <span class="calendar-day">13</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+    <a aria-label="Day 12" href="day12" class="calendar-day12">           &gt;&gt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament0">O</span>&gt;&gt;<span class="calendar-ornament0">O</span>&gt;&gt;<span class="calendar-ornament3">*</span>&lt;&lt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;<span class="calendar-ornament1">o</span>&lt;<span class="calendar-ornament0">O</span>&gt;<span class="calendar-ornament3">*</span>&lt;&lt;<span class="calendar-ornament3">*</span>&lt;&lt;             <span class="calendar-day">12</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+    <a aria-label="Day 11" href="day11" class="calendar-day11">          &gt;<span class="calendar-ornament2">@</span>&lt;&lt;<span class="calendar-ornament0">O</span>&lt;&lt;&lt;<span class="calendar-ornament2">@</span>&lt;<span class="calendar-ornament3">*</span>&gt;&gt;&gt;<span class="calendar-ornament1">o</span>&gt;&gt;<span class="calendar-ornament2">@</span>&gt;&gt;<span class="calendar-ornament1">o</span>&gt;<span class="calendar-ornament3">*</span>&lt;&lt;<span class="calendar-ornament1">o</span>&gt;<span class="calendar-ornament1">o</span>&lt;            <span class="calendar-day">11</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+    <a aria-label="Day 10" href="day10" class="calendar-day10">         &gt;<span class="calendar-ornament2">@</span>&gt;&gt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament0">O</span>&lt;&lt;&lt;<span class="calendar-ornament1">o</span>&lt;<span class="calendar-ornament2">@</span>&gt;&gt;<span class="calendar-ornament0">O</span>&lt;&lt;&lt;<span class="calendar-ornament2">@</span>&gt;<span class="calendar-ornament3">*</span>&gt;&gt;<span class="calendar-ornament2">@</span>&lt;&lt;<span class="calendar-ornament1">o</span>&lt;&lt;&lt;           <span class="calendar-day">10</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+    <a aria-label="Day 9" href="day09" class="calendar-day9">        &gt;<span class="calendar-ornament0">O</span>&lt;&lt;<span class="calendar-ornament0">O</span>&gt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;<span class="calendar-ornament1">o</span>&gt;&gt;<span class="calendar-ornament2">@</span>&gt;<span class="calendar-ornament0">O</span>&gt;&gt;&gt;<span class="calendar-ornament2">@</span>&gt;<span class="calendar-ornament2">@</span>&gt;&gt;&gt;<span class="calendar-ornament1">o</span>&gt;&gt;<span class="calendar-ornament2">@</span>&gt;&gt;<span class="calendar-ornament0">O</span>&lt;          <span class="calendar-day"> 9</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+    <a aria-label="Day 8, two stars" href="day08" class="calendar-day8 calendar-verycomplete">       &gt;<span class="calendar-ornament2">@</span>&gt;&gt;&gt;<span class="calendar-ornament3">*</span>&gt;&gt;&gt;<span class="calendar-ornament2">@</span>&gt;&gt;&gt;<span class="calendar-ornament0">O</span>&gt;&gt;&gt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament1">o</span>&gt;&gt;&gt;<span class="calendar-ornament1">o</span>&gt;&gt;&gt;<span class="calendar-ornament1">o</span>&lt;&lt;&lt;<span class="calendar-ornament3">*</span>&lt;&lt;         <span class="calendar-day"> 8</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+    <a aria-label="Day 7, two stars" href="day07" class="calendar-day7 calendar-verycomplete">      &gt;<span class="calendar-ornament1">o</span>&lt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;<span class="calendar-ornament3">*</span>&gt;<span class="calendar-ornament0">O</span>&gt;&gt;&gt;<span class="calendar-ornament3">*</span>&gt;&gt;<span class="calendar-ornament2">@</span>&lt;&lt;&lt;<span class="calendar-ornament1">o</span>&gt;<span class="calendar-ornament1">o</span>&lt;&lt;&lt;<span class="calendar-ornament2">@</span>&gt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament3">*</span>&gt;&gt;<span class="calendar-ornament1">o</span>&lt;&lt;&lt;        <span class="calendar-day"> 7</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+    <a aria-label="Day 6, two stars" href="day06" class="calendar-day6 calendar-verycomplete">     &gt;<span class="calendar-ornament0">O</span>&lt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament0">O</span>&lt;&lt;&lt;<span class="calendar-ornament2">@</span>&gt;<span class="calendar-ornament2">@</span>&gt;&gt;<span class="calendar-ornament1">o</span>&gt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament0">O</span>&gt;<span class="calendar-ornament2">@</span>&lt;&lt;&lt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament1">o</span>&lt;<span class="calendar-ornament1">o</span>&gt;&gt;&gt;<span class="calendar-ornament1">o</span>&lt;&lt;&lt;<span class="calendar-ornament2">@</span>&lt;       <span class="calendar-day"> 6</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>&nbsp;(<6s)
+    <a aria-label="Day 5, two stars" href="day05" class="calendar-day5 calendar-verycomplete">    &gt;<span class="calendar-ornament2">@</span>&gt;&gt;&gt;<span class="calendar-ornament1">o</span>&lt;<span class="calendar-ornament0">O</span>&lt;<span class="calendar-ornament2">@</span>&lt;&lt;&lt;<span class="calendar-ornament0">O</span>&lt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament0">O</span>&gt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament2">@</span>&lt;&lt;&lt;<span class="calendar-ornament0">O</span>&gt;&gt;<span class="calendar-ornament0">O</span>&gt;<span class="calendar-ornament2">@</span>&gt;<span class="calendar-ornament1">o</span>&gt;<span class="calendar-ornament0">O</span>&lt;&lt;<span class="calendar-ornament1">o</span>&lt;&lt;&lt;      <span class="calendar-day"> 5</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+    <a aria-label="Day 4, two stars" href="day04" class="calendar-day4 calendar-verycomplete">   &gt;&gt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament1">o</span>&lt;&lt;&lt;<span class="calendar-ornament0">O</span>&gt;<span class="calendar-ornament2">@</span>&lt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament0">O</span>&lt;&lt;<span class="calendar-ornament1">o</span>&lt;&lt;&lt;<span class="calendar-ornament0">O</span>&gt;&gt;&gt;<span class="calendar-ornament3">*</span>&gt;&gt;&gt;<span class="calendar-ornament3">*</span>&gt;<span class="calendar-ornament2">@</span>&gt;<span class="calendar-ornament1">o</span>&gt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament2">@</span>&lt;&lt;&lt;&lt;     <span class="calendar-day"> 4</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>&nbsp;(<20s)
+    <a aria-label="Day 3, two stars" href="day03" class="calendar-day3 calendar-verycomplete">  &gt;&gt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament0">O</span>&lt;<span class="calendar-ornament2">@</span>&gt;&gt;&gt;<span class="calendar-ornament0">O</span>&gt;&gt;&gt;<span class="calendar-ornament0">O</span>&gt;<span class="calendar-ornament2">@</span>&lt;&lt;&lt;<span class="calendar-ornament2">@</span>&gt;<span class="calendar-ornament3">*</span>&gt;&gt;<span class="calendar-ornament0">O</span>&gt;<span class="calendar-ornament2">@</span>&lt;<span class="calendar-ornament2">@</span>&gt;&gt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament3">*</span>&gt;<span class="calendar-ornament2">@</span>&lt;&lt;<span class="calendar-ornament0">O</span>&lt;&lt;<span class="calendar-ornament3">*</span>&lt;    <span class="calendar-day"> 3</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+    <a aria-label="Day 2, two stars" href="day02" class="calendar-day2 calendar-verycomplete"> &gt;&gt;<span class="calendar-ornament1">o</span>&lt;<span class="calendar-ornament2">@</span>&lt;&lt;<span class="calendar-ornament0">O</span>&gt;&gt;&gt;<span class="calendar-ornament0">O</span>&lt;&lt;&lt;<span class="calendar-ornament1">o</span>&gt;&gt;&gt;<span class="calendar-ornament2">@</span>&gt;&gt;&gt;<span class="calendar-ornament1">o</span>&lt;&lt;&lt;<span class="calendar-ornament2">@</span>&lt;<span class="calendar-ornament3">*</span>&gt;<span class="calendar-ornament3">*</span>&gt;&gt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;<span class="calendar-ornament0">O</span>&gt;&gt;<span class="calendar-ornament1">o</span>&gt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;   <span class="calendar-day"> 2</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+    <a aria-label="Day 1, two stars" href="day01" class="calendar-day1 calendar-verycomplete">&gt;<span class="calendar-ornament1">o</span>&lt;<span class="calendar-ornament1">o</span>&lt;<span class="calendar-ornament0">O</span>&gt;&gt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament1">o</span>&lt;<span class="calendar-ornament1">o</span>&gt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;<span class="calendar-ornament1">o</span>&lt;<span class="calendar-ornament2">@</span>&gt;&gt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;<span class="calendar-ornament1">o</span>&gt;&gt;&gt;<span class="calendar-ornament3">*</span>&gt;&gt;<span class="calendar-ornament2">@</span>&lt;&lt;<span class="calendar-ornament3">*</span>&lt;&lt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament3">*</span>&lt;&lt;  <span class="calendar-day"> 1</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+    <span class="calendar-trunk">                      |   |                             
+                          |   |                             
+               _  _ __ ___|___|___ __ _  _           </span>       
+    </pre>
+    <div class="calendar-bkg">
+    <div>__ ___ _ _ __ ____ __ ___ _ ____ ___ _ ___</div>
+    <div>_ __ _ _ __ __ _ _ _ _____ _ ___ ___ ____</div>
+    <div>___ ____ _ __ _ ____ ____ _ _____ ___ _</div>
+    <div>_ _ _ _ ____ ___ ____ _ __ __ ___ __ _ _</div>
+    </div>
+
     </main>
-<main>
-<style>
-.calendar a.calendar-complete, .calendar a.calendar-verycomplete {
-  color: #009900;
-}
-.calendar a.calendar-day25.calendar-complete,
-.calendar a.calendar-day25.calendar-verycomplete{ color: #ffff66; }
-.calendar a.calendar-day25.calendar-verycomplete{ text-shadow: 0 0 5px #ffff66; }
-
-.calendar .calendar-trunk { color: #cccccc; }
-
-.calendar a                       .calendar-ornament0 { color: inherit; }
-.calendar a                       .calendar-ornament1 { color: inherit; }
-.calendar a                       .calendar-ornament2 { color: inherit; }
-.calendar a                       .calendar-ornament3 { color: inherit; }
-.calendar a.calendar-verycomplete .calendar-ornament0 { color: #0066ff; text-shadow: 0 0 5px #0066ff; }
-.calendar a.calendar-verycomplete .calendar-ornament1 { color: #ff9900; text-shadow: 0 0 5px #ff9900; }
-.calendar a.calendar-verycomplete .calendar-ornament2 { color: #ff0000; text-shadow: 0 0 5px #ff0000; }
-.calendar a.calendar-verycomplete .calendar-ornament3 { color: #ffff66; text-shadow: 0 0 5px #ffff66; }
-
-.calendar.calendar-beckon .calendar-day1  { animation: anim-beckon 3s infinite -2.875s; }
-.calendar.calendar-beckon .calendar-day2  { animation: anim-beckon 3s infinite -2.750s; }
-.calendar.calendar-beckon .calendar-day3  { animation: anim-beckon 3s infinite -2.625s; }
-.calendar.calendar-beckon .calendar-day4  { animation: anim-beckon 3s infinite -2.500s; }
-.calendar.calendar-beckon .calendar-day5  { animation: anim-beckon 3s infinite -2.375s; }
-.calendar.calendar-beckon .calendar-day6  { animation: anim-beckon 3s infinite -2.250s; }
-.calendar.calendar-beckon .calendar-day7  { animation: anim-beckon 3s infinite -2.125s; }
-.calendar.calendar-beckon .calendar-day8  { animation: anim-beckon 3s infinite -2.000s; }
-.calendar.calendar-beckon .calendar-day9  { animation: anim-beckon 3s infinite -1.875s; }
-.calendar.calendar-beckon .calendar-day10 { animation: anim-beckon 3s infinite -1.750s; }
-.calendar.calendar-beckon .calendar-day11 { animation: anim-beckon 3s infinite -1.625s; }
-.calendar.calendar-beckon .calendar-day12 { animation: anim-beckon 3s infinite -1.500s; }
-.calendar.calendar-beckon .calendar-day13 { animation: anim-beckon 3s infinite -1.375s; }
-.calendar.calendar-beckon .calendar-day14 { animation: anim-beckon 3s infinite -1.250s; }
-.calendar.calendar-beckon .calendar-day15 { animation: anim-beckon 3s infinite -1.125s; }
-.calendar.calendar-beckon .calendar-day16 { animation: anim-beckon 3s infinite -1.000s; }
-.calendar.calendar-beckon .calendar-day17 { animation: anim-beckon 3s infinite -0.875s; }
-.calendar.calendar-beckon .calendar-day18 { animation: anim-beckon 3s infinite -0.750s; }
-.calendar.calendar-beckon .calendar-day19 { animation: anim-beckon 3s infinite -0.625s; }
-.calendar.calendar-beckon .calendar-day20 { animation: anim-beckon 3s infinite -0.500s; }
-.calendar.calendar-beckon .calendar-day21 { animation: anim-beckon 3s infinite -0.375s; }
-.calendar.calendar-beckon .calendar-day22 { animation: anim-beckon 3s infinite -0.250s; }
-.calendar.calendar-beckon .calendar-day23 { animation: anim-beckon 3s infinite -0.125s; }
-.calendar.calendar-beckon .calendar-day24 { animation: anim-beckon 3s infinite -0.000s; }
-.calendar.calendar-beckon > span { animation-name: anim-beckon-dark ! important; }
-@keyframes anim-beckon {
-  0%   { color: #666666; }
-  80%  { color: #666666; }
-  90%  { color: #00ff00; }
-  100% { color: #666666; }
-}
-@keyframes anim-beckon-dark {
-  0%   { color: #333333; }
-  80%  { color: #333333; }
-  90%  { color: #009900; }
-  100% { color: #333333; }
-}
-
-.calendar-bkg {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-  color: #ffffff;
-  cursor: default;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: -moz-none;
-  -o-user-select: none;
-  user-select: none;
-}
-.calendar-bkg div:nth-child(1) { opacity: .04; }
-.calendar-bkg div:nth-child(2) { opacity: .08; }
-.calendar-bkg div:nth-child(3) { opacity: .12; }
-.calendar-bkg div:nth-child(4) { opacity: .16; }
-.calendar-bkg div {
-  text-align: justify;
-  margin-bottom: -1.2em;
-}
-.calendar-bkg div::after {
-  content: "_";
-  display: inline-block;
-  visibility: hidden;
-  width: 100%;
-}
-</style>
-<pre class="calendar"><a aria-label="Day 25" href="day25" class="calendar-day25">                        *                          <span class="calendar-day">25</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 24" href="day24" class="calendar-day24">                       &gt;<span class="calendar-ornament1">o</span>&lt;                         <span class="calendar-day">24</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 23" href="day23" class="calendar-day23">                      &gt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;                        <span class="calendar-day">23</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 22" href="day22" class="calendar-day22">                     &gt;<span class="calendar-ornament2">@</span>&lt;<span class="calendar-ornament1">o</span>&lt;<span class="calendar-ornament3">*</span>&lt;                       <span class="calendar-day">22</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 21" href="day21" class="calendar-day21">                    &gt;&gt;<span class="calendar-ornament0">O</span>&gt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament2">@</span>&lt;                      <span class="calendar-day">21</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 20" href="day20" class="calendar-day20">                   &gt;<span class="calendar-ornament2">@</span>&gt;<span class="calendar-ornament2">@</span>&gt;&gt;&gt;<span class="calendar-ornament2">@</span>&lt;&lt;&lt;                     <span class="calendar-day">20</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 19" href="day19" class="calendar-day19">                  &gt;&gt;<span class="calendar-ornament3">*</span>&gt;&gt;<span class="calendar-ornament3">*</span>&gt;&gt;&gt;<span class="calendar-ornament0">O</span>&lt;&lt;&lt;                    <span class="calendar-day">19</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 18" href="day18" class="calendar-day18">                 &gt;&gt;<span class="calendar-ornament3">*</span>&gt;&gt;&gt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament2">@</span>&gt;&gt;&gt;<span class="calendar-ornament3">*</span>&lt;&lt;                   <span class="calendar-day">18</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 17" href="day17" class="calendar-day17">                &gt;&gt;<span class="calendar-ornament1">o</span>&gt;&gt;<span class="calendar-ornament1">o</span>&gt;&gt;&gt;<span class="calendar-ornament2">@</span>&gt;&gt;&gt;<span class="calendar-ornament0">O</span>&lt;&lt;&lt;                  <span class="calendar-day">17</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 16" href="day16" class="calendar-day16">               &gt;<span class="calendar-ornament2">@</span>&lt;&lt;&lt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament1">o</span>&lt;&lt;&lt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament0">O</span>&lt;&lt;                 <span class="calendar-day">16</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 15" href="day15" class="calendar-day15">              &gt;&gt;<span class="calendar-ornament1">o</span>&gt;&gt;&gt;<span class="calendar-ornament0">O</span>&gt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;<span class="calendar-ornament2">@</span>&lt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;                <span class="calendar-day">15</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 14" href="day14" class="calendar-day14">             &gt;&gt;<span class="calendar-ornament1">o</span>&gt;&gt;&gt;<span class="calendar-ornament0">O</span>&gt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament2">@</span>&gt;&gt;&gt;<span class="calendar-ornament1">o</span>&gt;&gt;<span class="calendar-ornament0">O</span>&lt;&lt;<span class="calendar-ornament1">o</span>&lt;               <span class="calendar-day">14</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 13" href="day13" class="calendar-day13">            &gt;&gt;<span class="calendar-ornament0">O</span>&lt;<span class="calendar-ornament3">*</span>&gt;&gt;<span class="calendar-ornament3">*</span>&gt;&gt;&gt;<span class="calendar-ornament1">o</span>&gt;&gt;<span class="calendar-ornament1">o</span>&lt;<span class="calendar-ornament0">O</span>&lt;&lt;&lt;<span class="calendar-ornament2">@</span>&lt;&lt;&lt;&lt;              <span class="calendar-day">13</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 12" href="day12" class="calendar-day12">           &gt;&gt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament0">O</span>&gt;&gt;<span class="calendar-ornament0">O</span>&gt;&gt;<span class="calendar-ornament3">*</span>&lt;&lt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;<span class="calendar-ornament1">o</span>&lt;<span class="calendar-ornament0">O</span>&gt;<span class="calendar-ornament3">*</span>&lt;&lt;<span class="calendar-ornament3">*</span>&lt;&lt;             <span class="calendar-day">12</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 11" href="day11" class="calendar-day11">          &gt;<span class="calendar-ornament2">@</span>&lt;&lt;<span class="calendar-ornament0">O</span>&lt;&lt;&lt;<span class="calendar-ornament2">@</span>&lt;<span class="calendar-ornament3">*</span>&gt;&gt;&gt;<span class="calendar-ornament1">o</span>&gt;&gt;<span class="calendar-ornament2">@</span>&gt;&gt;<span class="calendar-ornament1">o</span>&gt;<span class="calendar-ornament3">*</span>&lt;&lt;<span class="calendar-ornament1">o</span>&gt;<span class="calendar-ornament1">o</span>&lt;            <span class="calendar-day">11</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 10" href="day10" class="calendar-day10">         &gt;<span class="calendar-ornament2">@</span>&gt;&gt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament0">O</span>&lt;&lt;&lt;<span class="calendar-ornament1">o</span>&lt;<span class="calendar-ornament2">@</span>&gt;&gt;<span class="calendar-ornament0">O</span>&lt;&lt;&lt;<span class="calendar-ornament2">@</span>&gt;<span class="calendar-ornament3">*</span>&gt;&gt;<span class="calendar-ornament2">@</span>&lt;&lt;<span class="calendar-ornament1">o</span>&lt;&lt;&lt;           <span class="calendar-day">10</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 9" href="day09" class="calendar-day9">        &gt;<span class="calendar-ornament0">O</span>&lt;&lt;<span class="calendar-ornament0">O</span>&gt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;<span class="calendar-ornament1">o</span>&gt;&gt;<span class="calendar-ornament2">@</span>&gt;<span class="calendar-ornament0">O</span>&gt;&gt;&gt;<span class="calendar-ornament2">@</span>&gt;<span class="calendar-ornament2">@</span>&gt;&gt;&gt;<span class="calendar-ornament1">o</span>&gt;&gt;<span class="calendar-ornament2">@</span>&gt;&gt;<span class="calendar-ornament0">O</span>&lt;          <span class="calendar-day"> 9</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 8, two stars" href="day08" class="calendar-day8 calendar-verycomplete">       &gt;<span class="calendar-ornament2">@</span>&gt;&gt;&gt;<span class="calendar-ornament3">*</span>&gt;&gt;&gt;<span class="calendar-ornament2">@</span>&gt;&gt;&gt;<span class="calendar-ornament0">O</span>&gt;&gt;&gt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament1">o</span>&gt;&gt;&gt;<span class="calendar-ornament1">o</span>&gt;&gt;&gt;<span class="calendar-ornament1">o</span>&lt;&lt;&lt;<span class="calendar-ornament3">*</span>&lt;&lt;         <span class="calendar-day"> 8</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 7, two stars" href="day07" class="calendar-day7 calendar-verycomplete">      &gt;<span class="calendar-ornament1">o</span>&lt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;<span class="calendar-ornament3">*</span>&gt;<span class="calendar-ornament0">O</span>&gt;&gt;&gt;<span class="calendar-ornament3">*</span>&gt;&gt;<span class="calendar-ornament2">@</span>&lt;&lt;&lt;<span class="calendar-ornament1">o</span>&gt;<span class="calendar-ornament1">o</span>&lt;&lt;&lt;<span class="calendar-ornament2">@</span>&gt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament3">*</span>&gt;&gt;<span class="calendar-ornament1">o</span>&lt;&lt;&lt;        <span class="calendar-day"> 7</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 6, two stars" href="day06" class="calendar-day6 calendar-verycomplete">     &gt;<span class="calendar-ornament0">O</span>&lt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament0">O</span>&lt;&lt;&lt;<span class="calendar-ornament2">@</span>&gt;<span class="calendar-ornament2">@</span>&gt;&gt;<span class="calendar-ornament1">o</span>&gt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament0">O</span>&gt;<span class="calendar-ornament2">@</span>&lt;&lt;&lt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament1">o</span>&lt;<span class="calendar-ornament1">o</span>&gt;&gt;&gt;<span class="calendar-ornament1">o</span>&lt;&lt;&lt;<span class="calendar-ornament2">@</span>&lt;       <span class="calendar-day"> 6</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>&nbsp;(<6s)
-<a aria-label="Day 5, two stars" href="day05" class="calendar-day5 calendar-verycomplete">    &gt;<span class="calendar-ornament2">@</span>&gt;&gt;&gt;<span class="calendar-ornament1">o</span>&lt;<span class="calendar-ornament0">O</span>&lt;<span class="calendar-ornament2">@</span>&lt;&lt;&lt;<span class="calendar-ornament0">O</span>&lt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament0">O</span>&gt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament2">@</span>&lt;&lt;&lt;<span class="calendar-ornament0">O</span>&gt;&gt;<span class="calendar-ornament0">O</span>&gt;<span class="calendar-ornament2">@</span>&gt;<span class="calendar-ornament1">o</span>&gt;<span class="calendar-ornament0">O</span>&lt;&lt;<span class="calendar-ornament1">o</span>&lt;&lt;&lt;      <span class="calendar-day"> 5</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 4, two stars" href="day04" class="calendar-day4 calendar-verycomplete">   &gt;&gt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament1">o</span>&lt;&lt;&lt;<span class="calendar-ornament0">O</span>&gt;<span class="calendar-ornament2">@</span>&lt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament0">O</span>&lt;&lt;<span class="calendar-ornament1">o</span>&lt;&lt;&lt;<span class="calendar-ornament0">O</span>&gt;&gt;&gt;<span class="calendar-ornament3">*</span>&gt;&gt;&gt;<span class="calendar-ornament3">*</span>&gt;<span class="calendar-ornament2">@</span>&gt;<span class="calendar-ornament1">o</span>&gt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament2">@</span>&lt;&lt;&lt;&lt;     <span class="calendar-day"> 4</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>&nbsp;(<20s)
-<a aria-label="Day 3, two stars" href="day03" class="calendar-day3 calendar-verycomplete">  &gt;&gt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament0">O</span>&lt;<span class="calendar-ornament2">@</span>&gt;&gt;&gt;<span class="calendar-ornament0">O</span>&gt;&gt;&gt;<span class="calendar-ornament0">O</span>&gt;<span class="calendar-ornament2">@</span>&lt;&lt;&lt;<span class="calendar-ornament2">@</span>&gt;<span class="calendar-ornament3">*</span>&gt;&gt;<span class="calendar-ornament0">O</span>&gt;<span class="calendar-ornament2">@</span>&lt;<span class="calendar-ornament2">@</span>&gt;&gt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament3">*</span>&gt;<span class="calendar-ornament2">@</span>&lt;&lt;<span class="calendar-ornament0">O</span>&lt;&lt;<span class="calendar-ornament3">*</span>&lt;    <span class="calendar-day"> 3</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 2, two stars" href="day02" class="calendar-day2 calendar-verycomplete"> &gt;&gt;<span class="calendar-ornament1">o</span>&lt;<span class="calendar-ornament2">@</span>&lt;&lt;<span class="calendar-ornament0">O</span>&gt;&gt;&gt;<span class="calendar-ornament0">O</span>&lt;&lt;&lt;<span class="calendar-ornament1">o</span>&gt;&gt;&gt;<span class="calendar-ornament2">@</span>&gt;&gt;&gt;<span class="calendar-ornament1">o</span>&lt;&lt;&lt;<span class="calendar-ornament2">@</span>&lt;<span class="calendar-ornament3">*</span>&gt;<span class="calendar-ornament3">*</span>&gt;&gt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;<span class="calendar-ornament0">O</span>&gt;&gt;<span class="calendar-ornament1">o</span>&gt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;   <span class="calendar-day"> 2</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 1, two stars" href="day01" class="calendar-day1 calendar-verycomplete">&gt;<span class="calendar-ornament1">o</span>&lt;<span class="calendar-ornament1">o</span>&lt;<span class="calendar-ornament0">O</span>&gt;&gt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament1">o</span>&lt;<span class="calendar-ornament1">o</span>&gt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;<span class="calendar-ornament1">o</span>&lt;<span class="calendar-ornament2">@</span>&gt;&gt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;<span class="calendar-ornament1">o</span>&gt;&gt;&gt;<span class="calendar-ornament3">*</span>&gt;&gt;<span class="calendar-ornament2">@</span>&lt;&lt;<span class="calendar-ornament3">*</span>&lt;&lt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament3">*</span>&lt;&lt;  <span class="calendar-day"> 1</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<span class="calendar-trunk">                      |   |                             
-                      |   |                             
-           _  _ __ ___|___|___ __ _  _           </span>       
-</pre>
-<div class="calendar-bkg">
-<div>__ ___ _ _ __ ____ __ ___ _ ____ ___ _ ___</div>
-<div>_ __ _ _ __ __ _ _ _ _____ _ ___ ___ ____</div>
-<div>___ ____ _ __ _ ____ ____ _ _____ ___ _</div>
-<div>_ _ _ _ ____ ___ ____ _ __ __ ___ __ _ _</div>
-</div>
-
-</main>
   </body>
 </html>
