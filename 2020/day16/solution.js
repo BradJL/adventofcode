@@ -3,17 +3,8 @@
 function initialize(){
   $('#answer span').text('Calculating...');
   $('#answer2 span').text('Calculating...');
-  
-  // var canvas = document.getElementById("visualization");
-  // var ctx = canvas.getContext("2d");
-  // var canvas2 = document.getElementById("visualization2");
-  // var ctx2 = canvas2.getContext("2d");  
 }
 
-function log( what ){
-  //console.log( what );
-}
-  
 function part1( data, wire ){
   data = data.trim().split(/\r?\n\r?\n/);
   let validRanges = data[0].match(/[0-9]+-[0-9]+/g);
