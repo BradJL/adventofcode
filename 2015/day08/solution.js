@@ -13,15 +13,18 @@ function part1( data ){
 //   $('#bonus span').text( stringChars );
 }
 function part2( data ){
-  data.forEach(function(value, index, array) {
+  let codeChars = data.replace(/\r?\n/g,'').length;
+  data = data.trim().split(/\r?\n/);
+  let stringChars = 0;
+  data.forEach(function(line, index, array) {
+    stringChars += 2 + line.replace(/\\/g,"\\").replace(/"/,'\"')
   });
-  //$('#answer2 span').text(  );
+  $('#answer2 span').text( stringChars + " - " + codeChars + " = " + (stringChars - codeChars) );
   //$('#bonus span').html(  );
 }
 
-$.get( "input.txt", function( data ) {
+$.get( "input1.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
-//   data = data.trim().split(/\r?\n/);
   part1( data );
 //   part2( data );
   
