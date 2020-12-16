@@ -7,10 +7,10 @@ $('#answer2 span').text('Calculating...');
 // var ctx2 = canvas2.getContext("2d");
 
 function part1( data ){
-  data.forEach(function(value, index, array) {
-  });
-  //$('#answer span').text(  );
-  //$('#bonus span').html(  );
+  let codeChars = data.replace(/\r?\n/g,'').length;
+  let stringChars = data.trim().replace(/\\["\\]/g,'_').replace(/\\x[0-9a-fA-F][0-9a-fA-F]/g,'_').replace(/"\r?\n"/g,'').replace(/^"/,'').replace(/"$/,'');
+  $('#answer span').text( codeChars + " - " + stringChars.length + " = " + (codeChars - stringChars.length) );
+  $('#bonus span').text( stringChars );
 }
 function part2( data ){
   data.forEach(function(value, index, array) {
@@ -22,14 +22,7 @@ function part2( data ){
 $.get( "input.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
 //   data = data.trim().split(/\r?\n/);
-  let codeChars = data.replace(/\r?\n/g,'').length;
-  let stringChars = data.trim();
-  stringChars = stringChars.replace(/\\["\\]/g,'_');
-  stringChars = stringChars.replace(/\\x[0-9a-fA-F][0-9a-fA-F]/g,'_')
-  stringChars = stringChars.replace(/"\r?\n"/g,'').replace(/^"/,'').replace(/"$/,'');
-  $('#answer span').text( codeChars + " - " + stringChars.length + " = " + (codeChars - stringChars.length) );
-  $('#bonus span').text( stringChars );
-//   part1( data );
+  part1( data );
 //   part2( data );
   
 //   let input = [];
