@@ -226,10 +226,10 @@ $.get( "input.txt", function( data ) {
 //   part2( "17,x,x,x,x,x,x,41,x,x,x,x,x,x,x,x,x,523,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,13,19" ); //81761619
 //   part2( "17,x,x,x,x,x,x,41,x,x,x,x,x,x,x,x,x,523,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,13,19,x,x,x,23,x,x,x,x,x,x,x,787" );
 //  part2( "17,x,x,x,x,x,x,41,x,x,x,x,x,x,x,x,x,523,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,13,19,x,x,x,23,x,x,x,x,x,x,x,787,x,x,x,x,x,37,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,29" );
-  let performanceString = "";
-  var t0 = performance.now();
-  //part3();
-  var t1 = performance.now();
-  performanceString += "part3() took " + (t1 - t0) + " ms.<br />";
-  $('#bonus span').html( performanceString );
+//   let performanceString = "";
+//   var t0 = performance.now();
+//   part3();
+//   var t1 = performance.now();
+//   performanceString += "Part 2 took " + (t1 - t0) + " ms.<br />";
+//   $('#bonus span').html( performanceString );
 });
