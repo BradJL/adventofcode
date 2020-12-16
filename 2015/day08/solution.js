@@ -10,7 +10,7 @@ function part1( data ){
   let codeChars = data.replace(/\r?\n/g,'').length;
   let stringChars = data.trim().replace(/\\["\\]/g,'_').replace(/\\x[0-9a-fA-F][0-9a-fA-F]/g,'_').replace(/"\r?\n"/g,'').replace(/^"/,'').replace(/"$/,'');
   $('#answer span').text( codeChars + " - " + stringChars.length + " = " + (codeChars - stringChars.length) );
-  $('#bonus span').text( stringChars );
+//   $('#bonus span').text( stringChars );
 }
 function part2( data ){
   data.forEach(function(value, index, array) {
