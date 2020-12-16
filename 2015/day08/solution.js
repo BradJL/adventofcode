@@ -17,7 +17,7 @@ function part2( data ){
   data = data.trim().split(/\r?\n/);
   let stringChars = 0;
   data.forEach(function(line, index, array) {
-    let chars += line.replace(/\\/g,"\\").replace(/"/,'\"');
+    let chars = line.replace(/\\/g,"\\").replace(/"/,'\"');
     console.log( chars.length + ": " + chars.length );
     stringChars += chars.length;
   });
