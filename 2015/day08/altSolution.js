@@ -20,14 +20,6 @@ function getNumberOfCharacterInMemory(line){
     return size - 2; // Subtracts the two " around the word
 }
 
-//assert(argc == 3);
-
-//std::ifstream file(argv[1]);
-//assert (file.is_open());
-
-//const auto expectedResult = atoi (argv[2]);
-
-//std::string fileContent((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
 $.get( "input.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
 
