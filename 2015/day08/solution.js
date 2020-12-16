@@ -23,8 +23,8 @@ $.get( "input.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
 //   data = data.trim().split(/\r?\n/);
   let codeChars = data.replace(/\r?\n/g,'').length;
-  let stringChars = data.trim().replace(/\\x[0-9a-fA-F][0-9a-fA-F]/,'_')
-  stringChars = stringChars.replace(/\\/,'');
+  let stringChars = data.trim().replace(/\\x[0-9a-fA-F][0-9a-fA-F]/g,'_')
+  stringChars = stringChars.replace(/\\/g,'');
   stringChars = stringChars.replace(/"\r?\n"/g,'').replace(/^"/,'').replace(/"$/,'');
   $('#answer span').text( codeChars + " - " + stringChars.length + " = " + (codeChars - stringChars.length) );
   $('#bonus span').text( stringChars );
