@@ -230,6 +230,6 @@ $.get( "input.txt", function( data ) {
   var t0 = performance.now();
   //part3();
   var t1 = performance.now();
-  performanceString += "part3() took " + (t1 - t0) + " ms.<br />")
+  performanceString += "part3() took " + (t1 - t0) + " ms.<br />";
   $('#bonus span').html( performanceString );
 });
