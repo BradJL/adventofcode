@@ -22,8 +22,7 @@ function part2( data ){
 $.get( "input.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
 //   data = data.trim().split(/\r?\n/);
-  data =
-'""
+  data = '""
 "abc"
 "aaa\"aaa"
 "\x27"';
