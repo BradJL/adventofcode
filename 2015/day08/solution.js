@@ -26,7 +26,7 @@ function part2( data ){
 $.get( "input1.txt", function( data ) {
   $('#input span').text('(Bytes: ' + (data.length) + ')');
   part1( data );
-//   part2( data );
+  part2( data );
   
 //   let input = [];
 //   data.forEach(function(number, index, array) {
