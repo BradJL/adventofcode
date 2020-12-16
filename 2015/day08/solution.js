@@ -20,9 +20,16 @@ function part2( data ){
 }
 
 $.get( "input.txt", function( data ) {
-//   $('#input span').text('(Bytes: ' + (data.length) + ')');
-  data = data.trim().split(/\r?\n/);
-  $('#input span').text('(Lines: ' + (data.length) + ')');
+  $('#input span').text('(Bytes: ' + (data.length) + ')');
+//   data = data.trim().split(/\r?\n/);
+  data =
+'""
+"abc"
+"aaa\"aaa"
+"\x27"';
+  let codeChars = data.replace(/\r?\n/g,'').length;
+  let stringChars = 0;
+  $('#answer span').text( codeChars = stringChars );
 //   part1( data );
 //   part2( data );
   
