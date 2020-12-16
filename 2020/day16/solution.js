@@ -17,48 +17,33 @@ function log( what ){
 function part1( data, wire ){
   data = data.trim().split(/\r?\n\r?\n/);
   let validRanges = data[0].match(/[0-9]+-[0-9]+/g);
-  let validNumbers = [];//.fill(false, 0, 1000);
-  // let numbers = data[2].match(/[0-9]+/g);
+  let validNumbers = [];
   let tickets = data[2].replace(/nearby tickets:\r?\n/,'').split(/\r?\n/);
   console.log( "Total tickets: " + tickets.length );
   let validTickets = [];
-  // log( "validRanges: " + validRanges );
-  // log( "numbers: " + numbers );
-
+  
   validRanges.forEach(function(value,index,array){
     let nums = value.split(/-/);
     for( i = parseInt( nums[0] ); i <= parseInt( nums[1] ); ++i ){
       validNumbers[i] = true;
     }
   });
-  // console.log( "validNumbers: " + validNumbers );
 
-  // let invalidNumbers = new Set();
   let invalidSum = 0;
-  // numbers.forEach(function(value,index,array){
   tickets.forEach(function(value,index,array){
-    // console.log( "ticket: " + value );
     let values = value.split(/,/);
     let valid = true;
     values.forEach(function(number,index,array){
       let val = parseInt( number );
-      // console.log("val: " + val);
       if( !validNumbers[val] ){
           invalidSum += val;
           valid = false;
-          // console.log( val + " is invalid")
         } else {
-        // log( val + " is valid")
       }
     });
     if( valid == true ){
       validTickets.push( value );
-      // console.log( "Valid ticket: " + value );
     }
-    // if( val < 28 || val > 971 ){
-    //   invalidSum += val;
-    //   console.log( val );
-    // }
   });
   console.log( "Valid tickets: " + validTickets.length );
   return [invalidSum, validTickets]; // sum of invalid, array of valid tix, your ticket string
