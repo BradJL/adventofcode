@@ -99,18 +99,18 @@ function part1( data, wire ){
 }
 
 
-async function readFile(filePath){
-  try {
-    const constData = await fs.readFile(filePath);
-    let part1Answer = part1( constData.toString() );
-    console.log( "Part 1 answer: " + part1Answer );
+// async function readFile(filePath){
+//   try {
+//     const constData = await fs.readFile(filePath);
+//     let part1Answer = part1( constData.toString() );
+//     console.log( "Part 1 answer: " + part1Answer );
 
-    // let part2Answer = part2( constData.toString(), part1Answer[1] );
-    // console.log( "Part 2 answer: " + part2Answer );
-  } catch (error) {
-    console.error(`Got an error trying to read the file: ${error.message}`);
-  }
-}
+//     // let part2Answer = part2( constData.toString(), part1Answer[1] );
+//     // console.log( "Part 2 answer: " + part2Answer );
+//   } catch (error) {
+//     console.error(`Got an error trying to read the file: ${error.message}`);
+//   }
+// }
 
 function readFile(filePath){
   $.get( filePath, function( data ) {
