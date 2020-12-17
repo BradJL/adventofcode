@@ -7,10 +7,7 @@ const createScene =  (engine, canvas) => {
     return scene;
 }
 
-function initialize(){
-  $('#answer span').text('Calculating...');
-  $('#answer2 span').text('Calculating...');
-  
+function visualize(){
   var canvas = document.getElementById("visualization");
   // var ctx = canvas.getContext("2d");
   // var canvas2 = document.getElementById("visualization2");
@@ -24,6 +21,12 @@ function initialize(){
   window.addEventListener("resize", function () {
     engine.resize();
   });
+}
+
+function initialize(){
+  $('#answer span').text('Calculating...');
+  $('#answer2 span').text('Calculating...');
+  visualize();
 }
 
 
