@@ -45,11 +45,11 @@ function visualize( part1, part2 ){
   greenMat.specularColor = new BABYLON.Color3(1.0, 1.0, 1.0);
   greenMat.ambientColor = new BABYLON.Color3(1.0, 1.0, 1.0);
   part1.forEach( function(value,index,array){
-    box = createBox( (value[0]-10)/15, (value[1]-10)/15, value[2]/15, 1, scene );
+    box = createBox( (value[0]-10)/15, (value[1]-10)/15, value[2]/15, .7, scene );
     box.material = redMat;
   });
   part2.forEach( function(value,index,array){
-    box = createBox( -100+(value[0]-10)/15, -100+(value[1]-10)/15, -100+value[2]/15, 0.05, scene );
+    box = createBox( -100+(value[0]-10)/15, -100+(value[1]-10)/15, -100+value[2]/15, 0.15, scene );
     box.material = greenMat;
   });
   
