@@ -49,7 +49,7 @@ function visualize( objects ){
     box.material = redMat;
   });
   objects.forEach( function(value,index,array){
-    box = createBox( 10+(value[0]-10)/15, 10+(value[1]-10)/15, (value[2]/15, scene );
+    box = createBox( 10+(value[0]-10)/15, 10+(value[1]-10)/15, value[2]/15, scene );
     box.material = greenMat;
   });
   engine.runRenderLoop(function () {
