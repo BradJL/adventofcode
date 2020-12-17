@@ -50,7 +50,7 @@ function visualize( part1, part2 ){
   });
   part2.forEach( function(value,index,array){
     box = createBox( -1000+(value[0]-10)/15, -1000+(value[1]-10)/15, -1000+value[2]/15, 0.2, scene );
-    box.material = greenMat;
+    box.material = redMat;
   });
   
 //   let box2 = createBox( -100, -100, -100, 1.0, scene );
