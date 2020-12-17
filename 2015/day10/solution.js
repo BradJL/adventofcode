@@ -39,7 +39,7 @@ function part1( data ){
       console.log( newData );
     });
     newData += count + lastChar
-    data = newData;
+    data = newData.split('');
   }
   return data;
 }
