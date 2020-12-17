@@ -9,7 +9,7 @@ const createScene =  (engine, canvas1, canvas2) => {
   const scene = new BABYLON.Scene(engine);
   scene.clearColor = new BABYLON.Color3(0.0, 0.7, 0.0);
   const camera = new BABYLON.ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 2.5, 3, new BABYLON.Vector3(0, 0, 0));
-  const camera2 = new BABYLON.ArcRotateCamera("camera2", -Math.PI / 2, Math.PI / 2.5, 3, new BABYLON.Vector3(-5, -5, -5));
+  const camera2 = new BABYLON.ArcRotateCamera("camera2", -Math.PI / 2, Math.PI / 2.5, 3, new BABYLON.Vector3(-10, -10, -10));
   camera.attachControl(canvas1, true);
   //camera2.attachControl(canvas2, true);
   engine.registerView(canvas1);
@@ -53,7 +53,7 @@ function visualize( objects ){
 //     box.material = greenMat;
 //   });
   
-  let box2 = createBox( -5, -5, -5, 1.0, scene );
+  let box2 = createBox( -10, -10, -10, 1.0, scene );
   box2.material = greenMat;
 //   box2 = createBox( 2, 2, 2, 1.0, scene );
 //   box2.material = greenMat;
