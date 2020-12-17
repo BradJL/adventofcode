@@ -337,7 +337,7 @@ function readFile(filePath){
     let part2Answer = part2( data );
     $('#answer2 span').text( activeCubeCount( part2Answer ) );
     
-    visualize( getCubeCoords( part1Answer ) );
+    visualize( getCubeCoords( part1Answer ), getCubeCoords( part2Answer ) );
   });
 }
 
