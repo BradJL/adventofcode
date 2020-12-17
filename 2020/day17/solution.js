@@ -155,7 +155,7 @@ function part1( data ){
   let iterations = 6;
   while( iterations-- ){
     activeCubes = cycle( activeCubes, startX, nextX, startY, nextY, startZ, nextZ );
-    console.log( "activeCubes: " + activeCubeCount( activeCubes ) );
+//     console.log( "activeCubes: " + activeCubeCount( activeCubes ) );
     //   printCubes( activeCubes );
     --startX;
     --startY;
@@ -215,7 +215,7 @@ function part2( data ){
   let iterations = 6;
   while( iterations-- ){
     activeCubes = cycleW( activeCubes, startX, nextX, startY, nextY, startZ, nextZ, startW, nextW );
-    console.log( "activeCubes: " + activeCubeCount( activeCubes ) );
+//     console.log( "activeCubes: " + activeCubeCount( activeCubes ) );
     //   printCubes( activeCubes );
     --startX;
     --startY;
