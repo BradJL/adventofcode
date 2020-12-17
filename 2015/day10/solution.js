@@ -40,23 +40,24 @@ function lookAndSay( data, iterations ){
     newData = "";
   }
   let finalString = data.toString().replace(/,/g,'');
-  log( finalString );
-  return finalString.length;
+//   log( finalString );
+//   return finalString.length;
+  return finalString;
 }
 
 function part1( data ){
   return lookAndSay( data, 40 );
 }
 function part2( data ){
-  return lookAndSay( data, 50 );
+  return lookAndSay( data, 10 );
 }
 
 function readFile(filePath){
   $.get( filePath, function( data ) {
     $('#input span').text('(Bytes: ' + (data.length) + ')');
     let part1Answer = part1( data );
-    $('#answer span').text( part1Answer );
-    let part2Answer = part2( data );
+    $('#answer span').text( part1Answer.length );
+    let part2Answer = part2( part1Answer );
     $('#answer2 span').text( part2Answer );
   });
 }
