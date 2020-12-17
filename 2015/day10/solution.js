@@ -15,8 +15,25 @@ function log( what ){
 }
   
 function part1( data ){
-  data = data.trim().split(/\r?\n/);
-  return 0;
+  let retVal = "";
+  data = data.trim().split('');
+  let count = 0;
+  let lastChar = '';
+  data.forEach(function(char,index,array){
+    if( lastChar == '' ){
+      ++count;
+      lastChar = char;
+    } else {
+      if( char == lastChar ){
+        ++count
+      } else {
+        retVal += count + lastChar;
+        lastChar = char;
+        count = 1;
+      }
+    }
+  });
+  return retVal;
 }
 
 function part2( data ){
