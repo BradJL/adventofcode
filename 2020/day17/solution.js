@@ -1,5 +1,5 @@
 var createBox = function( x, y, z, scene ){
-  let box =  BABYLON.MeshBuilder.CreateBox("x"+x+"y"+y+"z"+z, {height: 1, width: 1, depth: 1, wrap: true}, scene);
+  let box =  BABYLON.MeshBuilder.CreateBox("x"+x+"y"+y+"z"+z, {height: .1, width: .1, depth: .1, wrap: true}, scene);
   box.position = new BABYLON.Vector3(x,y,z);
   box.visibility = 1.0;
   return box;
