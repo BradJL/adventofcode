@@ -31,7 +31,8 @@ function part1( data ){
         if( char == lastChar ){
           ++count
         } else {
-          newData += count + lastChar;
+          newData += count;
+          newData += lastChar;
           lastChar = char;
           count = 1;
         }
