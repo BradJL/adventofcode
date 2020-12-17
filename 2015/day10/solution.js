@@ -43,7 +43,7 @@ function part1( data ){
     data = newData.split('');
     newData = "";
   }
-  return data;
+  return data.toString();
 }
 
 function part2( data ){
