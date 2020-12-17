@@ -11,17 +11,20 @@ const createScene =  (engine, canvas) => {
     camera.attachControl(canvas, true);
     const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0));
 //     const box = BABYLON.MeshBuilder.CreateBox("box", {});
-    const box = createBox( .6, 0, 0, scene );
     return scene;
 }
 
-function visualize(){
+function visualize( objects ){
   var canvas = document.getElementById("visualization");
   // var ctx = canvas.getContext("2d");
   // var canvas2 = document.getElementById("visualization2");
   // var ctx2 = canvas2.getContext("2d");  
   var engine = new BABYLON.Engine(canvas, true); // Generate the BABYLON 3D engine
   var scene = createScene(engine, canvas); //Call the createScene function
+  var box;
+  objects.forEach( function(value,index,array){
+    box = createBox( value[0], value[1], value[2], scene );
+  });
   engine.runRenderLoop(function () {
     scene.render();
   });
