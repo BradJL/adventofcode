@@ -15,7 +15,7 @@ function initialize(){
   var ctx = canvas.getContext("2d");
   // var canvas2 = document.getElementById("visualization2");
   // var ctx2 = canvas2.getContext("2d");  
-//   var engine = new BABYLON.Engine(canvas, true); // Generate the BABYLON 3D engine
+  var engine = new BABYLON.Engine(canvas, true); // Generate the BABYLON 3D engine
 //   var scene = createScene(); //Call the createScene function
 //   engine.runRenderLoop(function () {
 //     scene.render();
