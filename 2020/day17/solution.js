@@ -22,8 +22,13 @@ function visualize( objects ){
   var engine = new BABYLON.Engine(canvas, true); // Generate the BABYLON 3D engine
   var scene = createScene(engine, canvas); //Call the createScene function
   var box;
+  let redMat = new BABYLON.StandardMaterial("redMat", scene);
+  redMat.backFaceCulling = true;
+  redMat.emissiveColor = new BABYLON.Color3(0.5, 0.5, 0.5);
+  redMat.diffuseTexture.hasAlpha = true;
   objects.forEach( function(value,index,array){
     box = createBox( (value[0]-11)/15, (value[1]-11)/15, value[2]/15, scene );
+    box.material = redMat;
   });
   engine.runRenderLoop(function () {
     scene.render();
