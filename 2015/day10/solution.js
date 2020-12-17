@@ -31,13 +31,13 @@ function part1( data ){
         if( char == lastChar ){
           ++count
         } else {
-          newData += count;
-          newData += lastChar;
+          newData += count + lastChar;
           lastChar = char;
           count = 1;
         }
       }
     });
+    newData += count + lastChar
     data = newData;
   }
   return data;
