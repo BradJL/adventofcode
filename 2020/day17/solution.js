@@ -37,21 +37,6 @@ function visualize( objects ){
 function initialize(){
   $('#answer span').text('Calculating...');
   $('#answer2 span').text('Calculating...');
-  
-  let objects = [ [ 6, 7, 5 ],
-                  [ 8, 8, 5 ],
-                  [ 7, 9, 5 ],
-                  [ 6, 7, 6 ],
-                  [ 8, 7, 6 ],
-                  [ 7, 8, 6 ],
-                  [ 8, 8, 6 ],
-                  [ 7, 9, 6 ],
-                  [ 6, 7, 7 ],
-                  [ 8, 8, 7 ],
-                  [ 7, 9, 7 ]
-                ]
-
-  visualize( objects );
 }
 
 
@@ -211,6 +196,20 @@ function part1( data ){
     ++nextY;
     ++nextZ;
   }
+
+  let objects = [ [ 6, 7, 5 ],
+                [ 8, 8, 5 ],
+                [ 7, 9, 5 ],
+                [ 6, 7, 6 ],
+                [ 8, 7, 6 ],
+                [ 7, 8, 6 ],
+                [ 8, 8, 6 ],
+                [ 7, 9, 6 ],
+                [ 6, 7, 7 ],
+                [ 8, 8, 7 ],
+                [ 7, 9, 7 ]
+              ]
+  visualize( objects );
 
   return activeCubeCount( activeCubes );
 }
