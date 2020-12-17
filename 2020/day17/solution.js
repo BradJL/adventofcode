@@ -1,7 +1,7 @@
-var createBox = function( x, y, z, scene ){
+var createBox = function( x, y, z, visibility, scene ){
   let box =  BABYLON.MeshBuilder.CreateBox("x"+x+"y"+y+"z"+z, {height: .1, width: .1, depth: .1, wrap: true}, scene);
   box.position = new BABYLON.Vector3(x,y,z);
-  box.visibility = 0.5;
+  box.visibility = visibility;
   return box;
 }
     
@@ -41,15 +41,15 @@ function visualize( objects ){
   redMat.ambientColor = new BABYLON.Color3(1.0, 1.0, 1.0);
   let greenMat = new BABYLON.StandardMaterial("redMat", scene);
   greenMat.backFaceCulling = true;
-  greenMat.emissiveColor = new BABYLON.Color3(0.0, 0.5, 0.0);
+  greenMat.emissiveColor = new BABYLON.Color3(0.0, 0.0, 0.0);
   greenMat.specularColor = new BABYLON.Color3(1.0, 1.0, 1.0);
   greenMat.ambientColor = new BABYLON.Color3(1.0, 1.0, 1.0);
   objects.forEach( function(value,index,array){
-    box = createBox( (value[0]-10)/15, (value[1]-10)/15, value[2]/15, scene );
+    box = createBox( (value[0]-10)/15, (value[1]-10)/15, value[2]/15, 0.6, scene );
     box.material = redMat;
   });
   objects.forEach( function(value,index,array){
-    box = createBox( 10+(value[0]-10)/15, 10+(value[1]-10)/15, value[2]/15, scene );
+    box = createBox( 10+(value[0]-10)/15, 10+(value[1]-10)/15, value[2]/15, 1.0, scene );
     box.material = greenMat;
   });
   engine.runRenderLoop(function () {
