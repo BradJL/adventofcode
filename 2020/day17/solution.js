@@ -2,8 +2,8 @@ function initialize(){
   $('#answer span').text('Calculating...');
   $('#answer2 span').text('Calculating...');
   
-  // var canvas = document.getElementById("visualization");
-  // var ctx = canvas.getContext("2d");
+  var canvas = document.getElementById("visualization");
+  var ctx = canvas.getContext("2d");
   // var canvas2 = document.getElementById("visualization2");
   // var ctx2 = canvas2.getContext("2d");  
 }
