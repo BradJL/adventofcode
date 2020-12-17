@@ -23,7 +23,7 @@ function visualize( objects ){
   var scene = createScene(engine, canvas); //Call the createScene function
   var box;
   objects.forEach( function(value,index,array){
-    box = createBox( value[0], value[1], value[2], scene );
+    box = createBox( value[0]/15, value[1]/15, value[2]/15, scene );
   });
   engine.runRenderLoop(function () {
     scene.render();
@@ -37,7 +37,21 @@ function visualize( objects ){
 function initialize(){
   $('#answer span').text('Calculating...');
   $('#answer2 span').text('Calculating...');
-  visualize();
+  
+  let objects = [ [ 6, 7, 5 ],
+                  [ 8, 8, 5 ],
+                  [ 7, 9, 5 ],
+                  [ 6, 7, 6 ],
+                  [ 8, 7, 6 ],
+                  [ 7, 8, 6 ],
+                  [ 8, 8, 6 ],
+                  [ 7, 9, 6 ],
+                  [ 6, 7, 7 ],
+                  [ 8, 8, 7 ],
+                  [ 7, 9, 7 ]
+                ]
+
+  visualize( objects );
 }
 
 
