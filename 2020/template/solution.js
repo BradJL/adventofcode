@@ -46,30 +46,18 @@ function initialize(){
 }
 
 // const fs = require('fs').promises;
-// async function readFile(filePath){
-//   try {
-//     const constData = await fs.readFile(filePath);
-//     let part1Answer = part1( constData, 'a' );
-//     console.log( "Part 1 answer: " + part1Answer );
-
-//     let part2Answer = part2( constData, 'a', part1Answer );
-//     console.log( "Part 2 answer: " + part2Answer );
-//   } catch (error) {
-//     console.error(`Got an error trying to read the file: ${error.message}`);
-//   }
-// }
 
 function log( what ){
   //console.log( what );
 }
   
-function part1( data, wire ){
-  data = data.toString().trim().split(/\r?\n/);
+function part1( data ){
+  data = data.trim().split(/\r?\n/);
   return 0;
 }
 
-function part2( data, wire, part1Answer ){
-  data = data.toString().trim().split(/\r?\n/);
+function part2( data ){
+  data = data.trim().split(/\r?\n/);
 
   return 0;
 }
@@ -83,6 +71,18 @@ function readFile(filePath){
     $('#answer2 span').text( part2Answer );
   });
 }
+// async function readFile(filePath){
+//   try {
+//     const constData = await fs.readFile(filePath);
+//     let part1Answer = part1( constData.toString() );
+//     console.log( "Part 1 answer: " + part1Answer );
+
+//     let part2Answer = part2( constData.toString() );
+//     console.log( "Part 2 answer: " + part2Answer );
+//   } catch (error) {
+//     console.error(`Got an error trying to read the file: ${error.message}`);
+//   }
+// }
 
 initialize();
-readFile('input.txt');
+readFile('input1.txt');
