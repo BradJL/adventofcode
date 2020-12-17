@@ -14,7 +14,7 @@ function log( what ){
   //console.log( what );
 }
   
-function part1( data ){
+function lookAndSay( data ){
   let newData = "";
   data = data.trim().split('');
   console.log( "data Array: " + data );
@@ -48,10 +48,11 @@ function part1( data ){
   return finalString.length;
 }
 
+function part1( data ){
+  return lookAndSay( data, 40 );
+}
 function part2( data ){
-  data = data.trim().split(/\r?\n/);
-
-  return 0;
+  return lookAndSay( data, 50 );
 }
 
 function readFile(filePath){
