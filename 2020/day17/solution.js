@@ -20,7 +20,7 @@ const createScene =  (engine, canvas1, canvas2) => {
   return scene;
 }
 
-function visualize( objects ){
+function visualize( part1, part2 ){
   var canvas = document.createElement("canvas");
   canvas.height = 600;
   canvas.width = 600;
@@ -44,11 +44,11 @@ function visualize( objects ){
   greenMat.emissiveColor = new BABYLON.Color3(0.0, 0.0, 0.0);
   greenMat.specularColor = new BABYLON.Color3(1.0, 1.0, 1.0);
   greenMat.ambientColor = new BABYLON.Color3(1.0, 1.0, 1.0);
-  objects.forEach( function(value,index,array){
+  part1.forEach( function(value,index,array){
     box = createBox( (value[0]-10)/15, (value[1]-10)/15, value[2]/15, 0.6, scene );
     box.material = redMat;
   });
-  objects.forEach( function(value,index,array){
+  part2.forEach( function(value,index,array){
     box = createBox( -100+(value[0]-10)/15, -100+(value[1]-10)/15, -100+value[2]/15, 1.0, scene );
     box.material = greenMat;
   });
@@ -239,18 +239,6 @@ function part1( data ){
     ++nextZ;
   }
 
-//   let objects = [ [ 6, 7, 5 ],
-//                 [ 8, 8, 5 ],
-//                 [ 7, 9, 5 ],
-//                 [ 6, 7, 6 ],
-//                 [ 8, 7, 6 ],
-//                 [ 7, 8, 6 ],
-//                 [ 8, 8, 6 ],
-//                 [ 7, 9, 6 ],
-//                 [ 6, 7, 7 ],
-//                 [ 8, 8, 7 ],
-//                 [ 7, 9, 7 ]
-//               ];
   return activeCubes;
 }
 
