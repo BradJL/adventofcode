@@ -14,11 +14,10 @@ function log( what ){
   //console.log( what );
 }
   
-function lookAndSay( data ){
+function lookAndSay( data, iterations ){
   let newData = "";
   data = data.trim().split('');
   console.log( "data Array: " + data );
-  let iterations = 50;
   while( iterations-- ){
     let count = 0;
     let lastChar = '';
