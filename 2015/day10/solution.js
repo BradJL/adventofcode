@@ -18,7 +18,7 @@ function part1( data ){
   let newData = "";
   data = data.trim().split('');
   console.log( "data Array: " + data );
-  let iterations = 40;
+  let iterations = 5;
   while( iterations-- ){
     let count = 0;
     let lastChar = '';
@@ -76,4 +76,4 @@ function readFile(filePath){
 // }
 
 initialize();
-readFile('input.txt');
+readFile('input1.txt');
