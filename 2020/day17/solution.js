@@ -22,7 +22,7 @@ const createScene =  (engine, canvas1, canvas2) => {
 
 function visualize( objects ){
   var canvas = document.createElement("canvas");
-  canvas.height = 1200;
+  canvas.height = 600;
   canvas.width = 600;
   var canvas1 = document.getElementById("visualization");
   var canvas2 = document.getElementById("visualization2");
