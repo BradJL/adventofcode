@@ -43,8 +43,9 @@ function part1( data ){
     data = newData.split('');
     newData = "";
   }
-  console.log( data.toString() );
-  return data.toString().length;
+  let finalString = data.toString().replace(/,/g,'');
+  console.log( finalString );
+  return finalString.length;
 }
 
 function part2( data ){
