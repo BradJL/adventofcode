@@ -9,7 +9,7 @@ const createScene =  (engine, canvas1, canvas2) => {
   const scene = new BABYLON.Scene(engine);
   scene.clearColor = new BABYLON.Color3(0.0, 0.7, 0.0);
   const camera = new BABYLON.ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 2.5, 3, new BABYLON.Vector3(0, 0, 0));
-  const camera2 = new BABYLON.ArcRotateCamera("camera2", -Math.PI / 2, Math.PI / 2.5, 3, new BABYLON.Vector3(10, 10, 10));
+  const camera2 = new BABYLON.ArcRotateCamera("camera2", -Math.PI / 2, Math.PI / 2.5, 3, new BABYLON.Vector3(-1, -1, -1));
   camera.attachControl(canvas1, true);
   //camera2.attachControl(canvas2, true);
   engine.registerView(canvas1);
@@ -48,10 +48,17 @@ function visualize( objects ){
     box = createBox( (value[0]-10)/15, (value[1]-10)/15, value[2]/15, 0.6, scene );
     box.material = redMat;
   });
-  objects.forEach( function(value,index,array){
-    box = createBox( 10+(value[0]-10)/15, 10+(value[1]-10)/15, value[2]/15, 1.0, scene );
-    box.material = greenMat;
-  });
+//   objects.forEach( function(value,index,array){
+//     box = createBox( 10+(value[0]-10)/15, 10+(value[1]-10)/15, value[2]/15, 1.0, scene );
+//     box.material = greenMat;
+//   });
+  
+  let box = createBox( 1, 1, 1, 1.0, scene );
+  box.material = greenMat;
+  box = createBox( 2, 2, 2, 1.0, scene );
+  box = createBox( -1, -1, -1, 1.0, scene );
+  box.material = greenMat;
+  
   engine.runRenderLoop(function () {
     scene.render();
   });
