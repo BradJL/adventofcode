@@ -11,7 +11,7 @@ const createScene =  (engine, canvas1, canvas2) => {
   const camera = new BABYLON.ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 2.5, 3, new BABYLON.Vector3(0, 0, 0));
   const camera2 = new BABYLON.ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 2.5, 3, new BABYLON.Vector3(0, 0, 0));
   camera.attachControl(canvas1, true);
-  camera2.attachControl(canvas2, true);
+//   camera2.attachControl(canvas2, true);
   engine.registerView(canvas1);
   engine.registerView(canvas2, camera2);
   const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0));
