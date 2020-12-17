@@ -24,9 +24,9 @@ function visualize( objects ){
   var box;
   let redMat = new BABYLON.StandardMaterial("redMat", scene);
   redMat.backFaceCulling = true;
-  redMat.emissiveColor = new BABYLON.Color3(0.75, 0.0, 0.0);
+  redMat.emissiveColor = new BABYLON.Color3(0.5, 0.0, 0.0);
   objects.forEach( function(value,index,array){
-    box = createBox( (value[0]-11)/15, (value[1]-11)/15, value[2]/15, scene );
+    box = createBox( (value[0]-10)/15, (value[1]-10)/15, value[2]/15, scene );
     box.material = redMat;
   });
   engine.runRenderLoop(function () {
