@@ -18,7 +18,7 @@ function part1( data ){
   let newData = "";
   data = data.trim().split('');
   console.log( "data Array: " + data );
-  let iterations = 1;
+  let iterations = 5;
   while( iterations-- ){
     let count = 0;
     let lastChar = '';
@@ -36,6 +36,7 @@ function part1( data ){
           count = 1;
         }
       }
+      console.log( newData );
     });
     newData += count + lastChar
     data = newData;
