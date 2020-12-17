@@ -45,20 +45,20 @@ function lookAndSay( data, iterations ){
   return finalString;
 }
 
-function part1( data ){
-  return lookAndSay( data, 40 );
-}
-function part2( data ){
-  return lookAndSay( data, 10 );
-}
+// function part1( data ){
+//   return lookAndSay( data, 40 );
+// }
+// function part2( data ){
+//   return lookAndSay( data, 10 );
+// }
 
 function readFile(filePath){
   $.get( filePath, function( data ) {
     $('#input span').text('(Bytes: ' + (data.length) + ')');
-    let part1Answer = part1( data );
+    let part1Answer = lookAndSay( data, 40 );
     $('#answer span').text( part1Answer.length );
-    let part2Answer = part2( part1Answer );
-    $('#answer2 span').text( part2Answer );
+    let part2Answer = lookAndSay( part1Answer, 10 );
+    $('#answer2 span').text( part2Answer.length );
   });
 }
 // async function readFile(filePath){
