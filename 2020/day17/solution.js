@@ -39,9 +39,18 @@ function visualize( objects ){
   redMat.emissiveColor = new BABYLON.Color3(0.6, 0.0, 0.0);
   redMat.specularColor = new BABYLON.Color3(1.0, 1.0, 1.0);
   redMat.ambientColor = new BABYLON.Color3(1.0, 1.0, 1.0);
+  let greenMat = new BABYLON.StandardMaterial("redMat", scene);
+  greenMat.backFaceCulling = true;
+  greenMat.emissiveColor = new BABYLON.Color3(0.0, 0.5, 0.0);
+  greenMat.specularColor = new BABYLON.Color3(1.0, 1.0, 1.0);
+  greenMat.ambientColor = new BABYLON.Color3(1.0, 1.0, 1.0);
   objects.forEach( function(value,index,array){
     box = createBox( (value[0]-10)/15, (value[1]-10)/15, value[2]/15, scene );
     box.material = redMat;
+  });
+  objects.forEach( function(value,index,array){
+    box = createBox( 10+(value[0]-10)/15, 10+(value[1]-10)/15, (value[2]/15, scene );
+    box.material = greenMat;
   });
   engine.runRenderLoop(function () {
     scene.render();
