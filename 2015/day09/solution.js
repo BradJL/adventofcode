@@ -89,7 +89,7 @@ function part1( data, wire ){
   }
 
   sumsSet = (Array.from(sumsSet)).sort(function(a, b){return a-b});
-  console.log( sumsSet );
+  log( sumsSet );
 
   return [ sumsSet[0], sumsSet[ sumsSet.length - 1 ] ];
 }
