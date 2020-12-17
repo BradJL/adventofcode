@@ -49,7 +49,7 @@ function visualize( part1, part2 ){
     box.material = redMat;
   });
   part2.forEach( function(value,index,array){
-    box = createBox( -100+(value[0]-10)/15, -100+(value[1]-10)/15, -100+value[2]/15, 0.5, scene );
+    box = createBox( -100+(value[0]-10)/15, -100+(value[1]-10)/15, -100+value[2]/15, 0.05, scene );
     box.material = greenMat;
   });
   
