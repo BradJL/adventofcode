@@ -88,6 +88,13 @@ function getActiveNeighborsW( activeCubes, x, y, z, w ){
     return sum;
   }
   
+function getCubeCoords( activeCubes ){
+  let cubes = [];
+  activeCubes.forEach(function(value,index,array){
+    cubes.push( revCoords( index ) );
+  });
+  return cubes;
+}
 function printCubes( activeCubes ){
   activeCubes.forEach(function(value,index,array){
     console.log( revCoords( index ));
@@ -197,18 +204,19 @@ function part1( data ){
     ++nextZ;
   }
 
-  let objects = [ [ 6, 7, 5 ],
-                [ 8, 8, 5 ],
-                [ 7, 9, 5 ],
-                [ 6, 7, 6 ],
-                [ 8, 7, 6 ],
-                [ 7, 8, 6 ],
-                [ 8, 8, 6 ],
-                [ 7, 9, 6 ],
-                [ 6, 7, 7 ],
-                [ 8, 8, 7 ],
-                [ 7, 9, 7 ]
-              ]
+//   let objects = [ [ 6, 7, 5 ],
+//                 [ 8, 8, 5 ],
+//                 [ 7, 9, 5 ],
+//                 [ 6, 7, 6 ],
+//                 [ 8, 7, 6 ],
+//                 [ 7, 8, 6 ],
+//                 [ 8, 8, 6 ],
+//                 [ 7, 9, 6 ],
+//                 [ 6, 7, 7 ],
+//                 [ 8, 8, 7 ],
+//                 [ 7, 9, 7 ]
+//               ];
+  let objects = getCubeCoords( activeCubes );
   visualize( objects );
 
   return activeCubeCount( activeCubes );
