@@ -23,7 +23,7 @@ function part1( data ){
     let count = 0;
     let lastChar = '';
     data.forEach(function(char,index,array){
-      console.log( "next: " + char );
+//       console.log( "next: " + char );
       if( lastChar == '' ){
         ++count;
         lastChar = char;
@@ -36,14 +36,15 @@ function part1( data ){
           count = 1;
         }
       }
-      console.log( newData );
+      //console.log( newData );
     });
     newData += count + lastChar
-    console.log( newData );
+    //console.log( newData );
     data = newData.split('');
     newData = "";
   }
-  return data.toString();
+  console.log( data.toString() );
+  return data.toString().length;
 }
 
 function part2( data ){
