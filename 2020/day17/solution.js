@@ -1,4 +1,4 @@
-const createScene =  () => {
+const createScene =  (engine) => {
     const scene = new BABYLON.Scene(engine);
     const camera = new BABYLON.ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 2.5, 3, new BABYLON.Vector3(0, 0, 0));
     camera.attachControl(canvas, true);
@@ -16,7 +16,7 @@ function initialize(){
   // var canvas2 = document.getElementById("visualization2");
   // var ctx2 = canvas2.getContext("2d");  
   var engine = new BABYLON.Engine(canvas, true); // Generate the BABYLON 3D engine
-  var scene = createScene(); //Call the createScene function
+  var scene = createScene(engine); //Call the createScene function
   engine.runRenderLoop(function () {
     scene.render();
   });
