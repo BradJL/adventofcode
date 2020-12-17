@@ -17,12 +17,11 @@ function log( what ){
 function lookAndSay( data, iterations ){
   let newData = "";
   data = data.trim().split('');
-  console.log( "data Array: " + data );
+  log( "data Array: " + data );
   while( iterations-- ){
     let count = 0;
     let lastChar = '';
     data.forEach(function(char,index,array){
-//       console.log( "next: " + char );
       if( lastChar == '' ){
         ++count;
         lastChar = char;
@@ -35,15 +34,13 @@ function lookAndSay( data, iterations ){
           count = 1;
         }
       }
-      //console.log( newData );
     });
     newData += count + lastChar
-    //console.log( newData );
     data = newData.split('');
     newData = "";
   }
   let finalString = data.toString().replace(/,/g,'');
-  console.log( finalString );
+  log( finalString );
   return finalString.length;
 }
 
