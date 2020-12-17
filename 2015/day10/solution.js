@@ -15,25 +15,31 @@ function log( what ){
 }
   
 function part1( data ){
-  let retVal = "";
+  let newData = "";
   data = data.trim().split('');
-  let count = 0;
-  let lastChar = '';
-  data.forEach(function(char,index,array){
-    if( lastChar == '' ){
-      ++count;
-      lastChar = char;
-    } else {
-      if( char == lastChar ){
-        ++count
-      } else {
-        retVal += count + lastChar;
+  console.log( "data Array: " + data );
+  let iterations = 1;
+  while( iterations-- ){
+    let count = 0;
+    let lastChar = '';
+    data.forEach(function(char,index,array){
+      console.log( "next: " + char );
+      if( lastChar == '' ){
+        ++count;
         lastChar = char;
-        count = 1;
+      } else {
+        if( char == lastChar ){
+          ++count
+        } else {
+          newData += count + lastChar;
+          lastChar = char;
+          count = 1;
+        }
       }
-    }
-  });
-  return retVal;
+    });
+    data = newData;
+  }
+  return data;
 }
 
 function part2( data ){
