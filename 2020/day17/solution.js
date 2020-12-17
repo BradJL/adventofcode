@@ -23,7 +23,7 @@ function visualize( objects ){
   var scene = createScene(engine, canvas); //Call the createScene function
   var box;
   objects.forEach( function(value,index,array){
-    box = createBox( (value[0]-4)/15, value[1]/15, value[2]/15, scene );
+    box = createBox( (value[0]-8)/15, (value[1]-8)/15, value[2]/15, scene );
   });
   engine.runRenderLoop(function () {
     scene.render();
