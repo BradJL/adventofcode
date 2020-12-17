@@ -11,7 +11,7 @@ const createScene =  (engine, canvas) => {
     camera.attachControl(canvas, true);
     const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0));
 //     const box = BABYLON.MeshBuilder.CreateBox("box", {});
-    const box = createBox( 0, 0, 0, scene );
+    const box = createBox( .6, 0, 0, scene );
     return scene;
 }
 
