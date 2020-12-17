@@ -257,7 +257,7 @@ function part2( data ){
   
 //       let part2Answer = part2( constData.toString() );
 //       console.log( "Part 2 answer: " + part2Answer );
-//     } catch (error) {
+//     } catch (error)
 //       console.error(`Got an error trying to read the file: ${error.message}`);
 //     }
 //   }
@@ -271,5 +271,5 @@ function readFile(filePath){
   });
 }
 
-// initialize();
+initialize();
 readFile('input.txt');
