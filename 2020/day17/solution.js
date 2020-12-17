@@ -1,9 +1,18 @@
+var createBox = function( column, row, scene ){
+  let box =  BABYLON.MeshBuilder.CreateBox("row"+row+"col"+column+"rot"+rotation, {height: 1, width: 1, depth: 1, wrap: true}, scene);
+  box.position = new BABYLON.Vector3(0, 0, 0);
+  //box.addRotation(0, rotation, 0);
+  box.visibility = 1.0;
+  return box;
+}
+    
 const createScene =  (engine, canvas) => {
     const scene = new BABYLON.Scene(engine);
     const camera = new BABYLON.ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 2.5, 3, new BABYLON.Vector3(0, 0, 0));
     camera.attachControl(canvas, true);
     const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0));
-    const box = BABYLON.MeshBuilder.CreateBox("box", {});
+//     const box = BABYLON.MeshBuilder.CreateBox("box", {});
+    const box = createBox( 0, 0, scene );
     return scene;
 }
 
