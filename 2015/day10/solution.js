@@ -9,15 +9,10 @@ function initialize(){
 }
 
 // const fs = require('fs').promises;
-
-function log( what ){
-  //console.log( what );
-}
   
 function lookAndSay( data, iterations ){
   let newData = "";
   data = data.trim().split('');
-  log( "data Array: " + data );
   while( iterations-- ){
     let count = 0;
     let lastChar = '';
@@ -39,18 +34,8 @@ function lookAndSay( data, iterations ){
     data = newData.split('');
     newData = "";
   }
-  let finalString = data.toString().replace(/,/g,'');
-//   log( finalString );
-//   return finalString.length;
-  return finalString;
+  return data.toString().replace(/,/g,'');
 }
-
-// function part1( data ){
-//   return lookAndSay( data, 40 );
-// }
-// function part2( data ){
-//   return lookAndSay( data, 10 );
-// }
 
 function readFile(filePath){
   $.get( filePath, function( data ) {
