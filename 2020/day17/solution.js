@@ -1,5 +1,5 @@
 var createBox = function( column, row, scene ){
-  let box =  BABYLON.MeshBuilder.CreateBox("row"+row+"col"+column+"rot"+rotation, {height: 1, width: 1, depth: 1, wrap: true}, scene);
+  let box =  BABYLON.MeshBuilder.CreateBox("row"+row+"col"+column, {height: 1, width: 1, depth: 1, wrap: true}, scene);
   box.position = new BABYLON.Vector3(0, 0, 0);
   //box.addRotation(0, rotation, 0);
   box.visibility = 1.0;
