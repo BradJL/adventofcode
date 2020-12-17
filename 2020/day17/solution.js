@@ -234,10 +234,7 @@ function part1( data ){
 //                 [ 8, 8, 7 ],
 //                 [ 7, 9, 7 ]
 //               ];
-  let objects = getCubeCoords( activeCubes );
-  visualize( objects );
-
-  return activeCubeCount( activeCubes );
+  return activeCubes;
 }
 
 function part2( data ){
@@ -299,7 +296,8 @@ function part2( data ){
     ++nextW;
   }
 
-  return activeCubeCount( activeCubes );
+//   return activeCubeCount( activeCubes );
+  return activeCubes;
 }
 
 // async function readFile(filePath){
@@ -318,9 +316,13 @@ function readFile(filePath){
   $.get( filePath, function( data ) {
     $('#input span').text('(Bytes: ' + (data.length) + ')');
     let part1Answer = part1( data );
-    $('#answer span').text( part1Answer );
+    $('#answer span').text( activeCubeCount( part1Answer ) );
     let part2Answer = part2( data );
-    $('#answer2 span').text( part2Answer );
+    $('#answer2 span').text( activeCubeCount( part2Answer ) );
+    
+    visualize( getCubeCoords( part1Answer ) );
+
+  return activeCubeCount( activeCubes );
   });
 }
 
