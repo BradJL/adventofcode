@@ -1,7 +1,6 @@
-var createBox = function( column, row, scene ){
+var createBox = function( x, y, z, scene ){
   let box =  BABYLON.MeshBuilder.CreateBox("row"+row+"col"+column, {height: 1, width: 1, depth: 1, wrap: true}, scene);
-  box.position = new BABYLON.Vector3(0, 0, 0);
-  //box.addRotation(0, rotation, 0);
+  box.position = new BABYLON.Vector3(x,y,z);
   box.visibility = 1.0;
   return box;
 }
@@ -12,7 +11,7 @@ const createScene =  (engine, canvas) => {
     camera.attachControl(canvas, true);
     const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0));
 //     const box = BABYLON.MeshBuilder.CreateBox("box", {});
-    const box = createBox( 0, 0, scene );
+    const box = createBox( 0, 0, 0, scene );
     return scene;
 }
 
