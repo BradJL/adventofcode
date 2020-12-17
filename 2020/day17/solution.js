@@ -330,8 +330,6 @@ function readFile(filePath){
     $('#answer2 span').text( activeCubeCount( part2Answer ) );
     
     visualize( getCubeCoords( part1Answer ) );
-
-  return activeCubeCount( activeCubes );
   });
 }
 
