@@ -95,7 +95,7 @@ function part1( data, wire ){
   sumsSet = (Array.from(sumsSet)).sort(function(a, b){return a-b});
   console.log( sumsSet );
 
-  return sumsSet[0];
+  return [ sumsSet[0]. sumsSet[ sumsSet.length - 1 ] ];
 }
 
 
@@ -116,9 +116,8 @@ function readFile(filePath){
   $.get( filePath, function( data ) {
     $('#input span').text('(Bytes: ' + (data.length) + ')');
     let part1Answer = part1( data );
-    $('#answer span').text( part1Answer );
-    let part2Answer = part2( data );
-    $('#answer2 span').text( part2Answer );
+    $('#answer span').text( part1Answer[0] );
+    $('#answer2 span').text( part1Answer[1] );
   });
 }
 
