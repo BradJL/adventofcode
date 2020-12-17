@@ -11,6 +11,7 @@ const createScene =  (engine, canvas1, canvas2) => {
   const camera = new BABYLON.ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 2.5, 3, new BABYLON.Vector3(0, 0, 0));
   const camera2 = new BABYLON.ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 2.5, 3, new BABYLON.Vector3(0, 0, 0));
   camera.attachControl(canvas1, true);
+  camera2.attachControl(canvas2, true);
   engine.registerView(canvas1);
   engine.registerView(canvas2, camera2);
   const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0));
@@ -27,7 +28,7 @@ function visualize( objects ){
   // var canvas2 = document.getElementById("visualization2");
   // var ctx2 = canvas2.getContext("2d");  
   var engine = new BABYLON.Engine(canvas, true);
-  engine.inputElement = canvas1);
+  engine.inputElement = canvas1;
   
   var scene = createScene(engine, canvas1, canvas2);
   var box;
