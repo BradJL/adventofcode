@@ -5,11 +5,14 @@ var createBox = function( x, y, z, scene ){
   return box;
 }
     
-const createScene =  (engine, canvas) => {
+const createScene =  (engine, canvas1, canvas2) => {
   const scene = new BABYLON.Scene(engine);
   scene.clearColor = new BABYLON.Color3(0.0, 0.7, 0.0);
   const camera = new BABYLON.ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 2.5, 3, new BABYLON.Vector3(0, 0, 0));
-  camera.attachControl(canvas, true);
+  const camera2 = new BABYLON.ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 2.5, 3, new BABYLON.Vector3(0, 0, 0));
+  camera.attachControl(canvas1, true);
+  engine.registerView(canvas1);
+  engine.registerView(canvas2), camera2);
   const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0));
   light.intensity = 0.25;
   //     const box = BABYLON.MeshBuilder.CreateBox("box", {});
@@ -17,12 +20,16 @@ const createScene =  (engine, canvas) => {
 }
 
 function visualize( objects ){
-  var canvas = document.getElementById("visualization");
+  var canvas = document.createElement("canvas");
+  var canvas1 = document.getElementById("visualization");
+  var canvas2 = document.getElementById("visualization2");
   // var ctx = canvas.getContext("2d");
   // var canvas2 = document.getElementById("visualization2");
   // var ctx2 = canvas2.getContext("2d");  
-  var engine = new BABYLON.Engine(canvas, true); // Generate the BABYLON 3D engine
-  var scene = createScene(engine, canvas); //Call the createScene function
+  var engine = new BABYLON.Engine(canvas, true);
+  engine.inputElement = canvas1);
+  
+  var scene = createScene(engine, canvas1, canvas2);
   var box;
   let redMat = new BABYLON.StandardMaterial("redMat", scene);
   redMat.backFaceCulling = true;
