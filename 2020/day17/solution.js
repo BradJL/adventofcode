@@ -48,13 +48,13 @@ function visualize( objects ){
     box = createBox( (value[0]-10)/15, (value[1]-10)/15, value[2]/15, 0.6, scene );
     box.material = redMat;
   });
-//   objects.forEach( function(value,index,array){
-//     box = createBox( 10+(value[0]-10)/15, 10+(value[1]-10)/15, value[2]/15, 1.0, scene );
-//     box.material = greenMat;
-//   });
+  objects.forEach( function(value,index,array){
+    box = createBox( -100+(value[0]-10)/15, -100+(value[1]-10)/15, -100+value[2]/15, 1.0, scene );
+    box.material = greenMat;
+  });
   
-  let box2 = createBox( -100, -100, -100, 1.0, scene );
-  box2.material = greenMat;
+//   let box2 = createBox( -100, -100, -100, 1.0, scene );
+//   box2.material = greenMat;
 //   box2 = createBox( 2, 2, 2, 1.0, scene );
 //   box2.material = greenMat;
 //   box2 = createBox( -1, -1, -1, 1.0, scene );
