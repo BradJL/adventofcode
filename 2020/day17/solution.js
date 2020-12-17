@@ -53,11 +53,12 @@ function visualize( objects ){
 //     box.material = greenMat;
 //   });
   
-  let box2 = createBox( 1, 1, 1, 1.0, scene );
+  let box2 = createBox( -1, -1, -1, 1.0, scene );
   box2.material = greenMat;
-  box2 = createBox( 2, 2, 2, 1.0, scene );
-  box2 = createBox( -1, -1, -1, 1.0, scene );
-  box2.material = greenMat;
+//   box2 = createBox( 2, 2, 2, 1.0, scene );
+//   box2.material = greenMat;
+//   box2 = createBox( -1, -1, -1, 1.0, scene );
+//   box2.material = greenMat;
   
   engine.runRenderLoop(function () {
     scene.render();
