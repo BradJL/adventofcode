@@ -6,12 +6,13 @@ var createBox = function( x, y, z, scene ){
 }
     
 const createScene =  (engine, canvas) => {
-    const scene = new BABYLON.Scene(engine);
-    const camera = new BABYLON.ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 2.5, 3, new BABYLON.Vector3(0, 0, 0));
-    camera.attachControl(canvas, true);
-    const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0));
+  const scene = new BABYLON.Scene(engine);
+  scene.clearColor = new BABYLON.Color3(0.0, 0.8, 0.0);
+  const camera = new BABYLON.ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 2.5, 3, new BABYLON.Vector3(0, 0, 0));
+  camera.attachControl(canvas, true);
+  const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0));
 //     const box = BABYLON.MeshBuilder.CreateBox("box", {});
-    return scene;
+  return scene;
 }
 
 function visualize( objects ){
@@ -25,8 +26,8 @@ function visualize( objects ){
   let redMat = new BABYLON.StandardMaterial("redMat", scene);
   redMat.backFaceCulling = true;
   redMat.emissiveColor = new BABYLON.Color3(0.5, 0.0, 0.0);
-  redMat.specularColor = new BABYLON.Color3(0.3, 0.3, 0.83);
-  redMat.ambientColor = new BABYLON.Color3(0.3, 0.3, 0.3);
+  redMat.specularColor = new BABYLON.Color3(0.1, 0.1, 0.1);
+  redMat.ambientColor = new BABYLON.Color3(0.1, 0.1, 0.1);
   objects.forEach( function(value,index,array){
     box = createBox( (value[0]-10)/15, (value[1]-10)/15, value[2]/15, scene );
     box.material = redMat;
