@@ -1,3 +1,12 @@
+const createScene =  () => {
+    const scene = new BABYLON.Scene(engine);
+    const camera = new BABYLON.ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 2.5, 3, new BABYLON.Vector3(0, 0, 0));
+    camera.attachControl(canvas, true);
+    const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0));
+    const box = BABYLON.MeshBuilder.CreateBox("box", {});
+    return scene;
+}
+
 function initialize(){
   $('#answer span').text('Calculating...');
   $('#answer2 span').text('Calculating...');
@@ -7,11 +16,16 @@ function initialize(){
   // var canvas2 = document.getElementById("visualization2");
   // var ctx2 = canvas2.getContext("2d");  
   var engine = new BABYLON.Engine(canvas, true); // Generate the BABYLON 3D engine
-  const scene = new BABYLON.Scene(engine);
-  const camera = new BABYLON.ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 2.5, 3, new BABYLON.Vector3(0, 0, 0), scene);
-  camera.attachControl(canvas, true);
-  const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
-  const box = BABYLON.MeshBuilder.CreateBox("box", {}, scene);}
+  var scene = createScene(); //Call the createScene function
+  engine.runRenderLoop(function () {
+    scene.render();
+  });
+  // Watch for browser/canvas resize events
+  window.addEventListener("resize", function () {
+    engine.resize();
+  });
+}
+
 
 // const fs = require('fs').promises;
 
