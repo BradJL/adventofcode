@@ -39,7 +39,7 @@ function checkPassword( password ){
     console.log( "invalid: has [iol]" );
     return false;
   }
-  if( !password.match(/(.)\1(.)\2/) ){
+  if( !password.match(/(.)\1.*(.)\2/) ){
     console.log( "invalid: needs 2 matches" );
     return false;
   }
