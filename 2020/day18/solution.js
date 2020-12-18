@@ -67,15 +67,15 @@ function evaluate2( line ){
   line = line.replace(/^\(/,'').replace(/\)$/,'');
   console.log( "Removed outside parens " + line );
 //   let plusOrMult = line.match(/[0-9]+ [+\*] [0-9]+/);
-  let plusOrMult = line.match(/[0-9]+ [+] [0-9]+/);
+  let plusOrMult = line.match(/[0-9]+ [\+] [0-9]+/);
   //iterations = 2;
   while( plusOrMult ){//&& iterations--){
     plusOrMult = plusOrMult[0];
     console.log( "Grabbed " + plusOrMult );
     let lOpR = plusOrMult.split(/ /g);
-      line = line.replace( plusOrMult, ""+(parseInt(lOpR[0]) + parseInt(lOpR[2])) );
+    line = line.replace( plusOrMult, ""+(parseInt(lOpR[0]) + parseInt(lOpR[2])) );
 //       line = line.replace( plusOrMult, ""+(parseInt(lOpR[0]) * parseInt(lOpR[2])) );
-    plusOrMult = line.match(/[0-9]+ [+] [0-9]+/);
+    plusOrMult = line.match(/[0-9]+ [\+] [0-9]+/);
   }
   plusOrMult = line.match(/[0-9]+ [\*] [0-9]+/);
   //iterations = 2;
@@ -83,7 +83,7 @@ function evaluate2( line ){
     plusOrMult = plusOrMult[0];
     console.log( "Grabbed " + plusOrMult );
     let lOpR = plusOrMult.split(/ /g);
-      line = line.replace( plusOrMult, ""+(parseInt(lOpR[0]) * parseInt(lOpR[2])) );
+    line = line.replace( plusOrMult, ""+(parseInt(lOpR[0]) * parseInt(lOpR[2])) );
     plusOrMult = line.match(/[0-9]+ [\*] [0-9]+/);
   }
   console.log( "End of line: " + line );
