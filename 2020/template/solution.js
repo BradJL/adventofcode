@@ -85,4 +85,4 @@ function readFile(filePath){
 // }
 
 initialize();
-readFile('input1.txt');
+readFile('input.txt');
