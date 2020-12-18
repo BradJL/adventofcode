@@ -66,6 +66,7 @@ function simulate( grid ){
       break;
     }
   }
+  console.log( grid + " ---> " + newGrid );
   return newGrid;
 }
 
