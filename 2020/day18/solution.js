@@ -60,6 +60,7 @@ function part1( data ){
     line = "(" + line + ")";
     console.log( "Changed to " + line );
     sum += evaluate( line );
+    console.log( "SUM is now " + sum )
   });
   
   return sum;
