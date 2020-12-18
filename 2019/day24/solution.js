@@ -18,6 +18,24 @@ function getBiodiversityRating( grid ){
   return parseInt(grid, 2);
 }
 
+function getAdjacentBugs( grid, position ){ // pos: 0 - 24
+  let adjacent = 0;
+  if( pos >= 5 && parseInt(grid.charAt(position-5)) ){
+    ++adjacent;
+  }
+  if( pos < 20 && parseInt(grid.charAt(position+5)) ){
+    ++adjacent;
+  }
+  if( pos % 5 && parseInt(grid.charAt(position-1)) ){
+    ++adjacent;
+  }
+  if( (pos+1) % 5 && parseInt(grid.charAt(position+1)) ){
+    ++adjacent;
+  }
+  console.log( adjacent );
+  return adjacent;
+}
+
 function setUpGrid( data ){
   data = data.trim().replace(/[\r\n]/g,'').replace(/\./g,'0').replace(/#/g,'1');
   data = data.split("").reverse().join("")
@@ -33,10 +51,14 @@ function part2( data ){
 function readFile(filePath){
   $.get( filePath, function( data ) {
     $('#input span').text('(Bytes: ' + (data.length) + ')');
-    let part1Answer = setUpGrid( data );
+    let grid = setUpGrid( data );
+    let part1Answer = grid;
     $('#answer span').text( part1Answer );
-    data = ".....\n.....\n.....\n#....\n.#...";
-    let part2Answer = getBiodiversityRating( setUpGrid( data ) );
+//     data = ".....\n.....\n.....\n#....\n.#...";
+    let part2Answer = getBiodiversityRating( grid );
+    for( let i = 0; i < 25; ++i ){
+      getAdjacentBugs( grid, i );
+    }
     $('#answer2 span').text( part2Answer );
   });
 }
