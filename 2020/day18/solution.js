@@ -10,10 +10,6 @@ function initialize(){
 
 // const fs = require('fs').promises;
 
-function log( what ){
-  //console.log( what );
-}
-
 function evaluate( line ){
   console.log( "Eval " + line );
   let parenLine = line.match(/\([^()]+\)/)[0];
@@ -126,8 +122,8 @@ function readFile(filePath){
 //     data += '\n';
 //     data += "5 + (8 * 3 + 9 + 3 * 4 * 3)"; // 1445
     $('#input span').text('(Bytes: ' + (data.length) + ')');
-//     let part1Answer = part1( data );
-//     $('#answer span').text( part1Answer );
+    let part1Answer = part1( data );
+    $('#answer span').text( part1Answer );
     let part2Answer = part2( data );
     $('#answer2 span').text( part2Answer );
   });
