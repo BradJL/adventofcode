@@ -15,7 +15,7 @@ function log( what ){
 }
   
 function part1( data ){
-  data = data.trim().replace(/[\r\n]g/,'').replace(/\./g,'0').replace(/#/g,'1');
+  data = data.trim().replace(/[\r\n]/g,'').replace(/\./g,'0').replace(/#/g,'1');
   data = data.split("").reverse().join("")
   return data;
 }
