@@ -33,6 +33,23 @@ function incrementString( string ){
   }
   return string + char;
 }
+
+function checkPassword( password ){
+  if( password.replace(/[iol]/g,'').length != password.length ){
+    console.log( "invalid: has [iol]" );
+    return false;
+  }
+  if( !password.match(/(.)\1(.)\2/) ){
+    console.log( "invalid: needs 2 matches" );
+    return false;
+  }
+  if( !password.match(/(abc|bcd|cde|def|efg|pqr|qrs|rst|stu|tuv|uvw|vwx|wxy|xyz)/) ){
+    console.log( "invalid: needs straight of 3" );
+    return false;
+  }
+  console.log( password + " is valid!" );
+  return true;
+}
   
 function part1( data ){
   data = data.trim();
@@ -42,7 +59,7 @@ function part1( data ){
 
 function part2( data ){
   data = data.trim().split(/\r?\n/);
-
+  
   return 0;
 }
 
