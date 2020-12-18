@@ -17,8 +17,8 @@ function log( what ){
 function evaluate( line ){
   console.log( "Eval " + line );
   let parenLine = line.match(/\([^()]+\)/)[0];
-  let iterations = 2;
-  while( parenLine.length != line.length && iterations--){
+  //let iterations = 2;
+  while( parenLine.length != line.length ){//&& iterations--){
     console.log( "Extraced " + parenLine );
     line = line.replace( parenLine, evaluate( parenLine ) );
     console.log( "Updated line to " + line );
@@ -28,8 +28,8 @@ function evaluate( line ){
   line = line.replace(/^\(/,'').replace(/\)$/,'');
   console.log( "Removed outside parens " + line );
   let plusOrMult = line.match(/[0-9]+ [+\*] [0-9]+/);
-  iterations = 2;
-  while( plusOrMult && iterations--){
+  //iterations = 2;
+  while( plusOrMult ){//&& iterations--){
     plusOrMult = plusOrMult[0];
     console.log( "Grabbed " + plusOrMult );
     let lOpR = plusOrMult.split(/ /g);
@@ -73,8 +73,8 @@ function part2( data ){
 
 function readFile(filePath){
   $.get( filePath, function( data ) {
-//     data = "2 * 3 + (4 * 5)";
-    data = "5 + (8 * 3 + 9 + 3 * 4 * 3)"
+    data = "2 * 3 + (4 * 5)";
+//     data = "5 + (8 * 3 + 9 + 3 * 4 * 3)"
     $('#input span').text('(Bytes: ' + (data.length) + ')');
     let part1Answer = part1( data );
     $('#answer span').text( part1Answer );
