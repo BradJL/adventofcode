@@ -15,8 +15,9 @@ function log( what ){
 }
   
 function part1( data ){
-  data = data.trim().split(/\r?\n/);
-  return 0;
+  data = data.trim().replace(/[\r\n]g/,'').replace(/\./g,'0').replace(/#/g,'1');
+  data = data.split("").reverse().join("")
+  return data;
 }
 
 function part2( data ){
@@ -48,4 +49,4 @@ function readFile(filePath){
 // }
 
 initialize();
-readFile('input.txt');
+readFile('input1.txt');
