@@ -15,7 +15,7 @@ function log( what ){
 }
   
 function getBiodiversityRating( grid ){
-  return parseInt(grid, 2);
+  return parseInt(grid.split("").reverse().join(""), 2);
 }
 
 function getAdjacentBugs( grid, pos ){ // pos: 0 - 24
@@ -38,7 +38,7 @@ function getAdjacentBugs( grid, pos ){ // pos: 0 - 24
 
 function setUpGrid( data ){
   data = data.trim().replace(/[\r\n]/g,'').replace(/\./g,'0').replace(/#/g,'1');
-  data = data.split("").reverse().join("")
+  //data = data.split("").reverse().join("");
   return data;
 }
 
