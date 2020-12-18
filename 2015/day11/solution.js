@@ -54,6 +54,11 @@ function checkPassword( password ){
 function part1( data ){
   data = data.trim();
 //   data += "zz";
+  checkPassword( "hijklmmn" );
+  checkPassword( "abbceffg" );
+  checkPassword( "abbcegjk" );
+  checkPassword( "abcdffaa" );
+  checkPassword( "ghjaabcc" );
   return data + " --> " + incrementString( data );
 }
 
