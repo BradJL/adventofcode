@@ -60,7 +60,7 @@ function part1( data ){
 //   checkPassword( "abcdffaa" );
 //   checkPassword( "ghjaabcc" );
 //   return data + " --> " + incrementString( data );
-  let data = incrementPassword( data );
+  data = incrementPassword( data );
   while( !checkPassword( data ) ){
     data = incrementPassword( data );
   }
