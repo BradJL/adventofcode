@@ -20,16 +20,16 @@ function getBiodiversityRating( grid ){
 
 function getAdjacentBugs( grid, pos ){ // pos: 0 - 24
   let adjacent = 0;
-  if( pos >= 5 && parseInt(grid.charAt(position-5)) ){
+  if( pos >= 5 && parseInt(grid.charAt(pos-5)) ){
     ++adjacent;
   }
-  if( pos < 20 && parseInt(grid.charAt(position+5)) ){
+  if( pos < 20 && parseInt(grid.charAt(pos+5)) ){
     ++adjacent;
   }
-  if( pos % 5 && parseInt(grid.charAt(position-1)) ){
+  if( pos % 5 && parseInt(grid.charAt(pos-1)) ){
     ++adjacent;
   }
-  if( (pos+1) % 5 && parseInt(grid.charAt(position+1)) ){
+  if( (pos+1) % 5 && parseInt(grid.charAt(pos+1)) ){
     ++adjacent;
   }
   console.log( adjacent );
