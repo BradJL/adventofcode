@@ -42,6 +42,33 @@ function setUpGrid( data ){
   return data;
 }
 
+function simulate( grid ){
+  let newGrid = "";
+  for( let i = 0; i < grid.length; ++i ){
+    switch( grid.charAt(i) ){
+    case '0':
+      switch( getAdjacentBugs( i ) ){
+        case 1:
+        case 2:
+          newGrid.push('1');
+          break;
+        default:
+          newGrid.push('0');
+          break;
+      }
+      break;
+    case '1':
+      if( getAdjacentBugs( i ) == 1 ){
+        newGrid.push('1');
+      } else {
+        newGrid.push('0');
+      }
+      break;
+    }
+  }
+  return newGrid;
+}
+
 function part2( data ){
   data = data.trim().split(/\r?\n/);
 
@@ -52,7 +79,7 @@ function readFile(filePath){
   $.get( filePath, function( data ) {
     $('#input span').text('(Bytes: ' + (data.length) + ')');
     let grid = setUpGrid( data );
-    let part1Answer = grid;
+    let part1Answer = simulate( grid );
     $('#answer span').text( part1Answer );
     data = ".....\n.....\n.....\n#....\n.#...";
     let part2Answer = getBiodiversityRating( setUpGrid( data ) );
