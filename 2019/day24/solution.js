@@ -14,7 +14,11 @@ function log( what ){
   //console.log( what );
 }
   
-function part1( data ){
+function getBiodiversityRating( grid ){
+  return parseInt(grid, 2);
+}
+
+function setUpGrid( data ){
   data = data.trim().replace(/[\r\n]/g,'').replace(/\./g,'0').replace(/#/g,'1');
   data = data.split("").reverse().join("")
   return data;
@@ -29,9 +33,10 @@ function part2( data ){
 function readFile(filePath){
   $.get( filePath, function( data ) {
     $('#input span').text('(Bytes: ' + (data.length) + ')');
-    let part1Answer = part1( data );
+    let part1Answer = setUpGrid( data );
     $('#answer span').text( part1Answer );
-    let part2Answer = part2( data );
+    data = ".....\n.....\n.....\n#....\n.#...";
+    let part2Answer = getBiodiversityRating( setUpGrid( data ) );
     $('#answer2 span').text( part2Answer );
   });
 }
