@@ -10,20 +10,21 @@ function initialize(){
 
 // const fs = require('fs').promises;
 
-function evaluate( line ){
+function evaluate( line, part ){
 //   console.log( "Eval " + line );
   let parenLine = line.match(/\([^()]+\)/)[0];
   //let iterations = 2;
   while( parenLine.length != line.length ){//&& iterations--){
 //     console.log( "Extraced " + parenLine );
-    line = line.replace( parenLine, evaluate( parenLine ) );
+    line = line.replace( parenLine, evaluate( parenLine, part ) );
 //     console.log( "Updated line to " + line );
     parenLine = line.match(/\([^()]+\)/)[0];
   }
 //   console.log( "Line now is just one parenthetical: " + line );
   line = line.replace(/^\(/,'').replace(/\)$/,'');
 //   console.log( "Removed outside parens " + line );
-  let plusOrMult = line.match(/[0-9]+ [+\*] [0-9]+/);
+  let plusOrMult;
+  plusOrMult = line.match(/[0-9]+ [+\*] [0-9]+/);
   //iterations = 2;
   while( plusOrMult ){//&& iterations--){
     plusOrMult = plusOrMult[0];
@@ -93,7 +94,7 @@ function part1( data ){
   data.forEach(function(line,index,array){
     line = "(" + line + ")";
 //     console.log( "Changed to " + line );
-    sum += evaluate( line );
+    sum += evaluate( line, 1 );
 //     console.log( "SUM is now " + sum )
   });
   
