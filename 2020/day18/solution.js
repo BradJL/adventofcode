@@ -119,8 +119,8 @@ function part2( data ){
 
 function readFile(filePath){
   $.get( filePath, function( data ) {
-    data = "1 + (2 * 3) + (4 * (5 + 6))"; // 51
-//     data = "2 * 3 + (4 * 5)"; // 46
+//     data = "1 + (2 * 3) + (4 * (5 + 6))"; // 51
+    data = "2 * 3 + (4 * 5)"; // 46
 //     data += "\n" + "5 + (8 * 3 + 9 + 3 * 4 * 3)"
     $('#input span').text('(Bytes: ' + (data.length) + ')');
 //     let part1Answer = part1( data );
