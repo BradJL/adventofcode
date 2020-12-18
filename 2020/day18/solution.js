@@ -11,63 +11,63 @@ function initialize(){
 // const fs = require('fs').promises;
 
 function evaluate( line ){
-  console.log( "Eval " + line );
+//   console.log( "Eval " + line );
   let parenLine = line.match(/\([^()]+\)/)[0];
   //let iterations = 2;
   while( parenLine.length != line.length ){//&& iterations--){
-    console.log( "Extraced " + parenLine );
+//     console.log( "Extraced " + parenLine );
     line = line.replace( parenLine, evaluate( parenLine ) );
-    console.log( "Updated line to " + line );
+//     console.log( "Updated line to " + line );
     parenLine = line.match(/\([^()]+\)/)[0];
   }
-  console.log( "Line now is just one parenthetical: " + line );
+//   console.log( "Line now is just one parenthetical: " + line );
   line = line.replace(/^\(/,'').replace(/\)$/,'');
-  console.log( "Removed outside parens " + line );
+//   console.log( "Removed outside parens " + line );
   let plusOrMult = line.match(/[0-9]+ [+\*] [0-9]+/);
   //iterations = 2;
   while( plusOrMult ){//&& iterations--){
     plusOrMult = plusOrMult[0];
-    console.log( "Grabbed " + plusOrMult );
+//     console.log( "Grabbed " + plusOrMult );
     let lOpR = plusOrMult.split(/ /g);
     switch( lOpR[1] ){
     case '+':
       line = line.replace( plusOrMult, ""+(parseInt(lOpR[0]) + parseInt(lOpR[2])) );
-      console.log( "Updated for Addition " + line );
+//       console.log( "Updated for Addition " + line );
       break;
     case '*':
       line = line.replace( plusOrMult, ""+(parseInt(lOpR[0]) * parseInt(lOpR[2])) );
-      console.log( "Updated for Multiplication " + line );
+//       console.log( "Updated for Multiplication " + line );
       break;
     default:
-      console.log( "Uh-oh, default hit: " + lOpR );
+//       console.log( "Uh-oh, default hit: " + lOpR );
       break;
     }
     plusOrMult = line.match(/[0-9]+ [+\*] [0-9]+/);
   }
-  console.log( "End of line: " + line );
+//   console.log( "End of line: " + line );
   //line.split(' ').forEach(function(char,index,array)
   return parseInt( line );
 }
   
 function evaluate2( line ){
-  console.log( "Eval " + line );
+//   console.log( "Eval " + line );
   let parenLine = line.match(/\([^()]+\)/)[0];
   //let iterations = 2;
   while( parenLine.length != line.length ){//&& iterations--){
-    console.log( "Extraced " + parenLine );
+//     console.log( "Extraced " + parenLine );
     line = line.replace( parenLine, evaluate2( parenLine ) );
-    console.log( "Updated line to " + line );
+//     console.log( "Updated line to " + line );
     parenLine = line.match(/\([^()]+\)/)[0];
   }
-  console.log( "Line now is just one parenthetical: " + line );
+//   console.log( "Line now is just one parenthetical: " + line );
   line = line.replace(/^\(/,'').replace(/\)$/,'');
-  console.log( "Removed outside parens " + line );
+//   console.log( "Removed outside parens " + line );
 //   let plusOrMult = line.match(/[0-9]+ [+\*] [0-9]+/);
   let plusOrMult = line.match(/[0-9]+ [\+] [0-9]+/);
   //iterations = 2;
   while( plusOrMult ){//&& iterations--){
     plusOrMult = plusOrMult[0];
-    console.log( "Grabbed " + plusOrMult );
+//     console.log( "Grabbed " + plusOrMult );
     let lOpR = plusOrMult.split(/ /g);
     line = line.replace( plusOrMult, ""+(parseInt(lOpR[0]) + parseInt(lOpR[2])) );
 //       line = line.replace( plusOrMult, ""+(parseInt(lOpR[0]) * parseInt(lOpR[2])) );
@@ -77,12 +77,12 @@ function evaluate2( line ){
   //iterations = 2;
   while( plusOrMult ){//&& iterations--){
     plusOrMult = plusOrMult[0];
-    console.log( "Grabbed " + plusOrMult );
+//     console.log( "Grabbed " + plusOrMult );
     let lOpR = plusOrMult.split(/ /g);
     line = line.replace( plusOrMult, ""+(parseInt(lOpR[0]) * parseInt(lOpR[2])) );
     plusOrMult = line.match(/[0-9]+ [\*] [0-9]+/);
   }
-  console.log( "End of line: " + line );
+//   console.log( "End of line: " + line );
   //line.split(' ').forEach(function(char,index,array)
   return parseInt( line );
 }
@@ -92,9 +92,9 @@ function part1( data ){
   let sum = 0;
   data.forEach(function(line,index,array){
     line = "(" + line + ")";
-    console.log( "Changed to " + line );
+//     console.log( "Changed to " + line );
     sum += evaluate( line );
-    console.log( "SUM is now " + sum )
+//     console.log( "SUM is now " + sum )
   });
   
   return sum;
@@ -105,9 +105,9 @@ function part2( data ){
   let sum = 0;
   data.forEach(function(line,index,array){
     line = "(" + line + ")";
-    console.log( "Changed to " + line );
+//     console.log( "Changed to " + line );
     sum += evaluate2( line );
-    console.log( "SUM is now " + sum )
+//     console.log( "SUM is now " + sum )
   });
   
   return sum;
