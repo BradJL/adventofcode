@@ -51,7 +51,7 @@ function checkPassword( password ){
   return true;
 }
   
-function part1( data ){
+function findNextValidPassword( data ){
   data = data.trim();
 //   data += "zz";
 //   checkPassword( "hijklmmn" );
@@ -62,24 +62,18 @@ function part1( data ){
 //   return data + " --> " + incrementString( data );
   data = incrementString( data );
   while( !checkPassword( data ) ){
-    log( data );
+//     log( data );
     data = incrementString( data );
   }
   return data;
 }
 
-function part2( data ){
-  data = data.trim().split(/\r?\n/);
-  
-  return 0;
-}
-
 function readFile(filePath){
   $.get( filePath, function( data ) {
     $('#input span').text('(Bytes: ' + (data.length) + ')');
-    let part1Answer = part1( data );
+    let part1Answer = findNextValidPassword( data );
     $('#answer span').text( part1Answer );
-    let part2Answer = part2( data );
+    let part2Answer = findNextValidPassword( part1Answer );
     $('#answer2 span').text( part2Answer );
   });
 }
