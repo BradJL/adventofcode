@@ -59,7 +59,7 @@ function evaluate2( line ){
   //let iterations = 2;
   while( parenLine.length != line.length ){//&& iterations--){
     console.log( "Extraced " + parenLine );
-    line = line.replace( parenLine, evaluate( parenLine ) );
+    line = line.replace( parenLine, evaluate2( parenLine ) );
     console.log( "Updated line to " + line );
     parenLine = line.match(/\([^()]+\)/)[0];
   }
