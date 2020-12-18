@@ -27,9 +27,10 @@ function evaluate( line ){
   console.log( "Line now is just one parenthetical: " + line );
   line = line.replace(/^\(/,'').replace(/\)$/,'');
   console.log( "Removed outside parens " + line );
-  let plusOrMult = line.match(/[0-9]+ [+\*] [0-9]+/)[0];
+  let plusOrMult = line.match(/[0-9]+ [+\*] [0-9]+/);
   iterations = 1;
   while( plusOrMult && iterations--){
+    plusOrMult = plusOrMult[0];
     console.log( "Grabbed " + plusOrMult );
     let lOpR = plusOrMult.split(/ /g);
     switch( lOpR[1] ){
@@ -45,7 +46,7 @@ function evaluate( line ){
       console.log( "Uh-oh, default hit: " + lOpR );
       break;
     }
-    plusOrMult = line.match(/[0-9]+ [+\*] [0-9]+/)[0];
+    plusOrMult = line.match(/[0-9]+ [+\*] [0-9]+/);
   }
   console.log( "End of line: " + line );
   //line.split(' ').forEach(function(char,index,array)
