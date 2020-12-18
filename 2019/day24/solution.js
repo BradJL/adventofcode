@@ -94,11 +94,11 @@ function readFile(filePath){
     let part1Answer = part1( data );
     $('#answer span').text( part1Answer );
 //     data = ".....\n.....\n.....\n#....\n.#...";
-    let part2Answer = getBiodiversityRating( setUpGrid( data ) );
-    for( let i = 0; i < 25; ++i ){
-      getAdjacentBugs( grid, i );
-    }
-    $('#answer2 span').text( part2Answer );
+//     let part2Answer = getBiodiversityRating( setUpGrid( data ) );
+//     for( let i = 0; i < 25; ++i ){
+//       getAdjacentBugs( grid, i );
+//     }
+//     $('#answer2 span').text( part2Answer );
   });
 }
 // async function readFile(filePath){
