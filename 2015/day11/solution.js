@@ -24,9 +24,9 @@ function incrementChar( char ){
 
 function incrementString( string ){
   let char = string.charAt(string.length - 1);
-  log( "grabbed " + char );
+//   log( "grabbed " + char );
   char = incrementChar( char );
-  log( "incremented to " + char );
+//   log( "incremented to " + char );
   string = string.substring(0, string.length - 1)
   if( char == 'a' ){
     string = incrementString( string );
@@ -36,15 +36,15 @@ function incrementString( string ){
 
 function checkPassword( password ){
   if( password.replace(/[iol]/g,'').length != password.length ){
-    console.log( "invalid: has [iol]" );
+//     console.log( "invalid: has [iol]" );
     return false;
   }
   if( !password.match(/(.)\1.*(.)\2/) ){
-    console.log( "invalid: needs 2 matches" );
+//     console.log( "invalid: needs 2 matches" );
     return false;
   }
   if( !password.match(/(abc|bcd|cde|def|efg|pqr|qrs|rst|stu|tuv|uvw|vwx|wxy|xyz)/) ){
-    console.log( "invalid: needs straight of 3" );
+//     console.log( "invalid: needs straight of 3" );
     return false;
   }
   console.log( password + " is valid!" );
@@ -62,6 +62,7 @@ function part1( data ){
 //   return data + " --> " + incrementString( data );
   data = incrementString( data );
   while( !checkPassword( data ) ){
+    log( data );
     data = incrementString( data );
   }
   return data;
