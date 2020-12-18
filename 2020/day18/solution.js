@@ -16,8 +16,6 @@ function log( what ){
 
 function evaluate( line ){
   console.log( "Eval " + line );
-  line = "(" + line + ")";
-  console.log( "Changed to " + line );
   let parenLine = line.match(/\([^()]+\)/)[0];
   let iterations = 1;
   while( parenLine.length != line.length && iterations--){
@@ -58,6 +56,8 @@ function part1( data ){
   data = data.trim().split(/\r?\n/);
   let sum = 0;
   data.forEach(function(line,index,array){
+    line = "(" + line + ")";
+    console.log( "Changed to " + line );
     sum += evaluate( line );
   });
   
