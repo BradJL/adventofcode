@@ -50,18 +50,18 @@ function simulate( grid ){
       switch( getAdjacentBugs( i ) ){
         case 1:
         case 2:
-          newGrid.push('1');
+          newGrid += '1';
           break;
         default:
-          newGrid.push('0');
+          newGrid += '0';
           break;
       }
       break;
     case '1':
       if( getAdjacentBugs( i ) == 1 ){
-        newGrid.push('1');
+        newGrid += '1';
       } else {
-        newGrid.push('0');
+        newGrid += '0';
       }
       break;
     }
