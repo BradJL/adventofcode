@@ -54,8 +54,8 @@ function readFile(filePath){
     let grid = setUpGrid( data );
     let part1Answer = grid;
     $('#answer span').text( part1Answer );
-//     data = ".....\n.....\n.....\n#....\n.#...";
-    let part2Answer = getBiodiversityRating( grid );
+    data = ".....\n.....\n.....\n#....\n.#...";
+    let part2Answer = getBiodiversityRating( setUpGrid( data ) );
     for( let i = 0; i < 25; ++i ){
       getAdjacentBugs( grid, i );
     }
