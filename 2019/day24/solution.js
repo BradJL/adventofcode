@@ -18,7 +18,7 @@ function getBiodiversityRating( grid ){
   return parseInt(grid, 2);
 }
 
-function getAdjacentBugs( grid, position ){ // pos: 0 - 24
+function getAdjacentBugs( grid, pos ){ // pos: 0 - 24
   let adjacent = 0;
   if( pos >= 5 && parseInt(grid.charAt(position-5)) ){
     ++adjacent;
