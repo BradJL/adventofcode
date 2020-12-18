@@ -1,11 +1,6 @@
 function initialize(){
   $('#answer span').text('Calculating...');
   $('#answer2 span').text('Calculating...');
-  
-  // var canvas = document.getElementById("visualization");
-  // var ctx = canvas.getContext("2d");
-  // var canvas2 = document.getElementById("visualization2");
-  // var ctx2 = canvas2.getContext("2d");  
 }
 
 // const fs = require('fs').promises;
@@ -24,9 +19,7 @@ function incrementChar( char ){
 
 function incrementString( string ){
   let char = string.charAt(string.length - 1);
-//   log( "grabbed " + char );
   char = incrementChar( char );
-//   log( "incremented to " + char );
   string = string.substring(0, string.length - 1)
   if( char == 'a' ){
     string = incrementString( string );
@@ -36,15 +29,12 @@ function incrementString( string ){
 
 function checkPassword( password ){
   if( password.replace(/[iol]/g,'').length != password.length ){
-//     console.log( "invalid: has [iol]" );
     return false;
   }
   if( !password.match(/(.)\1.*(.)\2/) ){
-//     console.log( "invalid: needs 2 matches" );
     return false;
   }
   if( !password.match(/(abc|bcd|cde|def|efg|pqr|qrs|rst|stu|tuv|uvw|vwx|wxy|xyz)/) ){
-//     console.log( "invalid: needs straight of 3" );
     return false;
   }
   console.log( password + " is valid!" );
@@ -53,16 +43,8 @@ function checkPassword( password ){
   
 function findNextValidPassword( data ){
   data = data.trim();
-//   data += "zz";
-//   checkPassword( "hijklmmn" );
-//   checkPassword( "abbceffg" );
-//   checkPassword( "abbcegjk" );
-//   checkPassword( "abcdffaa" );
-//   checkPassword( "ghjaabcc" );
-//   return data + " --> " + incrementString( data );
   data = incrementString( data );
   while( !checkPassword( data ) ){
-//     log( data );
     data = incrementString( data );
   }
   return data;
