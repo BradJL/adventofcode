@@ -60,9 +60,9 @@ function part1( data ){
 //   checkPassword( "abcdffaa" );
 //   checkPassword( "ghjaabcc" );
 //   return data + " --> " + incrementString( data );
-  data = incrementPassword( data );
+  data = incrementString( data );
   while( !checkPassword( data ) ){
-    data = incrementPassword( data );
+    data = incrementString( data );
   }
   return data;
 }
