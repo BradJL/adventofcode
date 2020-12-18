@@ -13,9 +13,29 @@ function initialize(){
 function log( what ){
   console.log( what );
 }
+
+function incrementChar( char ){
+  char = String.fromCharCode(char.charCodeAt(0) + 1);
+  if( char == "{" ){
+    char = "a";
+  }
+  return char;
+}
+
+function incrementString( string ){
+  let char = string.charAt(string.length - 1);
+  log( "grabbed " + char );
+  char = incrementChar( char );
+  log( "incremented to " + char );
+  string = string.substring(0, string.length - 1)
+  if( char == 'a' ){
+    string = incrementString( string );
+  }
+  return string + char;
+}
   
 function part1( data ){
-  data = data.trim().split(/\r?\n/);
+  data = data.trim();
   return 0;
 }
 
