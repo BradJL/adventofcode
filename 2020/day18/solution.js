@@ -34,11 +34,11 @@ function evaluate( line ){
     let lOpR = plusOrMult.split(/ /g);
     switch( lOpR[1] ){
     case '+':
-      line = line.replace( plusOrMult, ""+(parseInt(lOpR) + parseInt(lOpR)) );
+      line = line.replace( plusOrMult, ""+(parseInt(lOpR[0]) + parseInt(lOpR[2])) );
       console.log( "Updated for Addition " + line );
       break;
     case '*':
-      line = line.replace( plusOrMult, ""+(parseInt(lOpR) * parseInt(lOpR)) );
+      line = line.replace( plusOrMult, ""+(parseInt(lOpR[0]) * parseInt(lOpR[2])) );
       console.log( "Updated for Multiplication " + line );
       break;
     default:
