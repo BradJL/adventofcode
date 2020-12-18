@@ -17,7 +17,7 @@ function log( what ){
 function evaluate( line ){
   console.log( "Eval " + line );
   let parenLine = line.match(/\([^()]+\)/)[0];
-  let iterations = 1;
+  let iterations = 2;
   while( parenLine.length != line.length && iterations--){
     console.log( "Extraced " + parenLine );
     line = line.replace( parenLine, evaluate( parenLine ) );
@@ -28,7 +28,7 @@ function evaluate( line ){
   line = line.replace(/^\(/,'').replace(/\)$/,'');
   console.log( "Removed outside parens " + line );
   let plusOrMult = line.match(/[0-9]+ [+\*] [0-9]+/);
-  iterations = 1;
+  iterations = 2;
   while( plusOrMult && iterations--){
     plusOrMult = plusOrMult[0];
     console.log( "Grabbed " + plusOrMult );
