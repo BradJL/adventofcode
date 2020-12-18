@@ -47,7 +47,7 @@ function simulate( grid ){
   for( let i = 0; i < grid.length; ++i ){
     switch( grid.charAt(i) ){
     case '0':
-      switch( getAdjacentBugs( i ) ){
+      switch( getAdjacentBugs( grid, i ) ){
         case 1:
         case 2:
           newGrid += '1';
@@ -58,7 +58,7 @@ function simulate( grid ){
       }
       break;
     case '1':
-      if( getAdjacentBugs( i ) == 1 ){
+      if( getAdjacentBugs( grid, i ) == 1 ){
         newGrid += '1';
       } else {
         newGrid += '0';
