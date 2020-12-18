@@ -53,6 +53,44 @@ function evaluate( line ){
   return parseInt( line );
 }
   
+function evaluate2( line ){
+  console.log( "Eval " + line );
+  let parenLine = line.match(/\([^()]+\)/)[0];
+  //let iterations = 2;
+  while( parenLine.length != line.length ){//&& iterations--){
+    console.log( "Extraced " + parenLine );
+    line = line.replace( parenLine, evaluate( parenLine ) );
+    console.log( "Updated line to " + line );
+    parenLine = line.match(/\([^()]+\)/)[0];
+  }
+  console.log( "Line now is just one parenthetical: " + line );
+  line = line.replace(/^\(/,'').replace(/\)$/,'');
+  console.log( "Removed outside parens " + line );
+//   let plusOrMult = line.match(/[0-9]+ [+\*] [0-9]+/);
+  let plusOrMult = line.match(/[0-9]+ [+] [0-9]+/);
+  //iterations = 2;
+  while( plusOrMult ){//&& iterations--){
+    plusOrMult = plusOrMult[0];
+    console.log( "Grabbed " + plusOrMult );
+    let lOpR = plusOrMult.split(/ /g);
+      line = line.replace( plusOrMult, ""+(parseInt(lOpR[0]) + parseInt(lOpR[2])) );
+//       line = line.replace( plusOrMult, ""+(parseInt(lOpR[0]) * parseInt(lOpR[2])) );
+    plusOrMult = line.match(/[0-9]+ [+] [0-9]+/);
+  }
+  plusOrMult = line.match(/[0-9]+ [\*] [0-9]+/);
+  //iterations = 2;
+  while( plusOrMult ){//&& iterations--){
+    plusOrMult = plusOrMult[0];
+    console.log( "Grabbed " + plusOrMult );
+    let lOpR = plusOrMult.split(/ /g);
+      line = line.replace( plusOrMult, ""+(parseInt(lOpR[0]) * parseInt(lOpR[2])) );
+    plusOrMult = line.match(/[0-9]+ [\*] [0-9]+/);
+  }
+  console.log( "End of line: " + line );
+  //line.split(' ').forEach(function(char,index,array)
+  return parseInt( line );
+}
+
 function part1( data ){
   data = data.trim().split(/\r?\n/);
   let sum = 0;
@@ -68,8 +106,15 @@ function part1( data ){
 
 function part2( data ){
   data = data.trim().split(/\r?\n/);
-
-  return 0;
+  let sum = 0;
+  data.forEach(function(line,index,array){
+    line = "(" + line + ")";
+    console.log( "Changed to " + line );
+    sum += evaluate2( line );
+    console.log( "SUM is now " + sum )
+  });
+  
+  return sum;
 }
 
 function readFile(filePath){
