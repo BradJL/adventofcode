@@ -36,7 +36,7 @@ function incrementString( string ){
   
 function part1( data ){
   data = data.trim();
-  return 0;
+  return data + " --> " + incrementString( data );
 }
 
 function part2( data ){
