@@ -70,6 +70,18 @@ function simulate( grid ){
   return newGrid;
 }
 
+function part1( data ){
+  let grids = [];
+  let grid = setUpGrid( data );
+  let bio = getBiodiversityRating( grid );
+  while( !grids[bio] ){
+    grids[bio] = true;
+    grid = simulate( grid );
+    bio = getBiodiversityRating( grid );
+  }
+  return bio;
+}
+
 function part2( data ){
   data = data.trim().split(/\r?\n/);
 
@@ -79,8 +91,7 @@ function part2( data ){
 function readFile(filePath){
   $.get( filePath, function( data ) {
     $('#input span').text('(Bytes: ' + (data.length) + ')');
-    let grid = setUpGrid( data );
-    let part1Answer = simulate( grid );
+    let part1Answer = part1( data );
     $('#answer span').text( part1Answer );
 //     data = ".....\n.....\n.....\n#....\n.#...";
     let part2Answer = getBiodiversityRating( setUpGrid( data ) );
