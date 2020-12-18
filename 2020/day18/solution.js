@@ -24,26 +24,48 @@ function evaluate( line, part ){
   line = line.replace(/^\(/,'').replace(/\)$/,'');
 //   console.log( "Removed outside parens " + line );
   let plusOrMult;
-  plusOrMult = line.match(/[0-9]+ [+\*] [0-9]+/);
-  //iterations = 2;
-  while( plusOrMult ){//&& iterations--){
-    plusOrMult = plusOrMult[0];
-//     console.log( "Grabbed " + plusOrMult );
-    let lOpR = plusOrMult.split(/ /g);
-    switch( lOpR[1] ){
-    case '+':
-      line = line.replace( plusOrMult, ""+(parseInt(lOpR[0]) + parseInt(lOpR[2])) );
-//       console.log( "Updated for Addition " + line );
-      break;
-    case '*':
-      line = line.replace( plusOrMult, ""+(parseInt(lOpR[0]) * parseInt(lOpR[2])) );
-//       console.log( "Updated for Multiplication " + line );
-      break;
-    default:
-//       console.log( "Uh-oh, default hit: " + lOpR );
-      break;
-    }
+  if( part == 1 ){
     plusOrMult = line.match(/[0-9]+ [+\*] [0-9]+/);
+    //iterations = 2;
+    while( plusOrMult ){//&& iterations--){
+      plusOrMult = plusOrMult[0];
+  //     console.log( "Grabbed " + plusOrMult );
+      let lOpR = plusOrMult.split(/ /g);
+      switch( lOpR[1] ){
+      case '+':
+        line = line.replace( plusOrMult, ""+(parseInt(lOpR[0]) + parseInt(lOpR[2])) );
+  //       console.log( "Updated for Addition " + line );
+        break;
+      case '*':
+        line = line.replace( plusOrMult, ""+(parseInt(lOpR[0]) * parseInt(lOpR[2])) );
+  //       console.log( "Updated for Multiplication " + line );
+        break;
+      default:
+  //       console.log( "Uh-oh, default hit: " + lOpR );
+        break;
+      }
+      plusOrMult = line.match(/[0-9]+ [+\*] [0-9]+/);
+    }
+  } else if( part == 2 ){
+    plusOrMult = line.match(/[0-9]+ [\+] [0-9]+/);
+    //iterations = 2;
+    while( plusOrMult ){//&& iterations--){
+      plusOrMult = plusOrMult[0];
+  //     console.log( "Grabbed " + plusOrMult );
+      let lOpR = plusOrMult.split(/ /g);
+      line = line.replace( plusOrMult, ""+(parseInt(lOpR[0]) + parseInt(lOpR[2])) );
+  //       line = line.replace( plusOrMult, ""+(parseInt(lOpR[0]) * parseInt(lOpR[2])) );
+      plusOrMult = line.match(/[0-9]+ [\+] [0-9]+/);
+    }
+    plusOrMult = line.match(/[0-9]+ [\*] [0-9]+/);
+    //iterations = 2;
+    while( plusOrMult ){//&& iterations--){
+      plusOrMult = plusOrMult[0];
+  //     console.log( "Grabbed " + plusOrMult );
+      let lOpR = plusOrMult.split(/ /g);
+      line = line.replace( plusOrMult, ""+(parseInt(lOpR[0]) * parseInt(lOpR[2])) );
+      plusOrMult = line.match(/[0-9]+ [\*] [0-9]+/);
+    }
   }
 //   console.log( "End of line: " + line );
   //line.split(' ').forEach(function(char,index,array)
@@ -107,7 +129,7 @@ function part2( data ){
   data.forEach(function(line,index,array){
     line = "(" + line + ")";
 //     console.log( "Changed to " + line );
-    sum += evaluate2( line );
+    sum += evaluate( line, 2 );
 //     console.log( "SUM is now " + sum )
   });
   
