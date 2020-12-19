@@ -16,15 +16,16 @@ function log( what ){
 
 function part1( data ){
   data = data.trim().split(/,/);
-  data.forEach(function(module,index,array){
-    data[index] = parseInt( module );
+  let numbers = [];
+  data.forEach(function(num,index,array){
+    numbers.push( parseInt( num ) );
   });
   let i = 0;
   let stop = false;
   
   while( !stop ){
     let add = true;
-    switch( parseInt(data[i]) ){
+    switch( parseInt(numbers[i]) ){
     case 1: // add
       add = true;
       break;
@@ -37,17 +38,17 @@ function part1( data ){
     }
     if( !stop ){
       if( add ){
-        data[parseInt( data[i+3] )] = parseInt(data[parseInt( data[i+1] )]) + parseInt(data[parseInt( data[i+2] )]);
-        console.log( "add " + data[i+1] + "(" + data[parseInt( data[i+1] )] + ") + " + data[i+2] + "(" + data[parseInt( data[i+2] )] + ") --> " + data[i+3] + "(" + data[parseInt( data[i+3] )] + ")" );
+        numbers[numbers[i+3]] = numbers[numbers[i+1]] + numbers[numbers[i+2]];
+        console.log( "add " + numbers[i+1] + "(" + numbers[numbers[i+1]] + ") + " + numbers[i+2] + "(" + numbers[numbers[i+2]] + ") --> " + numbers[i+3] + "(" + numbers[numbers[i+3]] + ")" );
       } else {
-        data[parseInt( data[i+3] )] = parseInt(data[parseInt( data[i+1] )]) * parseInt(data[parseInt( data[i+2] )]);
-        console.log( "mul " + data[i+1] + "(" + data[parseInt( data[i+1] )] + ") * " + data[i+2] + "(" + data[parseInt( data[i+2] )] + ") --> " + data[i+3] + "(" + data[parseInt( data[i+3] )] + ")" );
+        numbers[numbers[i+3]] = numbers[numbers[i+1]]) * numbers[numbers[i+2]];
+        console.log( "mul " + numbers[i+1] + "(" + numbers[numbers[i+1]] + ") * " + numbers[i+2] + "(" + numbers[numbers[i+2]] + ") --> " + numbers[i+3] + "(" + numbers[numbers[i+3]] + ")" );
       }
       i += 4;
     }
   }
     
-  return data;
+  return numbers;
 }
 
 function part2( data ){
