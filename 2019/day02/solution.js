@@ -20,6 +20,8 @@ function part1( data ){
   data.forEach(function(num,index,array){
     numbers.push( parseInt( num ) );
   });
+  numbers[1] = 12;
+  numbers[2] = 2;
   console.log( numbers );
   let i = 0;
   let stop = false;
