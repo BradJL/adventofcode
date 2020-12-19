@@ -15,8 +15,12 @@ function log( what ){
 }
   
 function part1( data ){
+  let sum = 0;
   data = data.trim().split(/\r?\n/);
-  return 0;
+  data.forEach(function(module,index,array){
+    sum += Math.floor( parseInt(module)/12 ) - 2;
+  });
+  return sum;
 }
 
 function part2( data ){
