@@ -15,7 +15,7 @@ function log( what ){
 }
 
 function getRule( rules, number ){
-  let rule = rules[number].replace(/^[0-9]+: /);
+  let rule = rules[number].replace(/^[0-9]+: /,'');
   if( rule.charAt(0) == '"' ){
     rule = rule.replace(/"/g,'');
   } else {
@@ -33,6 +33,8 @@ function part1( data ){
   console.log( rules[0] );
   console.log( rules[8] );
   console.log( rules[11] );
+  console.log( rules[36] );
+  console.log( rules[24] );
   return 0;
 }
 
