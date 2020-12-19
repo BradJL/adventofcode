@@ -91,6 +91,7 @@ function part1( data ){
   console.log( getRule( rules, 11 ) );
 //   console.log( getRule( rules, 36 ) );
 //   console.log( getRule( rules, 24 ) );
+  console.log( "babbbbabaabbbababbbbaabaabaabbaaaaabaabaaaaababbbabaaabaababbaaabaaabbaaaabbbbaaaaabbbabbbaaaaba".length + ": babbbbabaabbbababbbbaabaabaabbaaaaabaabaaaaababbbabaaabaababbaaabaaabbaaaabbbbaaaaabbbabbbaaaaba" );
   return validMessages;
   data = data.trim().split(/\r?\n/);
   return 0;
