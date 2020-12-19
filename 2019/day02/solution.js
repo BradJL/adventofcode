@@ -10,10 +10,6 @@ function initialize(){
 
 // const fs = require('fs').promises;
 
-function log( what ){
-  //console.log( what );
-}
-
 function intcode( numbers, noun, verb ){
   numbers[1] = noun;
   numbers[2] = verb;
@@ -67,7 +63,7 @@ function part2( data ){
     data.forEach(function(num,index,array){
       numbers.push( parseInt( num ) );
     });
-    answer = intcode( numbers, Math.floor(i/100), i%100 );
+    answer = intcode( numbers, Math.floor(i/100), i%100 )[0];
   }
   return i;
 }
