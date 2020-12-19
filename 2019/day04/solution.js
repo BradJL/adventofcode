@@ -35,7 +35,7 @@ function part2( data ){
   
   let count = 0;
   for( let i = data[0]; i <= data[1]; ++i ){
-    if( i.toString().match(/^1*2*3*4*5*6*7*8*9*$/) && i.toString().replace(/(.){3,}/g,'').match(/(.)\1/) ){
+    if( i.toString().match(/^1*2*3*4*5*6*7*8*9*$/) && i.toString().replace(/(.)\1{2,}/g,'').match(/(.)\1/) ){
       ++count;
     }
   }
