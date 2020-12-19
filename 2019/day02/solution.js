@@ -77,7 +77,7 @@ function readFile(filePath){
     //data = "1,9,10,3,2,3,11,0,99,30,40,50"
     $('#input span').text('(Bytes: ' + (data.length) + ')');
     let part1Answer = part1( data ); // 6730673
-    $('#answer span').text( part1Answer[0] );
+    $('#answer span').text( part1Answer );
 //     let part2Answer = part2( data );
 //     $('#answer2 span').text( part2Answer );
   });
