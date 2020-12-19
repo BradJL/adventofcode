@@ -10,6 +10,11 @@ function initialize(){
 
 // const fs = require('fs').promises;
 
+const ADD = 1;
+const MULTIPLY = 2;
+const INPUT = 3;
+const OUTPUT = 4;
+
 function intcode( numbers, noun, verb ){
   numbers[1] = noun;
   numbers[2] = verb;
@@ -18,29 +23,33 @@ function intcode( numbers, noun, verb ){
   let stop = false;
   
   while( !stop ){
-    let add = true;
+//     let add = true;
     switch( parseInt(numbers[i]) ){
-    case 1: // add
-      add = true;
+    case ADD: // add
+//       add = true;
+      numbers[numbers[i+3]] = numbers[numbers[i+1]] + numbers[numbers[i+2]];
+//      console.log( "add " + numbers[i+1] + "(" + numbers[numbers[i+1]] + ") + " + numbers[i+2] + "(" + numbers[numbers[i+2]] + ") --> " + numbers[i+3] + "(" + numbers[numbers[i+3]] + ")" );
+      i += 4;
       break;
-    case 2: // multiply
+    case MULTIPLY: // multiply
       add = false;
+      numbers[numbers[i+3]] = numbers[numbers[i+1]] * numbers[numbers[i+2]];
+//      console.log( "mul " + numbers[i+1] + "(" + numbers[numbers[i+1]] + ") * " + numbers[i+2] + "(" + numbers[numbers[i+2]] + ") --> " + numbers[i+3] + "(" + numbers[numbers[i+3]] + ")" );
+      i += 4;
       break;
     case 99: // end
       stop = true;
       break;
     }
-    if( !stop ){
-      if( add ){
-        numbers[numbers[i+3]] = numbers[numbers[i+1]] + numbers[numbers[i+2]];
-//         console.log( "add " + numbers[i+1] + "(" + numbers[numbers[i+1]] + ") + " + numbers[i+2] + "(" + numbers[numbers[i+2]] + ") --> " + numbers[i+3] + "(" + numbers[numbers[i+3]] + ")" );
-      } else {
-        numbers[numbers[i+3]] = numbers[numbers[i+1]] * numbers[numbers[i+2]];
-//         console.log( "mul " + numbers[i+1] + "(" + numbers[numbers[i+1]] + ") * " + numbers[i+2] + "(" + numbers[numbers[i+2]] + ") --> " + numbers[i+3] + "(" + numbers[numbers[i+3]] + ")" );
-      }
-//       console.log( numbers );
-      i += 4;
-    }
+//     if( !stop ){
+//       if( add ){
+//         numbers[numbers[i+3]] = numbers[numbers[i+1]] + numbers[numbers[i+2]];
+//       } else {
+//         numbers[numbers[i+3]] = numbers[numbers[i+1]] * numbers[numbers[i+2]];
+//       }
+// //       console.log( numbers );
+//       i += 4;
+//     }
   }
     
   return numbers;
