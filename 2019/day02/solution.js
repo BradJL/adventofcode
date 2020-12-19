@@ -59,14 +59,15 @@ function part2( data ){
   data = data.trim().split(/,/);
   let iterations = 100000;
   let answer = 0;
-  for( let i = 0; answer != 19690720 && --iterations; ++i ){
+  let i = 0;
+  for( i = 0; answer != 19690720 && --iterations; ++i ){
     let numbers = [];
     data.forEach(function(num,index,array){
       numbers.push( parseInt( num ) );
     });
     answer = intcode( numbers, Math.floor(i/100), i%100 )[0];
   }
-  return answer;
+  return i;
 }
 
 function readFile(filePath){
