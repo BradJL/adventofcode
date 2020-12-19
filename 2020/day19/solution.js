@@ -69,7 +69,8 @@ function part1( data ){
   let numberStr = rule.match(/[0-9]+/);
   while( numberStr ){// && iterations--){
     numberStr = rule.match(/[0-9]+/)[0];
-    rule = rule.replace( (new RegExp(numberStr, "g")), getRule(rules, parseInt(numberStr)) );
+    let pattern = new RegExp(numberStr, "g");
+    rule = rule.replace( pattern, getRule(rules, parseInt(numberStr)) );
 //     rule = rule.replace( numberStr, getRule(rules, parseInt(numberStr)) );
     numberStr = rule.match(/[0-9]+/);
   }
