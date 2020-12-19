@@ -29,13 +29,19 @@ function part1( data ){
   let rules = data[0].split(/\r?\n/).sort(function(a, b){return parseInt(a.match(/^[0-9]+/)[0])-parseInt(b.match(/^[0-9]+/)[0])});
   
   let rule = getRule( rules, 0 );
+  let numberStr = rule.match(/[0-9]+/);
+  while( numberStr ){
+    numberStr = rule.match(/[0-9]+/)[0];
+    rule.replace(numberStr, getRule(rules, parseInt(numberStr));
+    numberStr = rule.match(/[0-9]+/);
+  }
   
   console.log( getRule( rules, 0 ) );
   console.log( getRule( rules, 8 ) );
   console.log( getRule( rules, 11 ) );
   console.log( getRule( rules, 36 ) );
   console.log( getRule( rules, 24 ) );
-  return 0;
+  return rule;
 }
 
 function part2( data ){
