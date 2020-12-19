@@ -23,7 +23,7 @@ function part1( data ){
   
   while( !stop ){
     let add = true;
-    switch( data[i] ){
+    switch( parseInt(data[i]) ){
     case 1: // add
       add = true;
       break;
