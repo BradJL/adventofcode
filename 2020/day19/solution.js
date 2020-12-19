@@ -36,6 +36,7 @@ function part1( data ){
     rule = rule.replace( numberStr, getRule(rules, parseInt(numberStr)) );
     numberStr = rule.match(/[0-9]+/);
   }
+  console.log( "rule: " + rule );
   
   console.log( getRule( rules, 0 ) );
   console.log( getRule( rules, 8 ) );
