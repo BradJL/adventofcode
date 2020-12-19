@@ -41,7 +41,7 @@ function part1( data ){
         numbers[numbers[i+3]] = numbers[numbers[i+1]] + numbers[numbers[i+2]];
         console.log( "add " + numbers[i+1] + "(" + numbers[numbers[i+1]] + ") + " + numbers[i+2] + "(" + numbers[numbers[i+2]] + ") --> " + numbers[i+3] + "(" + numbers[numbers[i+3]] + ")" );
       } else {
-        numbers[numbers[i+3]] = numbers[numbers[i+1]]) * numbers[numbers[i+2]];
+        numbers[numbers[i+3]] = numbers[numbers[i+1]] * numbers[numbers[i+2]];
         console.log( "mul " + numbers[i+1] + "(" + numbers[numbers[i+1]] + ") * " + numbers[i+2] + "(" + numbers[numbers[i+2]] + ") --> " + numbers[i+3] + "(" + numbers[numbers[i+3]] + ")" );
       }
       i += 4;
