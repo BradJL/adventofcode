@@ -67,7 +67,7 @@ function part2( data ){
     });
     answer = intcode( numbers, Math.floor(i/100), i%100 )[0];
   }
-  return i;
+  return i-1;
 }
 
 function readFile(filePath){
