@@ -64,7 +64,7 @@ function readFile(filePath){
   $.get( filePath, function( data ) {
     //data = "1,9,10,3,2,3,11,0,99,30,40,50"
     $('#input span').text('(Bytes: ' + (data.length) + ')');
-    let part1Answer = part1( data );
+    let part1Answer = part1( data ); // > 509871
     $('#answer span').text( part1Answer );
     let part2Answer = part2( data );
     $('#answer2 span').text( part2Answer );
