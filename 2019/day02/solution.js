@@ -56,7 +56,7 @@ function part1( data ){
   data.forEach(function(num,index,array){
     numbers.push( parseInt( num ) );
   });
-  intcode( numbers, 12, 2 );
+  return intcode( numbers, 12, 2 );
 }
 
 function part2( data ){
