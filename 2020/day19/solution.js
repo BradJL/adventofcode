@@ -36,7 +36,7 @@ function part1( data ){
     rule = rule.replace( numberStr, getRule(rules, parseInt(numberStr)) );
     numberStr = rule.match(/[0-9]+/);
   }
-  rule = "^" + rule + "$";
+  rule = "^" + rule.replace(/ /g,'') + "$";
   let regEx = new RegExp( rule, '' );
   
   let validMessages = 0;
