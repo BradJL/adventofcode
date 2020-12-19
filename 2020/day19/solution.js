@@ -28,9 +28,10 @@ function part1( data ){
   data = data.trim().split(/\r?\n\r?\n/);
   let rules = data[0].split(/\r?\n/).sort(function(a, b){return parseInt(a.match(/^[0-9]+/)[0])-parseInt(b.match(/^[0-9]+/)[0])});
   
+  let iterations = 1;
   let rule = getRule( rules, 0 );
   let numberStr = rule.match(/[0-9]+/);
-  while( numberStr ){
+  while( numberStr && iterations--){
     numberStr = rule.match(/[0-9]+/)[0];
     rule.replace( numberStr, getRule(rules, parseInt(numberStr)) );
     numberStr = rule.match(/[0-9]+/);
