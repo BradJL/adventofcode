@@ -30,11 +30,11 @@ function part1( data ){
   
   let rule = getRule( rules, 0 );
   
-  console.log( rules[0] );
-  console.log( rules[8] );
-  console.log( rules[11] );
-  console.log( rules[36] );
-  console.log( rules[24] );
+  console.log( getRule( rules, 0 ) );
+  console.log( getRule( rules, 8 ) );
+  console.log( getRule( rules, 11 ) );
+  console.log( getRule( rules, 36 ) );
+  console.log( getRule( rules, 24 ) );
   return 0;
 }
 
