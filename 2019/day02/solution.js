@@ -37,10 +37,10 @@ function part1( data ){
     if( !stop ){
       if( add ){
         data[parseInt( data[i+3] )] = parseInt(data[parseInt( data[i+1] )]) + parseInt(data[parseInt( data[i+2] )]);
-        console.log( "add " + data[i+1] + "(" + data[parseInt( data[i+1] )] + ") + " + data[i+2] + "(" + data[parseInt( data[i+2] )] + ") --> " + data[parseInt( data[i+3] )] + "(" + data[i+3] + ")" );
+        console.log( "add " + data[i+1] + "(" + data[parseInt( data[i+1] )] + ") + " + data[i+2] + "(" + data[parseInt( data[i+2] )] + ") --> " + data[i+3] + "(" + data[parseInt( data[i+3] )] + ")" );
       } else {
         data[parseInt( data[i+3] )] = parseInt(data[parseInt( data[i+1] )]) * parseInt(data[parseInt( data[i+2] )]);
-        console.log( "mul " + data[i+1] + "(" + data[parseInt( data[i+1] )] + ") * " + data[i+2] + "(" + data[parseInt( data[i+2] )] + ") --> " + data[parseInt( data[i+3] )] + "(" + data[i+3] + ")" );
+        console.log( "mul " + data[i+1] + "(" + data[parseInt( data[i+1] )] + ") * " + data[i+2] + "(" + data[parseInt( data[i+2] )] + ") --> " + data[i+3] + "(" + data[parseInt( data[i+3] )] + ")" );
       }
       i += 4;
     }
