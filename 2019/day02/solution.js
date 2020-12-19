@@ -23,10 +23,8 @@ function intcode( numbers, noun, verb ){
   let stop = false;
   
   while( !stop ){
-//     let add = true;
     switch( parseInt(numbers[i]) ){
     case ADD: // add
-//       add = true;
       numbers[numbers[i+3]] = numbers[numbers[i+1]] + numbers[numbers[i+2]];
 //      console.log( "add " + numbers[i+1] + "(" + numbers[numbers[i+1]] + ") + " + numbers[i+2] + "(" + numbers[numbers[i+2]] + ") --> " + numbers[i+3] + "(" + numbers[numbers[i+3]] + ")" );
       i += 4;
@@ -41,15 +39,6 @@ function intcode( numbers, noun, verb ){
       stop = true;
       break;
     }
-//     if( !stop ){
-//       if( add ){
-//         numbers[numbers[i+3]] = numbers[numbers[i+1]] + numbers[numbers[i+2]];
-//       } else {
-//         numbers[numbers[i+3]] = numbers[numbers[i+1]] * numbers[numbers[i+2]];
-//       }
-// //       console.log( numbers );
-//       i += 4;
-//     }
   }
     
   return numbers;
@@ -85,7 +74,7 @@ function readFile(filePath){
     $('#input span').text('(Bytes: ' + (data.length) + ')');
     let part1Answer = part1( data ); // 6730673
     $('#answer span').text( part1Answer );
-    let part2Answer = part2( data );
+    let part2Answer = part2( data ); // 3749
     $('#answer2 span').text( part2Answer );
   });
 }
