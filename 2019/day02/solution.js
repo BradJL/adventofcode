@@ -40,10 +40,11 @@ function part1( data ){
       } else {
         data[parseInt( data[i+3] )] = data[parseInt( data[i+1] )] * data[parseInt( data[i+2] )];
       }
+      i += 4;
     }
   }
     
-  return 0;
+  return data[i];
 }
 
 function part2( data ){
