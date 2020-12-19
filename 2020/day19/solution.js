@@ -26,7 +26,7 @@ function getRule( rules, number ){
   
 function part1( data ){
   data = data.trim().split(/\r?\n\r?\n/);
-  let rules = data[0].split(/\r?\n/).sort();
+  let rules = data[0].split(/\r?\n/).sort(function(a, b){return parseInt(a.match(/^[0-9]+/)[0])-parseInt(b.match(/^[0-9]+/)[0])});
   
   let rule = getRule( rules, 0 );
   
