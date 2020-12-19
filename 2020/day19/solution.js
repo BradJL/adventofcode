@@ -85,8 +85,8 @@ function part1( data ){
   console.log( "rule: " + rule );
   
 //   console.log( getRule( rules, 0 ) );
-//   console.log( getRule( rules, 8 ) );
-//   console.log( getRule( rules, 11 ) );
+  console.log( getRule( rules, 8 ) );
+  console.log( getRule( rules, 11 ) );
 //   console.log( getRule( rules, 36 ) );
 //   console.log( getRule( rules, 24 ) );
   return validMessages;
