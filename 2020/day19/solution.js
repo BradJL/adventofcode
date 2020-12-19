@@ -95,7 +95,7 @@ function part1( data ){
 //   console.log( getRule( rules, 24 ) );
   console.log( "babbbbabaabbbababbbbaabaabaabbaaaaabaabaaaaababbbabaaabaababbaaabaaabbaaaabbbbaaaaabbbabbbaaaaba".length + ": babbbbabaabbbababbbbaabaabaabbaaaaabaabaaaaababbbabaaabaababbaaabaaabbaaaabbbbaaaaabbbabbbaaaaba" );
   let string = "("
-  for( let i = 1; i < 96 ; ++i ){
+  for( let i = 1; i < 31 ; ++i ){
     string += " 42".repeat(i) + " 31".repeat(i) + " |"
   }
   string += ")";
