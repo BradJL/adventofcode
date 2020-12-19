@@ -12,8 +12,6 @@ function initialize(){
 
 const ADD = 1;
 const MULTIPLY = 2;
-const INPUT = 3;
-const OUTPUT = 4;
 
 function intcode( numbers, noun, verb ){
   numbers[1] = noun;
