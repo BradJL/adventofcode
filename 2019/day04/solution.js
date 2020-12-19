@@ -15,8 +15,17 @@ function log( what ){
 }
   
 function part1( data ){
-  data = data.trim().split(/\r?\n/);
-  return 0;
+  data = data.trim().split(/-/);
+  data[0] = parseInt( data[0] );
+  data[1] = parseInt( data[1] );
+  
+  let count = 0;
+  for( let i = data[0]; i <= data[1]; ++i ){
+    if( i.toString().match(/^1*2*3*4*5*6*7*8*9*$/) && i.toString().match(/(.)\1/) ){
+      ++count;
+    }
+  }
+  return count;
 }
 
 function part2( data ){
