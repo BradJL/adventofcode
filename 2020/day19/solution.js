@@ -15,13 +15,15 @@ function log( what ){
 }
   
 function part1( data ){
-  data = data.trim().split(/\r?\n/);
+  data = data.trim().split(/\r?\n\r?\n/);
+  
   return 0;
 }
 
 function part2( data ){
   data = data.trim().split(/\r?\n/);
-
+  let rules = data[0].sort();
+  console.log( rules[0] );
   return 0;
 }
 
