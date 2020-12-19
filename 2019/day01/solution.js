@@ -28,7 +28,7 @@ function part2( data ){
   data = data.trim().split(/\r?\n/);
   data.forEach(function(module,index,array){
     module = Math.floor( parseInt(module)/3 ) - 2;
-    while( module > 0 ({
+    while( module > 0 ){
       sum += module;
       module = Math.floor( parseInt(module)/3 ) - 2;
     }
