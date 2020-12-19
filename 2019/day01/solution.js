@@ -18,7 +18,7 @@ function part1( data ){
   let sum = 0;
   data = data.trim().split(/\r?\n/);
   data.forEach(function(module,index,array){
-    sum += Math.floor( parseInt(module)/12 ) - 2;
+    sum += Math.floor( parseInt(module)/3 ) - 2;
   });
   return sum;
 }
