@@ -21,7 +21,7 @@ function part1( data ){
   let i = 0;
   let stop = false;
   
-//   while( !stop ){
+  while( !stop ){
     let add = true;
     switch( data[i] ){
     case 1: // add
@@ -42,7 +42,7 @@ function part1( data ){
       }
       i += 4;
     }
-//   }
+  }
     
   return data;
 }
