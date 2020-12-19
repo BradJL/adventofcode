@@ -14,14 +14,9 @@ function log( what ){
   //console.log( what );
 }
 
-function part1( data ){
-  data = data.trim().split(/,/);
-  let numbers = [];
-  data.forEach(function(num,index,array){
-    numbers.push( parseInt( num ) );
-  });
-  numbers[1] = 12;
-  numbers[2] = 2;
+function intcode( numbers, noun, verb ){
+  numbers[1] = noun;
+  numbers[2] = verb;
   console.log( numbers );
   let i = 0;
   let stop = false;
@@ -55,19 +50,34 @@ function part1( data ){
   return numbers;
 }
 
+function part1( data ){
+  data = data.trim().split(/,/);
+  let numbers = [];
+  data.forEach(function(num,index,array){
+    numbers.push( parseInt( num ) );
+  });
+  intcode( numbers, 12, 2 );
+}
+
 function part2( data ){
   data = data.trim().split(/,/);
-  data.forEach(function(module,index,array){
-  });
-  return 0;
+  let answer = 0;
+  for( let i = 0; answer != 19690720; ++i ){
+    let numbers = [];
+    data.forEach(function(num,index,array){
+      numbers.push( parseInt( num ) );
+    });
+    answer = intcode( numbers, Math.floor(i/100), i%100 );
+  }
+  return i;
 }
 
 function readFile(filePath){
   $.get( filePath, function( data ) {
     //data = "1,9,10,3,2,3,11,0,99,30,40,50"
     $('#input span').text('(Bytes: ' + (data.length) + ')');
-    let part1Answer = part1( data ); // > 509871
-    $('#answer span').text( part1Answer );
+    let part1Answer = intcode( data, 12, 2 ); // > 509871
+    $('#answer span').text( part1Answer[0] );
     let part2Answer = part2( data );
     $('#answer2 span').text( part2Answer );
   });
