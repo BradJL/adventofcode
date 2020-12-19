@@ -133,9 +133,9 @@ function crossWires( data ){
 function readFile(filePath){
   $.get( filePath, function( data ) {
     $('#input span').text('(Bytes: ' + (data.length) + ')');
-    let part1Answer = crossWires( data );
-    $('#answer span').text( part1Answer[0] );
-    $('#answer2 span').text( part1Answer[1] );
+    let answers = crossWires( data );
+    $('#answer span').text( answers[0] );
+    $('#answer2 span').text( answers[1] );
   });
 }
 // async function readFile(filePath){
