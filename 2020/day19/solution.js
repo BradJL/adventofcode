@@ -36,6 +36,18 @@ function part1( data ){
     rule = rule.replace( numberStr, getRule(rules, parseInt(numberStr)) );
     numberStr = rule.match(/[0-9]+/);
   }
+  rule = "^" + rule + "$";
+  let regEx = new RegExp( rule, '' );
+  
+  let validMessages = 0;
+  data[1].split(/\r?\n/).forEach(function(message,index,array){
+    if( message.match( regEx ) ){
+      ++validMessages;
+      console.log( "Valid:" + message );
+    } else {
+      console.log( "Invalid:" + message );
+    }
+  });
   console.log( "rule: " + rule );
   
 //   console.log( getRule( rules, 0 ) );
