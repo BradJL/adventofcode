@@ -20,6 +20,7 @@ function part1( data ){
   data.forEach(function(num,index,array){
     numbers.push( parseInt( num ) );
   });
+  console.log( numbers );
   let i = 0;
   let stop = false;
   
@@ -44,6 +45,7 @@ function part1( data ){
         numbers[numbers[i+3]] = numbers[numbers[i+1]] * numbers[numbers[i+2]];
         console.log( "mul " + numbers[i+1] + "(" + numbers[numbers[i+1]] + ") * " + numbers[i+2] + "(" + numbers[numbers[i+2]] + ") --> " + numbers[i+3] + "(" + numbers[numbers[i+3]] + ")" );
       }
+      console.log( numbers );
       i += 4;
     }
   }
