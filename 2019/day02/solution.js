@@ -33,12 +33,12 @@ function intcode( numbers, noun, verb ){
     if( !stop ){
       if( add ){
         numbers[numbers[i+3]] = numbers[numbers[i+1]] + numbers[numbers[i+2]];
-        console.log( "add " + numbers[i+1] + "(" + numbers[numbers[i+1]] + ") + " + numbers[i+2] + "(" + numbers[numbers[i+2]] + ") --> " + numbers[i+3] + "(" + numbers[numbers[i+3]] + ")" );
+//         console.log( "add " + numbers[i+1] + "(" + numbers[numbers[i+1]] + ") + " + numbers[i+2] + "(" + numbers[numbers[i+2]] + ") --> " + numbers[i+3] + "(" + numbers[numbers[i+3]] + ")" );
       } else {
         numbers[numbers[i+3]] = numbers[numbers[i+1]] * numbers[numbers[i+2]];
-        console.log( "mul " + numbers[i+1] + "(" + numbers[numbers[i+1]] + ") * " + numbers[i+2] + "(" + numbers[numbers[i+2]] + ") --> " + numbers[i+3] + "(" + numbers[numbers[i+3]] + ")" );
+//         console.log( "mul " + numbers[i+1] + "(" + numbers[numbers[i+1]] + ") * " + numbers[i+2] + "(" + numbers[numbers[i+2]] + ") --> " + numbers[i+3] + "(" + numbers[numbers[i+3]] + ")" );
       }
-      console.log( numbers );
+//       console.log( numbers );
       i += 4;
     }
   }
@@ -57,8 +57,9 @@ function part1( data ){
 
 function part2( data ){
   data = data.trim().split(/,/);
+  let iterations = 10;
   let answer = 0;
-  for( let i = 0; answer != 19690720; ++i ){
+  for( let i = 0; answer != 19690720 && --iterations; ++i ){
     let numbers = [];
     data.forEach(function(num,index,array){
       numbers.push( parseInt( num ) );
