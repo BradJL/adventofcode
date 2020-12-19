@@ -55,10 +55,41 @@ function part1( data ){
 //   console.log( getRule( rules, 11 ) );
 //   console.log( getRule( rules, 36 ) );
 //   console.log( getRule( rules, 24 ) );
-  return 0;
+  return validMessages;
 }
 
 function part2( data ){
+  data = data.trim().split(/\r?\n\r?\n/);
+  let rules = data[0].split(/\r?\n/).sort(function(a, b){return parseInt(a.match(/^[0-9]+/)[0])-parseInt(b.match(/^[0-9]+/)[0])});
+  
+  let iterations = 1000;
+  let rule = getRule( rules, 0 );
+  let numberStr = rule.match(/[0-9]+/);
+  while( numberStr && iterations--){
+    numberStr = rule.match(/[0-9]+/)[0];
+    rule = rule.replace( numberStr, getRule(rules, parseInt(numberStr)) );
+    numberStr = rule.match(/[0-9]+/);
+  }
+  rule = "^" + rule.replace(/ /g,'') + "$";
+  let regEx = new RegExp( rule, '' );
+  
+  let validMessages = 0;
+  data[1].split(/\r?\n/).forEach(function(message,index,array){
+    if( message.match( regEx ) ){
+      ++validMessages;
+      console.log( "Valid:" + message );
+    } else {
+      console.log( "Invalid:" + message );
+    }
+  });
+  console.log( "rule: " + rule );
+  
+//   console.log( getRule( rules, 0 ) );
+//   console.log( getRule( rules, 8 ) );
+//   console.log( getRule( rules, 11 ) );
+//   console.log( getRule( rules, 36 ) );
+//   console.log( getRule( rules, 24 ) );
+  return validMessages;
   data = data.trim().split(/\r?\n/);
   return 0;
 }
