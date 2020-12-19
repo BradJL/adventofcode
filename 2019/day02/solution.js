@@ -13,11 +13,36 @@ function initialize(){
 function log( what ){
   //console.log( what );
 }
-  
+
 function part1( data ){
   data = data.trim().split(/,/);
-  data.forEach(function(module,index,array){
-  });
+//   data.forEach(function(module,index,array){
+//   });
+  let i = 0;
+  let stop = false;
+  
+  while( !stop ){
+    let add = true;
+    switch( data[i] ){
+    case 1: // add
+      add = true;
+      break;
+    case 2: // multiply
+      add = false;
+      break;
+    case 99: // end
+      stop = true;
+      break;
+    }
+    if( !stop ){
+      if( add ){
+        data[parseInt( data[i+3] )] = data[parseInt( data[i+1] )] + data[parseInt( data[i+2] )];
+      } else {
+        data[parseInt( data[i+3] )] = data[parseInt( data[i+1] )] * data[parseInt( data[i+2] )];
+      }
+    }
+  }
+    
   return 0;
 }
 
