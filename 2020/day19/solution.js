@@ -98,7 +98,7 @@ function readFile(filePath){
   $.get( filePath, function( data ) {
     $('#input span').text('(Bytes: ' + (data.length) + ')');
     let part1Answer = part1( data );
-    $('#answer span').text( part1Answer );
+    $('#answer2 span').text( part1Answer );
   });
 }
 // async function readFile(filePath){
