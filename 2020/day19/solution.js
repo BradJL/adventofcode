@@ -13,11 +13,26 @@ function initialize(){
 function log( what ){
   //console.log( what );
 }
+
+function getRule( rules, number ){
+  let rule = rules[number].replace(/^[0-9]+: /);
+  if( rule.charAt(0) == '"' ){
+    rule = rule.replace(/"/g,'');
+  } else {
+    rule = "( " + rule + " )";
+  }
+  return rule;
+}
   
 function part1( data ){
   data = data.trim().split(/\r?\n\r?\n/);
   let rules = data[0].split(/\r?\n/).sort();
+  
+  let rule = getRule( rules, 0 );
+  
   console.log( rules[0] );
+  console.log( rules[8] );
+  console.log( rules[11] );
   return 0;
 }
 
