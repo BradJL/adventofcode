@@ -16,8 +16,9 @@ function log( what ){
 
 function part1( data ){
   data = data.trim().split(/,/);
-//   data.forEach(function(module,index,array){
-//   });
+  data.forEach(function(module,index,array){
+    data[index] = parseInt( module );
+  });
   let i = 0;
   let stop = false;
   
