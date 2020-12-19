@@ -57,7 +57,7 @@ function part1( data ){
 
 function part2( data ){
   data = data.trim().split(/,/);
-  let iterations = 10;
+  let iterations = 1000;
   let answer = 0;
   for( let i = 0; answer != 19690720 && --iterations; ++i ){
     let numbers = [];
