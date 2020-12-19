@@ -36,9 +36,9 @@ function part1( data ){
     }
     if( !stop ){
       if( add ){
-        data[parseInt( data[i+3] )] = data[parseInt( data[i+1] )] + data[parseInt( data[i+2] )];
+        data[parseInt( data[i+3] )] = parseInt(data[parseInt( data[i+1] )]) + parseInt(data[parseInt( data[i+2] )]);
       } else {
-        data[parseInt( data[i+3] )] = data[parseInt( data[i+1] )] * data[parseInt( data[i+2] )];
+        data[parseInt( data[i+3] )] = parseInt(data[parseInt( data[i+1] )]) * parseInt(data[parseInt( data[i+2] )]);
       }
       i += 4;
     }
