@@ -92,6 +92,12 @@ function part1( data ){
 //   console.log( getRule( rules, 36 ) );
 //   console.log( getRule( rules, 24 ) );
   console.log( "babbbbabaabbbababbbbaabaabaabbaaaaabaabaaaaababbbabaaabaababbaaabaaabbaaaabbbbaaaaabbbabbbaaaaba".length + ": babbbbabaabbbababbbbaabaabaabbaaaaabaabaaaaababbbabaaabaababbaaabaaabbaaaabbbbaaaaabbbabbbaaaaba" );
+  let string = "("
+  for( let i = 1; i < 96 ; ++i ){
+    string += " 42".repeat(i) + " 31".repeat(i) + " |"
+  }
+  string += ")";
+  console.log( string );
   return validMessages;
   data = data.trim().split(/\r?\n/);
   return 0;
