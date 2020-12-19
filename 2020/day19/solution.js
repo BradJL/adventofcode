@@ -75,7 +75,7 @@ function part1( data, part ){
     numberStr = rule.match(/[0-9]+/)[0];
 //     let pattern = new RegExp(numberStr, "g");
 //     rule = rule.replace( pattern, getRule(rules, parseInt(numberStr)) );
-    rule = rule.replace( numberStr, getRule(rules, parseInt(numberStr)) );
+    rule = rule.replace( numberStr, getRule(rules, parseInt(numberStr), part) );
     numberStr = rule.match(/[0-9]+/);
   }
   rule = "^" + rule.replace(/ /g,'') + "$";
