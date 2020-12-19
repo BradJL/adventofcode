@@ -24,9 +24,16 @@ function part1( data ){
 }
 
 function part2( data ){
+  let sum = 0;
   data = data.trim().split(/\r?\n/);
-
-  return 0;
+  data.forEach(function(module,index,array){
+    module = Math.floor( parseInt(module)/3 ) - 2;
+    while( module > 0 ({
+      sum += module;
+      module = Math.floor( parseInt(module)/3 ) - 2;
+    }
+  });
+  return sum;
 }
 
 function readFile(filePath){
