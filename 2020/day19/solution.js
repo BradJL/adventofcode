@@ -33,7 +33,7 @@ function part1( data ){
   let numberStr = rule.match(/[0-9]+/);
   while( numberStr && iterations--){
     numberStr = rule.match(/[0-9]+/)[0];
-    rule.replace( numberStr, getRule(rules, parseInt(numberStr)) );
+    rule = rule.replace( numberStr, getRule(rules, parseInt(numberStr)) );
     numberStr = rule.match(/[0-9]+/);
   }
   
