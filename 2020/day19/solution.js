@@ -1,5 +1,5 @@
 function initialize(){
-  $('#answer span').text('Calculating...');
+  $('#answer1 span').text('Calculating...');
   $('#answer2 span').text('Calculating...');
   
   // var canvas = document.getElementById("visualization");
@@ -111,6 +111,7 @@ function readFile(filePath){
   $.get( filePath, function( data ) {
     $('#input span').text('(Bytes: ' + (data.length) + ')');
     let part1Answer = part1( data );
+    $('#answer1 span').text( part1Answer );
     $('#answer2 span').text( part1Answer );
   });
 }
