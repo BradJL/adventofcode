@@ -26,9 +26,10 @@ function intcode( numbers, input, output ){
     let modes = Math.floor(numbers[1] / 100).toString().split('').reverse();
     switch( opcode ){
     case ADD: // add
-      numbers[numbers[i+3]] =
-        numbers[numbers[i+1]] +
-        numbers[numbers[i+2]];
+      let outputIndex = modes[2] == '0' ? /*position mode*/ numbers[i+3] : /*immediate mode*/ i+3;
+       numbers[outputIndex] =
+        modes[0] == '0' ? /*position mode*/ numbers[numbers[i+1]] : /*immediate mode*/ numbers[i+1] +
+        modes[1] == '0' ? /*position mode*/ numbers[numbers[i+2]] : /*immediate mode*/ numbers[i+2];
 //      console.log( "add " + numbers[i+1] + "(" + numbers[numbers[i+1]] + ") + " + numbers[i+2] + "(" + numbers[numbers[i+2]] + ") --> " + numbers[i+3] + "(" + numbers[numbers[i+3]] + ")" );
       i += 4;
       break;
