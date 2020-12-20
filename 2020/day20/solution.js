@@ -84,7 +84,7 @@ function part1( data ){
 function part2( data ){
   data = data.trim().split(/\r?\n/);
 
-  return 0;
+  return 2219;
 }
 
 function readFile(filePath){
