@@ -46,8 +46,8 @@ function part1( data ){
     edges.push( parseInt( reverseString(edgeL), 2 ) );
     edges.push( parseInt( edgeR, 2 ) );
     edges.push( parseInt( reverseString(edgeR), 2 ) );
+    console.log( name + ": " + edges );
   });
-  console.log( name + ": " + edges );
   return 0;
 }
 
