@@ -79,7 +79,7 @@ function part1( data ){
 function test( code, input, expectedOutput, expectedMemory ){
   code = code.trim().split(/,/);
   let numbers = [];
-  data.forEach(function(num,index,array){
+  code.forEach(function(num,index,array){
     numbers.push( parseInt( num ) );
   });
   let output = [];
