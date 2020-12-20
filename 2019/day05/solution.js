@@ -23,9 +23,12 @@ function intcode( numbers, input, output ){
   
   while( !stop ){
     let opcode = numbers[i] % 100;
+    let modes = Math.floor(numbers[1] / 100).toString.split('').reverse();
     switch( opcode ){
     case ADD: // add
-      numbers[numbers[i+3]] = numbers[numbers[i+1]] + numbers[numbers[i+2]];
+      numbers[numbers[i+3]] =
+        numbers[numbers[i+1]] +
+        numbers[numbers[i+2]];
 //      console.log( "add " + numbers[i+1] + "(" + numbers[numbers[i+1]] + ") + " + numbers[i+2] + "(" + numbers[numbers[i+2]] + ") --> " + numbers[i+3] + "(" + numbers[numbers[i+3]] + ")" );
       i += 4;
       break;
