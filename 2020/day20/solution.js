@@ -23,6 +23,8 @@ var matches = [];
 function addEdge( name, number ){
   if( edges[number] ){
     console.log( "Match! " + edges[number] + " " + name );
+    if( !matches[edges[number]] ){ matches[edges[number]] = 0 };
+    if( !matches[name] ){ matches[name] = 0 };
     matches[edges[number]] += 1;
     matches[name] += 1;
   } else {
