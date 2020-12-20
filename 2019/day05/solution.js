@@ -16,24 +16,29 @@ const INPUT = 3;
 const OUTPUT = 4;
 const HALT = 99;
 
+function getOpcode( number ){
+  let opcode = numbers[i] % 100;
+  let modes = ("000" + Math.floor(numbers[0] / 100).toString()).split('').reverse();
+  return [opcode, modes[0]=='0', modes[1]=='0', modes[2]=='0'];
+}
+
 function intcode( numbers, input, output ){
 //  console.log( numbers );
   let i = 0;
   let stop = false;
   
   while( !stop ){
-    let opcode = numbers[i] % 100;
-    let modes = ("000" + Math.floor(numbers[0] / 100).toString()).split('').reverse();
+    let opcode = getOpcode( numbers[i] );
     let outputIndex;
     let debugString = "";
     switch( opcode ){
     case ADD:
 //       console.log( "modes: " + modes );
       debugString = "Add(" + numbers[i] + "): " + numbers[i+1] + "(" + numbers[numbers[i+1]] + ") + " + numbers[i+2] + "(" + numbers[numbers[i+2]] + ") --> " + numbers[i+3] + "(" + numbers[numbers[i+3]] + ") : ";
-      outputIndex = modes[2] == '0' ? /*position mode*/ numbers[i+3] : /*immediate mode*/ i+3;
+      outputIndex = opcode[3] ? /*position mode*/ numbers[i+3] : /*immediate mode*/ i+3;
       numbers[outputIndex] =
-        (modes[0] == '0' ? /*position mode*/ numbers[numbers[i+1]] : /*immediate mode*/ numbers[i+1]) +
-        (modes[1] == '0' ? /*position mode*/ numbers[numbers[i+2]] : /*immediate mode*/ numbers[i+2]);
+        (opcode[1] ? /*position mode*/ numbers[numbers[i+1]] : /*immediate mode*/ numbers[i+1]) +
+        (opcode[2] ? /*position mode*/ numbers[numbers[i+2]] : /*immediate mode*/ numbers[i+2]);
       console.log( debugString + numbers + " : " + numbers[outputIndex] );
       i += 4;
       break;
@@ -131,6 +136,10 @@ function readFile(filePath){
 //     $('#answer2 span').text( part2Answer );
     let testsPass = true;
     testsPass = testsPass && test( "1,9,10,3,2,3,11,0,99,30,40,50", 0, "", "3500,9,10,70,2,3,11,0,99,30,40,50" );
+    testsPass = testsPass && test( "1,0,0,3,1,1,2,3,1,3,4,3,1,5,0,3,2,9,1,19,1,19,6,23,2,6,23,27,2,27,9,31,1,5,31,35,1,35,10,39,2,39,9,43,1,5,43,47,2,47,10,51,1,51,6,55,1,5,55,59,2,6,59,63,2,63,6,67,1,5,67,71,1,71,9,75,2,75,10,79,1,79,5,83,1,10,83,87,1,5,87,91,2,13,91,95,1,95,10,99,2,99,13,103,1,103,5,107,1,107,13,111,2,111,9,115,1,6,115,119,2,119,6,123,1,123,6,127,1,127,9,131,1,6,131,135,1,135,2,139,1,139,10,0,99,2,0,14,0",
+                                   0,
+                                   "",
+                                   "" ); // Day2
     testsPass = testsPass && test( "3,0,4,0,99", 1, 1, "1,0,4,0,99" );
     $('#bonus span').text( "tests: " + testsPass );
   });
