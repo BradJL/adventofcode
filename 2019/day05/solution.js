@@ -48,21 +48,22 @@ function intcode( numbers, input, output ){
       break;
     case INPUT:
       debugString = "Input(" + numbers[i] + ") " + input + " --> " + numbers[i+1] + "(" + numbers[numbers[i+1]] + ") : ";
-      if( modes[0] == '0' ){
-        console.log( "position mode" );
-        outputIndex = numbers[i+1];
-      } else {
-        console.log( "immediate mode" );
+//       if( modes[0] == '0' ){
+//         console.log( "position mode" );
+//         outputIndex = numbers[i+1];
+//       } else {
+//         console.log( "immediate mode" );
         outputIndex = i+1;
-      }
+//       }
 //       outputIndex = (modes[0] == '0' ? /*position mode*/ numbers[i+1] : /*immediate mode*/ i+1);
-      console.log( "modes[0]: " + modes[0] + " outputIndex: " + outputIndex );
+//       console.log( "modes[0]: " + modes[0] + " outputIndex: " + outputIndex );
       numbers[outputIndex] = input;
       console.log( debugString + numbers );
       i += 2;
       break;
     case OUTPUT:
-      output.push( modes[0] == '0' ? /*position mode*/ numbers[numbers[i+1]] : /*immediate mode*/ numbers[i+1] );
+//       output.push( modes[0] == '0' ? /*position mode*/ numbers[numbers[i+1]] : /*immediate mode*/ numbers[i+1] );
+      output.push( numbers[numbers[i+1]] );
       console.log( "Output(" + numbers[i] + "):" + numbers[i+1] + " : " + output[output.length-1] );
       i += 2;
       break;
