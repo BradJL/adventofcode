@@ -49,6 +49,7 @@ function intcode( numbers, input, output ){
     case INPUT:
       debugString = "Input(" + numbers[i] + ") " + input + " --> " + numbers[i+1] + "(" + numbers[numbers[i+1]] + ") : ";
       outputIndex = modes[0] == '0' ? /*position mode*/ numbers[i+1] : /*immediate mode*/ i+1;
+      console.log( "outputIndex: " + outputIndex );
       numbers[outputIndex] = input;
       console.log( debugString + numbers );
       i += 2;
