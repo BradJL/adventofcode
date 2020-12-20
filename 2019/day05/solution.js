@@ -57,6 +57,10 @@ function intcode( numbers, input, output ){
     case HALT:
       stop = true;
       break;
+    default:
+      console.log( "Oops, got opcode: " + numbers[i] );
+      stop = true;
+      break;
     }
   }
     
