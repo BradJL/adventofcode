@@ -65,6 +65,7 @@ function part1( data ){
   data.forEach(function(num,index,array){
     numbers.push( parseInt( num ) );
   });
+  console.log( numbers );
   let output = [];
   console.log( intcode( numbers, 1, output ) );
   return output;
