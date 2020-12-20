@@ -22,7 +22,8 @@ function intcode( numbers, input, output ){
   let stop = false;
   
   while( !stop ){
-    switch( numbers[i] ){
+    let opcode = numbers[i] % 100;
+    switch( opcode ){
     case ADD: // add
       numbers[numbers[i+3]] = numbers[numbers[i+1]] + numbers[numbers[i+2]];
 //      console.log( "add " + numbers[i+1] + "(" + numbers[numbers[i+1]] + ") + " + numbers[i+2] + "(" + numbers[numbers[i+2]] + ") --> " + numbers[i+3] + "(" + numbers[numbers[i+3]] + ")" );
