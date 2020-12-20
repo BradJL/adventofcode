@@ -79,10 +79,10 @@ function part1( data ){
 function test( code, input, expectedOutput, expectedMemory ){
   let output = [];
   let memory = intcode( code, input, output );
-  if( memory == expectedMemory && output == expectedOutput ){
-    return true;
-  }
-  console.log( "Test Failed: " + code + " (" + input + ") != (" + expectedOutput + ") " + expectedMemory );
+//   if( memory == expectedMemory && output == expectedOutput ){
+//     return true;
+//   }
+//   console.log( "Test Failed: " + code + " (" + input + ") != (" + expectedOutput + ") " + expectedMemory );
   return false;
 }
 
