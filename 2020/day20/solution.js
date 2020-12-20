@@ -22,7 +22,7 @@ function part1( data ){
   data = data.trim().split(/\r?\n\r?\n/);
   data.forEach(function(tile,index,array){
     let name = tile[0].match(/[0-9]+/);
-    console.log( name );
+    console.log( "name: " + name );
     let edges = [];
 
     let edge = getBinaryString( tile[1] );
