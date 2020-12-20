@@ -64,12 +64,18 @@ function intcode( numbers, input, output ){
 //       console.log( "modes[0]: " + modes[0] + " outputIndex: " + outputIndex );
       numbers[outputIndex] = input;
       console.log( debugString + numbers );
+      if( !(opcode[1] && opcode[2] && opcode[3]) ){
+        console.log( "whoa! Stopping..." );
+      }
       i += 2;
       break;
     case OUTPUT:
 //       output.push( modes[0] == '0' ? /*position mode*/ numbers[numbers[i+1]] : /*immediate mode*/ numbers[i+1] );
       output.push( numbers[numbers[i+1]] );
       console.log( "Output(" + numbers[i] + "):" + numbers[i+1] + " : " + output[output.length-1] );
+      if( !(opcode[1] && opcode[2] && opcode[3]) ){
+        console.log( "whoa! Stopping..." );
+      }
       i += 2;
       break;
     case HALT:
