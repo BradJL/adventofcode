@@ -26,6 +26,7 @@ function intcode( numbers, input, output ){
     let modes = ("000" + Math.floor(numbers[1] / 100).toString()).split('').reverse();
     switch( opcode ){
     case ADD: // add
+      console.log( "modes: " + modes );
       let outputIndex = modes[2] == '0' ? /*position mode*/ numbers[i+3] : /*immediate mode*/ i+3;
        numbers[outputIndex] =
         modes[0] == '0' ? /*position mode*/ numbers[numbers[i+1]] : /*immediate mode*/ numbers[i+1] +
