@@ -45,8 +45,8 @@ function intcode( numbers, input, output ){
       debugString = "Mult(" + numbers[i] + "): " + numbers[i+1] + " * " + numbers[i+2] + " --> " + numbers[i+3] + " : ";
       outputIndex = modes[2] == '0' ? /*position mode*/ numbers[i+3] : /*immediate mode*/ i+3;
       numbers[outputIndex] =
-        (modes[0] == '0' ? /*position mode*/ numbers[numbers[i+1]] : /*immediate mode*/ numbers[i+1]) *
-        (modes[1] == '0' ? /*position mode*/ numbers[numbers[i+2]] : /*immediate mode*/ numbers[i+2]);
+        (opcode[1] ? /*position mode*/ numbers[numbers[i+1]] : /*immediate mode*/ numbers[i+1]) *
+        (opcode[2] ? /*position mode*/ numbers[numbers[i+2]] : /*immediate mode*/ numbers[i+2]);
       console.log( debugString + numbers + " : " + numbers[outputIndex] );
       i += 4;
       break;
