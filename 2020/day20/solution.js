@@ -18,6 +18,18 @@ function getBinaryString(str){
   return str.replace(/\#/g,'1').replace(/\./g,'0');
 }
 
+var edges = [];
+var matches = [];
+function addEdge( name, number ){
+  if( edges[number] ){
+    console.log( "Match! " + edges[number] + " " + name );
+    matches[edges[number]] += 1;
+    matches[name] += 1;
+  } else {
+    edges[number] = name;
+  }
+}
+
 function part1( data ){
   data = data.trim().split(/\r?\n\r?\n/);
   data.forEach(function(tile,index,array){
@@ -26,14 +38,18 @@ function part1( data ){
     console.log( "name: " + name );
     
     let lines = tile.split(/\r?\n/);
-    let edges = [];
+//     let edges = [];
     let edge = getBinaryString( lines[1] );
-    edges.push( parseInt( edge, 2 ) );
-    edges.push( parseInt( reverseString(edge), 2 ) );
+//     edges.push( parseInt( edge, 2 ) );
+//     edges.push( parseInt( reverseString(edge), 2 ) );
+    addEdge( name, parseInt( edge, 2 ) );
+    addEdge( name, parseInt( reverseString(edge), 2 ) );
 
     edge = getBinaryString( lines[lines.length-1] );
-    edges.push( parseInt( edge, 2 ) );
-    edges.push( parseInt( reverseString(edge), 2 ) );
+//     edges.push( parseInt( edge, 2 ) );
+//     edges.push( parseInt( reverseString(edge), 2 ) );
+    addEdge( name, parseInt( edge, 2 ) );
+    addEdge( name, parseInt( reverseString(edge), 2 ) );
 
     let edgeL = "";
     let edgeR = "";
@@ -43,11 +59,15 @@ function part1( data ){
     }
     edgeL = getBinaryString( edgeL );
     edgeR = getBinaryString( edgeR );
-    edges.push( parseInt( edgeL, 2 ) );
-    edges.push( parseInt( reverseString(edgeL), 2 ) );
-    edges.push( parseInt( edgeR, 2 ) );
-    edges.push( parseInt( reverseString(edgeR), 2 ) );
-    console.log( name + ": " + edges );
+//     edges.push( parseInt( edgeL, 2 ) );
+//     edges.push( parseInt( reverseString(edgeL), 2 ) );
+    addEdge( name, parseInt( edgeL, 2 ) );
+    addEdge( name, parseInt( reverseString(edgeL), 2 ) );
+//     edges.push( parseInt( edgeR, 2 ) );
+//     edges.push( parseInt( reverseString(edgeR), 2 ) );
+    addEdge( name, parseInt( edgeR, 2 ) );
+    addEdge( name, parseInt( reverseString(edgeR), 2 ) );
+//     console.log( name + ": " + edges );
   });
   return 0;
 }
