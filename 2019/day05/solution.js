@@ -77,12 +77,17 @@ function part1( data ){
 // }
 
 function test( code, input, expectedOutput, expectedMemory ){
+  code = code.trim().split(/,/);
+  let numbers = [];
+  data.forEach(function(num,index,array){
+    numbers.push( parseInt( num ) );
+  });
   let output = [];
-  let memory = intcode( code, input, output );
-//   if( memory == expectedMemory && output == expectedOutput ){
-//     return true;
-//   }
-//   console.log( "Test Failed: " + code + " (" + input + ") != (" + expectedOutput + ") " + expectedMemory );
+  let memory = intcode( numbers, input, output );
+  if( memory == expectedMemory && output == expectedOutput ){
+    return true;
+  }
+  console.log( "Test Failed: " + code + " (" + input + ") != (" + expectedOutput + ") " + expectedMemory );
   return false;
 }
 
