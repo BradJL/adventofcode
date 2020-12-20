@@ -95,8 +95,8 @@ function readFile(filePath){
 //     let part2Answer = part2( data ); // 
 //     $('#answer2 span').text( part2Answer );
     let testsPass = true;
-//     testsPass = testsPass && test( "1,9,10,3,2,3,11,0,99,30,40,50", 0 , [], "3500,9,10,70,2,3,11,0,99,30,40,50" );
-//     testsPass = testsPass && test( "3,0,4,0,99", 1, 1, "3,0,4,0,99" );
+//     testsPass = testsPass && test( "1,9,10,3,2,3,11,0,99,30,40,50", 0, [], "3500,9,10,70,2,3,11,0,99,30,40,50" );
+    testsPass = testsPass && test( "3,0,4,0,99", 1, 1, "3,0,4,0,99" );
     $('#bonus span').text( testPass );
   });
 }
