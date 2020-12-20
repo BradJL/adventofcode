@@ -31,7 +31,7 @@ function intcode( numbers, input, output ){
     console.log( "opcode: " + opcode );
     let outputIndex;
     let debugString = "";
-    switch( opcode ){
+    switch( opcode[0] ){
     case ADD:
 //       console.log( "modes: " + modes );
       debugString = "Add(" + numbers[i] + "): " + numbers[i+1] + "(" + numbers[numbers[i+1]] + ") + " + numbers[i+2] + "(" + numbers[numbers[i+2]] + ") --> " + numbers[i+3] + "(" + numbers[numbers[i+3]] + ") : ";
