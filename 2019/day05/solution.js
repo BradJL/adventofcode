@@ -16,13 +16,12 @@ const INPUT = 3;
 const OUTPUT = 4;
 const HALT = 99;
 
-function getOpcode( number ){
-  let opcode = numbers[i] % 100;
-  let modes = ("000" + Math.floor(numbers[0] / 100).toString()).split('').reverse();
-  return [opcode, modes[0]=='0', modes[1]=='0', modes[2]=='0'];
-}
-
 function intcode( numbers, input, output ){
+  function getOpcode( number ){
+    let opcode = number % 100;
+    let modes = ("000" + Math.floor(numbers[0] / 100).toString()).split('').reverse();
+    return [opcode, modes[0]=='0', modes[1]=='0', modes[2]=='0'];
+  }
 //  console.log( numbers );
   let i = 0;
   let stop = false;
