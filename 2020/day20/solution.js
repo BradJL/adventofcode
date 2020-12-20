@@ -69,7 +69,7 @@ function part1( data ){
     addEdge( name, parseInt( reverseString(edgeR), 2 ) );
 //     console.log( name + ": " + edges );
   });
-  return 0;
+  return matches;
 }
 
 function part2( data ){
