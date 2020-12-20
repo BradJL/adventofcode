@@ -32,6 +32,7 @@ function intcode( numbers, input, output ){
       numbers[outputIndex] =
         (modes[0] == '0' ? /*position mode*/ numbers[numbers[i+1]] : /*immediate mode*/ numbers[i+1]) +
         (modes[1] == '0' ? /*position mode*/ numbers[numbers[i+2]] : /*immediate mode*/ numbers[i+2]);
+      console.log( "Add(" + numbers[i] + "): " + numbers[i+1] + " + " + numbers[i+2] + " --> " + numbers[i+3] " : " + numbers;
       i += 4;
       break;
     case MULTIPLY:
@@ -39,15 +40,18 @@ function intcode( numbers, input, output ){
       numbers[outputIndex] =
         (modes[0] == '0' ? /*position mode*/ numbers[numbers[i+1]] : /*immediate mode*/ numbers[i+1]) *
         (modes[1] == '0' ? /*position mode*/ numbers[numbers[i+2]] : /*immediate mode*/ numbers[i+2]);
+      console.log( "Mult(" + numbers[i] + "): " + numbers[i+1] + " * " + numbers[i+2] + " --> " + numbers[i+3] " : " + numbers;
       i += 4;
       break;
     case INPUT:
       outputIndex = modes[0] == '0' ? /*position mode*/ numbers[i+1] : /*immediate mode*/ i+1;
       numbers[outputIndex] = input;
+      console.log( "Input(" + input + ") --> " + numbers[i+1] " : " + numbers;
       i += 2;
       break;
     case OUTPUT:
       output.push( modes[0] == '0' ? /*position mode*/ numbers[numbers[i+1]] : /*immediate mode*/ numbers[i+1] );
+      console.log( "Output(" +  output[output.length-1] + "):" + numbers[i+1] + " : " + numbers;
       i += 2;
       break;
     case HALT:
