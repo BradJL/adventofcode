@@ -28,7 +28,7 @@ function intcode( numbers, input, output ){
   
   while( !stop ){
     let opcode = getOpcode( numbers[i] );
-    console.log( "opcode: " + opcode );
+//     console.log( "opcode: " + opcode );
     let outputIndex;
     let debugString = "";
     switch( opcode[0] ){
