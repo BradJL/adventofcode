@@ -44,7 +44,7 @@ function intcode( numbers, input, output ){
       break;
     case MULTIPLY:
       debugString = "Mult(" + numbers[i] + "): " + numbers[i+1] + " * " + numbers[i+2] + " --> " + numbers[i+3] + " : ";
-      outputIndex = modes[2] == '0' ? /*position mode*/ numbers[i+3] : /*immediate mode*/ i+3;
+      outputIndex = opcode[3] ? /*position mode*/ numbers[i+3] : /*immediate mode*/ i+3;
       numbers[outputIndex] =
         (opcode[1] ? /*position mode*/ numbers[numbers[i+1]] : /*immediate mode*/ numbers[i+1]) *
         (opcode[2] ? /*position mode*/ numbers[numbers[i+2]] : /*immediate mode*/ numbers[i+2]);
