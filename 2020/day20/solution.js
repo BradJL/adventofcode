@@ -24,21 +24,22 @@ function part1( data ){
 //     console.log( tile );
     let name = tile.match(/[0-9]+/);
     console.log( "name: " + name );
+    
+    let lines = tile.split(/\r?\n/);
     let edges = [];
-
-    let edge = getBinaryString( tile[1] );
+    let edge = getBinaryString( lines[1] );
     edges.push( parseInt( edge, 2 ) );
     edges.push( parseInt( reverseString(edge), 2 ) );
 
-    edge = getBinaryString( tile[tile.length-1] );
+    edge = getBinaryString( lines[lines.length-1] );
     edges.push( parseInt( edge, 2 ) );
     edges.push( parseInt( reverseString(edge), 2 ) );
 
     let edgeL = "";
     let edgeR = "";
-    for( let i = 1; i < tile.length; ++i ){
-      edgeL += tile[i].charAt(0);
-      edgeR += tile[i].charAt(9);
+    for( let i = 1; i < lines.length; ++i ){
+      edgeL += lines[i].charAt(0);
+      edgeR += lines[i].charAt(9);
     }
     edgeL = getBinaryString( edgeL );
     edgeR = getBinaryString( edgeR );
