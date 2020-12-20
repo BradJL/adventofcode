@@ -101,7 +101,6 @@ function test( code, input, expectedOutput, expectedMemory ){
 
 function readFile(filePath){
   $.get( filePath, function( data ) {
-    data = "3,0,4,0,99"
     $('#input span').text('(Bytes: ' + (data.length) + ')');
     let part1Answer = part1( data ); // 
     $('#answer span').text( part1Answer );
