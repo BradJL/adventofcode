@@ -36,7 +36,7 @@ function part1( data ){
   data = data.trim().split(/\r?\n\r?\n/);
   data.forEach(function(tile,index,array){
 //     console.log( tile );
-    let name = tile.match(/[0-9]+/);
+    let name = parseInt(tile.match(/[0-9]+/));
     console.log( "name: " + name );
     
     let lines = tile.split(/\r?\n/);
