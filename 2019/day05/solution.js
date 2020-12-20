@@ -29,7 +29,7 @@ function intcode( numbers, input, output ){
     switch( opcode ){
     case ADD:
 //       console.log( "modes: " + modes );
-      debugString = "Add(" + numbers[i] + "): " + numbers[i+1] + " + " + numbers[i+2] + " --> " + numbers[i+3] + " : ";
+      debugString = "Add(" + numbers[i] + "): " + numbers[i+1] + "(" + numbers[numbers[i+1]] + ")" + numbers[i+2] + "(" + numbers[numbers[i+2]] + ") --> " + numbers[i+3] + " : ";
       outputIndex = modes[2] == '0' ? /*position mode*/ numbers[i+3] : /*immediate mode*/ i+3;
       numbers[outputIndex] =
         (modes[0] == '0' ? /*position mode*/ numbers[numbers[i+1]] : /*immediate mode*/ numbers[i+1]) +
