@@ -123,7 +123,7 @@ function test( code, input, expectedOutput, expectedMemory ){
   if( memory == expectedMemory && output == expectedOutput ){
     return true;
   }
-  console.log( "Test Failed: " + code + " (" + input + ") != (" + output + ":" + expectedOutput + ") " + memory + ":" + expectedMemory );
+  console.log( "Test Failed: " + code + " (" + input + ") != ( output: " + output + " expOutput: " + expectedOutput + ") memory: " + memory + " expMemory: " + expectedMemory );
   return false;
 }
 
