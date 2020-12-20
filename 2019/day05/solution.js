@@ -25,28 +25,32 @@ function intcode( numbers, input, output ){
     let opcode = numbers[i] % 100;
     let modes = ("000" + Math.floor(numbers[1] / 100).toString()).split('').reverse();
     let outputIndex;
+    let debugString = "";
     switch( opcode ){
     case ADD:
 //       console.log( "modes: " + modes );
-      console.log( "Add(" + numbers[i] + "): " + numbers[i+1] + " + " + numbers[i+2] + " --> " + numbers[i+3] + " : " + numbers );
+      debugString = "Add(" + numbers[i] + "): " + numbers[i+1] + " + " + numbers[i+2] + " --> " + numbers[i+3] + " : ";
       outputIndex = modes[2] == '0' ? /*position mode*/ numbers[i+3] : /*immediate mode*/ i+3;
       numbers[outputIndex] =
         (modes[0] == '0' ? /*position mode*/ numbers[numbers[i+1]] : /*immediate mode*/ numbers[i+1]) +
         (modes[1] == '0' ? /*position mode*/ numbers[numbers[i+2]] : /*immediate mode*/ numbers[i+2]);
+      console.log( debugString + numbers );
       i += 4;
       break;
     case MULTIPLY:
-      console.log( "Mult(" + numbers[i] + "): " + numbers[i+1] + " * " + numbers[i+2] + " --> " + numbers[i+3] + " : " + numbers );
+      debugString = "Mult(" + numbers[i] + "): " + numbers[i+1] + " * " + numbers[i+2] + " --> " + numbers[i+3] + " : ";
       outputIndex = modes[2] == '0' ? /*position mode*/ numbers[i+3] : /*immediate mode*/ i+3;
       numbers[outputIndex] =
         (modes[0] == '0' ? /*position mode*/ numbers[numbers[i+1]] : /*immediate mode*/ numbers[i+1]) *
         (modes[1] == '0' ? /*position mode*/ numbers[numbers[i+2]] : /*immediate mode*/ numbers[i+2]);
+      console.log( debugString + numbers );
       i += 4;
       break;
     case INPUT:
-      console.log( "Input(" + numbers[i] + ") --> " + numbers[i+1] + "(" + numbers[numbers[i+1]] + ") : " + numbers );
+      degbugString = "Input(" + numbers[i] + ") " + input + " --> " + numbers[i+1] + "(" + numbers[numbers[i+1]] + ") : ";
       outputIndex = modes[0] == '0' ? /*position mode*/ numbers[i+1] : /*immediate mode*/ i+1;
       numbers[outputIndex] = input;
+      console.log( debugString + numbers );
       i += 2;
       break;
     case OUTPUT:
