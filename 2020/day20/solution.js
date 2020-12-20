@@ -71,7 +71,14 @@ function part1( data ){
     addEdge( name, parseInt( reverseString(edgeR), 2 ) );
 //     console.log( name + ": " + edges );
   });
-  return matches;
+  
+  let product = 1;
+  matches.forEach(function( match, index, array ){
+    if( match == 4 ){
+      product *= index;
+    }
+  });
+  return product;
 }
 
 function part2( data ){
