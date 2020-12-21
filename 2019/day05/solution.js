@@ -20,6 +20,9 @@ function intcode( numbers, input, output ){
   function getOpcode( number ){
     let opcode = number % 100;
     let modes = ("000" + Math.floor(numbers[0] / 100).toString()).split('').reverse();
+    if( modes[0] != '0' ){ console.log( "Param1 is in immediate mode" ); }
+    if( modes[1] != '0' ){ console.log( "Param2 is in immediate mode" ); }
+    if( modes[2] != '0' ){ console.log( "Param3 is in immediate mode" ); }
     return [opcode, modes[0]=='0', modes[1]=='0', modes[2]=='0'];
   }
 //  console.log( numbers );
