@@ -10,8 +10,8 @@ function initialize(){
 
 // const fs = require('fs').promises;
 
-function log( what ){
-  //console.log( what );
+function clone( obj ){
+  return JSON.parse(JSON.stringify(obj));
 }
 
 function score( player1, player2 ){
@@ -59,11 +59,11 @@ function recursiveCombat( player1, player2 ){
     console.log( "-- Round " + round + " --" );
     console.log( "Player 1's deck: " + player1 );
     console.log( "Player 2's deck: " + player2 );
-    if( configurations[ score(player1.slice(), player2.slice()) ] ){
+    if( configurations[ score(clone(player1), clone(player2)) ] ){
       console.log( "ending game early..." );
       return [[1],[]];
     } else {
-      configurations[ score(player1, player2) ] = true;
+      configurations[ score(clone(player1), clone(player2)) ] = true;
     }
     card1 = player1.shift();
     card2 = player2.shift();
