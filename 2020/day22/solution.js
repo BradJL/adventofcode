@@ -14,6 +14,17 @@ function log( what ){
   //console.log( what );
 }
 
+function score( player1, player2 ){
+  let score = 0;
+  while( player1.length ){
+    score += player1.length * player1.shift();
+  }
+  while( player2.length ){
+    score += player2.length * player2.shift();
+  }
+  return score;
+}
+
 function combat( player1, player2 ){
   let round = 1;
   while( player1.length > 0 && player2.length > 0 ){
@@ -57,14 +68,7 @@ function part1( data ){
   player1 = result[0];
   player2 = result[1];
 
-  let score = 0;
-  while( player1.length ){
-    score += player1.length * player1.shift();
-  }
-  while( player2.length ){
-    score += player2.length * player2.shift();
-  }
-  return score;
+  return score( player1, player2 );
 }
 
 function part2( data ){
