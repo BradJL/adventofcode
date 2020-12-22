@@ -52,18 +52,8 @@ function log( what ){
 }
   
 function part1( data ){
-  let decks = data.trim().split(/\r?\n\r?\n/);
-  let player1 = [];
-  let player2 = [];
-  decks[0].slice(1).split(/\r?\n/).forEach(function(card,index,array)[
-    player1.push( parseInt( card );
-  });
-  decks[1].slice(1).split(/\r?\n/).forEach(function(card,index,array)[
-    player2.push( parseInt( card );
-  });
-    
-  console.log( "Player 1's deck: " + player1 );
-  console.log( "Player 2's deck: " + player2 );
+  data = data.trim().split(/\r?\n/);
+  
   return 0;
 }
 
