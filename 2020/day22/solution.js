@@ -17,6 +17,7 @@ function log( what ){
 function part1( data ){
   let player1 = [];
   let player2 = [];
+  let card1, card2;
   let decks = data.trim().split(/\r?\n\r?\n/);
   decks[0].split(/\r?\n/).slice(1).forEach(function(card,index,array){
     player1.push( parseInt( card ) );
@@ -27,6 +28,19 @@ function part1( data ){
     
   console.log( "Player 1's deck: " + player1 );
   console.log( "Player 2's deck: " + player2 );
+  card1 = player1.shift();
+  card2 = player2.shift();
+  console.log( "Player 1 plays: " + card1 );
+  console.log( "Player 2 plays: " + card2 );
+  if( card1 > card2 ){
+    console.log( "Player 1 wins the round!" );
+    player1.push( card1 );
+    player1.push( card2 );
+  } else {
+    console.log( "Player 2 wins the round!" );
+    player2.push( card2 );
+    player2.push( card1 );
+  }
   return 0;
 }
 
