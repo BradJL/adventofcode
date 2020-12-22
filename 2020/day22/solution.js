@@ -19,6 +19,7 @@ function part1( data ){
   let player2 = [];
   let decks = data.trim().split(/\r?\n\r?\n/);
   console.log(decks);
+  console.log(decks[0]);
 //   decks[0].slice(1).split(/\r?\n/).forEach(function(card,index,array)[
 //     player1.push( parseInt( card );
 //   });
