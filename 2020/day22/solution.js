@@ -13,19 +13,8 @@ function initialize(){
 function log( what ){
   //console.log( what );
 }
-  
-function part1( data ){
-  let player1 = [];
-  let player2 = [];
-  let card1, card2;
-  let decks = data.trim().split(/\r?\n\r?\n/);
-  decks[0].split(/\r?\n/).slice(1).forEach(function(card,index,array){
-    player1.push( parseInt( card ) );
-  });
-  decks[1].split(/\r?\n/).slice(1).forEach(function(card,index,array){
-    player2.push( parseInt( card ) );
-  });
-  
+
+function combat( player1, player2 ){
   let round = 1;
   while( player1.length > 0 && player2.length > 0 ){
     console.log( "-- Round " + round + " --" );
@@ -49,6 +38,24 @@ function part1( data ){
   console.log( "== Post-game results ==" );
   console.log( "Player 1's deck: " + player1 )
   console.log( "Player 2's deck: " + player2 );
+  return [ player1, player2 ];
+}
+
+function part1( data ){
+  let player1 = [];
+  let player2 = [];
+  let card1, card2;
+  let decks = data.trim().split(/\r?\n\r?\n/);
+  decks[0].split(/\r?\n/).slice(1).forEach(function(card,index,array){
+    player1.push( parseInt( card ) );
+  });
+  decks[1].split(/\r?\n/).slice(1).forEach(function(card,index,array){
+    player2.push( parseInt( card ) );
+  });
+  
+  let result = combat( player1, player2 );
+  player1 = result[0];
+  player2 = result[1];
 
   let score = 0;
   while( player1.length ){
@@ -89,4 +96,4 @@ function readFile(filePath){
 // }
 
 initialize();
-readFile('input.txt');
+readFile('input1.txt');
