@@ -52,6 +52,54 @@ function combat( player1, player2 ){
   return [ player1, player2 ];
 }
 
+function recursiveCombat( player1, player2 ){
+  let configurations = [];
+  let round = 1;
+  while( player1.length > 0 && player2.length > 0 ){
+    console.log( "-- Round " + round + " --" );
+    console.log( "Player 1's deck: " + player1 );
+    console.log( "Player 2's deck: " + player2 );
+    if( configurations[ score(player1, player2) ] ){
+      console.log( "ending game early..." );
+      return [[1],[]];
+    } else {
+      configurations[ score(player1, player2) ] = true;
+    }
+    card1 = player1.shift();
+    card2 = player2.shift();
+    console.log( "Player 1 plays: " + card1 );
+    console.log( "Player 2 plays: " + card2 );
+    if( player1.length >= card1 && player2.length >= card2 ){
+      console.log( "Recursive combat!!!");
+      let result = recursiveCombat( player1.slice(), player2.slice() );
+      if( result[0].length ){
+        console.log( "Player 1 wins the recursive round!" );
+        player1.push( card1 );
+        player2.push( card2 );
+      } else {
+        console.log( "Player 2 wins the recursive round!" );
+        player2.push( card2 );
+        player2.push( card1 );
+      }
+    } else {
+      if( card1 > card2 ){
+        console.log( "Player 1 wins the round!" );
+        player1.push( card1 );
+        player1.push( card2 );
+      } else {
+        console.log( "Player 2 wins the round!" );
+        player2.push( card2 );
+        player2.push( card1 );
+      }
+    }
+    ++round;
+  }
+  console.log( "== Post-game results ==" );
+  console.log( "Player 1's deck: " + player1 )
+  console.log( "Player 2's deck: " + player2 );
+  return [ player1, player2 ];
+}
+
 function part1( data ){
   let player1 = [];
   let player2 = [];
@@ -72,9 +120,22 @@ function part1( data ){
 }
 
 function part2( data ){
-  data = data.trim().split(/\r?\n/);
+  let player1 = [];
+  let player2 = [];
+  let card1, card2;
+  let decks = data.trim().split(/\r?\n\r?\n/);
+  decks[0].split(/\r?\n/).slice(1).forEach(function(card,index,array){
+    player1.push( parseInt( card ) );
+  });
+  decks[1].split(/\r?\n/).slice(1).forEach(function(card,index,array){
+    player2.push( parseInt( card ) );
+  });
+  
+  let result = recursiveCombat( player1, player2 );
+  player1 = result[0];
+  player2 = result[1];
 
-  return 0;
+  return score( player1, player2 );
 }
 
 function readFile(filePath){
