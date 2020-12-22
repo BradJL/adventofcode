@@ -26,6 +26,7 @@ function score( player1, player2 ){
 }
 
 function combat( player1, player2 ){
+  let card1, card2;
   let round = 1;
   while( player1.length > 0 && player2.length > 0 ){
     console.log( "-- Round " + round + " --" );
@@ -55,6 +56,7 @@ function combat( player1, player2 ){
 function recursiveCombat( player1, player2 ){
   let configurations = [];
   let round = 1;
+  let card1, card2;
   while( player1.length > 0 && player2.length > 0 ){
     console.log( "-- Round " + round + " --" );
     console.log( "Player 1's deck: " + player1 );
@@ -103,7 +105,6 @@ function recursiveCombat( player1, player2 ){
 function part1( data ){
   let player1 = [];
   let player2 = [];
-  let card1, card2;
   let decks = data.trim().split(/\r?\n\r?\n/);
   decks[0].split(/\r?\n/).slice(1).forEach(function(card,index,array){
     player1.push( parseInt( card ) );
