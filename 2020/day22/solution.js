@@ -166,4 +166,4 @@ function readFile(filePath){
 // }
 
 initialize();
-readFile('input2.txt');
+readFile('input1.txt');
