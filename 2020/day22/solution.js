@@ -65,7 +65,7 @@ function recursiveCombat( player1, player2 ){
     console.log( "-- Round " + round + " --" );
     console.log( "Player 1's deck: " + player1 );
     console.log( "Player 2's deck: " + player2 );
-    if( configurations[ getConfigNum(player1, player2 ] ){
+    if( configurations[ getConfigNum(player1, player2) ] ){
       console.log( "ending game early..." );
       return [[1],[]];
     } else {
