@@ -71,7 +71,7 @@ function recursiveCombat( player1, player2 ){
     console.log( "Player 2 plays: " + card2 + "(" + player2.length + ")" );
     if( player1.length >= card1 && player2.length >= card2 ){
       console.log( "Recursive combat!!!");
-      let result = recursiveCombat( player1.slice(0,1+card1), player2.slice(0,1+card2) );
+      let result = recursiveCombat( player1.slice(0,card1), player2.slice(0,card2) );
       if( result[0].length ){
         console.log( "Player 1 wins the recursive round!" );
         player1.push( card1 );
