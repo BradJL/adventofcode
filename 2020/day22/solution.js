@@ -46,7 +46,18 @@ function part1( data ){
     }
     ++round;
   }
-  return 0;
+  console.log( "== Post-game results ==" );
+  console.log( "Player 1's deck: " + player1 )
+  console.log( "Player 2's deck: " + player2 );
+
+  let score = 0;
+  while( player1.length ){
+    score += player1.shift();
+  }
+  while( player2.length ){
+    score += player2.shift();
+  }
+  return score;
 }
 
 function part2( data ){
