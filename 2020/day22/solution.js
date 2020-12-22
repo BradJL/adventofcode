@@ -52,10 +52,10 @@ function part1( data ){
 
   let score = 0;
   while( player1.length ){
-    score += player1.shift() * player1.length;
+    score += player1.length * player1.shift();
   }
   while( player2.length ){
-    score += player2.shift() * player2.length;
+    score += player2.length * player2.shift();
   }
   return score;
 }
