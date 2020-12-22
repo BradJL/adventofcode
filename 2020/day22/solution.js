@@ -53,6 +53,10 @@ function combat( player1, player2 ){
   return [ player1, player2 ];
 }
 
+function getConfigNum( player1, player2 ){
+  return score( clone(player1), [] ) * 100000 + score( [], clone(player2) );
+}
+
 function recursiveCombat( player1, player2 ){
   let configurations = [];
   let round = 1;
@@ -61,11 +65,11 @@ function recursiveCombat( player1, player2 ){
     console.log( "-- Round " + round + " --" );
     console.log( "Player 1's deck: " + player1 );
     console.log( "Player 2's deck: " + player2 );
-    if( configurations[ score( clone(player1), [] ) * 100000 + score( [], clone(player2) ) ] ){
+    if( configurations[ getConfigNum(player1, player2 ] ){
       console.log( "ending game early..." );
       return [[1],[]];
     } else {
-      configurations[ score(clone(player1), clone(player2)) ] = true;
+      configurations[ getConfigNum(player1, player2) ] = true;
     }
     card1 = player1.shift();
     card2 = player2.shift();
