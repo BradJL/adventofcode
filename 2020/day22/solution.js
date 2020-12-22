@@ -18,12 +18,12 @@ function part1( data ){
   let player1 = [];
   let player2 = [];
   let decks = data.trim().split(/\r?\n\r?\n/);
-  decks[0].slice(1).split(/\r?\n/).forEach(function(card,index,array)[
-    player1.push( parseInt( card );
-  });
-  decks[1].slice(1).split(/\r?\n/).forEach(function(card,index,array)[
-    player2.push( parseInt( card );
-  });
+//   decks[0].slice(1).split(/\r?\n/).forEach(function(card,index,array)[
+//     player1.push( parseInt( card );
+//   });
+//   decks[1].slice(1).split(/\r?\n/).forEach(function(card,index,array)[
+//     player2.push( parseInt( card );
+//   });
     
   console.log( "Player 1's deck: " + player1 );
   console.log( "Player 2's deck: " + player2 );
