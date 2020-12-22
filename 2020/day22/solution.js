@@ -44,6 +44,7 @@ function part1( data ){
       player2.push( card2 );
       player2.push( card1 );
     }
+    ++round;
   }
   return 0;
 }
