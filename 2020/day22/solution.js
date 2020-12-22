@@ -25,21 +25,25 @@ function part1( data ){
   decks[1].split(/\r?\n/).slice(1).forEach(function(card,index,array){
     player2.push( parseInt( card ) );
   });
-    
-  console.log( "Player 1's deck: " + player1 );
-  console.log( "Player 2's deck: " + player2 );
-  card1 = player1.shift();
-  card2 = player2.shift();
-  console.log( "Player 1 plays: " + card1 );
-  console.log( "Player 2 plays: " + card2 );
-  if( card1 > card2 ){
-    console.log( "Player 1 wins the round!" );
-    player1.push( card1 );
-    player1.push( card2 );
-  } else {
-    console.log( "Player 2 wins the round!" );
-    player2.push( card2 );
-    player2.push( card1 );
+  
+  let round = 1;
+  while( player1.length > 0 && player2.length > 0 ){
+    console.log( "-- Round " + round + " --" );
+    console.log( "Player 1's deck: " + player1 );
+    console.log( "Player 2's deck: " + player2 );
+    card1 = player1.shift();
+    card2 = player2.shift();
+    console.log( "Player 1 plays: " + card1 );
+    console.log( "Player 2 plays: " + card2 );
+    if( card1 > card2 ){
+      console.log( "Player 1 wins the round!" );
+      player1.push( card1 );
+      player1.push( card2 );
+    } else {
+      console.log( "Player 2 wins the round!" );
+      player2.push( card2 );
+      player2.push( card1 );
+    }
   }
   return 0;
 }
