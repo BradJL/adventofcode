@@ -61,7 +61,7 @@ function part1( data ){
     cups.push( current );
     current = cups.shift();
   }
-  console.log( "Fixed: " + cups );
+  console.log( "Fixed: " + cups.join('') );
   return 0;
 }
 
