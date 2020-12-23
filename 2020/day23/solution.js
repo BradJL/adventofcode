@@ -18,8 +18,14 @@ function part1( data ){
   let cups = [];
   let pickups = [];
   let current = null;
+  let max = -1;
+  let min = Number.MAX_SAFE_INTEGER;
+  
   data.trim().split('').forEach(function(valStr, index, array){
-    cups.push( parseInt(valStr) );
+    let val = parseInt(valStr);
+    if( val < min ){ min = val; }
+    if( val > max ){ max = val; }
+    cups.push( val );
   });
   
   current = cups.shift();
@@ -27,10 +33,24 @@ function part1( data ){
   pickups.push( cups.shift() );
   pickups.push( cups.shift() );
   
+  let destination = current - 1;
+  if( desination < min ){ destination = max; }
+  let cupsToDest = [];
+  cupsToDest.push( cups.shift() );
+  while( cupsToDest[ cupsToDest.length -1 ] != destination ){
+    if( cups.length == 0 ){
+      --destination;
+      if( desination < min ){ destination = max; }
+      cups = cupsToDest;
+      cupsToDest = [];
+    }
+    cupsToDest.push( cups.shift() );
+  }
+  
   
   console.log( '('
              + current
-              + ") [" + pickups + '] ' + cups );
+              + ") [" + pickups + '] ' + cupsToDest + "* " + cups );
   
   return 0;
 }
