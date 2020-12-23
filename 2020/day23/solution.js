@@ -64,13 +64,62 @@ function part1( data, iterations ){
   return cups.join('');
 }
 
-function part2( data ){
-  data = data.trim().split(/\r?\n/);
-
-  return 0;
+function part2( data, iterations ){
+  let cups = [];
+  let pickups = [];
+  let current = null;
+  let max = -1;
+  let min = Number.MAX_SAFE_INTEGER;
+  
+  data.trim().split('').forEach(function(valStr, index, array){
+    let val = parseInt(valStr);
+    if( val < min ){ min = val; }
+    if( val > max ){ max = val; }
+    cups.push( val );
+  });
+  /* Added for Part2 */
+  while( max < 1000000 ){
+    ++max;
+    cups.push( max );
+  }
+  console.log( "Adding cups for part2 complete: " + max );
+  /**/
+  
+  while( iterations ){
+    current = cups.shift();
+    pickups.push( cups.shift() );
+    pickups.push( cups.shift() );
+    pickups.push( cups.shift() );
+  
+    let destination = current - 1;
+    if( destination < min ){ destination = max; }
+    let cupsToDest = [];
+    cupsToDest.push( cups.shift() );
+    while( cupsToDest[ cupsToDest.length -1 ] != destination ){
+      if( cups.length == 0 ){
+        --destination;
+        if( destination < min ){ destination = max; }
+        cups = cupsToDest;
+        cupsToDest = [];
+      }
+      cupsToDest.push( cups.shift() );
+    }
+    //console.log( '(' + current + ") [" + pickups + '] ' + cupsToDest + "* " + cups );
+    cups = cupsToDest.concat( pickups ).concat( cups ).concat( current );
+    current = null;
+    pickups = [];
+    cupsToDest = [];
+    --iterations;
+  }
+  //console.log( "Final: " + cups );
+  current = cups.shift();
+  while( current != 1 ){
+    cups.push( current );
+    current = cups.shift();
+  }
+  //console.log( "Fixed: " + cups.join('') );
+  return cups[0] * cups[1];
 }
-
-
 
 // function readFile(filePath){
 //   $.get( filePath, function( data ) {
@@ -101,5 +150,7 @@ let data = "784235916";
 let moves = 100;
 let part1Answer = part1( data, moves );
 $('#answer span').text( part1Answer );
+data = "389125467";
+moves = 10000000;
 let part2Answer = part2( data );
 $('#answer2 span').text( part2Answer );
