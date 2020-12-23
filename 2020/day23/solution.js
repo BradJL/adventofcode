@@ -117,6 +117,7 @@ function part2( data, iterations ){
     cups.push( current );
     current = cups.shift();
   }
+  console.log( "Fixed: " + cups.join('') );
   console.log( "Fixed: " + current + " " + cups[0] + " " + cups[1] );
   return cups[0] * cups[1];
 }
