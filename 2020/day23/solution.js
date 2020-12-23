@@ -33,26 +33,31 @@ function part1( data ){
   pickups.push( cups.shift() );
   pickups.push( cups.shift() );
   
-  let destination = current - 1;
-  if( destination < min ){ destination = max; }
-  let cupsToDest = [];
-  cupsToDest.push( cups.shift() );
-  while( cupsToDest[ cupsToDest.length -1 ] != destination ){
-    if( cups.length == 0 ){
-      --destination;
-      if( destination < min ){ destination = max; }
-      cups = cupsToDest;
-      cupsToDest = [];
-    }
+  let iterations = 10
+  while( iterations ){
+    let destination = current - 1;
+    if( destination < min ){ destination = max; }
+    let cupsToDest = [];
     cupsToDest.push( cups.shift() );
+    while( cupsToDest[ cupsToDest.length -1 ] != destination ){
+      if( cups.length == 0 ){
+        --destination;
+        if( destination < min ){ destination = max; }
+        cups = cupsToDest;
+        cupsToDest = [];
+      }
+      cupsToDest.push( cups.shift() );
+    }
+    console.log( '('
+               + current
+                + ") [" + pickups + '] ' + cupsToDest + "* " + cups );
+    cups = cupsToDest.concat( pickups ).concat( cups ).concat( current );
+    current = null;
+    pickups = [];
+    cupsToDest = [];
+    --iterations;
   }
-  console.log( '('
-             + current
-              + ") [" + pickups + '] ' + cupsToDest + "* " + cups );
-  cups = cupsToDest.concat( pickups ).concat( cups ).concat( current );
-  current = null;
-  pickups = [];
-  cupsToDest = [];
+  console.log( "Final: " + cups );
   return 0;
 }
 
