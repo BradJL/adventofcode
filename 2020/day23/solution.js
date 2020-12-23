@@ -110,19 +110,19 @@ function part2( data, iterations ){
     pickups = [];
     cupsToDest = [];
     --iterations;
-    switch( iterations ){
-    case 1000000:
-    case 2000000:
-    case 3000000:
-    case 4000000:
-    case 5000000:
-    case 6000000:
-    case 7000000:
-    case 8000000:
-    case 9000000:
+//     switch( iterations ){
+//     case 1000000:
+//     case 2000000:
+//     case 3000000:
+//     case 4000000:
+//     case 5000000:
+//     case 6000000:
+//     case 7000000:
+//     case 8000000:
+//     case 9000000:
       console.log( "iterations: " + iterations );
-      break;
-    }
+//       break;
+//     }
   }
   //console.log( "Final: " + cups );
   current = cups.shift();
