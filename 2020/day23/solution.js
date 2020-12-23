@@ -20,7 +20,7 @@ function part1( data ){
     cups.push( parseInt(valStr) );
   });
   
-  console.log( valStr );
+  console.log( cups );
   
   return 0;
 }
