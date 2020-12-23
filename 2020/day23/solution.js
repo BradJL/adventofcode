@@ -16,11 +16,19 @@ function log( what ){
   
 function part1( data ){
   let cups = [];
+  let pickups = [];
+  let current = null;
   data.trim().split('').forEach(function(valStr, index, array){
     cups.push( parseInt(valStr) );
   });
   
-  console.log( cups );
+  current = cups.shift();
+  pickups.push( cups.shift() );
+  pickups.push( cups.shift() );
+  pickups.push( cups.shift() );
+  
+  
+  console.log( '(' + current + ') " + '[ + pickups + '] ' + cups );
   
   return 0;
 }
