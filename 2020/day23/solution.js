@@ -14,7 +14,7 @@ function log( what ){
   //console.log( what );
 }
   
-function part1( data ){
+function part1( data, iterations ){
   let cups = [];
   let pickups = [];
   let current = null;
@@ -28,7 +28,6 @@ function part1( data ){
     cups.push( val );
   });
   
-  let iterations = 10
   while( iterations ){
     current = cups.shift();
     pickups.push( cups.shift() );
