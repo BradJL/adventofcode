@@ -28,13 +28,13 @@ function part1( data ){
     cups.push( val );
   });
   
-  current = cups.shift();
-  pickups.push( cups.shift() );
-  pickups.push( cups.shift() );
-  pickups.push( cups.shift() );
-  
   let iterations = 10
   while( iterations ){
+    current = cups.shift();
+    pickups.push( cups.shift() );
+    pickups.push( cups.shift() );
+    pickups.push( cups.shift() );
+  
     let destination = current - 1;
     if( destination < min ){ destination = max; }
     let cupsToDest = [];
@@ -48,9 +48,7 @@ function part1( data ){
       }
       cupsToDest.push( cups.shift() );
     }
-    console.log( '('
-               + current
-                + ") [" + pickups + '] ' + cupsToDest + "* " + cups );
+    console.log( '(' + current + ") [" + pickups + '] ' + cupsToDest + "* " + cups );
     cups = cupsToDest.concat( pickups ).concat( cups ).concat( current );
     current = null;
     pickups = [];
