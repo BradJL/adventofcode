@@ -82,7 +82,7 @@ function part2( data, iterations ){
     ++max;
     cups.push( max );
   }
-  console.log( "Adding cups for part2 complete: " + max );
+  console.log( "Adding cups for part2 complete: " + max + " " + cups[cups.length-1] );
   /**/
   
   while( iterations ){
