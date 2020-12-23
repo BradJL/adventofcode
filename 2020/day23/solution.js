@@ -97,7 +97,7 @@ function part2( data ){
 initialize();
 // readFile('input.txt');
 let data = "389125467";
-let moves = 10;
+let moves = 100;
 let part1Answer = part1( data, moves );
 $('#answer span').text( part1Answer );
 let part2Answer = part2( data );
