@@ -153,5 +153,5 @@ let part1Answer = part1( data, moves );
 $('#answer span').text( part1Answer );
 data = "389125467";
 moves = 10000000;
-let part2Answer = part2( data );
+let part2Answer = part2( data, moves );
 $('#answer2 span').text( part2Answer );
