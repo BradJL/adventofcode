@@ -56,6 +56,12 @@ function part1( data ){
     --iterations;
   }
   console.log( "Final: " + cups );
+  current = cups.shift();
+  while( current != 1 ){
+    cups.push( current );
+    current = cups.shift();
+  }
+  console.log( "Fixed: " + cups );
   return 0;
 }
 
