@@ -28,7 +28,9 @@ function part1( data ){
   pickups.push( cups.shift() );
   
   
-  console.log( '(' + current + ') ' + '[ + pickups + '] ' + cups );
+  console.log( '('
+             + current
+              + ") [" + pickups + '] ' + cups );
   
   return 0;
 }
