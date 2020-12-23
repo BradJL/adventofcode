@@ -46,12 +46,13 @@ function part1( data ){
     }
     cupsToDest.push( cups.shift() );
   }
-  
-  
   console.log( '('
              + current
               + ") [" + pickups + '] ' + cupsToDest + "* " + cups );
-  
+  cups = cupsToDest.concat( pickups ).concat( cups ).concat( current );
+  current = null;
+  pickups = [];
+  cupsToDest = [];
   return 0;
 }
 
