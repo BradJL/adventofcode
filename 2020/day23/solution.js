@@ -34,13 +34,13 @@ function part1( data ){
   pickups.push( cups.shift() );
   
   let destination = current - 1;
-  if( desination < min ){ destination = max; }
+  if( destination < min ){ destination = max; }
   let cupsToDest = [];
   cupsToDest.push( cups.shift() );
   while( cupsToDest[ cupsToDest.length -1 ] != destination ){
     if( cups.length == 0 ){
       --destination;
-      if( desination < min ){ destination = max; }
+      if( destination < min ){ destination = max; }
       cups = cupsToDest;
       cupsToDest = [];
     }
