@@ -23,7 +23,7 @@ function coord( x, y ){
   if( y > maxY ){ maxY = y };
   if( x < minX ){ minX = x };
   if( y < minY ){ minY = y };
-  return 100*x + y;
+  return 100*(x+100) + (y + 100);
 }
 
 function flipTile( tiles, x, y, sum ){
