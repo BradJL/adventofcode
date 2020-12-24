@@ -10,10 +10,6 @@ function initialize(){
 
 // const fs = require('fs').promises;
 
-function log( what ){
-  //console.log( what );
-}
-
 var maxX = 0;
 var minX = Number.MAX_SAFE_INTEGER;
 var maxY = 0;
@@ -106,10 +102,10 @@ function part1( data ){
       }
     });
     sum = flipTile( tiles, x, y, sum );
-    console.log( sum );
+//     console.log( sum );
   });
-  console.log( "tiles.length: " + tiles.length );
-  console.log( "x[" + minX + "," + maxX + "] y[" + minY + "," + maxY + "]" );
+//   console.log( "tiles.length: " + tiles.length );
+//   console.log( "x[" + minX + "," + maxX + "] y[" + minY + "," + maxY + "]" );
   return [sum, tiles];
 }
 
@@ -138,7 +134,7 @@ function part2( sum, tiles ){
     tiles = newTiles;
     newTiles = [];
     ++iteration;
-    console.log( "Day " + iteration + ": " +  sum );
+//     console.log( "Day " + iteration + ": " +  sum );
   }
   
   return sum;
@@ -167,4 +163,4 @@ function readFile(filePath){
 // }
 
 initialize();
-readFile('input1.txt');
+readFile('input.txt');
