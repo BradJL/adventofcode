@@ -13,6 +13,30 @@ function initialize(){
 function log( what ){
   //console.log( what );
 }
+
+function coord( x, y ){
+  return 10000*x + y;
+}
+
+function flipTile( tiles, x, y, sum ){
+  if( tiles[ coord( x, y ) ] ){
+    --sum;
+    tiles[ coord( x, y ) ] = false;
+  } else {
+    ++sum;
+    tiles[ coord( x, y ) ] = true;
+  }
+  return sum;
+}
+
+function initializeNeighbors( tiles, x, y ){
+  if( !tiles[ coord( x+1, y+1 ) ] ){ tiles[ coord( x+1, y+1 ) ] = false; }
+  if( !tiles[ coord( x+1, y-1 ) ] ){ tiles[ coord( x+1, y-1 ) ] = false; }
+  if( !tiles[ coord( x-1, y+1 ) ] ){ tiles[ coord( x-1, y+1 ) ] = false; }
+  if( !tiles[ coord( x-1, y-1 ) ] ){ tiles[ coord( x-1, y-1 ) ] = false; }
+  if( !tiles[ coord( x+2, y ) ] ){ tiles[ coord( x+2, y ) ] = false; }
+  if( !tiles[ coord( x-2, y ) ] ){ tiles[ coord( x-2, y ) ] = false; }
+}
   
 function part1( data ){
   const NW = 'A';
@@ -53,13 +77,7 @@ function part1( data ){
         break;
       }
     });
-    if( tiles[ x * 10000 + y ] ){
-      --sum;
-      tiles[ x * 10000 + y ] = false;
-    } else {
-      ++sum;
-      tiles[ x * 10000 + y ] = true;
-    }
+    sum = flipTile( tiles, x, y, sum );
     console.log( sum );
   });
   
