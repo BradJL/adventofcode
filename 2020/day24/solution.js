@@ -15,7 +15,7 @@ function log( what ){
 }
 
 function coord( x, y ){
-  return 10000*x + y;
+  return 100*x + y;
 }
 
 function flipTile( tiles, x, y, sum ){
@@ -26,7 +26,7 @@ function flipTile( tiles, x, y, sum ){
     ++sum;
     tiles[ coord( x, y ) ] = true;
   }
-  //initializeNeighbors( tiles, x, y );
+  initializeNeighbors( tiles, x, y );
   return sum;
 }
 
