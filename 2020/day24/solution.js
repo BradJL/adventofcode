@@ -116,23 +116,28 @@ function part1( data ){
 function part2( sum, tiles ){
   let iterations = 10;
   let newTiles = []
-  tiles.forEach(function(flip, index, array){
-    newTiles[index] = flip;
-    let xY = getXY( index );
-    let neighbors = getNeighbors( tiles, xY[0], xY[1] );
-    switch( flip ){
-    case true:
-      if( neighbors == 0 || neighbors > 2 ){
-        sum = flipTile( newTiles, xY[0], xY[1], sum );
+  while( iterations ){
+    tiles.forEach(function(flip, index, array){
+      newTiles[index] = flip;
+      let xY = getXY( index );
+      let neighbors = getNeighbors( tiles, xY[0], xY[1] );
+      switch( flip ){
+      case true:
+        if( neighbors == 0 || neighbors > 2 ){
+          sum = flipTile( newTiles, xY[0], xY[1], sum );
+        }
+        break;
+      case false:
+        if( neighbors == 2 ){
+          sum = flipTile( newTiles, xY[0], xY[1], sum );
+        }
+        break;
       }
-      break;
-    case false:
-      if( neighbors == 2 ){
-        sum = flipTile( newTiles, xY[0], xY[1], sum );
-      }
-      break;
-    }
-  });
+    });
+    tiles = newTiles;
+    newTiles = [];
+    console.log( sum );
+  }
   
   return sum;
 }
