@@ -134,7 +134,7 @@ function part2( sum, tiles ){
     tiles = newTiles;
     newTiles = [];
     ++iteration;
-//     console.log( "Day " + iteration + ": " +  sum );
+    console.log( "Day " + iteration + ": " +  sum );
   }
   
   return sum;
