@@ -15,9 +15,54 @@ function log( what ){
 }
   
 function part1( data ){
-  data = data.trim().split(/\r?\n/);
+  const NW = 'A';
+  const NE = 'B';
+  const SW = 'C';
+  const SE = 'D';
+  const W = 'w';
+  const E = 'e';
+  let tiles = [];
+  let sum = 0;
+  data = data.trim().replace(/nw/g,NW).replace(/ne/g,NE).replace(/sw/g,SW).replace(/se/g,SE).split(/\r?\n/);
+  data.forEach(function(line,index,array){
+    let x = 0;
+    let y = 0;
+    line.split('').forEach(function(direction,dindex,darray){
+      switch( direction ){
+      case NE:
+        x += 1;
+        y += 1;
+        break;
+      case NW:
+        x += -1;
+        y += 1;
+        break;
+      case SE:
+        x += 1;
+        y += -1;
+        break;
+      case SW:
+        x += -1;
+        y += -1;
+        break;
+      case E:
+        x += 2
+        break;
+      case W:
+        x += -2
+        break;
+      }
+    });
+    if( tiles[ x * 10000 + y ] ){
+      --sum;
+      tiles[ x * 10000 + y ] = false;
+    } else {
+      ++sum;
+      tiles[ x * 10000 + y ] = true;
+    }
+  });
   
-  return 0;
+  return sum;
 }
 
 function part2( data ){
@@ -49,4 +94,4 @@ function readFile(filePath){
 // }
 
 initialize();
-readFile('input.txt');
+readFile('input1.txt');
