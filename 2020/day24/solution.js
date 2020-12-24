@@ -105,7 +105,7 @@ function part1( data ){
 //     console.log( sum );
   });
 //   console.log( "tiles.length: " + tiles.length );
-//   console.log( "x[" + minX + "," + maxX + "] y[" + minY + "," + maxY + "]" );
+  console.log( "x[" + minX + "," + maxX + "] y[" + minY + "," + maxY + "]" );
   return [sum, tiles];
 }
 
