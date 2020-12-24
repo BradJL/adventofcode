@@ -114,9 +114,10 @@ function part1( data ){
 }
 
 function part2( sum, tiles ){
-  let iterations = 10;
+  let iteration = 0;
+  const iterations = 10;
   let newTiles = []
-  while( iterations ){
+  while( iteration < iterations){
     tiles.forEach(function(flip, index, array){
       newTiles[index] = flip;
       let xY = getXY( index );
@@ -136,7 +137,8 @@ function part2( sum, tiles ){
     });
     tiles = newTiles;
     newTiles = [];
-    console.log( sum );
+    console.log( "Day " + iteration + ": " +  sum );
+    ++iteration;
   }
   
   return sum;
