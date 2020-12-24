@@ -91,11 +91,10 @@ function part1( data ){
   });
   console.log( "tiles.length: " + tiles.length );
   console.log( "x[" + minX + "," + maxX + "] y[" + minY + "," + maxY + "]" );
-  return sum;
+  return [sum, tiles];
 }
 
-function part2( data ){
-  data = data.trim().split(/\r?\n/);
+function part2( tiles ){
 
   return 0;
 }
@@ -104,8 +103,8 @@ function readFile(filePath){
   $.get( filePath, function( data ) {
     $('#input span').text('(Bytes: ' + (data.length) + ')');
     let part1Answer = part1( data );
-    $('#answer span').text( part1Answer );
-    let part2Answer = part2( data );
+    $('#answer span').text( part1Answer[0] );
+    let part2Answer = part2( part1Answer[1] );
     $('#answer2 span').text( part2Answer );
   });
 }
