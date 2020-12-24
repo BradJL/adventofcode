@@ -94,7 +94,7 @@ function part1( data ){
   return [sum, tiles];
 }
 
-function part2( tiles ){
+function part2( sum, tiles ){
 
   return 0;
 }
@@ -104,7 +104,7 @@ function readFile(filePath){
     $('#input span').text('(Bytes: ' + (data.length) + ')');
     let part1Answer = part1( data );
     $('#answer span').text( part1Answer[0] );
-    let part2Answer = part2( part1Answer[1] );
+    let part2Answer = part2( part1Answer[0], part1Answer[1] );
     $('#answer2 span').text( part2Answer );
   });
 }
