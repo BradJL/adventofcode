@@ -26,6 +26,7 @@ function flipTile( tiles, x, y, sum ){
     ++sum;
     tiles[ coord( x, y ) ] = true;
   }
+  initializeNeighbors( tiles, x, y );
   return sum;
 }
 
@@ -80,7 +81,7 @@ function part1( data ){
     sum = flipTile( tiles, x, y, sum );
     console.log( sum );
   });
-  
+  console.log( "This ver: with initalizeNeighbors" );
   return sum;
 }
 
