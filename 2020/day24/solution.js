@@ -132,7 +132,7 @@ function part2( sum, tiles ){
       }
       break;
     }
-  };
+  });
   
   return sum;
 }
