@@ -19,14 +19,14 @@ function coord( x, y ){
   if( y > maxY ){ maxY = y };
   if( x < minX ){ minX = x };
   if( y < minY ){ minY = y };
-  return 1000*(x+100) + (y + 100);
+  return 1000*(x+500) + (y + 500);
 }
 
 function getXY( coord ){
   let y = coord % 1000;
   coord = coord - y;
-  y = y-100;
-  let x = (coord/1000)-100;
+  y = y-500;
+  let x = (coord/1000)-500;
   return [x,y];
 }
 
