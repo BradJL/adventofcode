@@ -14,7 +14,15 @@ function log( what ){
   //console.log( what );
 }
 
+var maxX = 0;
+var minX = Number.MAX_SAFE_INTEGER;
+var maxY = 0;
+var minY = Number.MAX_SAFE_INTEGER;
 function coord( x, y ){
+  if( x > maxX ){ maxX = x };
+  if( y > maxY ){ maxY = y };
+  if( x < minX ){ minX = x };
+  if( y < minY ){ minY = y };
   return 100*x + y;
 }
 
@@ -82,6 +90,7 @@ function part1( data ){
     console.log( sum );
   });
   console.log( "tiles.length: " + tiles.length );
+  console.log( "x[" + minX + "," + maxX + "] y[" + minY + "," + maxY + "]" );
   return sum;
 }
 
