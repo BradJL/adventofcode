@@ -60,6 +60,7 @@ function part1( data ){
       ++sum;
       tiles[ x * 10000 + y ] = true;
     }
+    console.log( sum );
   });
   
   return sum;
