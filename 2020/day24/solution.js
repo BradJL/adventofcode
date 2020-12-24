@@ -81,7 +81,7 @@ function part1( data ){
     sum = flipTile( tiles, x, y, sum );
     console.log( sum );
   });
-  console.log( "This ver: with initalizeNeighbors" );
+  console.log( "tiles.length: " + tiles.length );
   return sum;
 }
 
