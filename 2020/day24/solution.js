@@ -23,7 +23,15 @@ function coord( x, y ){
   if( y > maxY ){ maxY = y };
   if( x < minX ){ minX = x };
   if( y < minY ){ minY = y };
-  return 100*(x+100) + (y + 100);
+  return 1000*(x+100) + (y + 100);
+}
+
+function getXY( coord ){
+  let y = coord % 1000;
+  coord = coord - y;
+  y = y-100;
+  let x = (coord/1000)-100;
+  return [x,y];
 }
 
 function flipTile( tiles, x, y, sum ){
@@ -45,6 +53,17 @@ function initializeNeighbors( tiles, x, y ){
   if( !tiles[ coord( x-1, y-1 ) ] ){ tiles[ coord( x-1, y-1 ) ] = false; }
   if( !tiles[ coord( x+2, y ) ] ){ tiles[ coord( x+2, y ) ] = false; }
   if( !tiles[ coord( x-2, y ) ] ){ tiles[ coord( x-2, y ) ] = false; }
+}
+
+function getNeighbors( tiles, x, y ){
+  let retVal = 0;
+  if( tiles[ coord( x+1, y+1 ) ] ){ ++retVal; }
+  if( tiles[ coord( x+1, y-1 ) ] ){ ++retVal; }
+  if( tiles[ coord( x-1, y+1 ) ] ){ ++retVal; }
+  if( tiles[ coord( x-1, y-1 ) ] ){ ++retVal; }
+  if( tiles[ coord( x+2, y ) ] ){ ++retVal; }
+  if( tiles[ coord( x-2, y ) ] ){ ++retVal; }
+  return retVal;
 }
   
 function part1( data ){
@@ -95,8 +114,27 @@ function part1( data ){
 }
 
 function part2( sum, tiles ){
-
-  return 0;
+  let iterations = 10;
+  let newTiles = []
+  tiles.forEach(function(flip, index, array){
+    newTiles[index] = flip;
+    let xY = getXY( index );
+    let neighbors = getNeighbors( tiles, xY[0], xY[1] );
+    switch( flip ){
+    case true:
+      if( neighbors == 0 || neighbors > 2 ){
+        sum = flipTile( newTiles, xY[0], xY[1], sum );
+      }
+      break;
+    case false:
+      if( neighbors == 2 ){
+        sum = flipTile( newTiles, xY[0], xY[1], sum );
+      }
+      break;
+    }
+  };
+  
+  return sum;
 }
 
 function readFile(filePath){
@@ -122,4 +160,4 @@ function readFile(filePath){
 // }
 
 initialize();
-readFile('input.txt');
+readFile('input1.txt');
