@@ -27,8 +27,8 @@ function getLoops( key ){
   return loops;
 }
 
-function loop( val, loops ){
-  let subject = 7;
+function loop( subject, loops ){
+  let val = 1;
   let divisor = 20201227;
   
   while( loops ){
