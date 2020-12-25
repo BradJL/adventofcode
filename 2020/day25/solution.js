@@ -45,7 +45,7 @@ function part1( data ){
   let cardLoops = getLoops( cardKey );
   let doorLoops = getLoops( doorKey );
   console.log( cardLoops + "," + doorLoops );
-  return loops( doorKey, cardLoops );
+  return loop( doorKey, cardLoops );
 }
 
 function part2( data ){
