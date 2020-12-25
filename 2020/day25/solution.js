@@ -21,7 +21,8 @@ function getLoops( key ){
   let loops = 0;
   
   while( val != key ){
-    val = ( val * subject ) % divisor
+    val = ( val * subject ) % divisor;
+    ++loops;
   }
   return loops;
 }
