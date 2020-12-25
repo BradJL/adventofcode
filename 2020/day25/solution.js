@@ -29,8 +29,8 @@ function getLoops( key ){
   
 function part1( data ){
   data = data.trim().split(/\r?\n/);
-  let cardLoops = getLoops( parseInt(data[2]) );
-  let doorLoops = getLoops( parseInt(data[1]) );
+  let cardLoops = getLoops( 5764801 );//parseInt(data[2]) );
+  let doorLoops = getLoops( 17807724 );//parseInt(data[1]) );
   return cardLoops + "," + doorLoops;
 }
 
