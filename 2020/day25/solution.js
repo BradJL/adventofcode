@@ -56,7 +56,7 @@ function part2( data ){
 
 function readFile(filePath){
   $.get( filePath, function( data ) {
-    data = "5764801\n17807724";
+//     data = "5764801\n17807724";
     $('#input span').text('(Bytes: ' + (data.length) + ')');
     let part1Answer = part1( data );
     $('#answer span').text( part1Answer );
