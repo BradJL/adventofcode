@@ -13,11 +13,23 @@ function initialize(){
 function log( what ){
   //console.log( what );
 }
+
+function getLoops( key ){
+  let val = 1;
+  let subject = 7;
+  let divisor = 20201227;
+  let loops = 0;
+  
+  while( val != key ){
+    val = ( val * subject ) % divisor
+  }
+  return loops;
+}
   
 function part1( data ){
-  data = data.trim().split(/\r?\n/);
+  //data = data.trim().split(/\r?\n/);
   
-  return 0;
+  return getLoops( 5764801 );
 }
 
 function part2( data ){
