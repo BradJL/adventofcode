@@ -28,9 +28,10 @@ function getLoops( key ){
 }
   
 function part1( data ){
-  //data = data.trim().split(/\r?\n/);
-  
-  return getLoops( 5764801 );
+  data = data.trim().split(/\r?\n/);
+  let cardLoops = getLoops( data[2] );
+  let doorLoops = getLoops( data[1] );
+  return cardLoops + "," + doorLoops;
 }
 
 function part2( data ){
@@ -41,6 +42,7 @@ function part2( data ){
 
 function readFile(filePath){
   $.get( filePath, function( data ) {
+    data = "5764801\n17807724";
     $('#input span').text('(Bytes: ' + (data.length) + ')');
     let part1Answer = part1( data );
     $('#answer span').text( part1Answer );
