@@ -26,6 +26,17 @@ function getLoops( key ){
   }
   return loops;
 }
+
+function loop( val, loops ){
+  let subject = 7;
+  let divisor = 20201227;
+  
+  while( loops ){
+    val = ( val * subject ) % divisor;
+    --loops;
+  }
+  return val;
+}
   
 function part1( data ){
   data = data.trim().split(/\r?\n/);
@@ -33,7 +44,8 @@ function part1( data ){
   let doorKey = parseInt( data[1] ); //17807724
   let cardLoops = getLoops( cardKey );
   let doorLoops = getLoops( doorKey );
-  return cardLoops + "," + doorLoops;
+  console.log( cardLoops + "," + doorLoops );
+  return loops( doorKey, cardLoops );
 }
 
 function part2( data ){
