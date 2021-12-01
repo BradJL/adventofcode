@@ -52,9 +52,17 @@ function log( what ){
 }
   
 function part1( data ){
-  data = data.trim().split(/\r?\n/);
-  
-  return 0;
+	let last_val = -1;
+	let count = -1;
+	data = data.trim().split(/\r?\n/).forEach(function(valStr,index,array)){
+		let val = parseInt(valStr);
+		if( val > last_val ){
+			++count;
+		}
+		last_val = val
+	};
+
+	return count;
 }
 
 function part2( data ){
