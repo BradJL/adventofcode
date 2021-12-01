@@ -52,7 +52,8 @@
       </h1>
       <p id="links">Years:
         <blockquote>
-          <div id="2020"><a href="/2020">2020</a>&nbsp<span class="star-count"></span></div>
+			<div id="2021"><a href="/2021">2021</a>&nbsp<span class="star-count"></span></div>
+			<div id="2020"><a href="/2020">2020</a>&nbsp<span class="star-count"></span></div>
           <div id="2019"><a href="/2019">2019</a>&nbsp<span class="star-count"></span></div>
           <div id="2015"><a href="/2015">2015</a>&nbsp<span class="star-count"></span></div>
         </blockquote>
@@ -65,6 +66,10 @@
     </div>
     <script>
       checkCookie();
+      $.get("2021/header.html", function(data, status){
+        let stars = data.match(/[0-9]+\*/);
+        $('#2021 span').text( stars );
+      });
       $.get("2020/header.html", function(data, status){
         let stars = data.match(/[0-9]+\*/);
         $('#2020 span').text( stars );
