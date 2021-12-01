@@ -54,13 +54,13 @@ function log( what ){
 function part1( data ){
 	let last_val = -1;
 	let count = -1;
-	data = data.trim().split(/\r?\n/).forEach(function(valStr,index,array)){
+	data = data.trim().split(/\r?\n/).forEach(function(valStr,index,array){
 		let val = parseInt(valStr);
 		if( val > last_val ){
 			++count;
 		}
 		last_val = val
-	};
+	});
 
 	return count;
 }
