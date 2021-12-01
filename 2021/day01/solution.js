@@ -66,9 +66,21 @@ function part1( data ){
 }
 
 function part2( data ){
-  data = data.trim().split(/\r?\n/);
+	val_one = 99999;
+	val_two = 99999;
+	val_three = 99999;
+	let count = 0;
+	data = data.trim().split(/\r?\n/).forEach(function(valStr,index,array){
+		let val = parseInt(valStr);
+		if( val > val_one ){
+			++count;
+		}
+		val_one = val_two;
+		val_two = val_three;
+		val_three = val;
+	});
 
-  return 0;
+	return count;
 }
 
 function readFile(filePath){
