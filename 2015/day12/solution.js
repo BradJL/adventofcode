@@ -53,7 +53,7 @@ function log( what ){
   
 function part1( data ){
 	let sum = 0;
-	const regex = /[^0-9-,]/i;
+	const regex = /[^0-9-,]/g;
 	data = data.replace(regex, '');
 	console.log( data );
 
