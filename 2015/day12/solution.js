@@ -62,29 +62,15 @@ function part1( data ){
 		if( temp ){
 			sum += temp;
 		}
-		console.log( sum );
+		//console.log( sum );
 	});
 
 	return sum;
 }
 
 function part2( data ){
-	let forward = 0;
-	let aim = 0;
-	let depth = 0;
-	data = data.trim().split(/\r?\n/).forEach(function(valStr,index,array){
-		let vals = valStr.split(/ /);
-		if( vals[0] == "forward" ){
-			forward += parseInt(vals[1]);
-			depth += aim*parseInt(vals[1]);
-		} else if( vals[0] == "down" ){
-			aim += parseInt(vals[1]);
-		} else {
-			aim -= parseInt(vals[1]);
-		}
-	});
-
-	return forward*depth;
+	const regex = /{[^{}]*":"red"[^{]*}/g;
+	console.log( data.replace(regex, '') );
 }
 
 function readFile(filePath){
