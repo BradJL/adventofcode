@@ -57,11 +57,11 @@ function part1( data ){
 	data = data.trim().split(/\r?\n/).forEach(function(valStr,index,array){
 		let vals = valStr.split(/ /);
 		if( vals[0] == "forward" ){
-			++forward;
+			forward += parseInt(vals[1]);
 		} else if( vals[0] == "down" ){
-			++depth;
+			depth += parseInt(vals[1]);
 		} else {
-			--depth;
+			depth -= parseInt(vals[1]);
 		}
 	});
 
