@@ -55,6 +55,8 @@ function part1( data ){
 	let sum = 0;
 	const regex = /[^0-9-,]/i;
 	data.replace(regex, '');
+	console.log( data );
+
 	data = data.trim().split(/,/).forEach(function(valStr,index,array){
 		sum += parseInt(valStr);
 	});
