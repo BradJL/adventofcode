@@ -73,21 +73,25 @@ function part2( data ){
 	const regex2 = /{[^{}]*":"red"[^{}]*{[^{}]*}[^{}]*}/g;
 	const regex3 = /{[^{}]*{[^{}]*}[^{}]*":"red"[^{}]*}/g;
 	const regex4 = /{[^{}]*{[^{}]*}[^{}]*{[^{}]*{[^{}]*}[^{}]*}[^{}]*":"red"[^{}]*{[^{}]*}[^{}]*}/g;
+	const regex5 = /{[^{}]*{[^{}]*{[^{}]*}[^{}]*{[^{}]*}[^{}]*{[^{}]*}[^{}]*}[^{}]*":"red"[^{}]*{[^{}]*}[^{}]*{[^{}]*{[^{}]*}[^{}]*{[^{}]*}[^{}]*{[^{}]*}[^{}]*{[^{}]*{[^{}]*}[^{}]*{[^{}]*}[^{}]*{[^{}]*{[^{}]*{[^{}]*}[^{}]*}[^{}]*{[^{}]*}[^{}]*{[^{}]*}[^{}]*{[^{}]*}[^{}]*}[^{}]*{[^{}]*}[^{}]*{[^{}]*},[^{}]*{[^{}]*}[^{}]*}[^{}]*{[^{}]*}[^{}]*{[^{}]*}[^{}]*}/g;
 
 	data = data.replace(regex, '')
 	data = data.replace(regex2, '')
 	data = data.replace(regex3, '')
 	data = data.replace(regex4, '')
+	data = data.replace(regex5, '')
 
 	data = data.replace(regex, '')
 	data = data.replace(regex2, '')
 	data = data.replace(regex3, '')
 	data = data.replace(regex4, '')
+	data = data.replace(regex5, '')
 
 	data = data.replace(regex, '')
 	data = data.replace(regex2, '')
 	data = data.replace(regex3, '')
 	data = data.replace(regex4, '')
+	data = data.replace(regex5, '')
 
 	console.log( data );
 }
