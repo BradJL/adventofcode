@@ -78,6 +78,9 @@ function part2( data ){
 
 	data = data.replace(regex, '')
 
+	const regex3 = /{[^{}]*{[^{}]*}[^{}]*":"red"[^{}]*}/g;
+	data = data.replace(regex3, '')
+
 	console.log( data );
 }
 
