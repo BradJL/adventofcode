@@ -70,15 +70,19 @@ function part1( data ){
 
 function part2( data ){
 	const regex = /{[^{}]*":"red"[^{}]*}/g;
-	data = data.replace(regex, '')
-
-	//const regex2 = /{[^{}]*":"red"[^{]*{[^{]*}}/g;
 	const regex2 = /{[^{}]*":"red"[^{}]*{[^{}]*}[^{}]*}/g;
-	data = data.replace(regex2, '')
+	const regex3 = /{[^{}]*{[^{}]*}[^{}]*":"red"[^{}]*}/g;
 
 	data = data.replace(regex, '')
+	data = data.replace(regex2, '')
+	data = data.replace(regex3, '')
 
-	const regex3 = /{[^{}]*{[^{}]*}[^{}]*":"red"[^{}]*}/g;
+	data = data.replace(regex, '')
+	data = data.replace(regex2, '')
+	data = data.replace(regex3, '')
+
+	data = data.replace(regex, '')
+	data = data.replace(regex2, '')
 	data = data.replace(regex3, '')
 
 	console.log( data );
