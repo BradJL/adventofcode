@@ -52,12 +52,16 @@ function log( what ){
 }
   
 function part1( data ){
+	let tmp = 0;
 	let sum = 0;
 	const regex = /[^0-9,-]/g;
 	//console.log(data.replace(regex, ''));
 
 	data = data.replace(regex, '').trim().split(/,/).forEach(function(valStr,index,array){
-		sum += parseInt(valStr);
+		temp = parseInt(valStr);
+		if( temp ){
+			sum += temp;
+		}
 		console.log( sum );
 	});
 
