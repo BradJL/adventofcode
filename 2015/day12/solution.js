@@ -54,10 +54,9 @@ function log( what ){
 function part1( data ){
 	let sum = 0;
 	const regex = /[^0-9,-]/g;
-	data = data.replace(regex, '');
-	console.log( data );
+	console.log(data.replace(regex, ''));
 
-	data = data.trim().split(/,/).forEach(function(valStr,index,array){
+	data = data.replace(regex, '').trim().split(/,/).forEach(function(valStr,index,array){
 		sum += parseInt(valStr);
 	});
 
