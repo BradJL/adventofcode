@@ -69,21 +69,22 @@ function part1( data ){
 }
 
 function part2( data ){
-	val_one = 99999;
-	val_two = 99999;
-	val_three = 99999;
-	let count = 0;
+	let forward = 0;
+	let aim = 0;
+	let depth = 0;
 	data = data.trim().split(/\r?\n/).forEach(function(valStr,index,array){
-		let val = parseInt(valStr);
-		if( val > val_one ){
-			++count;
+		let vals = valStr.split(/ /);
+		if( vals[0] == "forward" ){
+			forward += parseInt(vals[1]);
+			depth += aim*parseInt(vals[1]);
+		} else if( vals[0] == "down" ){
+			aim += parseInt(vals[1]);
+		} else {
+			aim -= parseInt(vals[1]);
 		}
-		val_one = val_two;
-		val_two = val_three;
-		val_three = val;
 	});
 
-	return count;
+	return forward*depth;
 }
 
 function readFile(filePath){
