@@ -70,7 +70,12 @@ function part1( data ){
 
 function part2( data ){
 	const regex = /{[^{}]*":"red"[^{]*}/g;
-	console.log( data.replace(regex, '') );
+	data = data.replace(regex, '')
+
+	const regex2 = /{[^{}]*":"red"[^{]*{[^{]*}}/g;
+	data = data.replace(regex2, '')
+
+	console.log( data );
 }
 
 function readFile(filePath){
