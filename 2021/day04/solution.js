@@ -39,20 +39,23 @@ function log( what ){
 }
 
 function part1( data ){
-	data = data.trim().split(/\r?\n/);//.forEach(function(valStr,index,array){
-	//});
-	numbers = data.pop();
+	bingo_number_positions = new Array(len).fill(0);
+
+	data = data.trim().split(/\r?\n/);
+	numbers = data.shift().split(/,/).foreach(function(valStr,index,array){
+		bingo_number_positions[valStr] = index;
+	});
 	console.log(numbers);
 
-	return numbers;
+	return bingo_number_positions;
 }
 
 function part2( data ){
 	data = data.trim().split(/\r?\n/);//.forEach(function(valStr,index,array){
 	//});
-	numbers = data.pop();
+	numbers = data.shift();
 
-	return numbers;
+	return 0;
 }
 
 function readFile(filePath){
