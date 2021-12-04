@@ -44,7 +44,7 @@ class BingoCard {
 	}
 	add_numbers( nums ){
 		nums.split(/ /).forEach(function(valStr,index,array){
-			this.numbers.push( valStr );
+			numbers.push( valStr );
 		});
 	}
 	print(){
