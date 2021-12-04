@@ -43,7 +43,7 @@ class BingoCard {
 	  this.numbers = {};
 	}
 	add_numbers( nums ){
-		nums.forEach(function(valStr,index,array){
+		nums.split(/ /).forEach(function(valStr,index,array){
 			this.numbers.push( valStr );
 		});
 	}
