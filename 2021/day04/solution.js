@@ -38,21 +38,44 @@ function log( what ){
   //console.log( what );
 }
 
+class BingoCard {
+	constructor() {
+	  this.numbers = {};
+	}
+	add_numbers( nums ){
+		nums.forEach(function(valStr,index,array){
+			this.numbers.push( valStr );
+		});
+	}
+	print(){
+		console.log(this.numbers);
+	}
+}
+
 function part1( data ){
-	bingo_number_positions = new Array(100).fill(0);
+	let bingo_number_positions = new Array(100).fill(0);
 
 	data = data.trim().split(/\r?\n/);
-	numbers = data.shift().split(/,/).forEach(function(valStr,index,array){
+	let bingo_numbers = data.shift().split(/,/)
+	bingo_numbers.forEach(function(valStr,index,array){
 		bingo_number_positions[valStr] = index;
 	});
-	console.log(numbers);
 
-	return bingo_number_positions;
+	row = 0;
+	data.forEach(function(valStr,index,array){
+		if( valStr != "" ){
+			valStr.split(/ /).forEach(function(cardSquareVal,column,carray){
+				
+			});
+			++row;
+		}
+	});
+
+	return bingo_numbers;
 }
 
 function part2( data ){
-	data = data.trim().split(/\r?\n/);//.forEach(function(valStr,index,array){
-	//});
+	data = data.trim().split(/\r?\n/);
 	numbers = data.shift();
 
 	return 0;
