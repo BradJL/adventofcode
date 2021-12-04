@@ -54,6 +54,7 @@ class BingoCard {
 
 function part1( data ){
 	let bingo_number_positions = new Array(100).fill(0);
+	let bingo_cards = {};
 
 	data = data.trim().split(/\r?\n/);
 	let bingo_numbers = data.shift().split(/,/)
@@ -62,16 +63,24 @@ function part1( data ){
 	});
 
 	row = 0;
+	let bingo_card = null;
 	data.forEach(function(valStr,index,array){
-		if( valStr != "" ){
-			valStr.split(/ /).forEach(function(cardSquareVal,column,carray){
-				
-			});
+		if( valStr == "" ){
+			if( bingo_card ){
+				bingo_cards.push( bingo_card );
+			}
+			bingo_card = new BingoCard();
+		} else {
+			//valStr.split(/ /).forEach(function(cardSquareVal,column,carray){
+			//});
+			bingo_card.add_numbers( valStr );
 			++row;
 		}
 	});
 
-	return bingo_numbers;
+	//return bingo_numbers;
+	//return bingo_number_positions;
+	return bingo_cards;
 }
 
 function part2( data ){
