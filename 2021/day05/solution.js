@@ -63,7 +63,7 @@ function part1( data ){
 		});
 
 		// vals: [[ x1,y1,x2,y2 ], ...]
-		console.log( vals );
+		//console.log( vals );
 		if( vals[ 0 ] == vals[ 2 ] ){
 			// horizontal line
 			let from = vals[ 1 ];
@@ -73,13 +73,14 @@ function part1( data ){
 				thru = vals[ 1 ];
 			}
 			while( from <= thru ){
-				ocean_floor_vents[ val[0] + 1000*from ] += 1;
+				ocean_floor_vents[ vals[0] + 1000*from ] += 1;
 				++from;
 			}
 		}
 	});
 
-	return ocean_floor_vents;
+	console.log( ocean_floor_vents );
+	return 0;
 }
 
 function part2( data ){
