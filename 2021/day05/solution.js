@@ -101,10 +101,70 @@ function part1( data ){
 }
 
 function part2( data ){
-	data = data.trim().split(/\r?\n/);
-	numbers = data.shift();
+	let ocean_floor_vents = new Array(1000000).fill(0);
+	let twos = 0;
 
-	return 0;
+	data.trim().split(/\r?\n/).forEach(function(valStr,index,array){
+		let vals = new Array();
+		valStr.replace(/ -> /, ",").split(/,/).forEach(function(valStr1,index1,array1){
+			vals.push( parseInt(valStr1) );
+		});
+
+		// vals: [[ x1,y1,x2,y2 ], ...]
+		//console.log( vals );
+		if( vals[ 0 ] == vals[ 2 ] ){
+			// horizontal line
+			let from = vals[ 1 ];
+			let thru = vals[ 3 ];
+			if( from > thru ){
+				from = thru;
+				thru = vals[ 1 ];
+			}
+			while( from <= thru ){
+				ocean_floor_vents[ vals[0] + 1000*from ] += 1;
+				//console.log( ocean_floor_vents[ vals[0] + 1000*from ] )
+				if( ocean_floor_vents[ vals[0] + 1000*from ] == 2 ){ ++twos }
+				++from;
+			}
+		} else if( vals[ 1 ] == vals[ 3 ] ){
+			// vertical line
+			let from = vals[ 0 ];
+			let thru = vals[ 2 ];
+			if( from > thru ){
+				from = thru;
+				thru = vals[ 0 ];
+			}
+			while( from <= thru ){
+				ocean_floor_vents[ from + 1000*vals[1] ] += 1;
+				//console.log( ocean_floor_vents[ from + 1000*vals[0] ] )
+				if( ocean_floor_vents[ from + 1000*vals[1] ] == 2 ){ ++twos }
+				++from;
+			}
+		} else {
+			// diagonal line
+			let fromy = vals[ 0 ];
+			let thruy = vals[ 2 ];
+			if( fromy > thruy ){
+				fromy = thruy;
+				thruy = vals[ 0 ];
+			}
+			let fromx = vals[ 1 ];
+			let thrux = vals[ 3 ];
+			if( fromx > thrux ){
+				fromx = thrux;
+				thrux = vals[ 1 ];
+			}
+			while( fromx <= thrux ){
+				ocean_floor_vents[ fromx + 1000*fromy ] += 1;
+				if( ocean_floor_vents[ fromx + 1000*fromy ] == 2 ){ ++twos }
+				++fromx;
+				++fromy;
+			}
+		}
+	});
+
+	//console.log( ocean_floor_vents );
+	return twos;
 }
 
 function readFile(filePath){
