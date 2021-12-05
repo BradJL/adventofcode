@@ -74,6 +74,7 @@ function part1( data ){
 			}
 			while( from <= thru ){
 				ocean_floor_vents[ vals[0] + 1000*from ] += 1;
+				console.log( ocean_floor_vents[ vals[0] + 1000*from ] )
 				++from;
 			}
 		}
