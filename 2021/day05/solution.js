@@ -54,6 +54,7 @@ class BingoCard {
 
 function part1( data ){
 	let ocean_floor_vents = new Array(1000000).fill(0);
+	let twos = 0;
 	//let bingo_cards = {};
 
 	data.trim().split(/\r?\n/).forEach(function(valStr,index,array){
@@ -74,14 +75,29 @@ function part1( data ){
 			}
 			while( from <= thru ){
 				ocean_floor_vents[ vals[0] + 1000*from ] += 1;
-				console.log( ocean_floor_vents[ vals[0] + 1000*from ] )
+				//console.log( ocean_floor_vents[ vals[0] + 1000*from ] )
+				if( ocean_floor_vents[ vals[0] + 1000*from ] == 2 ){ ++twos }
+				++from;
+			}
+		} else if( vals[ 1 ] == vals[ 3 ] ){
+			// vertical line
+			let from = vals[ 0 ];
+			let thru = vals[ 2 ];
+			if( from > thru ){
+				from = thru;
+				thru = vals[ 0 ];
+			}
+			while( from <= thru ){
+				ocean_floor_vents[ from + 1000*vals[1] ] += 1;
+				//console.log( ocean_floor_vents[ from + 1000*vals[0] ] )
+				if( ocean_floor_vents[ from + 1000*vals[1] ] == 2 ){ ++twos }
 				++from;
 			}
 		}
 	});
 
-	console.log( ocean_floor_vents );
-	return 0;
+	//console.log( ocean_floor_vents );
+	return twos;
 }
 
 function part2( data ){
