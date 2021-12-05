@@ -163,6 +163,16 @@ function part2( data ){
 				fromx += xdelta;
 			}
 		}
+		let str = "";
+		ocean_floor_vents.forEach(function(val,index,array){
+			if( index % 1000 == 0 ){
+				console.log(str);
+				str = "";
+			} else {
+				str += val
+			}
+		});
+		console.log(str);
 	});
 
 	//console.log( ocean_floor_vents );
