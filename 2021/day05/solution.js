@@ -135,22 +135,30 @@ function part2( data ){
 			let thruy = vals[ 2 ];
 			let fromx = vals[ 1 ];
 			let thrux = vals[ 3 ];
-			if( fromy > thruy ){
-				fromy = thruy;
-				thruy = vals[ 0 ];
-				fromx = vals[ 3 ];
-				thrux = vals[ 1 ];
+//			if( fromy > thruy ){
+//				fromy = thruy;
+//				thruy = vals[ 0 ];
+//				fromx = vals[ 3 ];
+//				thrux = vals[ 1 ];
+//			}
+			let ydelta = 1;
+			if( fromy > thruy){
+				ydelta = -1;
+			} else if( fromy == thruy ){
+				ydelta = 0;
 			}
+
 			let xdelta = 1;
 			if( fromx > thrux ){
 				xdelta = -1;
 			} else if( fromx == thrux ){
 				xdelta = 0;
 			}
-			while( fromy <= thruy ){
+
+			while( ( fromy != thruy + ydelta ) && ( fromx != thrux + xdelta ) ){
 				ocean_floor_vents[ fromx + ARRAY_SIZE*fromy ] += 1;
 				if( ocean_floor_vents[ fromx + ARRAY_SIZE*fromy ] == 2 ){ ++twos }
-				++fromy;
+				fromy += ydelta;
 				fromx += xdelta;
 			}
 //		}
