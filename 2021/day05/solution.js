@@ -13,8 +13,9 @@ function initialize(){
 
 // const fs = require('fs').promises;
 
-const ARRAY_SIZE = 1000;
-//const ARRAY_SIZE = 10;
+const INPUT_ARRAY_SIZE = 1000;
+const EXAMPLE_ARRAY_SIZE = 10;
+var array_size = ARRAY_SIZE;
 
 function part1( data ){
 	return calculate_vents( data, false, ctx );
@@ -24,7 +25,7 @@ function part2( data ){
 }
 
 function calculate_vents( data, allow_diagonals, canvas_context ){
-	let ocean_floor_vents = new Array(ARRAY_SIZE*ARRAY_SIZE).fill(0);
+	let ocean_floor_vents = new Array(array_size*array_size).fill(0);
 	let twos = 0;
 
 	data.trim().split(/\r?\n/).forEach(function(valStr,index,array){
@@ -60,8 +61,8 @@ function calculate_vents( data, allow_diagonals, canvas_context ){
 			canvas_context.stroke();
 		
 			while( ( fromy != thruy + ydelta ) || ( fromx != thrux + xdelta ) ){
-				ocean_floor_vents[ fromy + ARRAY_SIZE*fromx ] += 1;
-				if( ocean_floor_vents[ fromy + ARRAY_SIZE*fromx ] == 2 ){ ++twos }
+				ocean_floor_vents[ fromy + array_size*fromx ] += 1;
+				if( ocean_floor_vents[ fromy + array_size*fromx ] == 2 ){ ++twos }
 				fromy += ydelta;
 				fromx += xdelta;
 			}
@@ -109,5 +110,5 @@ function readFile(filePath){
 // }
 
 initialize();
-//readFile('example_input.txt');
+//readFile('example_input.txt'); array_size = EXAMPLE_ARRAY_SIZE;
 readFile('input.txt');
