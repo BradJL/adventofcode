@@ -164,10 +164,11 @@ function part2( data ){
 //		}
 		let str = "";
 		ocean_floor_vents.forEach(function(val,index,array){
-			if( index % ARRAY_SIZE == 0 ){
+			if( (index % ARRAY_SIZE) == 0 ){
 				console.log(str);
-				str = "";
+				str = index + ": ";
 			} else {
+				if( val = 0 ){ val = "." }
 				str += val
 			}
 		});
