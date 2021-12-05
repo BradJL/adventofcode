@@ -28,8 +28,8 @@ function initialize(){
   
   // var canvas = document.getElementById("visualization");
   // var ctx = canvas.getContext("2d");
-  // var canvas2 = document.getElementById("visualization2");
-  // var ctx2 = canvas2.getContext("2d");  
+  var canvas2 = document.getElementById("visualization2");
+  var ctx2 = canvas2.getContext("2d");  
 }
 
 // const fs = require('fs').promises;
@@ -141,6 +141,13 @@ function part2( data ){
 //				fromx = vals[ 3 ];
 //				thrux = vals[ 1 ];
 //			}
+
+ctx2.strokeStyle = "#FF0000";
+ctx2.beginPath();
+ctx2.moveTo(fromx, fromy);
+ctx2.lineTo(thrux, thruy);
+ctx2.stroke();
+
 			let ydelta = 1;
 			if( fromy > thruy){
 				ydelta = -1;
@@ -162,16 +169,19 @@ function part2( data ){
 				fromx += xdelta;
 			}
 //		}
-		let str = "";
-		ocean_floor_vents.forEach(function(val,index,array){
-			if( (index % ARRAY_SIZE) == 0 ){
-				console.log(str);
-				str = index + ": ";
-			}
-			if( val == 0 ){ val = "." }
-			str += val
-		});
-		console.log(str);
+
+		// Debug output
+//		let str = "";
+//		ocean_floor_vents.forEach(function(val,index,array){
+//			if( (index % ARRAY_SIZE) == 0 ){
+//				console.log(str);
+//				str = index + ": ";
+//			}
+//			if( val == 0 ){ val = "." }
+//			str += val
+//		});
+//		console.log(str);
+
 	});
 
 	//console.log( ocean_floor_vents );
