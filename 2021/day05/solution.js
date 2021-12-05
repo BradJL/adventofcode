@@ -155,7 +155,7 @@ function part2( data ){
 				xdelta = 0;
 			}
 
-			while( ( fromy != thruy + ydelta ) && ( fromx != thrux + xdelta ) ){
+			while( ( fromy != thruy + ydelta ) || ( fromx != thrux + xdelta ) ){
 				ocean_floor_vents[ fromx + ARRAY_SIZE*fromy ] += 1;
 				if( ocean_floor_vents[ fromx + ARRAY_SIZE*fromy ] == 2 ){ ++twos }
 				fromy += ydelta;
