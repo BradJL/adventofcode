@@ -6,37 +6,12 @@ var ctx = canvas.getContext("2d");
 var canvas2 = document.getElementById("visualization2");
 var ctx2 = canvas2.getContext("2d");
 
-$.get( "input.txt", function( data ) {
-//   $('#input span').text('(Bytes: ' + (data.length) + ')');
-  data = data.trim().split(/\r?\n/);
-  $('#input span').text('(Lines: ' + (data.length) + ')');
-//   part1( data );
-//   part2( data );
-  
-//   let input = [];
-//   data.forEach(function(number, index, array) {
-//     input.push(parseInt(number))
-//   });
-//   part1( input );
-//   part2( input );
-});
-
-// OR this:
 function initialize(){
   $('#answer span').text('Calculating...');
   $('#answer2 span').text('Calculating...');
-  
-  // var canvas = document.getElementById("visualization");
-  // var ctx = canvas.getContext("2d");
-  // var canvas2 = document.getElementById("visualization2");
-  // var ctx2 = canvas2.getContext("2d");  
 }
 
 // const fs = require('fs').promises;
-
-function log( what ){
-  //console.log( what );
-}
 
 const ARRAY_SIZE = 1000;
 //const ARRAY_SIZE = 10;
