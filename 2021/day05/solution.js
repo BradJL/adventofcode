@@ -169,8 +169,7 @@ function part2( data ){
 				str = index + ": ";
 			}
 			if( val == 0 ){ val = "." }
-				str += val
-			}
+			str += val
 		});
 		console.log(str);
 	});
