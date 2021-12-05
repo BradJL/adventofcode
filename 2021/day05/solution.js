@@ -3,8 +3,8 @@ $('#answer2 span').text('Calculating...');
 
 // var canvas = document.getElementById("visualization");
 // var ctx = canvas.getContext("2d");
-// var canvas2 = document.getElementById("visualization2");
-// var ctx2 = canvas2.getContext("2d");
+var canvas2 = document.getElementById("visualization2");
+var ctx2 = canvas2.getContext("2d");
 
 $.get( "input.txt", function( data ) {
 //   $('#input span').text('(Bytes: ' + (data.length) + ')');
@@ -28,8 +28,8 @@ function initialize(){
   
   // var canvas = document.getElementById("visualization");
   // var ctx = canvas.getContext("2d");
-  var canvas2 = document.getElementById("visualization2");
-  var ctx2 = canvas2.getContext("2d");  
+  // var canvas2 = document.getElementById("visualization2");
+  // var ctx2 = canvas2.getContext("2d");  
 }
 
 // const fs = require('fs').promises;
