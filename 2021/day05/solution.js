@@ -166,9 +166,9 @@ function part2( data ){
 		ocean_floor_vents.forEach(function(val,index,array){
 			if( (index % ARRAY_SIZE) == 0 ){
 				console.log(str);
-				str = index + ": " + val;
-			} else {
-				if( val = 0 ){ val = "." }
+				str = index + ": ";
+			}
+			if( val == 0 ){ val = "." }
 				str += val
 			}
 		});
