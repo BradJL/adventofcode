@@ -15,7 +15,7 @@ function initialize(){
 
 const INPUT_ARRAY_SIZE = 1000;
 const EXAMPLE_ARRAY_SIZE = 10;
-var array_size = ARRAY_SIZE;
+var array_size = INPUT_ARRAY_SIZE;
 
 function part1( data ){
 	return calculate_vents( data, false, ctx );
