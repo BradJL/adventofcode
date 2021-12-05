@@ -41,53 +41,6 @@ function log( what ){
 const ARRAY_SIZE = 1000;
 //const ARRAY_SIZE = 10;
 
-// function part1( data ){
-// 	let ocean_floor_vents = new Array(ARRAY_SIZE*ARRAY_SIZE).fill(0);
-// 	let twos = 0;
-
-// 	data.trim().split(/\r?\n/).forEach(function(valStr,index,array){
-// 		let vals = new Array();
-// 		valStr.replace(/ -> /, ",").split(/,/).forEach(function(valStr1,index1,array1){
-// 			vals.push( parseInt(valStr1) );
-// 		});
-
-// 		// vals: [[ x1,y1,x2,y2 ], ...]
-// 		//console.log( vals );
-// 		if( vals[ 0 ] == vals[ 2 ] ){
-// 			// horizontal line
-// 			let from = vals[ 1 ];
-// 			let thru = vals[ 3 ];
-// 			if( from > thru ){
-// 				from = thru;
-// 				thru = vals[ 1 ];
-// 			}
-// 			while( from <= thru ){
-// 				ocean_floor_vents[ vals[0] + ARRAY_SIZE*from ] += 1;
-// 				//console.log( ocean_floor_vents[ vals[0] + ARRAY_SIZE*from ] )
-// 				if( ocean_floor_vents[ vals[0] + ARRAY_SIZE*from ] == 2 ){ ++twos }
-// 				++from;
-// 			}
-// 		} else if( vals[ 1 ] == vals[ 3 ] ){
-// 			// vertical line
-// 			let from = vals[ 0 ];
-// 			let thru = vals[ 2 ];
-// 			if( from > thru ){
-// 				from = thru;
-// 				thru = vals[ 0 ];
-// 			}
-// 			while( from <= thru ){
-// 				ocean_floor_vents[ from + ARRAY_SIZE*vals[1] ] += 1;
-// 				//console.log( ocean_floor_vents[ from + ARRAY_SIZE*vals[0] ] )
-// 				if( ocean_floor_vents[ from + ARRAY_SIZE*vals[1] ] == 2 ){ ++twos }
-// 				++from;
-// 			}
-// 		}
-// 	});
-
-// 	//console.log( ocean_floor_vents );
-// 	return twos;
-// }
-
 function part1( data ){
 	return calculate_vents( data, false, ctx );
 }
@@ -158,8 +111,10 @@ function calculate_vents( data, allow_diagonals, canvas_context ){
 
 function readFile(filePath){
   $.get( filePath, function( data ) {
-    $('#input span').text('(Bytes: ' + (data.length) + ')');
-    let part1Answer = part1( data );
+	lines = data.trim().split(/\r?\n/);
+    $('#input span').text('(' + data.length + ' bytes, ' + lines.length + ' lines)');
+  
+	let part1Answer = part1( data );
     $('#answer span').text( part1Answer );
     let part2Answer = part2( data );
     $('#answer2 span').text( part2Answer );
