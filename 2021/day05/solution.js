@@ -57,7 +57,7 @@ function part1( data ){
 	//let bingo_cards = {};
 
 	data.trim().split(/\r?\n/).forEach(function(valStr,index,array){
-		valStr.replace(/ -> /, ",")
+		valStr.replace(/ \-> /, ",")
 		console.log( valStr );
 	});
 
