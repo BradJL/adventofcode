@@ -38,22 +38,11 @@ function log( what ){
   //console.log( what );
 }
 
-class BingoCard {
-	constructor() {
-	  this.numbers = {};
-	}
-	add_numbers( nums ){
-		nums.split(/ /).forEach(function(valStr,index,array){
-			numbers.push( valStr );
-		});
-	}
-	print(){
-		console.log(this.numbers);
-	}
-}
+//const ARRAY_SIZE = 1000;
+const ARRAY_SIZE = 10;
 
 function part1( data ){
-	let ocean_floor_vents = new Array(1000000).fill(0);
+	let ocean_floor_vents = new Array(ARRAY_SIZE*ARRAY_SIZE).fill(0);
 	let twos = 0;
 	//let bingo_cards = {};
 
@@ -74,9 +63,9 @@ function part1( data ){
 				thru = vals[ 1 ];
 			}
 			while( from <= thru ){
-				ocean_floor_vents[ vals[0] + 1000*from ] += 1;
-				//console.log( ocean_floor_vents[ vals[0] + 1000*from ] )
-				if( ocean_floor_vents[ vals[0] + 1000*from ] == 2 ){ ++twos }
+				ocean_floor_vents[ vals[0] + ARRAY_SIZE*from ] += 1;
+				//console.log( ocean_floor_vents[ vals[0] + ARRAY_SIZE*from ] )
+				if( ocean_floor_vents[ vals[0] + ARRAY_SIZE*from ] == 2 ){ ++twos }
 				++from;
 			}
 		} else if( vals[ 1 ] == vals[ 3 ] ){
@@ -88,9 +77,9 @@ function part1( data ){
 				thru = vals[ 0 ];
 			}
 			while( from <= thru ){
-				ocean_floor_vents[ from + 1000*vals[1] ] += 1;
-				//console.log( ocean_floor_vents[ from + 1000*vals[0] ] )
-				if( ocean_floor_vents[ from + 1000*vals[1] ] == 2 ){ ++twos }
+				ocean_floor_vents[ from + ARRAY_SIZE*vals[1] ] += 1;
+				//console.log( ocean_floor_vents[ from + ARRAY_SIZE*vals[0] ] )
+				if( ocean_floor_vents[ from + ARRAY_SIZE*vals[1] ] == 2 ){ ++twos }
 				++from;
 			}
 		}
@@ -101,7 +90,7 @@ function part1( data ){
 }
 
 function part2( data ){
-	let ocean_floor_vents = new Array(1000000).fill(0);
+	let ocean_floor_vents = new Array(ARRAY_SIZE*ARRAY_SIZE).fill(0);
 	let twos = 0;
 
 	data.trim().split(/\r?\n/).forEach(function(valStr,index,array){
@@ -121,9 +110,9 @@ function part2( data ){
 				thru = vals[ 1 ];
 			}
 			while( from <= thru ){
-				ocean_floor_vents[ vals[0] + 1000*from ] += 1;
-				//console.log( ocean_floor_vents[ vals[0] + 1000*from ] )
-				if( ocean_floor_vents[ vals[0] + 1000*from ] == 2 ){ ++twos }
+				ocean_floor_vents[ vals[0] + ARRAY_SIZE*from ] += 1;
+				//console.log( ocean_floor_vents[ vals[0] + ARRAY_SIZE*from ] )
+				if( ocean_floor_vents[ vals[0] + ARRAY_SIZE*from ] == 2 ){ ++twos }
 				++from;
 			}
 		} else if( vals[ 1 ] == vals[ 3 ] ){
@@ -135,9 +124,9 @@ function part2( data ){
 				thru = vals[ 0 ];
 			}
 			while( from <= thru ){
-				ocean_floor_vents[ from + 1000*vals[1] ] += 1;
-				//console.log( ocean_floor_vents[ from + 1000*vals[0] ] )
-				if( ocean_floor_vents[ from + 1000*vals[1] ] == 2 ){ ++twos }
+				ocean_floor_vents[ from + ARRAY_SIZE*vals[1] ] += 1;
+				//console.log( ocean_floor_vents[ from + ARRAY_SIZE*vals[0] ] )
+				if( ocean_floor_vents[ from + ARRAY_SIZE*vals[1] ] == 2 ){ ++twos }
 				++from;
 			}
 		} else {
@@ -157,15 +146,15 @@ function part2( data ){
 				xdelta = -1;
 			}
 			while( fromy <= thruy ){
-				ocean_floor_vents[ fromx + 1000*fromy ] += 1;
-				if( ocean_floor_vents[ fromx + 1000*fromy ] == 2 ){ ++twos }
+				ocean_floor_vents[ fromx + ARRAY_SIZE*fromy ] += 1;
+				if( ocean_floor_vents[ fromx + ARRAY_SIZE*fromy ] == 2 ){ ++twos }
 				++fromy;
 				fromx += xdelta;
 			}
 		}
 		let str = "";
 		ocean_floor_vents.forEach(function(val,index,array){
-			if( index % 1000 == 0 ){
+			if( index % ARRAY_SIZE == 0 ){
 				console.log(str);
 				str = "";
 			} else {
