@@ -38,8 +38,8 @@ function log( what ){
   //console.log( what );
 }
 
-//const ARRAY_SIZE = 1000;
-const ARRAY_SIZE = 10;
+const ARRAY_SIZE = 1000;
+//const ARRAY_SIZE = 10;
 
 function part1( data ){
 	let ocean_floor_vents = new Array(ARRAY_SIZE*ARRAY_SIZE).fill(0);
