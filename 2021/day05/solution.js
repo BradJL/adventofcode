@@ -6,7 +6,7 @@ $('#answer2 span').text('Calculating...');
 // var canvas2 = document.getElementById("visualization2");
 // var ctx2 = canvas2.getContext("2d");
 
-$.get( "example_input.txt", function( data ) {
+$.get( "input.txt", function( data ) {
 //   $('#input span').text('(Bytes: ' + (data.length) + ')');
   data = data.trim().split(/\r?\n/);
   $('#input span').text('(Lines: ' + (data.length) + ')');
@@ -192,4 +192,4 @@ function readFile(filePath){
 // }
 
 initialize();
-readFile('input.txt');
+readFile('example_input.txt');
