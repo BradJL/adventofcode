@@ -61,10 +61,25 @@ function part1( data ){
 		valStr.replace(/ -> /, ",").split(/,/).forEach(function(valStr1,index1,array1){
 			vals.push( parseInt(valStr1) );
 		});
+
+		// vals: [[ x1,y1,x2,y2 ], ...]
 		console.log( vals );
+		if( vals[ 0 ] == vals[ 2 ] ){
+			// horizontal line
+			let from = vals[ 1 ];
+			let thru = vals[ 3 ];
+			if( from > thru ){
+				from = thru;
+				thru = vals[ 1 ];
+			}
+			while( from <= thru ){
+				ocean_floor_vents[ val[0] + 1000*from ] += 1;
+				++from;
+			}
+		}
 	});
 
-	return 0;
+	return ocean_floor_vents;
 }
 
 function part2( data ){
