@@ -144,21 +144,23 @@ function part2( data ){
 			// diagonal line
 			let fromy = vals[ 0 ];
 			let thruy = vals[ 2 ];
+			let fromx = vals[ 1 ];
+			let thrux = vals[ 3 ];
 			if( fromy > thruy ){
 				fromy = thruy;
 				thruy = vals[ 0 ];
-			}
-			let fromx = vals[ 1 ];
-			let thrux = vals[ 3 ];
-			if( fromx > thrux ){
-				fromx = thrux;
+				fromx = vals[ 3 ];
 				thrux = vals[ 1 ];
 			}
-			while( fromx <= thrux ){
+			let xdelta = 1;
+			if( fromx > thrux ){
+				xdelta = -1;
+			}
+			while( fromy <= thruy ){
 				ocean_floor_vents[ fromx + 1000*fromy ] += 1;
 				if( ocean_floor_vents[ fromx + 1000*fromy ] == 2 ){ ++twos }
-				++fromx;
 				++fromy;
+				fromx += xdelta;
 			}
 		}
 	});
