@@ -57,7 +57,7 @@ function part1( data ){
 	//let bingo_cards = {};
 
 	data.trim().split(/\r?\n/).forEach(function(valStr,index,array){
-		let vals = {}
+		let vals = new Array();
 		valStr.replace(/ -> /, ",").split(/,/).forEach(function(valStr1,index1,array1){
 			vals.push( parseInt(valStr1) );
 		});
