@@ -201,4 +201,5 @@ function readFile(filePath){
 // }
 
 initialize();
-readFile('example_input.txt');
+//readFile('example_input.txt');
+readFile('input.txt');
