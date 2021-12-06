@@ -68,7 +68,7 @@ function part2( data ){
 function readFile(filePath){
   $.get( filePath, function( data ) {
 	lines = data.trim().split(/\r?\n/);
-    $('#input span').text('(' + data.length + ' bytes, ' + lines.length + ' lines)');
+    $('#input span').text('(' + data.length + ' bytes, ' + lines.length + ' line' + lines.length == 0 ? '' : 's' + ')');
   
 	let part1Answer = part1( data );
     $('#answer span').text( part1Answer );
