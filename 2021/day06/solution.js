@@ -18,6 +18,7 @@ function initialize(){
 //var array_size = INPUT_ARRAY_SIZE;
 
 let fish = new Array();
+let counts = new Array(9).fill(0);
 
 function iterate(){
 	fish.forEach(function(val,index,array){
@@ -30,18 +31,40 @@ function iterate(){
 	})
 }
 
+function iterate2(){
+	let new_counts = new Array(9).fill(0);
+	new_counts[8] = counts[0];
+	new_counts[7] = counts[8];
+	new_counts[6] = counts[7] + counts[0];
+	new_counts[5] = counts[6];
+	new_counts[4] = counts[5];
+	new_counts[3] = counts[4];
+	new_counts[2] = counts[3];
+	new_counts[1] = counts[2];
+	new_counts[0] = counts[1];
+
+	counts = new_counts;
+}
+function init_counts(){
+	fish.forEach(function(val,index,array){
+		counts[val]++;
+	})
+}
+
 function part1( data ){
 	//let days_remaining = 18;
-	//let days_remaining = 80;
-	let days_remaining = 256;
+	let days_remaining = 80;
+	//let days_remaining = 256;
 	data.trim().split(/,/).forEach(function(valStr,index,array){
 		fish.push( parseInt(valStr) );
 	})
+	init_counts();
 	for( let i = 0; i < days_remaining; ++i ){
-		iterate();
+		iterate2();
 		//console.log( fish );
 	}
-	return fish.length;
+	//return fish.length;
+	return counts[0] + counts[1] + counts[2] + counts[3] + counts[4] + counts[5] + counts[6] + counts[7] + counts[8];
 }
 function part2( data ){
 	//return calculate_vents( data, true, ctx2 );
