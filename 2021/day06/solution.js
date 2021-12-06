@@ -13,9 +13,9 @@ function initialize(){
 
 // const fs = require('fs').promises;
 
-let counts = new Array(9).fill(0);
+// let counts = new Array(9).fill(0);
 
-function iterate(){
+function iterate( counts ){
 	let new_counts = new Array(9).fill(0);
 	for( let i = 0; i < 8; ++i ){
 		new_counts[i] = counts[i+1];
@@ -23,40 +23,42 @@ function iterate(){
 	new_counts[6] = counts[7] + counts[0];
 	new_counts[8] = counts[0];
 
-	counts = new_counts;
+	return new_counts;
 }
 function init_counts( data ){
+	let counts = new Array(9).fill(0);
 	data.trim().split(/,/).forEach(function(valStr,index,array){
 		counts[parseInt(valStr)]++;
 	})
+
+	return counts;
+}
+
+function get_sum( counts ){
+	let sum = 0
+	counts.forEach(function(val,index,array){
+		sum += val;
+	})
+
+	return sum;
 }
 
 function part1( data ){
 	//let days_remaining = 18;
 	let days_remaining = 80;
-	counts = new Array(9).fill(0);
-	init_counts( data );
+	let counts = init_counts( data );
 	for( let i = 0; i < days_remaining; ++i ){
-		iterate();
+		iterate( counts );
 	}
-	let sum = 0
-	counts.forEach(function(val,index,array){
-		sum += val;
-	})
-	return sum;
+	return get_sum( counts );
 }
 function part2( data ){
 	let days_remaining = 256;
-	counts = new Array(9).fill(0);
 	init_counts( data );
 	for( let i = 0; i < days_remaining; ++i ){
-		iterate();
+		iterate( counts );
 	}
-	let sum = 0
-	counts.forEach(function(val,index,array){
-		sum += val;
-	})
-	return sum;
+	return get_sum( counts );
 }
 
 function readFile(filePath){
