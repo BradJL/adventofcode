@@ -13,25 +13,10 @@ function initialize(){
 
 // const fs = require('fs').promises;
 
-//const INPUT_ARRAY_SIZE = 1000;
-//const EXAMPLE_ARRAY_SIZE = 10;
-//var array_size = INPUT_ARRAY_SIZE;
-
 let fish = new Array();
 let counts = new Array(9).fill(0);
 
 function iterate(){
-	fish.forEach(function(val,index,array){
-		--val
-		if( val == -1 ){
-			fish.push( 8 );
-			val = 6;
-		}
-		fish[index] = val;
-	})
-}
-
-function iterate2(){
 	let new_counts = new Array(9).fill(0);
 	new_counts[8] = counts[0];
 	new_counts[7] = counts[8];
@@ -46,91 +31,38 @@ function iterate2(){
 	counts = new_counts;
 }
 function init_counts(){
-	fish.forEach(function(val,index,array){
-		counts[val]++;
+	data.trim().split(/,/).forEach(function(valStr,index,array){
+		counts[parseInt(valStr)]++;
 	})
 }
 
 function part1( data ){
 	//let days_remaining = 18;
-	//let days_remaining = 80;
-	let days_remaining = 256;
-	data.trim().split(/,/).forEach(function(valStr,index,array){
-		fish.push( parseInt(valStr) );
-	})
+	let days_remaining = 80;
 	init_counts();
 	for( let i = 0; i < days_remaining; ++i ){
-		iterate2();
-		//console.log( fish );
+		iterate();
 	}
-	//return fish.length;
-	return counts[0] + counts[1] + counts[2] + counts[3] + counts[4] + counts[5] + counts[6] + counts[7] + counts[8];
+	let sum = 0
+	counts.forEach(function(val,index,array){
+		sum += val;
+	})
+	//return counts[0] + counts[1] + counts[2] + counts[3] + counts[4] + counts[5] + counts[6] + counts[7] + counts[8];
+	return sum;
 }
 function part2( data ){
-	//return calculate_vents( data, true, ctx2 );
-	return 0;
+	let days_remaining = 256;
+	init_counts();
+	for( let i = 0; i < days_remaining; ++i ){
+		iterate();
+	}
+	let sum = 0
+	counts.forEach(function(val,index,array){
+		sum += val;
+	})
+	//return counts[0] + counts[1] + counts[2] + counts[3] + counts[4] + counts[5] + counts[6] + counts[7] + counts[8];
+	return sum;
 }
-
-// function calculate_vents( data, allow_diagonals, canvas_context ){
-// 	let ocean_floor_vents = new Array(array_size*array_size).fill(0);
-// 	let twos = 0;
-
-// 	data.trim().split(/\r?\n/).forEach(function(valStr,index,array){
-// 		let vals = new Array();
-// 		valStr.replace(/ -> /, ",").split(/,/).forEach(function(valStr1,index1,array1){
-// 			vals.push( parseInt(valStr1) );
-// 		});
-
-// 		let fromy = vals[ 0 ];
-// 		let thruy = vals[ 2 ];
-// 		let fromx = vals[ 1 ];
-// 		let thrux = vals[ 3 ];
-
-// 		let ydelta = 1;
-// 		if( fromy > thruy){
-// 			ydelta = -1;
-// 		} else if( fromy == thruy ){
-// 			ydelta = 0;
-// 		}
-
-// 		let xdelta = 1;
-// 		if( fromx > thrux ){
-// 			xdelta = -1;
-// 		} else if( fromx == thrux ){
-// 			xdelta = 0;
-// 		}
-
-// 		if( allow_diagonals || (!(xdelta && ydelta)) ){
-// 			canvas_context.strokeStyle = "#FF0000";
-// 			canvas_context.beginPath();
-// 			canvas_context.moveTo(fromx, fromy);
-// 			canvas_context.lineTo(thrux, thruy);
-// 			canvas_context.stroke();
-		
-// 			while( ( fromy != thruy + ydelta ) || ( fromx != thrux + xdelta ) ){
-// 				ocean_floor_vents[ fromy + array_size*fromx ] += 1;
-// 				if( ocean_floor_vents[ fromy + array_size*fromx ] == 2 ){ ++twos }
-// 				fromy += ydelta;
-// 				fromx += xdelta;
-// 			}
-// 		}
-// 		// Debug output
-// //		let str = "";
-// //		ocean_floor_vents.forEach(function(val,index,array){
-// //			if( (index % ARRAY_SIZE) == 0 ){
-// //				console.log(str);
-// //				str = index + ": ";
-// //			}
-// //			if( val == 0 ){ val = "." }
-// //			str += val
-// //		});
-// //		console.log(str);
-
-// 	});
-
-// 	//console.log( ocean_floor_vents );
-// 	return twos;
-// }
 
 function readFile(filePath){
   $.get( filePath, function( data ) {
@@ -157,5 +89,5 @@ function readFile(filePath){
 // }
 
 initialize();
-//readFile('example_input.txt'); //array_size = EXAMPLE_ARRAY_SIZE;
+//readFile('example_input.txt');
 readFile('input.txt');
