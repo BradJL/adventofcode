@@ -54,8 +54,9 @@ function part1( data ){
 function part2( data ){
 	let days_remaining = 256;
 	let counts = init_counts( data );
-	for( let i = 0; i < days_remaining; ++i ){
+	while( days_remaining ){
 		counts = iterate( counts );
+		--days_remaining;
 	}
 	return get_sum( counts );
 }
