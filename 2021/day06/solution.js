@@ -48,15 +48,15 @@ function part1( data ){
 	let days_remaining = 80;
 	let counts = init_counts( data );
 	for( let i = 0; i < days_remaining; ++i ){
-		iterate( counts );
+		counts = iterate( counts );
 	}
 	return get_sum( counts );
 }
 function part2( data ){
 	let days_remaining = 256;
-	init_counts( data );
+	let counts = init_counts( data );
 	for( let i = 0; i < days_remaining; ++i ){
-		iterate( counts );
+		counts = iterate( counts );
 	}
 	return get_sum( counts );
 }
