@@ -133,5 +133,5 @@ function readFile(filePath){
 // }
 
 initialize();
-readFile('example_input.txt'); //array_size = EXAMPLE_ARRAY_SIZE;
-//readFile('input.txt');
+//readFile('example_input.txt'); //array_size = EXAMPLE_ARRAY_SIZE;
+readFile('input.txt');
