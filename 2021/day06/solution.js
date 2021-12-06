@@ -36,7 +36,7 @@ function part1( data ){
 	data.trim().split(/,/).forEach(function(valStr,index,array){
 		fish.push( parseInt(valStr) );
 	})
-	for( let i = 0; i < 18; ++i ){
+	for( let i = 0; i < days_remaining; ++i ){
 		iterate();
 		console.log( fish );
 	}
