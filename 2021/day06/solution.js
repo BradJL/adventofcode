@@ -13,7 +13,6 @@ function initialize(){
 
 // const fs = require('fs').promises;
 
-let fish = new Array();
 let counts = new Array(9).fill(0);
 
 function iterate(){
@@ -39,6 +38,7 @@ function init_counts( data ){
 function part1( data ){
 	//let days_remaining = 18;
 	let days_remaining = 80;
+	counts = new Array(9).fill(0);
 	init_counts( data );
 	for( let i = 0; i < days_remaining; ++i ){
 		iterate();
@@ -52,6 +52,7 @@ function part1( data ){
 }
 function part2( data ){
 	let days_remaining = 256;
+	counts = new Array(9).fill(0);
 	init_counts( data );
 	for( let i = 0; i < days_remaining; ++i ){
 		iterate();
