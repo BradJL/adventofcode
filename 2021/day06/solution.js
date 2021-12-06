@@ -35,8 +35,11 @@ function part1( data ){
 	data.trim().split(/,/).forEach(function(valStr,index,array){
 		fish.push( parseInt(valStr) );
 	})
-	iterate();
-	return fish;
+	for( let i = 0; i < 18; ++i ){
+		iterate();
+		console.log( fish );
+	}
+	return fish.length;
 }
 function part2( data ){
 	//return calculate_vents( data, true, ctx2 );
