@@ -13,6 +13,15 @@ function initialize(){
 
 // const fs = require('fs').promises;
 
+function init_counts( data ){
+	let counts = new Array(9).fill(0);
+	data.trim().split(/,/).forEach(function(valStr,index,array){
+		counts[parseInt(valStr)]++;
+	})
+
+	return counts;
+}
+
 function iterate( counts ){
 	let new_counts = new Array(9).fill(0);
 	for( let i = 0; i < 8; ++i ){
@@ -22,14 +31,6 @@ function iterate( counts ){
 	new_counts[8] = counts[0];
 
 	return new_counts;
-}
-function init_counts( data ){
-	let counts = new Array(9).fill(0);
-	data.trim().split(/,/).forEach(function(valStr,index,array){
-		counts[parseInt(valStr)]++;
-	})
-
-	return counts;
 }
 
 function get_sum( counts ){
