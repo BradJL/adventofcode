@@ -32,13 +32,14 @@ function iterate(){
 
 function part1( data ){
 	//let days_remaining = 18;
-	let days_remaining = 80;
+	//let days_remaining = 80;
+	let days_remaining = 256;
 	data.trim().split(/,/).forEach(function(valStr,index,array){
 		fish.push( parseInt(valStr) );
 	})
 	for( let i = 0; i < days_remaining; ++i ){
 		iterate();
-		console.log( fish );
+		//console.log( fish );
 	}
 	return fish.length;
 }
