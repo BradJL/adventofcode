@@ -13,8 +13,6 @@ function initialize(){
 
 // const fs = require('fs').promises;
 
-// let counts = new Array(9).fill(0);
-
 function iterate( counts ){
 	let new_counts = new Array(9).fill(0);
 	for( let i = 0; i < 8; ++i ){
@@ -47,8 +45,9 @@ function part1( data ){
 	//let days_remaining = 18;
 	let days_remaining = 80;
 	let counts = init_counts( data );
-	for( let i = 0; i < days_remaining; ++i ){
+	while( days_remaining ){
 		counts = iterate( counts );
+		--days_remaining;
 	}
 	return get_sum( counts );
 }
