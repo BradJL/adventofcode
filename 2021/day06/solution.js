@@ -13,79 +13,96 @@ function initialize(){
 
 // const fs = require('fs').promises;
 
-const INPUT_ARRAY_SIZE = 1000;
-const EXAMPLE_ARRAY_SIZE = 10;
-var array_size = INPUT_ARRAY_SIZE;
+//const INPUT_ARRAY_SIZE = 1000;
+//const EXAMPLE_ARRAY_SIZE = 10;
+//var array_size = INPUT_ARRAY_SIZE;
+
+let fish = new Array();
+
+function iterate(){
+	fish.forEach(function(val,index,array){
+		--val
+		if( val == -1 ){
+			fish.push( 8 );
+			val = 6;
+		}
+		fish[index] = val;
+	})
+}
 
 function part1( data ){
-	//return calculate_vents( data, false, ctx );
-	return 0;
+	let days_remaining = 18;
+	data.trim().split(/,/).forEach(function(valStr,index,array){
+		fish.push( parseInt(valStr) );
+	})
+	iterate();
+	return fish;
 }
 function part2( data ){
 	//return calculate_vents( data, true, ctx2 );
 	return 0;
 }
 
-function calculate_vents( data, allow_diagonals, canvas_context ){
-	let ocean_floor_vents = new Array(array_size*array_size).fill(0);
-	let twos = 0;
+// function calculate_vents( data, allow_diagonals, canvas_context ){
+// 	let ocean_floor_vents = new Array(array_size*array_size).fill(0);
+// 	let twos = 0;
 
-	data.trim().split(/\r?\n/).forEach(function(valStr,index,array){
-		let vals = new Array();
-		valStr.replace(/ -> /, ",").split(/,/).forEach(function(valStr1,index1,array1){
-			vals.push( parseInt(valStr1) );
-		});
+// 	data.trim().split(/\r?\n/).forEach(function(valStr,index,array){
+// 		let vals = new Array();
+// 		valStr.replace(/ -> /, ",").split(/,/).forEach(function(valStr1,index1,array1){
+// 			vals.push( parseInt(valStr1) );
+// 		});
 
-		let fromy = vals[ 0 ];
-		let thruy = vals[ 2 ];
-		let fromx = vals[ 1 ];
-		let thrux = vals[ 3 ];
+// 		let fromy = vals[ 0 ];
+// 		let thruy = vals[ 2 ];
+// 		let fromx = vals[ 1 ];
+// 		let thrux = vals[ 3 ];
 
-		let ydelta = 1;
-		if( fromy > thruy){
-			ydelta = -1;
-		} else if( fromy == thruy ){
-			ydelta = 0;
-		}
+// 		let ydelta = 1;
+// 		if( fromy > thruy){
+// 			ydelta = -1;
+// 		} else if( fromy == thruy ){
+// 			ydelta = 0;
+// 		}
 
-		let xdelta = 1;
-		if( fromx > thrux ){
-			xdelta = -1;
-		} else if( fromx == thrux ){
-			xdelta = 0;
-		}
+// 		let xdelta = 1;
+// 		if( fromx > thrux ){
+// 			xdelta = -1;
+// 		} else if( fromx == thrux ){
+// 			xdelta = 0;
+// 		}
 
-		if( allow_diagonals || (!(xdelta && ydelta)) ){
-			canvas_context.strokeStyle = "#FF0000";
-			canvas_context.beginPath();
-			canvas_context.moveTo(fromx, fromy);
-			canvas_context.lineTo(thrux, thruy);
-			canvas_context.stroke();
+// 		if( allow_diagonals || (!(xdelta && ydelta)) ){
+// 			canvas_context.strokeStyle = "#FF0000";
+// 			canvas_context.beginPath();
+// 			canvas_context.moveTo(fromx, fromy);
+// 			canvas_context.lineTo(thrux, thruy);
+// 			canvas_context.stroke();
 		
-			while( ( fromy != thruy + ydelta ) || ( fromx != thrux + xdelta ) ){
-				ocean_floor_vents[ fromy + array_size*fromx ] += 1;
-				if( ocean_floor_vents[ fromy + array_size*fromx ] == 2 ){ ++twos }
-				fromy += ydelta;
-				fromx += xdelta;
-			}
-		}
-		// Debug output
-//		let str = "";
-//		ocean_floor_vents.forEach(function(val,index,array){
-//			if( (index % ARRAY_SIZE) == 0 ){
-//				console.log(str);
-//				str = index + ": ";
-//			}
-//			if( val == 0 ){ val = "." }
-//			str += val
-//		});
-//		console.log(str);
+// 			while( ( fromy != thruy + ydelta ) || ( fromx != thrux + xdelta ) ){
+// 				ocean_floor_vents[ fromy + array_size*fromx ] += 1;
+// 				if( ocean_floor_vents[ fromy + array_size*fromx ] == 2 ){ ++twos }
+// 				fromy += ydelta;
+// 				fromx += xdelta;
+// 			}
+// 		}
+// 		// Debug output
+// //		let str = "";
+// //		ocean_floor_vents.forEach(function(val,index,array){
+// //			if( (index % ARRAY_SIZE) == 0 ){
+// //				console.log(str);
+// //				str = index + ": ";
+// //			}
+// //			if( val == 0 ){ val = "." }
+// //			str += val
+// //		});
+// //		console.log(str);
 
-	});
+// 	});
 
-	//console.log( ocean_floor_vents );
-	return twos;
-}
+// 	//console.log( ocean_floor_vents );
+// 	return twos;
+// }
 
 function readFile(filePath){
   $.get( filePath, function( data ) {
@@ -112,5 +129,5 @@ function readFile(filePath){
 // }
 
 initialize();
-//readFile('example_input.txt'); array_size = EXAMPLE_ARRAY_SIZE;
-readFile('input.txt');
+readFile('example_input.txt'); //array_size = EXAMPLE_ARRAY_SIZE;
+//readFile('input.txt');
