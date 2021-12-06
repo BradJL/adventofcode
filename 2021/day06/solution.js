@@ -30,7 +30,7 @@ function iterate(){
 
 	counts = new_counts;
 }
-function init_counts(){
+function init_counts( data ){
 	data.trim().split(/,/).forEach(function(valStr,index,array){
 		counts[parseInt(valStr)]++;
 	})
@@ -39,7 +39,7 @@ function init_counts(){
 function part1( data ){
 	//let days_remaining = 18;
 	let days_remaining = 80;
-	init_counts();
+	init_counts( data );
 	for( let i = 0; i < days_remaining; ++i ){
 		iterate();
 	}
