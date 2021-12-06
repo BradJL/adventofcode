@@ -18,10 +18,12 @@ const EXAMPLE_ARRAY_SIZE = 10;
 var array_size = INPUT_ARRAY_SIZE;
 
 function part1( data ){
-	return calculate_vents( data, false, ctx );
+	//return calculate_vents( data, false, ctx );
+	return 0;
 }
 function part2( data ){
-	return calculate_vents( data, true, ctx2 );
+	//return calculate_vents( data, true, ctx2 );
+	return 0;
 }
 
 function calculate_vents( data, allow_diagonals, canvas_context ){
