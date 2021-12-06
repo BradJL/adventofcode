@@ -53,8 +53,8 @@ function init_counts(){
 
 function part1( data ){
 	//let days_remaining = 18;
-	let days_remaining = 80;
-	//let days_remaining = 256;
+	//let days_remaining = 80;
+	let days_remaining = 256;
 	data.trim().split(/,/).forEach(function(valStr,index,array){
 		fish.push( parseInt(valStr) );
 	})
