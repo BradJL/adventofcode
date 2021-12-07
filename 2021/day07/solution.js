@@ -1,59 +1,28 @@
-// $('#answer span').text('Calculating...');
-// $('#answer2 span').text('Calculating...');
-
 // var canvas = document.getElementById("visualization");
 // var ctx = canvas.getContext("2d");
 // var canvas2 = document.getElementById("visualization2");
 // var ctx2 = canvas2.getContext("2d");
 
-function initialize(){
+function initialize_website(){
   $('#answer span').text('Calculating...');
   $('#answer2 span').text('Calculating...');
 }
 
 // const fs = require('fs').promises;
 
-// function init_counts( data ){
-// 	let counts = new Array(9).fill(0);
-// 	data.trim().split(/,/).forEach(function(valStr,index,array){
-// 		counts[parseInt(valStr)]++;
-// 	})
+let values = new Array();
 
-// 	return counts;
-// }
+function initialize( data ){
+	data.trim().split(/,/).forEach(function(valStr,index,array){
+		values.push( parseInt(valStr) );
+	})
+}
 
-// function iterate( counts ){
-// 	let new_counts = new Array(9).fill(0);
-// 	for( let i = 0; i < 8; ++i ){
-// 		new_counts[i] = counts[i+1];
-// 	}
-// 	new_counts[6] = counts[7] + counts[0];
-// 	new_counts[8] = counts[0];
-
-// 	return new_counts;
-// }
-
-// function get_sum( counts ){
-// 	let sum = 0
-// 	counts.forEach(function(val,index,array){
-// 		sum += val;
-// 	})
-
-// 	return sum;
-// }
-
-function part1( data ){
+function part1(){
 	let position = 0;
 	let lowest_sum = Number.MAX_SAFE_INTEGER;
 	let sum = lowest_sum;
 
-	let values = new Array();
-
-	data.trim().split(/,/).forEach(function(valStr,index,array){
-		values.push( parseInt(valStr) );
-	})
-
-	//while( position < 1971 ){
 	while( sum == lowest_sum ){
 		sum = 0;
 		values.forEach(function(value,index,array){
@@ -66,18 +35,12 @@ function part1( data ){
 	}
 	return lowest_sum
 }
-function part2( data ){
+
+function part2(){
 	let position = 0;
 	let lowest_sum = Number.MAX_SAFE_INTEGER;
 	let sum = lowest_sum;
 
-	let values = new Array();
-
-	data.trim().split(/,/).forEach(function(valStr,index,array){
-		values.push( parseInt(valStr) );
-	})
-
-	//while( position < 1971 ){
 	while( sum == lowest_sum ){
 		sum = 0;
 		values.forEach(function(value,index,array){
@@ -97,9 +60,10 @@ function readFile(filePath){
 	lines = data.trim().split(/\r?\n/);
     $('#input span').text('(' + data.length + ' bytes, ' + lines.length + ' line' + (lines.length == 1 ? '' : 's') + ')');
   
-	let part1Answer = part1( data );
+	initialize( data );
+	let part1Answer = part1();
     $('#answer span').text( part1Answer );
-    let part2Answer = part2( data );
+    let part2Answer = part2();
     $('#answer2 span').text( part2Answer );
   });
 }
@@ -116,6 +80,6 @@ function readFile(filePath){
 //   }
 // }
 
-initialize();
+initialize_website();
 //readFile('example_input.txt');
 readFile('input.txt');
