@@ -53,7 +53,7 @@ function part1( data ){
 		values.push( parseInt(valStr) );
 	})
 
-	while( sum < 1971 ){
+	while( position < 1971 ){
 		sum = 0;
 		values.forEach(function(value,index,array){
 			sum += Math.abs( position - value );
@@ -61,6 +61,7 @@ function part1( data ){
 		if( sum < lowest_sum ){
 			lowest_sum = sum;
 		}
+		++position
 	}
 	return lowest_sum
 }
