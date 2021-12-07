@@ -55,7 +55,7 @@ function part1( data ){
 
 	while( sum < last_sum ){
 		sum = 0;
-		data.forEach(function(value,index,array){
+		values.forEach(function(value,index,array){
 			sum += Math.abs( position - value );
 		})
 	}
