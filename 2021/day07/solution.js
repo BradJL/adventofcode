@@ -44,8 +44,8 @@ function initialize(){
 
 function part1( data ){
 	let position = 0;
-	let last_sum = Number.MAX_SAFE_INTEGER;
-	let sum = last_sum - 1;
+	let lowest_sum = Number.MAX_SAFE_INTEGER;
+	let sum = lowest_sum - 1;
 
 	let values = new Array();
 
@@ -53,14 +53,16 @@ function part1( data ){
 		values.push( parseInt(valStr) );
 	})
 
-	while( sum < last_sum ){
-		last_sum = sum;
+	while( sum < 1971 ){
 		sum = 0;
 		values.forEach(function(value,index,array){
 			sum += Math.abs( position - value );
 		})
+		if( sum < lowest_sum ){
+			lowest_sum = sum;
+		}
 	}
-	return last_sum
+	return lowest_sum
 }
 function part2( data ){
 	// let days_remaining = 256;
