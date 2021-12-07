@@ -44,8 +44,8 @@ function initialize(){
 
 function part1( data ){
 	let position = 0;
-	let sum = 999999999999999999998;
-	let last_sum = 999999999999999999999;
+	let last_sum = Number.MAX_SAFE_INTEGER;
+	let sum = last_sum - 1;
 
 	let values = new Array();
 
