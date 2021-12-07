@@ -45,7 +45,7 @@ function initialize(){
 function part1( data ){
 	let position = 0;
 	let lowest_sum = Number.MAX_SAFE_INTEGER;
-	let sum = lowest_sum - 1;
+	let sum = lowest_sum;
 
 	let values = new Array();
 
@@ -53,7 +53,8 @@ function part1( data ){
 		values.push( parseInt(valStr) );
 	})
 
-	while( position < 1971 ){
+	//while( position < 1971 ){
+	while( sum == lowest_sum ){
 		sum = 0;
 		values.forEach(function(value,index,array){
 			sum += Math.abs( position - value );
