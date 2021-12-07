@@ -67,14 +67,29 @@ function part1( data ){
 	return lowest_sum
 }
 function part2( data ){
-	// let days_remaining = 256;
-	// let counts = init_counts( data );
-	// while( days_remaining ){
-	// 	counts = iterate( counts );
-	// 	--days_remaining;
-	// }
-	// return get_sum( counts );
-	return 0;
+	let position = 0;
+	let lowest_sum = Number.MAX_SAFE_INTEGER;
+	let sum = lowest_sum;
+
+	let values = new Array();
+
+	data.trim().split(/,/).forEach(function(valStr,index,array){
+		values.push( parseInt(valStr) );
+	})
+
+	//while( position < 1971 ){
+	while( sum == lowest_sum ){
+		sum = 0;
+		values.forEach(function(value,index,array){
+			let moves = Math.abs( position - value )
+			sum += moves*(moves+1)/2;
+		})
+		if( sum < lowest_sum ){
+			lowest_sum = sum;
+		}
+		++position
+	}
+	return lowest_sum
 }
 
 function readFile(filePath){
