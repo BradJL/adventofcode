@@ -18,6 +18,9 @@ function initialize( data ){
 	})
 }
 
+var part1_fuel_calc = function (moves) { return moves }
+var part2_fuel_calc = function (moves) { return moves*(moves+1)/2 }
+
 function part1(){
 	let position = 0;
 	let lowest_sum = Number.MAX_SAFE_INTEGER;
@@ -26,7 +29,9 @@ function part1(){
 	while( sum == lowest_sum ){
 		sum = 0;
 		values.forEach(function(value,index,array){
-			sum += Math.abs( position - value );
+			//sum += Math.abs( position - value );
+			let moves = Math.abs( position - value )
+			sum += part1_fuel_calc(moves);
 		})
 		if( sum < lowest_sum ){
 			lowest_sum = sum;
@@ -45,7 +50,8 @@ function part2(){
 		sum = 0;
 		values.forEach(function(value,index,array){
 			let moves = Math.abs( position - value )
-			sum += moves*(moves+1)/2;
+//			sum += moves*(moves+1)/2;
+			sum += part2_fuel_calc(moves);
 		})
 		if( sum < lowest_sum ){
 			lowest_sum = sum;
