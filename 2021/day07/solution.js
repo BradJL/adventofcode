@@ -21,7 +21,7 @@ function initialize( data ){
 var part1_fuel_calc = function (moves) { return moves }
 var part2_fuel_calc = function (moves) { return moves*(moves+1)/2 }
 
-function part1(){
+function compute( fuel_calc ){
 	let position = 0;
 	let lowest_sum = Number.MAX_SAFE_INTEGER;
 	let sum = lowest_sum;
@@ -29,9 +29,8 @@ function part1(){
 	while( sum == lowest_sum ){
 		sum = 0;
 		values.forEach(function(value,index,array){
-			//sum += Math.abs( position - value );
 			let moves = Math.abs( position - value )
-			sum += part1_fuel_calc(moves);
+			sum += fuel_calc(moves);
 		})
 		if( sum < lowest_sum ){
 			lowest_sum = sum;
@@ -41,24 +40,29 @@ function part1(){
 	return lowest_sum
 }
 
-function part2(){
-	let position = 0;
-	let lowest_sum = Number.MAX_SAFE_INTEGER;
-	let sum = lowest_sum;
+function part1(){
+	return compute( part1_fuel_calc );
+}
 
-	while( sum == lowest_sum ){
-		sum = 0;
-		values.forEach(function(value,index,array){
-			let moves = Math.abs( position - value )
-//			sum += moves*(moves+1)/2;
-			sum += part2_fuel_calc(moves);
-		})
-		if( sum < lowest_sum ){
-			lowest_sum = sum;
-		}
-		++position
-	}
-	return lowest_sum
+function part2(){
+	return compute( part2_fuel_calc );
+// 	let position = 0;
+// 	let lowest_sum = Number.MAX_SAFE_INTEGER;
+// 	let sum = lowest_sum;
+
+// 	while( sum == lowest_sum ){
+// 		sum = 0;
+// 		values.forEach(function(value,index,array){
+// 			let moves = Math.abs( position - value )
+// //			sum += moves*(moves+1)/2;
+// 			sum += part2_fuel_calc(moves);
+// 		})
+// 		if( sum < lowest_sum ){
+// 			lowest_sum = sum;
+// 		}
+// 		++position
+// 	}
+// 	return lowest_sum
 }
 
 function readFile(filePath){
