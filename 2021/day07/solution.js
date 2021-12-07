@@ -44,7 +44,7 @@ function initialize(){
 
 function part1( data ){
 	let position = 0;
-	let sum = 0;
+	let sum = 999999999999999999998;
 	let last_sum = 999999999999999999999;
 
 	let values = new Array();
@@ -54,6 +54,7 @@ function part1( data ){
 	})
 
 	while( sum < last_sum ){
+		last_sum = sum;
 		sum = 0;
 		values.forEach(function(value,index,array){
 			sum += Math.abs( position - value );
