@@ -46,23 +46,6 @@ function part1(){
 
 function part2(){
 	return compute( part2_fuel_calc );
-// 	let position = 0;
-// 	let lowest_sum = Number.MAX_SAFE_INTEGER;
-// 	let sum = lowest_sum;
-
-// 	while( sum == lowest_sum ){
-// 		sum = 0;
-// 		values.forEach(function(value,index,array){
-// 			let moves = Math.abs( position - value )
-// //			sum += moves*(moves+1)/2;
-// 			sum += part2_fuel_calc(moves);
-// 		})
-// 		if( sum < lowest_sum ){
-// 			lowest_sum = sum;
-// 		}
-// 		++position
-// 	}
-// 	return lowest_sum
 }
 
 function readFile(filePath){
