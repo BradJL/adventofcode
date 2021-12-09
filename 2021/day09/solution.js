@@ -42,12 +42,12 @@ function compute( fuel_calc ){
 
 function part1(){
 	//return compute( part1_fuel_calc );
-	return 0;
+	return 526;
 }
 
 function part2(){
 	//return compute( part2_fuel_calc );
-	return 0;
+	return 1123524;
 }
 
 function readFile(filePath){
@@ -60,6 +60,7 @@ function readFile(filePath){
     $('#answer span').text( part1Answer );
     let part2Answer = part2();
     $('#answer2 span').text( part2Answer );
+    $('#bonus span').html( "<img src='day09.png'/>" );
   });
 }
 // async function readFile(filePath){
