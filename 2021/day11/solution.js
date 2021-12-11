@@ -61,7 +61,7 @@ function readFile(filePath){
     $('#answer span').text( part1Answer );
     let part2Answer = part2();
     $('#answer2 span').text( part2Answer );
-    //$('#bonus span').html( "<img src='day09.png'/>" );
+    $('#bonus span').html( values_to_string() );
   });
 }
 // async function readFile(filePath){
