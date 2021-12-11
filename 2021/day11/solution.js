@@ -49,6 +49,7 @@ function step(){
 			if(val == 10){
 				changed = 1;
 				++flashes;
+				new_values[index]++
 				if( index % 10 != 0 ) new_values[index-1]++
 				if( (index+1) % 10 != 0 ) new_values[index+1]++
 				if( ((index/10) >= 1) && (index % 10 != 0) ) new_values[index-11]++
