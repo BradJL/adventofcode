@@ -10,19 +10,20 @@ function initialize_website(){
 
 // const fs = require('fs').promises;
 
+let orig_values = new Array();
 let values = new Array();
 let flashes = 0;
 
 function initialize( data ){
 	data.trim().split(/\r?\n/).forEach(function(valStr,index,array){
 		valStr.trim().split('').forEach(function(valStr2,index2,array2){
-			values.push( parseInt(valStr2) );
+			orig_values.push( parseInt(valStr2) );
 		})
 	})
 }
 
-var part1_fuel_calc = function (moves) { return moves }
-var part2_fuel_calc = function (moves) { return moves*(moves+1)/2 }
+//var part1_fuel_calc = function (moves) { return moves }
+//var part2_fuel_calc = function (moves) { return moves*(moves+1)/2 }
 
 function values_to_string(){
 	let output = "";
@@ -73,8 +74,15 @@ function step(){
 }
 
 function part1(){
-	//for( let i = 0; i < 100; ++i ) step();
-	//return flashes;
+	flashes = 0;
+	values = orig_values;
+	for( let i = 0; i < 100; ++i ) step();
+	return flashes;
+}
+
+function part2(){
+	flashes = 0;
+	values = orig_values;
 
 	let i = 0;
 
@@ -84,11 +92,6 @@ function part1(){
 		++i
 	}
 	return i;
-}
-
-function part2(){
-	//return compute( part2_fuel_calc );
-	return 0;
 }
 
 function readFile(filePath){
