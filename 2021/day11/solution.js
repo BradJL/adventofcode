@@ -61,7 +61,15 @@ function step(){
 			}
 		})
 	}
-	values = new_values;
+	//values = new_values;
+	values = new Array();
+	new_values.forEach(function(val,index,array){
+		if(val < 10){
+			values.push(val);
+		} else {
+			values.push(0);
+		}
+	})
 }
 
 function part1(){
