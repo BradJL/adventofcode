@@ -73,8 +73,17 @@ function step(){
 }
 
 function part1(){
-	for( let i = 0; i < 100; ++i ) step();
-	return flashes;
+	//for( let i = 0; i < 100; ++i ) step();
+	//return flashes;
+
+	let i = 0;
+
+	while( flashes != 100 ){
+		flashes = 0;
+		step();
+		++i
+	}
+	return i;
 }
 
 function part2(){
