@@ -27,7 +27,7 @@ function values_to_string(){
 	let output = "";
 	values.forEach(function(val,index,array){
 		if( index % 10 == 0 ){
-			output += "\n";
+			output += "<br>";
 		}
 		output += val;
 	})
