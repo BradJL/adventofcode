@@ -55,9 +55,9 @@ function step(){
 				if( ((index/10) >= 1) && (index % 10 != 0) ) new_values[index-11]++
 				if( (index/10) >= 1 ) new_values[index-10]++
 				if( ((index/10) >= 1) && ((index+1) % 10 != 0) ) new_values[index-9]++
-				if( ((index/10) < 90) && (index % 10 != 0) ) new_values[index+9]++
-				if( (index/10) < 90 ) new_values[index+10]++
-				if( ((index/10) < 90) && ((index+1) % 10 != 0) ) new_values[index+11]++
+				if( ((index/10) < 9) && (index % 10 != 0) ) new_values[index+9]++
+				if( (index/10) < 9 ) new_values[index+10]++
+				if( ((index/10) < 9) && ((index+1) % 10 != 0) ) new_values[index+11]++
 			}
 		})
 	}
@@ -73,7 +73,7 @@ function step(){
 }
 
 function part1(){
-	for( let i = 0; i < 1; ++i ) step();
+	for( let i = 0; i < 2; ++i ) step();
 	return flashes;
 }
 
