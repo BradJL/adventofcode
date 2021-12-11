@@ -109,5 +109,5 @@ function readFile(filePath){
 // }
 
 initialize_website();
-readFile('example_input.txt');
-//readFile('input.txt');
+//readFile('example_input.txt');
+readFile('input.txt');
