@@ -64,8 +64,8 @@ function step(){
 }
 
 function part1(){
-	step();
-	return values_to_string();
+	for( let i = 0; i < 2; ++i ) step();
+	return flashes;
 }
 
 function part2(){
