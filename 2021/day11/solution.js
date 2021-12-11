@@ -11,7 +11,7 @@ function initialize_website(){
 // const fs = require('fs').promises;
 
 let orig_values = new Array();
-let values = new Array();
+let values;
 let flashes = 0;
 
 function initialize( data ){
