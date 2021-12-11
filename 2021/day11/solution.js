@@ -13,41 +13,32 @@ function initialize_website(){
 let values = new Array();
 
 function initialize( data ){
-	data.trim().split(/,/).forEach(function(valStr,index,array){
-		values.push( parseInt(valStr) );
+	data.trim().split(/\r?\n/).forEach(function(valStr,index,array){
+		valStr.trim().split(/,/).forEach(function(valStr2,index2,array2){
+			values.push( parseInt(valStr2) );
+		})
 	})
 }
 
 var part1_fuel_calc = function (moves) { return moves }
 var part2_fuel_calc = function (moves) { return moves*(moves+1)/2 }
 
-function compute( fuel_calc ){
-	let position = 0;
-	let lowest_sum = Number.MAX_SAFE_INTEGER;
-	let sum = lowest_sum;
-
-	while( sum == lowest_sum ){
-		sum = 0;
-		values.forEach(function(value,index,array){
-			let moves = Math.abs( position - value )
-			sum += fuel_calc(moves);
-		})
-		if( sum < lowest_sum ){
-			lowest_sum = sum;
-		}
-		++position
-	}
-	return lowest_sum
+function step(){
+	new_values = new Array();
+	values.forEach(function(val,index,array){
+		new_values.push( val + 1 );
+	})
+	values = new_values;
 }
 
 function part1(){
-	//return compute( part1_fuel_calc );
-	return 526;
+	step();
+	return values;
 }
 
 function part2(){
 	//return compute( part2_fuel_calc );
-	return 1123524;
+	return 0;
 }
 
 function readFile(filePath){
@@ -77,5 +68,5 @@ function readFile(filePath){
 // }
 
 initialize_website();
-//readFile('example_input.txt');
-readFile('input.txt');
+readFile('example_input.txt');
+//readFile('input.txt');
