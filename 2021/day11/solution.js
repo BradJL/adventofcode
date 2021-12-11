@@ -23,6 +23,16 @@ function initialize( data ){
 var part1_fuel_calc = function (moves) { return moves }
 var part2_fuel_calc = function (moves) { return moves*(moves+1)/2 }
 
+function values_to_string(){
+	let output = "";
+	values.forEach(function(val,index,array){
+		if( index % 10 == 0 ){
+			output += "\n";
+		}
+		output += val;
+	})
+	return output;
+}
 function step(){
 	new_values = new Array();
 	values.forEach(function(val,index,array){
@@ -33,7 +43,7 @@ function step(){
 
 function part1(){
 	step();
-	return values;
+	return values_to_string();
 }
 
 function part2(){
