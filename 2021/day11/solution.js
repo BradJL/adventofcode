@@ -14,7 +14,7 @@ let values = new Array();
 
 function initialize( data ){
 	data.trim().split(/\r?\n/).forEach(function(valStr,index,array){
-		valStr.trim().split(/,/).forEach(function(valStr2,index2,array2){
+		valStr.trim().split('').forEach(function(valStr2,index2,array2){
 			values.push( parseInt(valStr2) );
 		})
 	})
