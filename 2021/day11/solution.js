@@ -11,6 +11,7 @@ function initialize_website(){
 // const fs = require('fs').promises;
 
 let values = new Array();
+let flashes = 0;
 
 function initialize( data ){
 	data.trim().split(/\r?\n/).forEach(function(valStr,index,array){
@@ -38,6 +39,27 @@ function step(){
 	values.forEach(function(val,index,array){
 		new_values.push( val + 1 );
 	})
+
+	let changed = 1;
+
+	while( changed ){
+		changed = 0;
+		values = new_values;
+		values.forEach(function(val,index,array){
+			if(val == 10){
+				changed = 1;
+				++flashes;
+				if( index % 10 != 0 ) new_values[index-1]++
+				if( (index+1) % 10 != 0 ) new_values[index+1]++
+				if( ((index/10) >= 1) && (index % 10 != 0) ) new_values[index-11]++
+				if( (index/10) >= 1 ) new_values[index-10]++
+				if( ((index/10) >= 1) && ((index+1) % 10 != 0) ) new_values[index-9]++
+				if( ((index/10) < 90) && (index % 10 != 0) ) new_values[index+9]++
+				if( (index/10) < 90 ) new_values[index+10]++
+				if( ((index/10) < 90) && ((index+1) % 10 != 0) ) new_values[index+11]++
+			}
+		})
+	}
 	values = new_values;
 }
 
